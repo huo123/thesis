@@ -1,4 +1,15 @@
-\documentclass[type=master]{thuthesis}
+\documentclass[type=doctor]{thuthesis}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{cite}
+%\usepackage{amsthm}
+ %\theoremstyle{plain}
+ %
+ %\newtheorem{plain}{theorem}{theorem}
+ %\theoremstyle{definition}
+ %\newtheorem{definition}{definition}
+
+
 % 选项：
 %   type=[bachelor|master|doctor|postdoctor], % 必选
 %   secret,                                   % 可选
@@ -36,9 +47,9 @@
 %%% 正文部分
 \mainmatter
 %\input{data/chap01}
-\include{data/chap01}
-\include{data/chap02}
-
+% \include{data/chap01}
+% \include{data/chap02}
+\input{data/contents/ch1}
 
 %%% 其它部分
 \backmatter
@@ -55,8 +66,8 @@
 %% 参考文献
 % 注意：至少需要引用一篇参考文献，否则下面两行可能引起编译错误。
 % 如果不需要参考文献，请将下面两行删除或注释掉。
-\bibliographystyle{thuthesis}
-\bibliography{ref/refs}
+%\bibliographystyle{thuthesis}
+%\bibliography{ref/refs}
 
 
 %% 致谢
