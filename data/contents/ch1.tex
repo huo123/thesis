@@ -1,0 +1,89 @@
+%\chapter{绪论}
+\documentclass{article}
+\usepackage{ctex}
+\usepackage{amsmath}
+\begin{document}
+
+\section{问题背景}
+粘弹性流体广泛存在于日常生活中。粥、冰淇凌、油漆、细胞液等都是粘弹性流体。由于这些流体中高分子的存在，它们表现出一定的弹性效应。且这一效应是随着流动而衰减的\cite{}， 我们把这一特性称为粘弹性。材料粘弹性行为的数学模型已经有很长的研究历史。\cite{}. 随着近些年来材料科学和生命科学的发展，越来越多的新材料被发现，例如液晶、凝胶、活性物质等\cite{}。利用数学物理方法对这些流体的粘弹性特性进行建模，获得了快速发展\cite{}。
+
+由于实际中的粘弹性流体大多是水溶液，目前大部分模型考虑的都是不可压情形，即假设流体不可压缩。然而随着纳米科学等学科的发展，一些粘弹性流体的压缩性变得不可忽略\cite{}。且大部分模型并没有考虑温度的影响，虽然实际上粘弹性流体的流动行为与温度密切相关。如何将流体的压缩性和温度纳入粘弹性流体的模型中，是一个具有挑战的问题\cite{}。
+
+另外，由于粘弹性效应，粘弹性流体在热力学上处于非平衡态。经典平衡态热力学无法很好地对其进行描述。近些年来随着非平衡态热力学的发展，许多理论被应用于粘弹性流体的建模中\cite{}。然而，目前大多数理论是从物理原理出发，缺乏数学上对方程适定性的分析。如何建立一个既满足物理原理，又能够满足数学上的要求的理论，对于粘弹性流体的数学建模具有重要意义\cite{}。
+
+为了研究这些问题，本文考虑的粘弹性流体仅限于简单的高分子溶液。
+
+\section{粘弹性流体建模的研究历程与现状}
+对物质粘弹性的建模的早期研究出现在19世纪下半叶。James Clerk Maxwell从阻滞弹簧的模型出发建立了线性粘弹性理论\cite{}. 经典的Maxwell模型方程如下
+picneed
+\begin{eqnarray*}
+\frac {d\epsilon} {dt} = \frac {\sigma} {\eta} + \frac {1} {E} \frac {d\sigma} {dt}.
+\end{eqnarray*}
+其中$\sigma$和$\epsilon$分别为材料的应力张量和应变张量，$\eta$和$E$分别为材料的粘性系数和弹性常数（模量）。在流体中$\frac {d\epsilon} {dt}$一般采用速度梯度量$\nabla v$的对称部分。交换上面方程中的应力应变张量得到的模型称为Kelvin–Voigt模型，由物理学家Lord Kelvin和Woldemar Voigt在19世纪末提出\cite{}。
+
+19世纪中叶Karl Weissenberg发现了Weissenberg效应。这一效应是指当转动的杆置于粘弹性流体中时，流体将会沿着杆“爬上”或者"爬下"\cite{}。为了解释这一效应，James G. Oldroyd提出了粘弹性建模的重要法则：物质坐标不变性原理。这一原理是说模型不应依赖于坐标系的选取。基于这一原理，他提出了客观导数的概念。他提出了经典的Oldroyd—B模型。这一模型如下
+\begin{equation} \label{eq：Oldroyd}
+	{\sigma} + \lambda_1 \stackrel{\nabla}{{\sigma}} = 2\eta_0 ({D} + \lambda_2 \stackrel{\nabla}{{D}}).
+\end{equation}
+其中$\sigma$为应力张量，$D=\frac{1}{2} (\nabla v + (\nabla v)^T)$为速度梯度张量的对称部分，$\lambda_1$和$\lambda_2$为松弛时间和迟滞时间，$\eta_0$为流体的粘性系数。$\stackrel{\sigma} = \partial_t \sigma + v \cdot \nabla \sigma - (\nabla v)\  \sigma + \sigma (\nabla v)^T$为$\sigma$的上对流Maxwell导数\cite{}。J. Oldroyd的这一论文对粘弹性流体的建模这一领域产生了深远的影响。基于这一原理，修改经典Maxwell模型和Kelvin-Voigt模型中的导数为客观导数可以得到许多模型\cite{}。
+
+然而，直接推广线性粘弹性模型仅能考虑简单的情况，并且不能很好地纳入温度的影响以及考虑模型的热力学性质。为了解决这些问题，热力学家和力学家提出了许多理论。这些理论主要有两个方向。一是利用非平衡态热力学理论对粘弹性流体进行建模\cite{}。二是基于热力学原理和有限形变理论的记忆衰减理论\cite{}。
+
+\subsection{非平衡态热力学在粘弹性流体建模中的应用}
+热力学第二定律告诉我们热力学体系不可逆状态的存在性。为了研究热力学不可逆过程，科学家发展了非平衡态热力学。Lars Onsager在1931和1932年的两篇文章中提出了著名的Onsager倒易关系\cite{}。由Onsager与Prigogine等人发展的经典非平衡态热力学理论（Classical Irreversible Thermodynamics，简称CIT），自20世纪40年代以来获得了蓬勃发展，并且得到了广泛的承认\cite{}。CIT理论可以将经典的牛顿流体和Fourier热传导定律纳入其中。然而无法将Maxwell粘弹性模型和Cattaneo热传导模型纳入其理论框架中来。为了推广经典的CIT理论，许多新的非平衡态理论被提出。其中包括有理热力学（Rational Thermodynamics，简称RT）、扩展不可逆热力学（Extended Irreversible Thermodynamics，简称EIT）、非平衡可逆-不可逆一般方程（Gerneral Equation for the Non-Equilibrium Reversible-Irreversible Coupling，简称GENERIC）、守恒-耗散理论（Convervation-Dissipation Formalism of irreversible thermodynamics，简称CDF）等\cite{}。
+
+考虑一般的流体方程
+\begin{subequations}
+	\begin{align}
+		\partial_t \rho + \nabla \cdot (\rho v) = 0 ,\\
+		\partial_t (\rho v) + \nabla \cdot (P + \rho v \otimes v), \\
+		\partial_t[\rho (u + \frac{1}{2} v^2] + \nabla \cdot [q + \rho (u+\frac{1}{2}v^2) v + P \cdot v] = 0.
+	\end{align}
+\end{subequations}
+其中$\rho,v,u$分别表示流体的密度、速度和内能，$P$表示流体的应力张量。这三个方程分别表示质量守恒、动量守恒和能量守恒。CIT假设平衡态的热力学状态参量仍然可以用来描述非平衡态，且体系的熵依赖于这些状态变量。这里我们假设体系的比熵（单位质量的熵）为$s=s(\frac{1}{\rho},u)$。利用经典平衡态热力学的Gibbs关系，有
+\begin{equation*}
+	T ds = du + p d(\frac{1}{\rho}).
+\end{equation*}
+通过计算可以得到
+\begin{equation*}
+	\rho \dot{s} = - \frac{1}{T} \nabla \cdot q - \frac{1}{T} P: \nabla v.
+\end{equation*}
+其中$\dot{s} = \partial_t s + v \cdot s$表示Lagrange导数。根据热力学第二定律，为保证不可逆过程熵函数的增长，需要$\rho \dot{s} \ge 0 $。根据Onsager倒易关系，热力学流和热力学力之间为线性关系。另$P = p + \pi I + \mathring{P}$，其中$\mathring{P} = P - \frac{1}{3} \mbox{Tr}(P) I$为$P$的无迹部分。依据下表的热力学流和力的定义，根据Onsager倒易关系，我们可以得到下面的本构关系。
+\begin{eqnarray*}
+	q = -\lambda \nabla T, \\
+	\pi =  - \zeta \nabla \cdot v, \\
+	\mathring{P} = - 2 \eta \mathring{D}.
+\end{eqnarray*}
+
+tableneed
+
+然而，由于局部平衡假设的存在，CIT仅能描述远离平衡态不远的系统。为了拓展CIT，大部分理论假设非平衡态不仅需要平衡态变量，而且需要非平衡态变量来描述。EIT通过拓展非平衡态状态变量，将CIT中的热力学流引入非平衡态状态变量中，来对不可逆过程进行建模。EIT仍然假设Onsager倒易关系成立。例如我们将$q,\pi,\mathring{P}$引入非平衡态状态变量中，并假设$s = s(\frac{1}{\rho}, u,q,\pi,\mathring{P} )$，则通过计算可以得到熵的产生率为
+\begin{equation*}
+		\rho \dot{s} = - \frac{1}{T} \nabla \cdot q - \frac{1}{T} P: \nabla v - T^{-1} \mathring{P} : \mathring{D} - \alpha_1 \pi \cdot \dot{\pi} - \alpha_2 q \cdot \dot{q} - \alpha_3 \mathring{P} : ({\mathring{P} })^. .
+\end{equation*}
+其中$\alpha_1,\alpha_2,\alpha_3$为常数。根据下表中的热力学流和力的定义，利用Onsager关系，可以得到下面的本构关系。
+\begin{eqnarray}
+	\nabla T^{-1} - \alpha_2 \dot{q} = \mu_1 q - \beta^{''}\nabla \cdot \dot{P} - \beta' \nabla \pi, \\
+	-T^{-1} \nabla \cdot v - \alpha_1 \dot{\pi} = \mu_0 p - \beta' \nabla \cdot q , \\
+	-T{-1} \mathring{D} - \alpha_3 (\mathring{P})^. = \mu_2 \mathring{P} - \beta^{''} (\mathring{\nabla q})^s. 
+\end{eqnarray}
+其中$A^s = \frac{1}{2} (A+A^T)$表示张量$A$的对称部分。通过取合适的参数可以得到Maxwell-Cattaneo定律。
+\begin{eqnarray}
+	\tau_1 \dot{q} + q = - \lambda \nabla T, \\
+ 	\tau_0 \dot{\pi } + \pi = -\zeta \nabla \cdot v, \\
+ 	\tau_2 (\mathring{P})^. + \mathring{P} = -2 \eta \mathring{D}.
+\end{eqnarray}
+对于不可压流体，我们可以得到Maxwell模型。其中$\sigma = \pi + \mathring{P} $。 
+
+
+
+
+
+
+\section{粘弹性流体的数学建模}
+
+\section{粘弹性流体的数学分析}
+
+\section{文章概要}
+
+\end{document}
