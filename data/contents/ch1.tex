@@ -1,8 +1,8 @@
-%\chapter{绪论}
-\documentclass{article}
-\usepackage{ctex}
-\usepackage{amsmath}
-\begin{document}
+% \chapter{绪论}
+ \documentclass{article}
+ \usepackage{ctex}
+ \usepackage{amsmath}
+ \begin{document}
 
 \section{问题背景}
 粘弹性流体广泛存在于日常生活中。粥、冰淇凌、油漆、细胞液等都是粘弹性流体。由于这些流体中高分子的存在，它们表现出一定的弹性效应。且这一效应是随着流动而衰减的\cite{}， 我们把这一特性称为粘弹性。材料粘弹性行为的数学模型已经有很长的研究历史。\cite{}. 随着近些年来材料科学和生命科学的发展，越来越多的新材料被发现，例如液晶、凝胶、活性物质等\cite{}。利用数学物理方法对这些流体的粘弹性特性进行建模，获得了快速发展\cite{}。
@@ -57,33 +57,121 @@ picneed
 
 tableneed
 
-然而，由于局部平衡假设的存在，CIT仅能描述远离平衡态不远的系统。为了拓展CIT，大部分理论假设非平衡态不仅需要平衡态变量，而且需要非平衡态变量来描述。EIT通过拓展非平衡态状态变量，将CIT中的热力学流引入非平衡态状态变量中，来对不可逆过程进行建模。EIT仍然假设Onsager倒易关系成立。例如我们将$q,\pi,\mathring{P}$引入非平衡态状态变量中，并假设$s = s(\frac{1}{\rho}, u,q,\pi,\mathring{P} )$，则通过计算可以得到熵的产生率为
+然而，由于局部平衡假设的存在，CIT仅能描述远离平衡态不远的系统。为了拓展CIT，大部分理论假设非平衡态不仅需要平衡态变量，而且需要非平衡态变量来描述。Coleman、Truesdell、Noll等人发展了RT。RT理论认为非平衡态不仅依赖于平衡态状态变量，还依赖于状态变量的空间梯度和历史等信息。RT理论不在假设局部平衡原理，而是认为系统存在“记忆性”，流体当前的状态取决于之前的形变历史。通过推广Clausius-Duhem不等式，利用Onsager倒易关系得到本构关系。Stoks-Fourier可以由RT理论导出\cite{}。
+
+另外，David Jou、Georgy Lebon等人发展了EIT。EIT通过拓展非平衡态状态变量，将CIT中的热力学流引入非平衡态状态变量中，来对不可逆过程进行建模。EIT仍然假设Onsager倒易关系成立。例如我们将$q,\pi,\mathring{P}$引入非平衡态状态变量中，并假设$s = s(\frac{1}{\rho}, u,q,\pi,\mathring{P} )$，则通过计算可以得到熵的产生率为
 \begin{equation*}
 		\rho \dot{s} = - \frac{1}{T} \nabla \cdot q - \frac{1}{T} P: \nabla v - T^{-1} \mathring{P} : \mathring{D} - \alpha_1 \pi \cdot \dot{\pi} - \alpha_2 q \cdot \dot{q} - \alpha_3 \mathring{P} : ({\mathring{P} })^. .
 \end{equation*}
 其中$\alpha_1,\alpha_2,\alpha_3$为常数。根据下表中的热力学流和力的定义，利用Onsager关系，可以得到下面的本构关系。
-\begin{eqnarray}
+\begin{eqnarray*}
 	\nabla T^{-1} - \alpha_2 \dot{q} = \mu_1 q - \beta^{''}\nabla \cdot \dot{P} - \beta' \nabla \pi, \\
 	-T^{-1} \nabla \cdot v - \alpha_1 \dot{\pi} = \mu_0 p - \beta' \nabla \cdot q , \\
 	-T{-1} \mathring{D} - \alpha_3 (\mathring{P})^. = \mu_2 \mathring{P} - \beta^{''} (\mathring{\nabla q})^s. 
-\end{eqnarray}
+\end{eqnarray*}
 其中$A^s = \frac{1}{2} (A+A^T)$表示张量$A$的对称部分。通过取合适的参数可以得到Maxwell-Cattaneo定律。
-\begin{eqnarray}
+\begin{eqnarray*}
 	\tau_1 \dot{q} + q = - \lambda \nabla T, \\
  	\tau_0 \dot{\pi } + \pi = -\zeta \nabla \cdot v, \\
  	\tau_2 (\mathring{P})^. + \mathring{P} = -2 \eta \mathring{D}.
-\end{eqnarray}
-对于不可压流体，我们可以得到Maxwell模型。其中$\sigma = \pi + \mathring{P} $。 
+\end{eqnarray*}
+对于不可压流体，我们可以得到Maxwell模型。其中$\sigma = \pi + \mathring{P} $。EIT可以很好地用于线性粘弹性流体模型，然而对于非线性的本构关系，缺乏简单的处理方式\cite{}。
 
+为了处理复杂的非线性粘弹性流体模型，Antony N. Beris和Brian J. Edwards等人通过拓展经典力学的Hamilton理论，在Possion括号之外引入耗散括号（dissipative bracket）来描述能量的耗散和不可逆过程的熵的增长\cite{}。假设$X$为非平衡态系统的状态变量。系统的广义Hamilton函数设为$H=H(X)$，则$X$的演化方程为
+\begin{equation*}
+	\frac{dX}{dt} = L(X) \cdot \frac{\delta H(X)}{\delta X} + M(X) \cdot \frac{\delta H(X)}{\delta X} . 
+\end{equation*}
+$L=L(x)$和$M=M(x)$为体系的Possion矩阵和耗散矩阵。通过给出系统的能量和熵函数，选取合适的$L$和$M$即可得到描述体系的方程。 为了满足能量守恒和熵增原理，我们假设$L$与$M$可以定义Possion括号和耗散括号。
+\begin{equation*}
+	\{ A,B \} = \frac{\delta A(X)}{\delta X} \cdot L(X) \cdot \frac{\delta B(X)}{\delta X}, \quad  [ A,B ] = \frac{\delta A(X)}{\delta X} \cdot M(X) \cdot \frac{\delta B(X)}{\delta X}. 
+\end{equation*}
+其中$L$的选取需要满足经典的Possion括号定义。$M$的选取使得下面的条件成立
+\begin{equation*}
+	[\int \rho(x) dx, H]=0,[\int \rho(x) v(x) dx, H]=0, \quad [E,H] = 0.
+\end{equation*}
+从而守恒率成立，以及
+\begin{equation*}
+	[S,H] \ge 0，
+\end{equation*}
+从而热力学第二定律成立。对于不可压粘弹性流体，我们忽略温度的影响，则可以取状态变量$X 
+ \{v,c\}$，其中张量$c$表示非平衡态变量（与粘弹性引起的应力能耗散有关）。取Hamilton量为
+ \begin{equation*}
+ 	H = \int \frac{1}{2} v^2(x) + \frac{1}{2} \mbox{
+ 	Tr}(c(x))- \frac{1}{2} \rho \ln \det c(x) dx，
+ \end{equation*}
+以及Possion矩阵和耗散矩阵
+\begin{equation*}
+	L = \left( \begin{array}{cc} 
+			u \cdot \nabla &  L_{12} \\
+			L_{21}& 0
+		\end{array}\right), \quad
+	M =	\left( \begin{array}{cc} 
+			0  & 0 \\
+			0  & c \otimes I
+		\end{array}\right).
+\end{equation*}
+其中
+\begin{eqnarray*}
+	(L_{12})_{l,kj} = - \frac{\partial}{\partial x_m} c_{mk} \delta_{jl} -  \frac{\partial}{\partial x_m} c_{jm} \delta_{kl}, \\
+	(L_{21})_{jk,l} = -c_{mk} \delta_{jl} \frac{\partial}{\partial x_m} - c_{jm} \delta_{kl} \frac{\partial}{\partial x_m}.
+\end{eqnarray*}
+能量和熵函数为
+\begin{equation*}
+	E = \int \frac{1}{2} v^2(x)dx, \quad S = -\int \frac{1}{2} \mbox{
+ 	Tr}(c(x))- \frac{1}{2} \rho \ln \det c(x) dx
+\end{equation*}
+于是我们可以得到下面的上对流导数Maxwell模型
+\begin{eqnarray*}
+	v_t + v \cdot \nabla v + \nabla p  - \nabla \cdot (c - I) = 0, \\
+	c_t - v \cdot \nabla v - (\nabla v)c - c (\nabla v)^T = -\frac{c-I}{\lambda}.
+\end{eqnarray*}
 
+由于Beris和Edwards理论要求的耗散括号的复杂性，如何提出满足要求的耗散矩阵是一个很有挑战性的问题。
+ Hans C. \"Ottinger与Miroslav Grmela发展了GENERIC理论。GENERIC并不假设非平衡态Hamilton函数的存在，而是仅仅假设能量和熵的存在性。假设$X$为非平衡态系统的状态变量。其演化方程可以写为
+\begin{equation*}
+	\frac{dX}{dt} = L(X) \cdot \frac{\delta E(X)}{\delta X} + M(X) \cdot \frac{\delta S(X)}{\delta X} .
+\end{equation*}
+其中$E=E(X)$和$S=S(X)$分别为系统的能量和熵，$L=L(x)$和$M=M(x)$为体系的Possion矩阵和耗散矩阵。通过给出系统的能量和熵函数，选取合适的$L$和$M$即可得到描述体系的方程。 为了满足能量守恒和熵增原理，我们假设$L$与$M$可以定义Possion括号和耗散括号。
+\begin{equation*}
+	\{ A,B \} = \frac{\delta A(X)}{\delta X} \cdot L(X) \cdot \frac{\delta B(X)}{\delta X}, \quad  [ A,B ] = \frac{\delta A(X)}{\delta X} \cdot M(X) \cdot \frac{\delta B(X)}{\delta X}. 
+\end{equation*}
+其中$L$的选取需要满足经典的Possion括号定义。$M$的选取使得下面的条件成立
+\begin{equation*}
+	[A,B] = [B,A], \quad [A,A] \ge 0.
+\end{equation*}
+假设系统的能量为$E$，熵函数为$S$，我们假设$L,M$满足下面的退化条件
+\begin{equation}
+	L \frac{\delta S}{\delta X} = 0, \quad M \frac{\delta E}{\delta X} = 0.
+\end{equation}
+那么任意泛函$A$的演化方程为
+ \begin{equation*}
+	\frac{d A}{dt} = \frac{\delta A(x)}{\delta x} \cdot \frac{dx}{dt} = \{ A,E\} + [A,S].
+\end{equation*}
+于是可以得到
+\begin{eqnarray*}
+	\frac{d E}{dt} = \{E,E\} +[S,E] = 0, \\
+	\frac{d S}{dt} = [S,S] \ge 0. 
+\end{eqnarray*}
+这里我们用到了退化条件$[E,S] = 0$。在GENERIC中关键的是选取合适的Possion矩阵和耗散矩阵，使之满足Possion括号和耗散括号的定义以及退化条件。GENERIC将物理量的演化分成了两个部分，一部分是由平衡态热力学引起的，而另一部分是由不可逆过程引起的，具体通过Possion括号和耗散括号实现。并且通过退化条件保证了热力学第一定律和第二定律的成立。然而在上面上对流导数Maxwell模型的例子中，却很难将可逆过程和不可逆过程的影响通过这种方式分开。如果我们采用上面的能量和熵函数$E,S$，以及矩阵$L,M$，那么可以验证$L$不在满足退化条件。  
 
+由于EIT缺乏对客观导数的模型的考虑，以及GENERIC在选取Possion矩阵和耗散矩阵的复杂性及对可逆部分和不可逆部分耦合方式的简单性，这些理论都没有完美地解决粘弹性流体的建模问题。另一方面，这些理论建立在物理定律的基础上，缺乏对方程数学性质的分析。除上面提到的非平衡态热力学理论之外，也有很多其他的非平衡态热力学理论试图解决粘弹性流体的建模问题，可以参看\cite{}。
 
+雍稳安、朱毅、洪柳、杨再宝等人从双曲方程的结构出发，结合热力学的第一定律和第二定律，发展了不可逆热力学的守恒-耗散理论（CDF）\cite{}。CDF已经顺利地应用于线性粘弹性流体力学模型。然而，由于目前的CDF考虑的是守恒形式的方程，而客观导数的存在将会导致方程不在可以写成守恒形式，所以CDF在应用到非线性粘弹性流体模型时遇到了困难。本文将推广这一理论并将其应用于非线性粘弹性流体力学模型中。
 
+\subsection{粘弹性流体的记忆衰减理论}
+由于粘弹性流体可以看作连续介质，所以可以采用连续介质力学的理论对其进行建模。前文提到的模型一般都是通过小变形连续介质力学得到的。而对于粘弹性流体来说，尤其是高弹性的流体，小形变假设不在适用。基于此，Bernard Coleman和Walter Noll等人提出了利用有限形变理论对粘弹性流体进行建模的方法\cite{}。该理论认为物质的状态依赖于其形变的历史。而形变可以用形变张量$F$描述。这里$F$定义为流动图$x = x(\xi，t)$的梯度$F_{ij} = \frac{\partial x_i}{\partial \xi_j}$。其中$x,\xi$分别对应于流体质点的Euler和Lagrange坐标。根据定义可以得到
+\begin{equation}\label{eq:Feq}
+	\partial_t F + v \cdot \nabla F = (\nabla v) F.
+\end{equation}
+这一理论认为应力张量是$F$的历史和温度$T$的历史的函数。例如经典的上对流导数Maxwell模型的应力张量$\sigma$可以写为
+\begin{equation*}
+	\sigma = \frac{1}{\lambda} \int_{0}^{t} e^{-\frac{(t-s)}{\lambda} } F(t)  F^{-1}(s) F^{-T}(s) F^T(t)  dx.
+\end{equation*}
+注意上面的积分是沿流线的积分。于是根据\eqref{eq:Feq}，可以得出$\sigma$满足上对流导数Maxwell模型。
 
-\section{粘弹性流体的数学建模}
-
+然而，这一理论得到的方程为积分-微分方程，且由于积分一般是沿着流线的积分，在实际计算中变得十分复杂。通过引入新的变量可以将积分方程变为微分方程，可以参看\cite{}。本论文将讨论基于CDF理论和有限形变理论的粘弹性流体建模方法。
 \section{粘弹性流体的数学分析}
 
 \section{文章概要}
 
-\end{document}
+ \end{document}
