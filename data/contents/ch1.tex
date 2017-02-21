@@ -19,13 +19,17 @@ picneed
 \begin{eqnarray*}
 \frac {d\epsilon} {dt} = \frac {\sigma} {\eta} + \frac {1} {E} \frac {d\sigma} {dt}.
 \end{eqnarray*}
-其中$\sigma$和$\epsilon$分别为材料的应力张量和应变张量，$\eta$和$E$分别为材料的粘性系数和弹性常数（模量）。在流体中$\frac {d\epsilon} {dt}$一般采用速度梯度量$\nabla v$的对称部分。交换上面方程中的应力应变张量得到的模型称为Kelvin–Voigt模型，由物理学家Lord Kelvin和Woldemar Voigt在19世纪末提出\cite{}。
+其中$\sigma$和$\epsilon$分别为材料的应力张量和应变张量，$\eta$和$E$分别为材料的粘性系数和弹性常数（模量）。在流体中$\frac {d\epsilon} {dt}$一般采用速度梯度量$\nabla v$的对称部分$D=\frac{1}{2} (\nabla v + (\nabla v)^T)$。一个简化的形式为
+\begin{equation} \label{eq:maxwell}
+			\partial_t \sigma + v \cdot \nabla \sigma - D = -\frac{\sigma}{\xi}. 
+\end{equation}
+交换上面方程中的应力应变张量得到的模型称为Kelvin–Voigt模型，由物理学家Lord Kelvin和Woldemar Voigt在19世纪末提出\cite{}。
 
 19世纪中叶Karl Weissenberg发现了Weissenberg效应。这一效应是指当转动的杆置于粘弹性流体中时，流体将会沿着杆“爬上”或者"爬下"\cite{}。为了解释这一效应，James G. Oldroyd提出了粘弹性建模的重要法则：物质坐标不变性原理。这一原理是说模型不应依赖于坐标系的选取。基于这一原理，他提出了客观导数的概念。他提出了经典的Oldroyd—B模型。这一模型如下
 \begin{equation} \label{eq：Oldroyd}
 	{\sigma} + \lambda_1 \stackrel{\nabla}{{\sigma}} = 2\eta_0 ({D} + \lambda_2 \stackrel{\nabla}{{D}}).
 \end{equation}
-其中$\sigma$为应力张量，$D=\frac{1}{2} (\nabla v + (\nabla v)^T)$为速度梯度张量的对称部分，$\lambda_1$和$\lambda_2$为松弛时间和迟滞时间，$\eta_0$为流体的粘性系数。$\stackrel{\sigma} = \partial_t \sigma + v \cdot \nabla \sigma - (\nabla v)\  \sigma + \sigma (\nabla v)^T$为$\sigma$的上对流Maxwell导数\cite{}。J. Oldroyd的这一论文对粘弹性流体的建模这一领域产生了深远的影响。基于这一原理，修改经典Maxwell模型和Kelvin-Voigt模型中的导数为客观导数可以得到许多模型\cite{}。
+其中$\sigma$为应力张量，$\lambda_1$和$\lambda_2$为松弛时间和迟滞时间，$\eta_0$为流体的粘性系数。$\stackrel{\sigma} = \partial_t \sigma + v \cdot \nabla \sigma - (\nabla v)\  \sigma + \sigma (\nabla v)^T$为$\sigma$的上对流Maxwell导数\cite{}。J. Oldroyd的这一论文对粘弹性流体的建模这一领域产生了深远的影响。基于这一原理，修改经典Maxwell模型和Kelvin-Voigt模型中的导数为客观导数可以得到许多模型\cite{}。
 
 然而，直接推广线性粘弹性模型仅能考虑简单的情况，并且不能很好地纳入温度的影响以及考虑模型的热力学性质。为了解决这些问题，热力学家和力学家提出了许多理论。这些理论主要有两个方向。一是利用非平衡态热力学理论对粘弹性流体进行建模\cite{}。二是基于热力学原理和有限形变理论的记忆衰减理论\cite{}。
 
@@ -33,7 +37,7 @@ picneed
 热力学第二定律告诉我们热力学体系不可逆状态的存在性。为了研究热力学不可逆过程，科学家发展了非平衡态热力学。Lars Onsager在1931和1932年的两篇文章中提出了著名的Onsager倒易关系\cite{}。由Onsager与Prigogine等人发展的经典非平衡态热力学理论（Classical Irreversible Thermodynamics，简称CIT），自20世纪40年代以来获得了蓬勃发展，并且得到了广泛的承认\cite{}。CIT理论可以将经典的牛顿流体和Fourier热传导定律纳入其中。然而无法将Maxwell粘弹性模型和Cattaneo热传导模型纳入其理论框架中来。为了推广经典的CIT理论，许多新的非平衡态理论被提出。其中包括有理热力学（Rational Thermodynamics，简称RT）、扩展不可逆热力学（Extended Irreversible Thermodynamics，简称EIT）、非平衡可逆-不可逆一般方程（Gerneral Equation for the Non-Equilibrium Reversible-Irreversible Coupling，简称GENERIC）、守恒-耗散理论（Convervation-Dissipation Formalism of irreversible thermodynamics，简称CDF）等\cite{}。
 
 考虑一般的流体方程
-\begin{subequations}
+\begin{subequations} \label{eq:fluid}
 	\begin{align}
 		\partial_t \rho + \nabla \cdot (\rho v) = 0 ,\\
 		\partial_t (\rho v) + \nabla \cdot (P + \rho v \otimes v), \\
@@ -64,11 +68,13 @@ tableneed
 		\rho \dot{s} = - \frac{1}{T} \nabla \cdot q - \frac{1}{T} P: \nabla v - T^{-1} \mathring{P} : \mathring{D} - \alpha_1 \pi \cdot \dot{\pi} - \alpha_2 q \cdot \dot{q} - \alpha_3 \mathring{P} : ({\mathring{P} })^. .
 \end{equation*}
 其中$\alpha_1,\alpha_2,\alpha_3$为常数。根据下表中的热力学流和力的定义，利用Onsager关系，可以得到下面的本构关系。
-\begin{eqnarray*}
+\begin{subequations} \label{eq:EITconstitutive}
+		\begin{align}
 	\nabla T^{-1} - \alpha_2 \dot{q} = \mu_1 q - \beta^{''}\nabla \cdot \dot{P} - \beta' \nabla \pi, \\
-	-T^{-1} \nabla \cdot v - \alpha_1 \dot{\pi} = \mu_0 p - \beta' \nabla \cdot q , \\
-	-T{-1} \mathring{D} - \alpha_3 (\mathring{P})^. = \mu_2 \mathring{P} - \beta^{''} (\mathring{\nabla q})^s. 
-\end{eqnarray*}
+	-T^{-1} \nabla \cdot v - \alpha_1 \dot{\pi} = \mu_0 \pi - \beta' \nabla \cdot q , \\
+	-T^{-1} \mathring{D} - \alpha_3 (\mathring{P})^. = \mu_2 \mathring{P} - \beta^{''} (\mathring{\nabla q})^s. 
+		\end{align}
+\end{subequations}
 其中$A^s = \frac{1}{2} (A+A^T)$表示张量$A$的对称部分。通过取合适的参数可以得到Maxwell-Cattaneo定律。
 \begin{eqnarray*}
 	\tau_1 \dot{q} + q = - \lambda \nabla T, \\

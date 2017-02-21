@@ -65,5 +65,163 @@
 	\end{equation*}
 	从而我们可以将这个方程所描述的体系也视为平衡态。这样我们可以得到守恒－耗散理论所描述的非平衡态体系实际上是介于两个平衡态体系之间的。如果没有耗散，则为平衡态$M=0$，如果时间趋于无穷则方程会趋于另一平衡态体系。这于Elliott Lieb等所讨论的非平衡态的概念有些类似\cite{}。他们认为非平衡态为由一个平衡态到另一个平衡态的演化过程。
 	
-	
-\end{document}
+	守恒-耗散理论中耗散矩阵$M$一般假设为对称的。这可以看做Onsager倒易关系的一个推广。实际上如果熵函数是二次的，那么$\eta_{U_d} = \mu U_d$，而熵的产生率
+	\begin{equation*}
+		\Delta = \eta_{U_d}^T M \eta_{U_d} = \mu^2 U_d^2.
+	\end{equation*}
+	在Onager理论中，熵的产生率为热力学力$X$和热力学流$J_X$的乘积。Onsager倒易关系认为热力学流和力之间的关系是线性的。及存在矩阵$M'$使得
+	\begin{eqnarray*}
+		J_X = M X ,\\
+		\Delta'= J_X \cdot X = X^T M X
+	\end{eqnarray*}
+	这也是EIT理论中大部分熵函数都是二次的一个原因。由于Onsager倒易关系的线性性，导致了无法考虑远离平衡态的情况。我们假设$X$不在为平衡态状态变量，而是熵对耗散变量的导数，从而可以包含更加复杂的热力学流和力之间的关系。另一方面，守恒-耗散理论并不假设热力学流和力的区分，仅仅假设耗散变量的存在性。实际上，热力学流和力之间的区分并非有非常明显的界限。
+
+	守恒-耗散理论同GENERIC一样均采用了耗散矩阵来表示熵的耗散。然而其避免了GENERIC理论中Possion括号和耗散括号定义的复杂性，给耗散矩阵的选取带来了更大的自由度。然而，由于守恒-耗散理论假设了方程都可以写成守恒的形式，从而为应用带来了局限。
+
+	守恒-耗散理论可以成功地用于线性粘弹性流体的建模。然而，由于客观导数的非守恒形式，在应用到非线性粘弹性模型时会有困难，如何推广并应用于非线性粘弹性流体模型将在下一章给出。这里，我们首先考察线性粘弹性流体力学模型。
+
+	\section{守恒-耗散理论在线性粘弹性流体模型中的应用}
+	本节的内容摘自文献\cite{}。
+
+	首先考虑流体运动的守恒率方程\eqref{eq:fluid}。从而我们取
+	\begin{equation*}
+		U_c = \{\rho, \rho v, \rho e\}.
+	\end{equation*}
+	其中$e = \frac{1}{2} v^2 + u$为单位质量流体的总能量。由于我们希望考虑流体的粘弹性和热传导，从而我们希望采用与流体应力张量和热流所对应的非平衡态变量，我们取
+	\begin{equation*}
+		U_d = \{ w, c\}
+	\end{equation*}
+	作为耗散变量，分别用来描述应变能的衰减和热传导的能量损失。我们假设熵函数$\eta = \eta (\rho,\rho v ,\rho e, \rho w, \rho c)$。根据熵函数的可加性，比熵$s$（单位质量的熵$\eta = \rho s$）可以写为
+	\begin{equation}
+		s = s(\nu, u, w, c).
+	\end{equation}
+	其中$\nu = \frac{1}{\rho}$，$w,c$分别为向量和张量。根据Gibbs关系，我们可以定义系统的温度和静压力
+	\begin{equation}
+		\theta^{-1} = s_u, \quad \theta^{-1} p = s_{\nu}, \quad \theta^{-1} \tau = s_c.
+	\end{equation}
+	其中$\tau = P - pI$。前两个式子来源于平衡态热力学的Gibbs关系，最后一个式子是我们的假设（广义Gibbs关系）。
+	这里我们假定广义的Gibbs关系成立
+	\begin{equation*}
+		ds = \theta^{-1} pd\nu + \theta^{-1} du + s_w \cdot dw + s_c ：dc
+	\end{equation*}
+	这里$A:B = \sum_{i,j}A_{ij}B_{ij}$。计算熵的产生率。
+	\begin{eqnarray*}
+		\eta_t + \nabla \cdot (\eta v) &=& \rho s_t + v \cdot \nabla s, \\
+		&=& -\nabla \cdot (\theta^{-1} q) + s_w \cdot [\rho (w_t + v \cdot \nabla w)] \\
+		&&+ (s_c:[\rho (c_t + v \cdot \nabla v)] - \theta^{-1} \tau : D) \\
+		&& = -\nabla \cdot J + \Delta.
+	\end{eqnarray*}
+	其中$D = \frac{1}{2} [\nabla v + (\nabla v)^T], J =\theta^{-1} q $，
+	\begin{equation*}
+		\Delta = s_w \cdot [\rho (w_t + v \cdot \nabla w)] + (s_c:[\rho (c_t + v \cdot \nabla v)] - \theta^{-1} \tau : \nabla v) .
+	\end{equation*}
+	这里我们用到了$\tau$的对称性，这是动量矩守恒的自然结果\cite{}。
+	取$q =s_w,\tau = \theta s_c$，由守恒-耗散理论的假设，可以得到
+	\begin{equation*}
+		\left( \begin{array}{c} 
+			(\rho w)_t +  \nabla \cdot (\rho w \otimes v)  + \nabla \theta^{-1} \\
+			(\rho c)_t +  \nabla \cdot (\rho c \otimes v)  - D
+		\end{array} \right) = M \cdot
+		\left( \begin{array}{c} 
+			q \\ \theta^{-1} \tau
+		\end{array}\right).
+	\end{equation*}
+	其中$M=M(\nu,u,w,c)$是正定的，这里我们假设其也是对称的。
+
+	考虑不可压缩流体并忽略温度的影响，则$c$的演化方程可以写为
+	\begin{equation*}
+		\partial_t c + v \cdot \nabla c - D = M \tau.
+	\end{equation*}
+	这与不可压线性粘弹性的Maxwell模型相类似。只是这里左端$c$代替了$\tau$。而$\tau$可以表达为$c$的复杂函数。当$\tau$和$c$之间存在线性关系时，例如$\tau = c$时，$\tau$的演化方程为
+	\begin{equation*}
+		\partial_t \tau+ v \cdot \nabla \tau - D = M \tau.
+	\end{equation*}
+	这就是我们第一章提到的Maxwell模型。
+
+	为了推广Maxwell模型以考虑压缩性和温度的影响。我们假设熵函数是二次的。
+	\begin{equation*}
+		s = s_0(\nu,u)  - \frac{1}{2\nu \alpha_0} w^2 - \frac{1}{2\nu \alpha_1} \dot{c}:\dot{c}- \frac{1}{2\alpha_2 \nu} \mathring{c}:\mathring{c}.
+	\end{equation*}
+	其中$s_0(\nu,u)$为平衡态时的熵函数。$\dot{A} = \frac{1}{3} \mbox{Tr} (A)I, \mathring{A} = \frac{1}{2} (A + A^T) - \frac{1}{3} \mbox{Tr} (A) I$分别表示张量的迹部分和无迹对称部分。取耗散矩阵$M$为
+	\begin{equation*}
+		M = \left( \begin{array}{ccc} 
+			\frac{1}{\theta^2 \lambda} & 0 \\
+			0 &  \theta(\frac{1}{\kappa} \dot{\mathcal{T}} + \frac{1}{\xi} \mathring{\mathcal{T}})  
+		\end{array} \right)
+	\end{equation*}
+	其中$\dot{\mathcal{T}}, \mathring{\mathcal{T}}$均为四阶张量，其坐标表示为$\dot{\mathcal{T}}_{kl,k'l'} = \frac{1}{3}\delta_{kl} \delta_{k'l'}, \mathring{\mathcal{T}}_{kl,k'l'} =\frac{1}{2}(\delta_{kk'}\delta_{ll'} + \delta_{kl'} \delta_{lk'} ) -\frac{1}{3}\delta_{kl} \delta_{k'l'} $。从而$\dot{\mathcal{T}} A = \dot{A},\mathring{\mathcal{T}} A = \mathring{A}$。$M$的正定性参看附录1。needapp
+	于是我们可以得到系统的演化方程为\cite{}.
+	\begin{subequations}
+		\begin{align}
+			\alpha_0 [\partial_t q +  \nabla \cdot (q \otimes v)] - \nabla \theta^{-1} = -\frac{q}{\theta^2 \lambda}, \\
+			\alpha_1[\partial_t (\theta^{-1} \dot{\tau}) + \nabla \cdot (\theta^{-1} \dot{\tau} \otimes v)] + \dot{D} = -\frac{\dot{\tau}}{\kappa}, \\
+			\alpha_2[\partial_t (\theta^{-1} \mathring{\tau}) + \nabla \cdot (\theta^{-1} \mathring{\tau} \otimes v)] + \mathring{D} = -\frac{\dot{\tau}}{\xi}. 
+		\end{align}
+	\end{subequations}
+	当$\alpha_0, \alpha_1, \alpha_1$趋于0时，可以得到
+	\begin{equation*}
+		q = -\lambda \nabla \theta, \quad \tau = - \xi \mathring{D} - \kappa \dot{D}.
+	\end{equation*}
+	分别为经典的Fourier-Newton-Stokes本构关系\cite{}。
+
+	在不可压缩和忽略温度的情形，$\nabla \cdot v = 0, \dot{\tau}=0$，$\tau = \mathring{\tau}$，则$\sigma = -\tau$的演化方程为
+	\begin{equation*}
+		\partial_t \sigma + v \cdot \nabla \sigma - D = -\frac{\sigma}{\xi}. 
+	\end{equation*}
+	此即Maxwell粘弹性流体力学模型\eqref{eq:maxwell}.	
+
+	考虑温度的不可压Maxwell模型为
+	\begin{eqnarray} \label{eq:Tmaxwell}
+		v_t + v \cdot \nabla v + \nabla \cdot (-\theta \frac{c}{\alpha_2}) = 0, \\
+		c_t + v \cdot \nabla c - D = -\frac{1}{\xi} c.
+	\end{eqnarray}
+	而由微观方法得到的高分子稀溶液的模型为 \cite{}
+	\begin{eqnarray*}
+		v_t + v \cdot \nabla v = \eta_p (H A - KT I), \\
+		A_t + v \cdot \nabla A - \nabla v A - A(\nabla v)^T  = -\frac{4 H}{\zeta} A+ \frac{4kT}{\zeta} I.
+	\end{eqnarray*}
+	其中$H = \frac{3kT}{Nb^2}$.其中$k$为Boltzmann常数，$N$为高分子链弹簧模型的弹簧个数，$b$为弹簧长度。取$\beta = \frac{H}{kT} = \frac{3}{Nb^2}$，则应力张量$\sigma = k T(\beta A-I)$。令$c'=\frac{1}{2}(\beta A-I)$，可以得到$c'$的方程如下。
+	\begin{equation*}
+		c'_t + v \cdot \nabla c'- \nabla v c' - c'(\nabla v)^T -  D  = -\frac{2 kT \beta}{\zeta} c'.
+	\end{equation*}
+	其对应的线性模型为
+	\begin{eqnarray*}
+		v_t + v \cdot \nabla v = \frac{1}{2} \eta_p kT c', \\
+		c'_t + v \cdot \nabla c' -  D  = -\frac{2 kT \beta}{\zeta} c'.
+	\end{eqnarray*}
+	在\eqref{eq:Tmaxwell}中令$\alpha_2 = \frac{2}{\eta_p k}, T = \theta,\xi = \frac{\zeta}{2 kT \beta}$即可以得到本模型。可见守恒-耗散理论可以很好地用来对线性粘弹性模型进行建模。
+
+	对于一般的情况，我们亦可选取$M$为
+	\begin{equation*}
+		M_{ikl,i'k'l'} = \left( \begin{array}{ccc} 
+			\mu_1 \delta_{ii' } & \frac{1}{3}\beta'_i \delta_{k'l'} +  [\frac{1}{2} (\beta''_{k'} \delta_{il'} + \beta''_{l'} \delta_{ik'}) - \frac{1}{3} \beta_{i} \delta_{k'l'}]\\
+			\frac{1}{3}\beta'_{i'} \delta_{kl} +  [\frac{1}{2} (\beta''_{k} \delta_{i'l} + \beta''_{l'} \delta_{i'k}) - \frac{1}{3} \beta_{i'} \delta_{kl}] &  \frac{1}{\kappa} \dot{\mathcal{T}} + \frac{1}{\xi} \mathring{\mathcal{T}}  
+		\end{array} \right)
+	\end{equation*} 
+	注意参数$mu_1,\beta',\beta'',\kappa,\zeta$的选取需要保证$M$的正定型。
+	从而得到一般的线性本构关系为
+	\begin{subequations}
+		\begin{align*}
+			\alpha_0 [\partial_t q +  \nabla \cdot (q \otimes v)] - \nabla \theta^{-1} = - \mu_1 q -\beta' \theta^{-1} \dot{\tau} - \beta'' \theta^{-1} \mathring{\tau} , \\
+			\alpha_1[\partial_t (\theta^{-1} \dot{\tau}) + \nabla \cdot (\theta^{-1} \dot{\tau} \otimes v)] + \dot{D} = -\frac{\dot{\tau}}{\kappa} - \frac{1}{3}(\beta' \cdot q) I, \\
+			\alpha_2[\partial_t (\theta^{-1} \mathring{\tau}) + \nabla \cdot (\theta^{-1} \mathring{\tau} \otimes v)] + \mathring{D} = -\frac{\dot{\tau}}{\xi} - \frac{1}{2} (\beta''  \otimes q + q \otimes \beta'') + \frac{1}{3}(\beta'' \cdot q) I. 
+		\end{align*}
+	\end{subequations}
+	这与第一章EIT得到的本构关系\eqref{eq:EITconstitutive}类似。这里我们采用耗散变量$w,c$替代了EIT中的$\nabla T, \nabla \dot{\tau}$和$\nabla \cdot{\mathring{\tau}}$。
+
+	\section{粘弹性流体力学热传导模型的守恒-耗散理论}
+
+	\section{守恒-耗散理论的数学结果}
+	守恒-耗散理论一方面考虑了热力学第一定律和第二定律和Onsager倒易关系等物理原理，另一方面它建立在严格的数学理论之上。熵函数的存在性和方程的守恒形式共同保证方程可以被对陈化，从而根据对称双曲组的相关理论，方程的局部适定性可以保证。而对右端项的要求可以使得方程满足文献\cite{}中的条件，从而可以保证有端项含有松弛参数$\epsilon$时松弛极限$\epsilon$很小时可以与形式上得到的方程相近似，从而保证了离平衡态“很近”的体系可以很好地采用平衡态体系近似。
+
+	守恒-耗散理论得到的方程均为可对称双曲方程组，所以可以采用对称双曲组的相关理论对方程的解进行分析。例如在平衡态附近方程解的全局适定性可以采用Kawashima理论进行分析\cite{}。可压缩模型的小马赫数极限可以采用类似可压Euler方程的小马赫数极限进行分析\cite{}。方程的弱解的存在性和间断解可以采用相关的理论进行分析\cite{}。
+
+	本节主要考虑方程的强解，我们采用的解空间为Sobolev空间$H^s, s \in N$。
+
+	\section{方程解的存在性定理}
+	由守恒-耗散理论的第一条假设，存在正定对称矩阵$A_0(U)  = -\eta_{UU}$使得$A_0(U) A_j(U)$对称。$A_0$的正定性可由$\eta$的上凸性得到。利用对称双曲方程组的存在性理论，可以得到下面的定理\cite{}。
+	%\begin{theorem}
+
+	%\end{theorem}
+	于是对于线性弹性流体力学模型
+	\end{document}
