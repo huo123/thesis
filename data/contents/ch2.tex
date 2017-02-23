@@ -210,7 +210,89 @@
 	这与第一章EIT得到的本构关系\eqref{eq:EITconstitutive}类似。这里我们采用耗散变量$w,c$替代了EIT中的$\nabla T, \nabla \dot{\tau}$和$\nabla \cdot{\mathring{\tau}}$。
 
 	\section{粘弹性流体力学热传导模型的守恒-耗散理论}
+粘弹性流体中的热传导模型目前研究较少，目前大部分模型采用的仍然是Fouerier热传导定律或者Cattaneo定律。本小节我们将讨论推广的Cattaneo定律和热质理论，以及Guyer-Krumhans模型，首先我们采用守恒-耗散理论给出这些模型的理论推导，然后结合上一节粘弹性流体的建模，给出这些这些热传导模型在粘弹性流体力学模型中的应用。
 
+首先我们仅考虑热传导而忽略流体的运动和压缩性（假设$\rho = 1$），那么体系的方程可以写为
+\begin{equation*}
+	\rho u_t  + \nabla \cdot q = 0 .	
+\end{equation*}
+那么$w$的方程为
+\begin{equation*}
+	\rho w_t + \nabla \theta^{-1} = M' q. 
+\end{equation*}
+其中$q = S_w$。
+
+\subsection{Cattaneo定律}
+上一节熵的选取为$s = s( u)  -\frac{1}{2 \alpha_0} w^2, M' = \frac{1}{\theta^2 \lambda} $。得到的热传导定律为
+\begin{equation*}
+	\alpha_0 \partial_t q  - \nabla \theta^{-1} = -\frac{q}{\theta^2 \lambda}.
+\end{equation*}
+若选取$\alpha_0 = \frac{\chi}{\lambda\theta^2}$，那么可以得到经典的Cattaneo热传导定律
+\begin{equation*}
+	 \chi  \partial_t q = - (q +\lambda \nabla \theta).
+\end{equation*}
+此时假设$u = c_v T, s_0 = c_v \ln \theta$,那么可以得到$s = s (\theta,w)$的Hessian矩阵为
+\begin{equation*}
+	\left( \begin{array}{cc} 
+		-\frac{c_v}{\theta^2} - \frac{\lambda}{\chi} w^2 & \frac{2 \theta \lambda w }{\chi} \\
+		\frac{2 \theta \lambda w }{\chi}  & -\frac{\lambda \theta^2}{\chi }
+	\end{array} \right).
+\end{equation*}
+ 这一矩阵在$c_v >0$时对一切$\theta, w$均为负定的。即熵函数为上凸的。
+
+\subsection{推广的Cattaneo定律}
+ 然而注意到$\alpha_0$假设是常数，所以这里我们需要$\frac{\xi}{\lambda \theta^2}$为常数。
+如果上面的熵函数中$\alpha_0$依赖于内能（温度）$\alpha_0=\alpha_0(u)$，那么$q$的方程应写为
+\begin{equation*}
+({\alpha_0(u)}{q})_t-\nabla \theta^{-1}= M'{q}
+\end{equation*}
+我们称这个方程为推广的Cattaneo定律。其中$M'>0$。
+
+如果我们采用平衡态温度$T$来替代$\theta$，由$T$定义
+\begin{equation*}
+	T^{-1}=\frac{\partial S_{eq}(u)}{\partial u},
+\end{equation*}
+可以得到
+\begin{equation}
+\theta^{-1}=T^{-1}-\frac{1}{2}(\frac{1}{\alpha(u)})'{c}^2
+\end{equation}
+这里$()'$为对$u$的导数。从而
+\begin{equation*}
+{w}_t+\nabla(T^{-1}-\frac{1}{2}(\frac{1}{\alpha(u)})' {w}^2)=M'{q}
+\end{equation*}
+或
+\begin{equation*}
+({\alpha(u)}{{q}})_t-\nabla(T^{-1}- \frac{\alpha'(u){q}^2}{2})-M{q}=0
+\end{equation*}
+令$M=\frac{1}{\lambda T^2}, \alpha(u)=\frac{\rho c_v}{2\gamma u^3}=\frac{\rho}{2\gamma c_v^2 T^3}$，其中$\rho$为流体的密度，$c_v$为比热。
+最终我们得到
+\begin{equation}
+\tau_{TM} {q}_t-3c_v {L}T_t+3(\nabla {q})^T \cdot {L}+\lambda(1-6M_H^2)\nabla T+{q}=0
+\end{equation}
+其中
+\begin{equation*}
+\tau_{TM}=\frac{\lambda \rho}{2 \gamma C_v^2 T} \quad {L}=\frac{\lambda \rho}{2 \gamma C_v^3 T^2}{q} \quad M_H^2=\frac{\lambda \rho {q}^2}{2\gamma C_v^3 T^3}
+\end{equation*}
+
+由过增元等人发展的热质理论的模型为\cite{}
+\begin{equation}
+\tau_{TM} {q}_t-C_v {L}T_t+\nabla {q} \cdot {L}+\lambda(1-M_H^2)\nabla T+{q}=0.
+\end{equation}
+这里我们导出的模型和热质理论的模型仅系数由略微差异。
+
+下面我们来考察$s=s(u,w)$的上凸性。$s$的Hessian矩阵为
+\begin{eqnarray*}
+\left( \begin{array}{ll} -\frac{1}{c_v T^2}-\frac{1}{2}(\frac{1}{\alpha(u)})'' {c}^2 & (\frac{1}{\alpha})'{c} \\ (\frac{1}{\alpha})'{c} & -\frac{1}{\alpha(u)} \end{array} \right).
+\end{eqnarray*}
+为保证这一矩阵的负定性，我们要求对角元是负的且矩阵为矩阵的行列式为负的。从而可以得到$c_v >0$与
+\begin{eqnarray*}
+{q}=\alpha(u){c} \le \frac{\rho c_v T}{\sqrt{6}} \sqrt{\frac{\lambda}{\rho c_v \tau_{TM}}}
+\end{eqnarray*}
+其中 $\sqrt{\frac{\lambda}{\rho c_v \tau_{TM}}}$ 为热波的最大速度\cite{Jou1996extended}。 所以熵函数仅在热流小于特定值时为负定的。这一特定值对应于热波允许的最大速度。
+
+从这一例子可以看出，简单的熵函数的形式就可以导出复杂的热传导本构关系。推广的Cattaneo定律在特定的参数选择下可以得到与热质理论方程类似的模型。
+
+\subsection{Guyer-Krumhansl模型}
 	\section{守恒-耗散理论的数学结果}
 	守恒-耗散理论一方面考虑了热力学第一定律和第二定律和Onsager倒易关系等物理原理，另一方面它建立在严格的数学理论之上。熵函数的存在性和方程的守恒形式共同保证方程可以被对陈化，从而根据对称双曲组的相关理论，方程的局部适定性可以保证。而对右端项的要求可以使得方程满足文献\cite{}中的条件，从而可以保证有端项含有松弛参数$\epsilon$时松弛极限$\epsilon$很小时可以与形式上得到的方程相近似，从而保证了离平衡态“很近”的体系可以很好地采用平衡态体系近似。
 
@@ -220,8 +302,8 @@
 
 	\section{方程解的存在性定理}
 	由守恒-耗散理论的第一条假设，存在正定对称矩阵$A_0(U)  = -\eta_{UU}$使得$A_0(U) A_j(U)$对称。$A_0$的正定性可由$\eta$的上凸性得到。利用对称双曲方程组的存在性理论，可以得到下面的定理\cite{}。
-	%\begin{theorem}
-
-	%\end{theorem}
+	\begin{theorem}
+		假设$U_0 \in H^{s}$，其中$s>\frac{d}{2} +1$，其中$d$为空间的维数。
+	\end{theorem}
 	于是对于线性弹性流体力学模型
 	\end{document}
