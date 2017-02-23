@@ -198,7 +198,7 @@
 			\frac{1}{3}\beta'_{i'} \delta_{kl} +  [\frac{1}{2} (\beta''_{k} \delta_{i'l} + \beta''_{l'} \delta_{i'k}) - \frac{1}{3} \beta_{i'} \delta_{kl}] &  \frac{1}{\kappa} \dot{\mathcal{T}} + \frac{1}{\xi} \mathring{\mathcal{T}}  
 		\end{array} \right)
 	\end{equation*} 
-	注意参数$mu_1,\beta',\beta'',\kappa,\zeta$的选取需要保证$M$的正定型。
+	注意参数$\mu_1,\beta',\beta'',\kappa,\zeta$的选取需要保证$M$的正定型。
 	从而得到一般的线性本构关系为
 	\begin{subequations}
 		\begin{align*}
@@ -210,15 +210,15 @@
 	这与第一章EIT得到的本构关系\eqref{eq:EITconstitutive}类似。这里我们采用耗散变量$w,c$替代了EIT中的$\nabla T, \nabla \dot{\tau}$和$\nabla \cdot{\mathring{\tau}}$。
 
 	\section{粘弹性流体力学热传导模型的守恒-耗散理论}
-粘弹性流体中的热传导模型目前研究较少，目前大部分模型采用的仍然是Fouerier热传导定律或者Cattaneo定律。本小节我们将讨论推广的Cattaneo定律和热质理论，以及Guyer-Krumhans模型，首先我们采用守恒-耗散理论给出这些模型的理论推导，然后结合上一节粘弹性流体的建模，给出这些这些热传导模型在粘弹性流体力学模型中的应用。
+	粘弹性流体中的热传导模型目前研究较少，目前大部分模型采用的仍然是Fouerier热传导定律或者Cattaneo定律。本小节我们将讨论推广的Cattaneo定律和热质理论，以及Guyer-Krumhans模型，首先我们采用守恒-耗散理论给出这些模型的理论推导，然后结合上一节粘弹性流体的建模，给出这些这些热传导模型在粘弹性流体力学模型中的应用。
 
 首先我们仅考虑热传导而忽略流体的运动和压缩性（假设$\rho = 1$），那么体系的方程可以写为
 \begin{equation*}
-	\rho u_t  + \nabla \cdot q = 0 .	
+	 u_t  + \nabla \cdot q = 0 .	
 \end{equation*}
 那么$w$的方程为
 \begin{equation*}
-	\rho w_t + \nabla \theta^{-1} = M' q. 
+	 w_t + \nabla \theta^{-1} = M' q. 
 \end{equation*}
 其中$q = S_w$。
 
@@ -231,7 +231,7 @@
 \begin{equation*}
 	 \chi  \partial_t q = - (q +\lambda \nabla \theta).
 \end{equation*}
-此时假设$u = c_v T, s_0 = c_v \ln \theta$,那么可以得到$s = s (\theta,w)$的Hessian矩阵为
+此时假设$u = c_v \theta, s_0 = c_v \ln \theta$,那么可以得到$s = s (\theta,w)$的Hessian矩阵为
 \begin{equation*}
 	\left( \begin{array}{cc} 
 		-\frac{c_v}{\theta^2} - \frac{\lambda}{\chi} w^2 & \frac{2 \theta \lambda w }{\chi} \\
@@ -241,10 +241,10 @@
  这一矩阵在$c_v >0$时对一切$\theta, w$均为负定的。即熵函数为上凸的。
 
 \subsection{推广的Cattaneo定律}
- 然而注意到$\alpha_0$假设是常数，所以这里我们需要$\frac{\xi}{\lambda \theta^2}$为常数。
-如果上面的熵函数中$\alpha_0$依赖于内能（温度）$\alpha_0=\alpha_0(u)$，那么$q$的方程应写为
+ 然而注意到$\alpha_0$假设是常数，所以这里我们需要$\frac{\chi}{\lambda \theta^2}$为常数。
+如果上面的熵函数中$\alpha_0$依赖于内能（温度）$a_0=\alpha(u)$，那么$q$的方程应写为
 \begin{equation*}
-({\alpha_0(u)}{q})_t-\nabla \theta^{-1}= M'{q}
+({\alpha(u)}{q})_t-\nabla \theta^{-1}= M'{q}
 \end{equation*}
 我们称这个方程为推广的Cattaneo定律。其中$M'>0$。
 
@@ -271,12 +271,12 @@
 \end{equation}
 其中
 \begin{equation*}
-\tau_{TM}=\frac{\lambda \rho}{2 \gamma C_v^2 T} \quad {L}=\frac{\lambda \rho}{2 \gamma C_v^3 T^2}{q} \quad M_H^2=\frac{\lambda \rho {q}^2}{2\gamma C_v^3 T^3}
+\tau_{TM}=\frac{\lambda \rho}{2 \gamma c_v^2 T} \quad {L}=\frac{\lambda \rho}{2 \gamma c_v^3 T^2}{q} \quad M_H^2=\frac{\lambda \rho {q}^2}{2\gamma c_v^3 T^3}
 \end{equation*}
 
 由过增元等人发展的热质理论的模型为\cite{}
 \begin{equation}
-\tau_{TM} {q}_t-C_v {L}T_t+\nabla {q} \cdot {L}+\lambda(1-M_H^2)\nabla T+{q}=0.
+\tau_{TM} {q}_t-c_v {L}T_t+\nabla {q} \cdot {L}+\lambda(1-M_H^2)\nabla T+{q}=0.
 \end{equation}
 这里我们导出的模型和热质理论的模型仅系数由略微差异。
 
@@ -293,6 +293,88 @@
 从这一例子可以看出，简单的熵函数的形式就可以导出复杂的热传导本构关系。推广的Cattaneo定律在特定的参数选择下可以得到与热质理论方程类似的模型。
 
 \subsection{Guyer-Krumhansl模型}
+物质中的热传导可以采用线性化的声子Boltzmann方程来导出。1966年Guyer和Krumhansl发展了固体结构热传导的Guyer-Krumhansl模型\cite{guyer1966solution}。这一模型考虑了固体结构对热传导的影响。而由于粘弹性流体中高分子也具有一定的结构，这一模型也可以用来描述液晶等粘弹性流体的热传导\cite{}。
+
+由于晶格等结构的存在，在固体中热传导可能出现各向异性。同样的在粘弹性流体中也可能与高分子取向等结构引起的热传导各向异性。为了描述热传导的各项异性我们采用张量$Q$来描述。我们假设张量${Q}$对称。其可以分解为${Q}=\mathring{{Q}}+\dot{Q}{I}$。
+
+假设熵具有形式
+\begin{equation*}
+s(u,{w},\mathring{{Q}},\dot{Q})=s_{eq}(u)-\frac{1}{2 \alpha_0}{w}^2-\frac{1}{2\tau_1} {\mathring{{Q}}}:{\mathring{{Q}}}-\frac{1}{2\tau_2}\dot{Q}^2
+\end{equation*}
+由计算可以得到（利用Gibbs关系）
+\begin{eqnarray*}
+s_t &=& \theta^{-1} u_t +s_{w} \cdot {w}_t + s_{\mathring{{Q}}}:\mathring{{Q}}_t+s_{\dot{Q}} \dot{Q}_t \\
+    &=& -\nabla \cdot (\theta^{-1} {q}+\nabla (s_{\mathring{{Q}}}+s_{\dot{Q}}) \cdot {q})\\
+    	&&+({w}_t+\nabla \cdot (s_{\mathring{{Q}}}+s_{\dot{Q}})+\nabla \theta^{-1}) \cdot {q} \\
+&& +s_{\mathring{{Q}}}:(\mathring{{Q}}_t+(\mathring{\nabla {q}})^{sym})+s_{\dot{Q}}(\dot{Q}_t+\frac{1}{3}\nabla \cdot {q}).
+\end{eqnarray*}
+为了保证上的产生率大于0（守恒-耗散理论的第二条假设）的成立，我们就假设存在矩阵$M''$，使得
+\begin{equation*}
+\left( \begin{array}{ll} {w}_t+\nabla \cdot (S_{\mathring{{Q}}}+S_Q)+\nabla \theta^{-1} \\ \mathring{{Q}}_t+(\mathring{\nabla {q}})^{sym} \\ \dot{Q}_t+\frac{1}{3} \nabla \cdot {q} \end{array} \right) = M \left( \begin{array}{l} {q} \\ S_{\mathring{{Q}}} \\S_{\dot{Q}} \end{array} \right).
+\end{equation*}
+我们考虑最简单的情况，取
+\begin{equation*}
+	M=\left( \begin{array}{lll} M_0 & 0 & 0 \\0 & M_1 & 0 \\0 & 0 & M_2 \end{array} \right)
+\end{equation*}
+其中$M_0,M_1,M_2$均为正定的。
+
+我们有
+\begin{eqnarray*}
+\mathring{{Q}}_t+(\mathring{\nabla {q}})^{sym}=-\frac{M_1}{\tau_1}\mathring{{Q}}, \\
+\dot{Q}_t+\frac{1}{3} \nabla \cdot {q}=-\frac{M_2}{\tau_2}\dot{Q}.
+\end{eqnarray*}
+当 $\tau_1 \to 0, \tau_2 \to 0$时，上面的方程近似为
+\begin{eqnarray*} 
+\mathring{{Q}}=-\frac{\tau_1}{M_1}(\mathring{\nabla {q}})^{sym} ,\quad  \quad \mathring{S}_{Q}=\frac{1}{M_1}(\mathring{\nabla {q}})^{sym} \\
+\dot{Q}=-\frac{\tau_2}{3M_2}\nabla \cdot {q} \quad , \quad \bar{S}_{\dot{Q}}=\frac{1}{3M_2} \nabla \cdot {q}
+\end{eqnarray*}
+取$M$为
+\begin{equation}
+M_0=\frac{1}{\lambda \theta^2}, M_1=\frac{\lambda \theta^2}{d\tau}, M_2=\frac{2\lambda \theta^2}{5d\tau}
+\end{equation}
+与$a_0=\frac{\tau_0}{\lambda \theta^2}$,
+我们可以得到Guyer-Krumhansl模型（以$T$代替$\theta$）\cite{Jou1996extended}
+\begin{equation}
+{q}_t+\frac{{q}}{\tau_0}+\frac{\lambda}{\tau_0}\nabla T=\frac{1}{2}d(\nabla^2 {q}+2\nabla \nabla \cdot {q})
+\end{equation}
+注意这里我们假设了$a_0,\tau_1,\tau_2$均为常数。
+
+我们可以得到了推广的Guyer-Krumhansl模型。
+\begin{subequations}
+	\begin{align}
+(\alpha_0 {q})_t - \nabla \cdot ({\frac{1}{\tau_1} \mathring{{Q}}}+\frac{1}{\tau_2}\dot{Q})+\nabla \theta^{-1} = M_0 {q} \\
+\mathring{{Q}}_t+(\mathring{\nabla {q}})^{sym}=-\frac{M_1}{\tau_1}\mathring{{Q}} \\
+\dot{Q}_t+\frac{1}{3} \nabla \cdot {q}=-\frac{M_2}{\tau_2} \dot{Q}
+	\end{align}
+\end{subequations}
+
+在$a_0,\tau_1,\tau_2$均为常数时，熵函数的Hessian矩阵为
+\begin{eqnarray*}
+\left(\begin{array}{llll}  -\frac{1}{c_v \theta^2} & 0 & 0 & 0 \\
+                                           0  & -\frac{1}{\alpha_0} & 0 & 0 \\
+										   0 & 0 & -\frac{1}{2\tau_1} & 0 \\
+										   0 & 0 & 0 & -\frac{1}{2\tau_2}
+										   \end{array} \right).
+\end{eqnarray*}
+熵的上凸性的等价于$c_v$和参数$\alpha_0,\tau_1,\tau_2$为正的。
+
+利用推广的Guyer-Krumhansl模型可以得到热质理论和Guyer-Krumhansl模型的组合模型。即令$M_0=\frac{1}{\lambda T^2}, \alpha_0 = \alpha_0 (u) =\frac{\rho c_v}{2\gamma u^3}=\frac{\rho}{2\gamma c_v^2 T^3}$，于是可以得到
+\begin{eqnarray*}
+\tau_{TM} {q}_t-c_v {L}T_t+\nabla {q} \cdot {L}+\lambda(1-M_H^2)\nabla T+{q} - \lambda T^2 \nabla \cdot ({\frac{1}{\tau_1} \mathring{{Q}}}+\frac{1}{\tau_2}\dot{Q})=0, \\
+\mathring{{Q}}_t+(\mathring{\nabla {q}})^{sym}=-\frac{M_1}{\tau_1}\mathring{{Q}}, \\
+\dot{Q}_t+\frac{1}{3} \nabla \cdot {q}=-\frac{M_2}{\tau_2} \dot{Q}.
+\end{eqnarray*}
+令$\tau_1,\tau_2$趋于0，并取$M_1 = \frac{\lambda T^2}{d}, M_2 = \frac{2\lambda T^2}{5 d }$，可以得到下面的Guyer-Kramhansl-Thermomass模型。
+\begin{eqnarray*}
+	\tau_{TM} {q}_t-c_v {L}T_t+\nabla {q} \cdot {L}+\lambda(1-M_H^2)\nabla T+{q} = \frac{1}{2}d (\nabla^2 q +2 \nabla \nabla \cdot q). \\
+\end{eqnarray*}
+
+
+\subsection{考虑热传导的线性粘弹性流体模型}
+上面对热传导模型的分析可以用于粘弹性流体力学的建模之中。我们仍然选取守恒变量$U_c$为密度、动量和能量。耗散变量我们选取$w,Q$和$c$。假设
+
+
+
 	\section{守恒-耗散理论的数学结果}
 	守恒-耗散理论一方面考虑了热力学第一定律和第二定律和Onsager倒易关系等物理原理，另一方面它建立在严格的数学理论之上。熵函数的存在性和方程的守恒形式共同保证方程可以被对陈化，从而根据对称双曲组的相关理论，方程的局部适定性可以保证。而对右端项的要求可以使得方程满足文献\cite{}中的条件，从而可以保证有端项含有松弛参数$\epsilon$时松弛极限$\epsilon$很小时可以与形式上得到的方程相近似，从而保证了离平衡态“很近”的体系可以很好地采用平衡态体系近似。
 
