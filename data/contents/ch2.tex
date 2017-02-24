@@ -102,11 +102,10 @@
 	其中$\tau = P - pI$。前两个式子来源于平衡态热力学的Gibbs关系，最后一个式子是我们的假设（广义Gibbs关系）。
 	这里我们假定广义的Gibbs关系成立
 	\begin{equation*}
-		ds = \theta^{-1} pd\nu + \theta^{-1} du + s_w \cdot dw + s_c ：dc
-	\end{equation*}
+   	\end{equation*}
 	这里$A:B = \sum_{i,j}A_{ij}B_{ij}$。计算熵的产生率。
 	\begin{eqnarray*}
-		\eta_t + \nabla \cdot (\eta v) &=& \rho s_t + v \cdot \nabla s, \\
+		\eta_t + \nabla \cdot (\eta v) &=& \rho (s_t + v \cdot \nabla s), \\
 		&=& -\nabla \cdot (\theta^{-1} q) + s_w \cdot [\rho (w_t + v \cdot \nabla w)] \\
 		&&+ (s_c:[\rho (c_t + v \cdot \nabla v)] - \theta^{-1} \tau : D) \\
 		&& = -\nabla \cdot J + \Delta.
@@ -117,7 +116,7 @@
 	\end{equation*}
 	这里我们用到了$\tau$的对称性，这是动量矩守恒的自然结果\cite{}。
 	取$q =s_w,\tau = \theta s_c$，由守恒-耗散理论的假设，可以得到
-	\begin{equation*}
+	\begin{equation} \label{eq:CDFgeneral  }
 		\left( \begin{array}{c} 
 			(\rho w)_t +  \nabla \cdot (\rho w \otimes v)  + \nabla \theta^{-1} \\
 			(\rho c)_t +  \nabla \cdot (\rho c \otimes v)  - D
@@ -125,7 +124,7 @@
 		\left( \begin{array}{c} 
 			q \\ \theta^{-1} \tau
 		\end{array}\right).
-	\end{equation*}
+	\end{equation}
 	其中$M=M(\nu,u,w,c)$是正定的，这里我们假设其也是对称的。
 
 	考虑不可压缩流体并忽略温度的影响，则$c$的演化方程可以写为
@@ -140,9 +139,9 @@
 
 	为了推广Maxwell模型以考虑压缩性和温度的影响。我们假设熵函数是二次的。
 	\begin{equation*}
-		s = s_0(\nu,u)  - \frac{1}{2\nu \alpha_0} w^2 - \frac{1}{2\nu \alpha_1} \dot{c}:\dot{c}- \frac{1}{2\alpha_2 \nu} \mathring{c}:\mathring{c}.
+		s = s_0(\nu,u)  - \frac{1}{2\nu \alpha_0} w^2 - \frac{1}{2\nu \alpha_1} \dot{c}^2- \frac{1}{2\alpha_2 \nu} \mathring{c}:\mathring{c}.
 	\end{equation*}
-	其中$s_0(\nu,u)$为平衡态时的熵函数。$\dot{A} = \frac{1}{3} \mbox{Tr} (A)I, \mathring{A} = \frac{1}{2} (A + A^T) - \frac{1}{3} \mbox{Tr} (A) I$分别表示张量的迹部分和无迹对称部分。取耗散矩阵$M$为
+	其中$s_0(\nu,u)$为平衡态时的熵函数。$\dot{A} = \frac{1}{3} \mbox{Tr} (A)I, \mathring{A} = \frac{1}{2} (A + A^T) - \frac{1}{3} \mbox{Tr} (A) $分别表示张量的迹部分和无迹对称部分。取耗散矩阵$M$为
 	\begin{equation*}
 		M = \left( \begin{array}{ccc} 
 			\frac{1}{\theta^2 \lambda} & 0 \\
@@ -160,7 +159,7 @@
 	\end{subequations}
 	当$\alpha_0, \alpha_1, \alpha_1$趋于0时，可以得到
 	\begin{equation*}
-		q = -\lambda \nabla \theta, \quad \tau = - \xi \mathring{D} - \kappa \dot{D}.
+		q = -\lambda \nabla \theta, \quad \tau = - \xi \mathring{D} - \kappa \dot{D} I.
 	\end{equation*}
 	分别为经典的Fourier-Newton-Stokes本构关系\cite{}。
 
@@ -304,13 +303,13 @@ s(u,{w},\mathring{{Q}},\dot{Q})=s_{eq}(u)-\frac{1}{2 \alpha_0}{w}^2-\frac{1}{2\t
 由计算可以得到（利用Gibbs关系）
 \begin{eqnarray*}
 s_t &=& \theta^{-1} u_t +s_{w} \cdot {w}_t + s_{\mathring{{Q}}}:\mathring{{Q}}_t+s_{\dot{Q}} \dot{Q}_t \\
-    &=& -\nabla \cdot (\theta^{-1} {q}+\nabla (s_{\mathring{{Q}}}+s_{\dot{Q}}) \cdot {q})\\
+    &=& -\nabla \cdot (\theta^{-1} {q}+ (s_{\mathring{{Q}}}+s_{\dot{Q}}) \cdot {q})\\
     	&&+({w}_t+\nabla \cdot (s_{\mathring{{Q}}}+s_{\dot{Q}})+\nabla \theta^{-1}) \cdot {q} \\
 && +s_{\mathring{{Q}}}:(\mathring{{Q}}_t+(\mathring{\nabla {q}})^{sym})+s_{\dot{Q}}(\dot{Q}_t+\frac{1}{3}\nabla \cdot {q}).
 \end{eqnarray*}
 为了保证上的产生率大于0（守恒-耗散理论的第二条假设）的成立，我们就假设存在矩阵$M''$，使得
 \begin{equation*}
-\left( \begin{array}{ll} {w}_t+\nabla \cdot (S_{\mathring{{Q}}}+S_Q)+\nabla \theta^{-1} \\ \mathring{{Q}}_t+(\mathring{\nabla {q}})^{sym} \\ \dot{Q}_t+\frac{1}{3} \nabla \cdot {q} \end{array} \right) = M \left( \begin{array}{l} {q} \\ S_{\mathring{{Q}}} \\S_{\dot{Q}} \end{array} \right).
+\left( \begin{array}{ll} {w}_t+\nabla \cdot (s_{\mathring{{Q}}}+s_Q)+\nabla \theta^{-1} \\ \mathring{{Q}}_t+(\mathring{\nabla {q}})^{sym} \\ \dot{Q}_t+\frac{1}{3} \nabla \cdot {q} \end{array} \right) = M \left( \begin{array}{l} {q} \\ s_{\mathring{{Q}}} \\s_{\dot{Q}} \end{array} \right).
 \end{equation*}
 我们考虑最简单的情况，取
 \begin{equation*}
@@ -325,8 +324,8 @@ s_t &=& \theta^{-1} u_t +s_{w} \cdot {w}_t + s_{\mathring{{Q}}}:\mathring{{Q}}_t
 \end{eqnarray*}
 当 $\tau_1 \to 0, \tau_2 \to 0$时，上面的方程近似为
 \begin{eqnarray*} 
-\mathring{{Q}}=-\frac{\tau_1}{M_1}(\mathring{\nabla {q}})^{sym} ,\quad  \quad \mathring{S}_{Q}=\frac{1}{M_1}(\mathring{\nabla {q}})^{sym} \\
-\dot{Q}=-\frac{\tau_2}{3M_2}\nabla \cdot {q} \quad , \quad \bar{S}_{\dot{Q}}=\frac{1}{3M_2} \nabla \cdot {q}
+\mathring{{Q}}=-\frac{\tau_1}{M_1}(\mathring{\nabla {q}})^{sym} ,\quad  \quad s_{\mathring{Q}}=\frac{1}{M_1}(\mathring{\nabla {q}})^{sym} \\
+\dot{Q}=-\frac{\tau_2}{3M_2}\nabla \cdot {q} \quad , \quad s_{\dot{Q}}=\frac{1}{3M_2} \nabla \cdot {q}
 \end{eqnarray*}
 取$M$为
 \begin{equation}
@@ -371,9 +370,74 @@ M_0=\frac{1}{\lambda \theta^2}, M_1=\frac{\lambda \theta^2}{d\tau}, M_2=\frac{2\
 
 
 \subsection{考虑热传导的线性粘弹性流体模型}
-上面对热传导模型的分析可以用于粘弹性流体力学的建模之中。我们仍然选取守恒变量$U_c$为密度、动量和能量。耗散变量我们选取$w,Q$和$c$。假设
+上面对热传导模型的分析可以用于粘弹性流体力学的建模之中。我们仍然选取守恒变量$U_c$为密度、动量和能量。耗散变量我们选取$w,Q$和$c$。假设熵函数
+\begin{equation*}
+	\eta = \eta (\rho,\rho v,\rho e,\rho w,\rho Q,\rho c) = \rho s(\rho,v,e,w,Q,c).
+\end{equation*}
+是其变量的上凸函数。
+根据Gibbs关系我们有
+\begin{equation*}
+			ds = \theta^{-1} pd\nu + \theta^{-1} du + s_w \cdot dw + s_Q : d Q+ s_c ：dc.
+\end{equation*}
+仍然将张量$Q,c$进行分解$Q = \mathring{Q} +\dot{Q}I$。
+从而可以得到熵的产生率
+\begin{eqnarray*}
+		\eta_t + \nabla \cdot (\eta v) &=& \rho (s_t + v \cdot \nabla s), \\
+		&=& -\nabla \cdot (\theta^{-1} q + (s_{\mathring{{Q}}}+s_{\dot{Q}}) \cdot {q} )  \\
+		&&+ q \cdot [\rho (w_t + v \cdot \nabla w) + \nabla \cdot (s_{\mathring{{Q}}}+s_{\dot{Q}})] \\
+		&&+ (s_c:[\rho (c_t + v \cdot \nabla v)] - \theta^{-1} \tau : D) \\
+		&&+s_{\mathring{{Q}}}:(\rho (\mathring{{Q}}_t + v \cdot \nabla \mathring{Q})+(\mathring{\nabla {q}})^{sym}) \\
+		&&+s_{\dot{Q}}(\rho (\dot{Q}_t + v \cdot \nabla \dot{Q})+\frac{1}{3}\nabla \cdot {q}) \\
+		&& = -\nabla \cdot J + \Delta. 
+\end{eqnarray*}
+这里我们用到了$q=s_w,\tau = \theta s_c$。为了满足守恒-耗散理论的第二条假设，我们假设存在正定对称矩阵$M$，使得下面的本构关系成立。
+\begin{equation*}
+   	\left( \begin{array}{c} 
+			(\rho w)_t +  \nabla \cdot (\rho w \otimes v)  + \nabla \theta^{-1} + \nabla \cdot (s_{\mathring{{Q}}}+s_{\dot{Q}})\\
+			(\rho c)_t +  \nabla \cdot (\rho c \otimes v)  - D \\
+			(\rho \mathring{{Q}})_t + \nabla \cdot (\rho \mathring{Q} \otimes v)+(\mathring{\nabla {q}})^{sym} \\ (\rho \dot{Q})_t + \nabla \cdot (\rho \dot{Q} v)+\frac{1}{3} \nabla \cdot {q}
+		\end{array} \right) = M \cdot
+		\left( \begin{array}{c} 
+			q \\ \theta^{-1} \tau \\s_{\mathring{{Q}}} \\s_{\dot{Q}}
+		\end{array}\right).
+\end{equation*} 
+假设熵函数是二次的且具有下面的形式。
+	\begin{equation*}
+		s = s_0(\nu,u)  - \frac{1}{2\nu \alpha_0} w^2 - \frac{1}{2\nu \alpha_1} \dot{c}^2- \frac{1}{2\alpha_2 \nu} \mathring{c}:\mathring{c} - \frac{1}{2 \tau_1 \nu} \mathring{Q}: \mathring{Q} - \frac{1}{2  \tau_2 \nu} \dot{Q}^2.
+ 	\end{equation*}  
+我们得到了可压缩线性粘弹性流体包含温度的一般方程。
+\begin{equation*}
+   	\left( \begin{array}{c} 
+			(\alpha_0 q)_t +  \nabla \cdot (\alpha_0  q \otimes v)  + \nabla \theta^{-1} + \nabla \cdot (\frac{1}{\tau_1} \rho \mathring{{Q}}+\frac{1}{\tau_2} \rho \dot{Q})\\
+			(\alpha_1 \theta^{-1}\tau)_t +  \nabla \cdot (\alpha_1 \theta^{-1} \tau \otimes v)  - D \\
+			(\rho \mathring{{Q}})_t + \nabla \cdot (\rho \mathring{Q} \otimes v)+(\mathring{\nabla {q}})^{sym} \\ (\rho \dot{Q})_t + \nabla \cdot (\rho \dot{Q} v)+\frac{1}{3} \nabla \cdot {q}
+		\end{array} \right) = M \cdot
+		\left( \begin{array}{c} 
+			q \\ \theta^{-1} \tau \\ -\frac{1}{\tau_1} \rho \mathring{{Q}} \\ -\frac{1}{\tau_2} \rho \dot{{Q}}
+		\end{array}\right).
+\end{equation*}
+可以取耗散矩阵$M$为对角的，即
+\begin{equation*}
+	M = \left(\begin{array}{cccc}
+	M_0 & & & \\
+	& M_1 & & \\
+	& & M_2 & \\
+	& & & M_3 \end{array} \right).
+\end{equation*}
+通过选取合适的参数，我们可以得到Navier-Stokes-GGK模型（这里GGK代表Generalized Guyer-Krumhansl模型）。
 
+从上面的建模过程可以看出，守恒-耗散理论十分简洁。其应用的步骤可以总结如下：
+\begin{enumerate}
+	\item 选取合适的守恒变量$U_c$和耗散变量$U_d$。
+	\item 假设熵函数$\eta = \eta(U_c,U_d)$为守恒变量和耗散变量的函数。假设熵函数的形式并保证其为下凸的（可以包含参数）。利用Gibbs关系将熵的产生率写成$\eta_t+ \nabla \cdot (\eta v) + \nabla \cdot J = \Delta$的形式。
+	\item 选取合适的耗散矩阵$M$使得方程满足守恒-耗散理论的第二条假设。
+	\item 选取合适的参数已得到本构关系。
+\end{enumerate}
+可以看出整个过程的关键在于选取合适的熵函数和耗散矩阵。而守恒-耗散理论明确给出了这两者选取的准则，即分别满足守恒-耗散理论的第一条和第二条假设。
 
+与EIT相比，守恒-耗散理论采用的耗散变量具有更大的自由度。EIT经常采用温度梯度、热流等量作为耗散变量，而守恒-耗散理论同GENERIC等理论一样，并不事先假设耗散变量的具体形式。类似GENERIC的观点，我们认为系统的不可逆性是由其内部结构决定的，而描述这一耗散结构经常需要微观的建模。采用$w,c$而不是$q,\tau$可以为建模带来更大的自由度，有时甚至可以与微观模型的统计量产生联系。另外EIT采用的熵函数大部分为二次的。虽然我们上面讨论的模型中熵函数大部分也为二次的，但是守恒-耗散理论仅仅假设熵函数的上凸性。由于这两点，我们认为守恒-耗散理论可以为原理平衡态的体系提供建模的框架。另外守恒-耗散理论对耗散矩阵仅仅要求是正定的。虽然大部分情况下我们假定其也为对称的（如果类似Onsager的倒易关系成立）。这样我们避免了GENERIC等理论对于耗散矩阵的复杂要求。
+
+另外守恒-耗散理论还具有很好的数学基础。下一节将讨论守恒-耗散理论的部分数学结果。
 
 	\section{守恒-耗散理论的数学结果}
 	守恒-耗散理论一方面考虑了热力学第一定律和第二定律和Onsager倒易关系等物理原理，另一方面它建立在严格的数学理论之上。熵函数的存在性和方程的守恒形式共同保证方程可以被对陈化，从而根据对称双曲组的相关理论，方程的局部适定性可以保证。而对右端项的要求可以使得方程满足文献\cite{}中的条件，从而可以保证有端项含有松弛参数$\epsilon$时松弛极限$\epsilon$很小时可以与形式上得到的方程相近似，从而保证了离平衡态“很近”的体系可以很好地采用平衡态体系近似。
