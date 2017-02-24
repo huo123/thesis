@@ -11,7 +11,7 @@
 	\section{守恒－耗散理论}
 	首先，守恒－耗散理论认为，热力学过程可以由守恒过程和耗散过程来描述。守恒率可以采用守恒变量$U_c$来描述。例如$U_c$可以是质量、动量、能量等守恒量。耗散过程采用耗散变量$U_d$来描述。类似于其他非平衡态热力学理论的非平衡态状态变量，然而守恒－耗散理论并不假定其形式。守恒－耗散理论假设不可逆过程可以用下面的偏微分方程来描述
 	\begin{equation}\label{eq:CDF}
-		\partial_t U + \sum_{j=1^3} \partial_{x_j} F_j(U) = Q(U) .
+		\partial_t U + \sum_{j=1}^3 \partial_{x_j} F_j(U) = \mathcal{Q} (U) .
 	\end{equation}
 	其中
 	\begin{equation*}
@@ -21,14 +21,14 @@
 			 \left( \begin{array}{c}
 			f_j(U) \\ g_j(U)
 			\end{array} \right), \quad 
-			Q(U) = \left( \begin{array}{c}
-			0 \\ q(U) 
+			\mathcal{Q}(U) = \left( \begin{array}{c}
+			0 \\ \mathcal{q} (U) 
 			\end{array} \right).
 	\end{equation*}
 	根据文献\cite{}，如果假设$Q(U)$前有参数$\frac{1}{\epsilon}$。当$\epsilon$很小时我们期望方程和平衡态的方程相近。基于数学上的考虑\cite{}，结合热力学第二定律，守恒－耗散理论的假设如下\cite{}。
 	\begin{enumerate}
 		\item 存在严格上凸函数$\eta = \eta (U)$，使得$\eta_{UU} F_{jU}$对称。我们称$\eta$为系统的熵函数。
-		\item 存在正定矩阵$M = M(U)$，使得$q(U) = M \eta_{U_d}$。我们称$M$为耗散矩阵。
+		\item 存在正定矩阵$M = M(U)$，使得$\mathcal{q}(U) = M \eta_{U_d}$。我们称$M$为耗散矩阵。
 	\end{enumerate}
 	由这两条假设可以得到，存在$J = J(U)$使得下面的式子成立
 	\begin{equation*}
@@ -406,7 +406,7 @@ M_0=\frac{1}{\lambda \theta^2}, M_1=\frac{\lambda \theta^2}{d\tau}, M_2=\frac{2\
 		s = s_0(\nu,u)  - \frac{1}{2\nu \alpha_0} w^2 - \frac{1}{2\nu \alpha_1} \dot{c}^2- \frac{1}{2\alpha_2 \nu} \mathring{c}:\mathring{c} - \frac{1}{2 \tau_1 \nu} \mathring{Q}: \mathring{Q} - \frac{1}{2  \tau_2 \nu} \dot{Q}^2.
  	\end{equation*}  
 我们得到了可压缩线性粘弹性流体包含温度的一般方程。
-\begin{equation*}
+\begin{equation}\label{eq:CNSTgeneral}
    	\left( \begin{array}{c} 
 			(\alpha_0 q)_t +  \nabla \cdot (\alpha_0  q \otimes v)  + \nabla \theta^{-1} + \nabla \cdot (\frac{1}{\tau_1} \rho \mathring{{Q}}+\frac{1}{\tau_2} \rho \dot{Q})\\
 			(\alpha_1 \theta^{-1}\tau)_t +  \nabla \cdot (\alpha_1 \theta^{-1} \tau \otimes v)  - D \\
@@ -415,7 +415,7 @@ M_0=\frac{1}{\lambda \theta^2}, M_1=\frac{\lambda \theta^2}{d\tau}, M_2=\frac{2\
 		\left( \begin{array}{c} 
 			q \\ \theta^{-1} \tau \\ -\frac{1}{\tau_1} \rho \mathring{{Q}} \\ -\frac{1}{\tau_2} \rho \dot{{Q}}
 		\end{array}\right).
-\end{equation*}
+\end{equation}
 可以取耗散矩阵$M$为对角的，即
 \begin{equation*}
 	M = \left(\begin{array}{cccc}
@@ -440,16 +440,43 @@ M_0=\frac{1}{\lambda \theta^2}, M_1=\frac{\lambda \theta^2}{d\tau}, M_2=\frac{2\
 另外守恒-耗散理论还具有很好的数学基础。下一节将讨论守恒-耗散理论的部分数学结果。
 
 	\section{守恒-耗散理论的数学结果}
-	守恒-耗散理论一方面考虑了热力学第一定律和第二定律和Onsager倒易关系等物理原理，另一方面它建立在严格的数学理论之上。熵函数的存在性和方程的守恒形式共同保证方程可以被对陈化，从而根据对称双曲组的相关理论，方程的局部适定性可以保证。而对右端项的要求可以使得方程满足文献\cite{}中的条件，从而可以保证有端项含有松弛参数$\epsilon$时松弛极限$\epsilon$很小时可以与形式上得到的方程相近似，从而保证了离平衡态“很近”的体系可以很好地采用平衡态体系近似。
+	守恒-耗散理论一方面考虑了热力学第一定律和第二定律和Onsager倒易关系等物理原理，另一方面它建立在严格的数学理论之上。熵函数的存在性和方程的守恒形式共同保证方程可以被对称化，从而根据对称双曲组的相关理论，方程的局部适定性可以保证。而对右端项的要求可以使得方程满足文献\cite{}中的条件，从而可以保证有端项含有松弛参数$\epsilon$时松弛极限$\epsilon$很小时可以与形式上得到的方程相近似，从而保证了离平衡态“很近”的体系可以很好地采用平衡态体系近似。
 
 	守恒-耗散理论得到的方程均为可对称双曲方程组，所以可以采用对称双曲组的相关理论对方程的解进行分析。例如在平衡态附近方程解的全局适定性可以采用Kawashima理论进行分析\cite{}。可压缩模型的小马赫数极限可以采用类似可压Euler方程的小马赫数极限进行分析\cite{}。方程的弱解的存在性和间断解可以采用相关的理论进行分析\cite{}。
 
-	本节主要考虑方程的强解，我们采用的解空间为Sobolev空间$H^s, s \in N$。
+	本节主要考虑方程的强解（经典解），我们采用的解空间为Sobolev空间$H^s, s > \frac{n}{2}+1$，其中$n$为空间的维数。
 
-	\section{方程解的存在性定理}
-	由守恒-耗散理论的第一条假设，存在正定对称矩阵$A_0(U)  = -\eta_{UU}$使得$A_0(U) A_j(U)$对称。$A_0$的正定性可由$\eta$的上凸性得到。利用对称双曲方程组的存在性理论，可以得到下面的定理\cite{}。
+	\subsection{方程解的局部存在性}
+	由守恒-耗散理论的第一条假设，存在正定对称矩阵$A_0(U)  = -\eta_{UU}$使得$A_0(U) A_j(U)$对称。$A_0$的正定性可由$\eta$的上凸性得到。假设状态变量$U$定义域在$R^{n}$的开集$G$中，$G_1$紧包含在$G$中$\bar{G_1} \subset\subset G$。利用对称双曲方程组的存在性理论，可以得到下面的定理\cite{}。
 	\begin{theorem}
-		假设$U_0 \in H^{s}$，其中$s>\frac{d}{2} +1$，其中$d$为空间的维数。
+		假设$U_0 =U_0(x) \in H^{s}$，其中$s>\frac{n}{2} +1$。那么存在时间区间$[0,T]$，其中$T>0$,使得方程\eqref{eq:CDF}对于初值问题$U=U_0(x)$，存在唯一解$U = U(x,t) \in G_2, \bar{G_2} \subset \subset G$，且
+		\begin{equation*}
+			u \in C([0,T],H^s) \cap C^1([0,T],H^{s-1}).
+		\end{equation*}
+		其中$T$依赖于$\|u_0\|_{H^s}$和$G_1$。
 	\end{theorem}
-	于是对于线性弹性流体力学模型
+	于是对于线性弹性流体力学模型\eqref{eq:CNSTgeneral}，可以应用上面的定理，其中$U = (\rho,\rho v, \rho c,\rho w, \rho Q)$。这样我们就可以得到由\eqref{eq:fluid}与\eqref{eq:CNSTgeneral}构成的方程组的经典解局部存在且唯一。
+
+	近些年来，Iftimie、Chae和徐江等人证明了Besov空间下（临界指数下）的双曲对称方程组解的存在唯一性定理\cite{}。文献\cite{}证明的定理如下。
+	\begin{theorem}
+		假设$U_0 =U_0(x) \in B_{2,1}^{s}(R^n)$，其中$s=\frac{n}{2} +1$。那么存在时间区间$[0,T]$，其中$T>0$,使得方程\eqref{eq:CDF}对于初值问题$U=U_0(x)$，存在唯一解$U = U(x,t) \in C^1([0,T],R^n)$满足
+		\begin{equation*}
+			u \in \tilde{C}_{T}([0,T],B_{2,1}^s(R^n)) \cap \tilde{C}^1_T(B_{2,1}^{s-1}).
+		\end{equation*}
+		其中$T$依赖于$\|u_0\|_{B^{s}_{2,1}}$。这里$\tilde{C}_T$为Chemin-Lerner空间，定义为
+		\begin{eqnarray*}
+			\tilde{C}_T(B_{2,1}^s):= \tilde{L}_T^\infty(B_{2,1}^s) \cap C([0,T],B_{2,1}^s), \\
+			\tilde{L}_T^\infty(B_{2,1}^s) :=\{ u \in L^\infty: \|u\|_{\tilde{L}_T^\infty (B_{2,1}^s)} < \infty\}.
+		\end{eqnarray*}
+	\end{theorem}
+	
+	\subsection{平衡态附近解的整体存在性}
+	我们定义$\tilde{Q}(U) = 0$对应的$U$称为平衡流形。  
+	守恒-耗散理论得到的方程\eqref{eq:CDF}带有部分耗散源项。对于这样的系统的平衡态附近整体存在性的研究可以参看\cite{}。Shuichi Kawashima和Yasushi Shizuta最早对带有部分扩散源项的系统进行了讨论并提出了Kawashima条件。Wen-An Yong和Shuichi Kawashima讨论了带有部分耗散源项的系统\cite{}。关于带有部分耗散原项的双曲守恒律方程组的研究可以参看文献\cite{}。
+
+	这里我们考察方程在$q(U)=0$对应状态$U=U_e$的行为。
+
+	\subsection{松弛极限}
+
+
 	\end{document}
