@@ -2,6 +2,7 @@
  \documentclass{article}
  \usepackage{ctex}
  \usepackage{amsmath}
+ \usepackage{}
  \usepackage{amsthm}
 \newtheorem{theorem}{定理}
 
@@ -471,12 +472,86 @@ M_0=\frac{1}{\lambda \theta^2}, M_1=\frac{\lambda \theta^2}{d\tau}, M_2=\frac{2\
 	\end{theorem}
 	
 	\subsection{平衡态附近解的整体存在性}
-	我们定义$\tilde{Q}(U) = 0$对应的$U$称为平衡流形。  
+	我们定义$\tilde{Q}(U) = 0$对应的$U$称为平衡流形。我们考虑在常数平衡态$U=U_e$附近方程解的存在性。  
 	守恒-耗散理论得到的方程\eqref{eq:CDF}带有部分耗散源项。对于这样的系统的平衡态附近整体存在性的研究可以参看\cite{}。Shuichi Kawashima和Yasushi Shizuta最早对带有部分扩散源项的系统进行了讨论并提出了Kawashima条件。Wen-An Yong和Shuichi Kawashima讨论了带有部分耗散源项的系统\cite{}。关于带有部分耗散原项的双曲守恒律方程组的研究可以参看文献\cite{}。
 
-	这里我们考察方程在$q(U)=0$对应状态$U=U_e$的行为。
+	这里我们考察方程在$\mathcal{q}(U)=0$对应状态$U=U_e$的行为。这样一来，熵增
+	\begin{equation*}
+		\Delta = \eta_{U_d}^T M \eta_{U_d} = 0
+	\end{equation*}
+	对应的$U$满足$\eta_{U_d}(U) = 0$。
+	注意到守恒耗散理论的第一条假设和第二条假设以及$M$的零空间不依赖于$U$正好构成了文献\cite{}中对方程\eqref{eq:CDF}的三条假设。而由于$M$的正定性，其零空间为0，不依赖于$U$。从而根据\cite{}中的定理2.4，我们有
+	\begin{theorem}
+		假设方程\eqref{eq:CDF}满足守恒-耗散定理的两条基本假设，耗散矩阵$M$对称且零空间不依赖于$U$。那么下面的结论成立（文献\cite{}定理2.4）。
+		\begin{enumerate}
+			\item $$-\eta_{U_d}^T (U) \mathcal{q}(U) \le -\lambda^{-1}(U) |\mathcal{q}(U)|^2$$对任意的$U$成立。这里$\lambda(U)$为$M$的最大特征值。
+			\item $\mathcal{Q} (U) = 0$等价于$\eta_{U_d} (U) = 0$。
+			\item 若$U$满足$\mathcal{Q}(U)=0$，那么对应的$\mathcal{q}_{U_d}(U) \eta_{U_d U_d}^{-1}(U)$对称且正定。
+			\item 若$U$满足$\mathcal{Q}(U)=0$，那么对应的$\mathcal{q}_{U_d}(U)$是可逆的。
+		\end{enumerate}
+	\end{theorem}
+	下面我们证明这些结果。
+	\begin{proof}
+		文献\cite{}考虑的第一个条件即为守恒-耗散理论的第一条假设（只不过\cite{}假设熵函数为下凸的，即对应于我们的$-\eta$）。第二个条件为存在对称半正定矩阵$\mathcal{L} = \mathcal{L}(U)$使得$\mathcal{Q}(U) = \mathcal{L}(U) \eta_{U} (U)$。第三个条件为$\mathcal{L}(U)$的零空间不依赖于$U$。在守恒-耗散理论中我们假设的$\mathcal{L}$为
+		\begin{equation*}
+			\mathcal{L} (U)= \left( \begin{array}{cc}
+			0 & 0 \\ 0 & M(U)
+			\end{array} \right).
+		\end{equation*}
+		其中$M$的假设为负定的。即守恒-耗散理论的假设要强于文献\cite{}的假设。而由于$M$的正定性$\mathcal{L}$的零空间即$(U_c,U_d = 0)$（对应$\mathcal{L}(U) = 0$，注意这里为简单采用了$U$表示其零空间的向量，并不代表方程的解）。于是文献\cite{}中定理2.4的（1）、（2）、（4）、（5）分别对应这里的四个结论。下面我们给出这四个结论的直接证明。
+		\begin{enumerate}
+			\item 由于$M$的最大特征值为$\lambda$，下面的式子成立。
+			\begin{equation*}
+				\eta_{U_d}^T M \eta_{U_d} = (M \eta_{U_d})^T M^{-1} M \eta_{U_d}  \ge \lambda^{-1} | M\eta_{U_d}|^2. 
+			\end{equation*}
+			从而结论1成立。
+			\item 由$\mathcal{Q}(U) = 0$，得到$ \mathcal{q}(U) = M\eta_{U_d} = 0$。由$M$的正定性可以得到$\eta_{U_d}(U) = 0$。反之亦然。
+			\item $U$满足$\mathcal{Q}(U) = 0$，从而由第二条结论$\eta_{U_d}{Q}(U) = 0$。于是
+			\begin{equation*}
+				\mathcal{q}_{U_d} (U) = (M(U) \eta_{U_d}(U))_{U_d} = M_{U_{d}}(U)\eta_{U_d}(U) +M(U) \eta_{U_d U_d} = M(U) \eta_{U_d U_d}(U).  
+			\end{equation*}
+			所以$\mathcal{q}_{u_d}(U) \eta_{U_d U_d}^{-1} = M(U)$是对称正定的。
+			\item 因$\mathcal{q}_{U_d} (U) = M(U) \eta_{U_d U_d}(U)$，其中$M$正定，$\eta_{U_d U_d}$负定，均非奇异，所以$\mathcal{q}_{U_d} (U)$可逆。
+			\end{enumerate}
+	\end{proof}
 
+	由本定理的结论1，2，4可以得到文献\cite{}中的假设（i），（ii），（iii）成立。即$\mathcal{q}_{u_d}(U)$可逆，$\eta_{U U} F_{jU}$对称，且存在$c_G = \lambda^{-1}$，使得
+	\begin{equation*}
+		[\eta_U(U) - \eta_U (U_e)] \mathcal{Q}(U) \le -c_G |\mathcal{Q}(U)|^2.
+	\end{equation*}
+	由文献\cite{}，可知如果方程\eqref{eq:CDF}还满足Kawashima条件
+	\begin{itemize}
+		\item 矩阵$\sum_j \omega_j F_{jU}(U_e), \omega = (\omega_1,\omega_2, \cdots,\omega_n) \in S^{n-1}$ （$\mathbf{R}^n$中的单位球）的特征向量不在$\mathcal{Q}$的Jacobi矩阵$\mathcal{Q}_{U}(U_e)$的零空间中。
+	\end{itemize}
+	根据文献\cite{}，我们可以得到下面的平衡态$U=U_e$附近方程\eqref{eq:CDF}的整体存在性定理。
+	\begin{theorem}
+		设整数$s \ge [\frac{n}{2}]+2$，且方程\eqref{eq:CDF}满足守恒-耗散理论的两个假设，其中耗散矩阵$M$为正定对称的。且满足Kawashima条件。那么存在常数$C_1,C_2$，若$U_0 = U_0(x) \in H^s(\mathbf{R}^n)$满足
+		\begin{equation*}
+			\|U_0 -U_e\|_{H^s} \le C_1.
+		\end{equation*}
+		则方程\eqref{eq:CDF}以$U_0$为初值的Cauchy问题存在唯一的整体解$U=U(x,t) \in C([0,\infty),H^s(\mathbf{R}^d)]$，且对任意$T>0$满足下面的估计。
+		\begin{eqnarray*}
+			&& \|U(\cdot,T) - U_e \|_{H^s}^2 + \int_0^T \| \mathcal{Q}(U)(\cdot,t)\|_{H^s}^2 dt + \int_0^T \|\nabla U (\cdot,t)\|_{H^{s-1}}^2 dt \\
+			&& \le C_2 \| U_0 -U_e\|_{H^s}^2
+		\end{eqnarray*}
+	\end{theorem}
+	定理的证明见\cite{}。
+
+	下面我们考虑可压线性粘弹性流体模型的Kawashima条件。
+    TBA
 	\subsection{松弛极限}
+	实际中经常需要考虑系统在平衡态附近的情况。这是方程的源项经常会包含小参数\cite{}。即方程\eqref{eq:CDF}具有下面的形式。
+	\begin{equation}\label{eq:CDFSingular}
+		\partial_t U + \sum_{j=1}^3 \partial_{x_j} F_j(U) = \frac{1}{\epsilon}\mathcal{Q} (U) .
+	\end{equation}
+	其中$\epsilon$很小。对$\epsilon \rightarrow 0$时的极限的研究可以参看文献\cite{}。雍稳安的博士论文\cite{}中提出了极限的奇异摄动展开收敛的充分条件。在文献\cite{}中讨论了$\epsilon \rightarrow 0$时采用Maxwell迭代（Chapman-Enskog展开）得到近似方程的有效性。下面我们将这些结果用于线性粘弹性流体力学模型。
 
+	\subsubsection{线性粘弹性模型的摄动展开}
+
+	\subsubsection{线性粘弹性模型的Chapman-Enskog展开}
+
+	\subsection{可压模型的不可压极限}
+	经典可压Euler方程的小马赫数极限的数学分析依赖于Euler方程的双曲性\cite{}。由于守恒-耗散理论得到的方程是对称双曲的，前面导出的可压粘弹性流体力学方程的小马赫数极限问题可以采用类似Euler方程的分析方法进行处理。本小节我们将忽略热传导并假设压力$p$为密度的函数，满足$p(\rho) = \kappa \rho^\gamma, \gamma>1$。
+	\subsection{本章小结}
 
 	\end{document}
