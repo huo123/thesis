@@ -151,7 +151,7 @@
 	\end{equation*}
 	其中$\dot{\mathcal{T}}, \mathring{\mathcal{T}}$均为四阶张量，其坐标表示为$\dot{\mathcal{T}}_{kl,k'l'} = \frac{1}{3}\delta_{kl} \delta_{k'l'}, \mathring{\mathcal{T}}_{kl,k'l'} =\frac{1}{2}(\delta_{kk'}\delta_{ll'} + \delta_{kl'} \delta_{lk'} ) -\frac{1}{3}\delta_{kl} \delta_{k'l'} $。从而$\dot{\mathcal{T}} A = \dot{A},\mathring{\mathcal{T}} A = \mathring{A}$。$M$的正定性参看附录1。needapp
 	于是我们可以得到系统的演化方程为\cite{}.
-	\begin{subequations}
+	\begin{subequations}\label{eq:CDFMaxwell}
 		\begin{align}
 			\alpha_0 [\partial_t q +  \nabla \cdot (q \otimes v)] - \nabla \theta^{-1} = -\frac{q}{\theta^2 \lambda}, \\
 			\alpha_1[\partial_t (\theta^{-1} \dot{\tau}) + \nabla \cdot (\theta^{-1} \dot{\tau} \otimes v)] + \dot{D} = -\frac{\dot{\tau}}{\kappa}, \\
@@ -524,7 +524,7 @@ M_0=\frac{1}{\lambda \theta^2}, M_1=\frac{\lambda \theta^2}{d\tau}, M_2=\frac{2\
 		\item 矩阵$\sum_j \omega_j F_{jU}(U_e), \omega = (\omega_1,\omega_2, \cdots,\omega_n) \in S^{n-1}$ （$\mathbf{R}^n$中的单位球）的特征向量不在$\mathcal{Q}$的Jacobi矩阵$\mathcal{Q}_{U}(U_e)$的零空间中。
 	\end{itemize}
 	根据文献\cite{}，我们可以得到下面的平衡态$U=U_e$附近方程\eqref{eq:CDF}的整体存在性定理。
-	\begin{theorem}
+	\begin{theorem} \label{th:Kawashima}
 		设整数$s \ge [\frac{n}{2}]+2$，且方程\eqref{eq:CDF}满足守恒-耗散理论的两个假设，其中耗散矩阵$M$为正定对称的。且满足Kawashima条件。那么存在常数$C_1,C_2$，若$U_0 = U_0(x) \in H^s(\mathbf{R}^n)$满足
 		\begin{equation*}
 			\|U_0 -U_e\|_{H^s} \le C_1.
@@ -538,13 +538,180 @@ M_0=\frac{1}{\lambda \theta^2}, M_1=\frac{\lambda \theta^2}{d\tau}, M_2=\frac{2\
 	定理的证明见\cite{}。
 
 	下面我们考虑可压线性粘弹性流体模型的Kawashima条件。
-    TBA
+    {}
+	首先我们讨论温度不变的情况，即$\theta = 1$。选取$\alpha_1 = \alpha_2 =\rho$，
+	\begin{equation*}
+		M = \left( \begin{array}{cc} \frac{1}{\kappa} & 0 \\ 0 & \frac{1}{\xi} \end{array} \right)
+	\end{equation*}
+	此时方程\eqref{eq:fluid}、\eqref{eq:CDFMaxwell}可以写为
+	\begin{subequations}\label{eq:CDFspecific}
+		\begin{align}
+			\rho_t + \nabla \cdot (\rho v) = 0, \\
+			(\rho v)_t + \nabla \cdot (\rho v \otimes v) + \nabla p - \nabla \cdot ( \dot{c} I +  \mathring{c}) = 0, \\
+			(\rho \dot{c})_t  + \nabla \cdot(\rho \dot{c} \otimes v) -  \nabla \cdot v = - \frac{\dot{c}}{\kappa}. \\
+			(\rho \mathring{c})_t + \nabla \cdot (\rho c \otimes v) - \frac{1}{2} (\nabla v + (\nabla v)^T) = - \frac{ \mathring{c}}{\xi}.
+		\end{align}
+	\end{subequations}
+	其中$p(\rho) = s_{\nu}(\nu) = -s_{\rho} \rho^2$。可以写成下面的坐标分量的形式。
+	\begin{eqnarray*}
+		U_t + \sum_j A_j(U) U_{x_j} = \mathcal{Q}(U), \\
+		U =\left( \begin{array}{cccc} 
+			\rho \\ \rho v_i \\ \rho \dot{c} \\ \rho \mathring{c}_{kl}
+		\end{array}\right), \quad 
+		\mathcal{Q}(U) = 
+		\left( \begin{array}{cccc} 
+			0 & & & \\
+			& 0 & & \\
+			& & -\frac{1}{\rho \kappa} &\\
+			& &　& -\frac{1}{\rho \xi}
+ 		\end{array}\right) U, \\
+ 		\tiny{ A^{j}(U) = \left( \begin{array}{cccc} 
+ 		v_j & \rho \delta_{i'j} & 0 & 0 \\
+ 		-v_i v_j + p_{\rho} \delta_{ij} + \frac{\dot{c}}{\rho} \delta_{ij}  + \frac{\mathring{c}_{ij}}{\rho} & v_i \delta_{i'j} + v_j \delta_{ii'} & -\frac{1}{\rho}\delta_{ij} & -\frac{1}{\rho}(\delta_{ik'} \delta_{jl'}+\delta_{jk'}\delta_{il'}) \\
+ 		- \dot{c} v_j + \frac{v_j}{\rho} & \frac{\dot{c}}{\rho} \delta_{i'j} - \frac{1}{\rho} \delta_{i'j} & v_{j} & 0 \\
+ 		- \mathring{c}_{kl} v_j + \frac{1}{2}(\frac{v_k}{\rho} \delta_{jl} + \frac{v_l}{\rho} \delta_{jk}) & \frac{\mathring{c}_{kl}}{\rho} \delta_{i'j} - \frac{1}{\rho}(\delta_{i'k} \delta_{jl} + \delta_{jk} \delta_{il}) & 0 & v_j \delta_{kk'} \delta_{ll'}  
+ 		\end{array}\right) }.
+	\end{eqnarray*}
+	在平衡态附近$\rho = \bar{\rho},v=0,\dot{c} = 0,\mathring{c}=0$，对应的$A_j(U_e)$为
+	\begin{eqnarray*}
+		A^{j}(U_e) = \left( \begin{array}{cccc} 
+ 		0 & \bar{\rho} \delta_{i'j} & 0 & 0 \\
+ 		p_{\rho}(\bar{\rho}) \delta_{ij} & 0 & -\frac{1}{\bar{\rho}}\delta_{ij} & -\frac{1}{\bar{\rho}}(\delta_{ik'} \delta_{jl'}+\delta_{jk'}\delta_{il'}) \\
+ 		0 & -\frac{1}{\bar{\rho}} \delta_{i'j} & 0 & 0 \\
+ 		0 & - \frac{1}{\bar{\rho}}(\delta_{i'k} \delta_{jl} + \delta_{jk} \delta_{il}) & 0 & 0 
+ 		\end{array}\right).
+	\end{eqnarray*}
+	假设$W = (W_1,W_2,W_3,W_4)^T$满足$\mathcal{Q}_U(U_e) W = 0$，由
+	\begin{equation*}
+		\mathcal{Q}_U(U) = \left( \begin{array}{cccc} 
+			0 & & &　\\
+			& 0 & &　\\
+			\frac{\rho \dot{c}}{\kappa} & 0 & -\frac{1}{\rho \kappa} & 0 \\
+			\frac{\rho \mathring{c}}{\kappa} & 0 & 0 & -\frac{1}{\rho \kappa}  
+		\end{array}\right)
+	\end{equation*}
+	得到
+	\begin{equation*}
+		\left( \begin{array}{cccc} 
+		0 & & & \\
+		& 0 & & \\
+		& & -\frac{1}{\bar{\rho}\kappa} & \\
+		& & &　\frac{1}{\bar{\rho}\xi} 
+		\end{array} \right) 
+		\left( \begin{array}{c} W_1 \\ W_2 \\W_3 \\W_4 \end{array} \right) = 0.
+	\end{equation*}
+	从而$W_3=0,W_4=0$。假设$W$为矩阵$\sum_j \omega_j A_j(U_e)$的特征向量，即存在$\mu$，使得$A_j(U_e) W = \mu W$。
+	\begin{eqnarray*}
+		&& \sum_j \omega_j \left( \begin{array}{cccc} 
+ 		0 & \bar{\rho} \delta_{i'j} & 0 & 0 \\
+ 		p_{\rho}(\bar{\rho}) \delta_{ij} & 0 & -\frac{1}{\bar{\rho}}\delta_{ij} & -\frac{1}{\bar{\rho}}(\delta_{ik'} \delta_{jl'}+\delta_{jk'}\delta_{il'}) \\
+ 		0 & -\frac{1}{\bar{\rho}} \delta_{i'j} & 0 & 0 \\
+ 		0 & - \frac{1}{\bar{\rho}}(\delta_{i'k} \delta_{jl} + \delta_{jk} \delta_{il}) & 0 & 0 
+ 		\end{array}\right) \left( \begin{array}{c} W_1 \\ W_2 \\W_3 \\W_4 \end{array} \right) \\
+ 		&& = \mu \left( \begin{array}{c} W_1 \\ W_2 \\W_3 \\W_4 \end{array} \right).
+	\end{eqnarray*}
+	得到
+	\begin{eqnarray*}
+		\bar{\rho} \omega \cdot W_2 = \mu W_1, \\ \quad [(\bar{\rho} p_{\rho}(\bar{\rho}) W_1 - W_3) I - W_4] \cdot \omega =\mu W_2, \\
+		-\frac{1}{\bar{\rho}} W_2 \cdot \omega  = 0, \\
+		-\frac{1}{\bar{\rho}} (\omega \otimes W_2 + W_2 \otimes \omega) = 0.
+	\end{eqnarray*}
+	假设$\mu \neq 0$，将第三个式子代入第一个得到$W_1 = 0$，再将$W_2=0,W_3=0,w_4=0$代入第二个式子得到$W_2 = 0$，从而$W = 0$。若$\mu = 0$，由第四个式子得到
+	\begin{equation*} \label{eq:Womega}
+		W_{2k} \omega_l + W_{2l} \omega_k = 0.
+	\end{equation*}
+	由第一或第三个式子得到
+	\begin{equation}\label{eq:omega}
+		\sum_{j} \omega_j W_{2j} = 0.
+	\end{equation}
+	在等式\eqref{eq:Womega}两边同乘以$\omega_k$并对$k$求和，利用\eqref{eq:omega}得到
+	\begin{equation*}
+		\sum_{k} W_{2l} \omega_k^2 = W_{wl} = 0
+	\end{equation*}
+	对任意的$l$成立。即$W_2=0$。从而$W=0$。这样我们说明了不存在非零向量$W$使得$A^j(U_e) W= \mu W $和$\mathcal{Q}_U(U_e) W=0$同时成立，即Kawashima条件成立。
+
+	于是对方程组\eqref{eq:CDFspecific}，定理\ref{th:Kawashima}成立。
+
+	对于$\alpha_1,\alpha_2$为常数的情况，此时$p$不仅依赖于$\rho$，还依赖于$\dot{c},\mathring{c}$。
+	\begin{equation*}
+		p = s_\nu = s_{0\nu} +\frac{1}{2\nu^2 \alpha_1} \dot{c}^2 +　\frac{1}{2\nu^2 \alpha_2} \mathring{c} : \mathring{c}. 
+	\end{equation*}
+	设$\pi= \pi(\rho) = s_{0\nu}$。取$\alpha_1=\alpha_2=1$。则此时的粘弹性流体模型的方程为   
+	\begin{subequations}\label{eq:CDFalphaConst}
+		\begin{align}
+			\rho_t + \nabla \cdot (\rho v) = 0, \\
+			(\rho v)_t + \nabla \cdot (\rho v \otimes v) + \nabla \pi(\rho) + \frac{1}{2} \nabla [ (\rho \dot{c})^2+ (\rho \mathring{c}) : (\rho \mathring{c})]- \nabla \cdot ( \rho \dot{c} I +  \rho \mathring{c}) = 0, \\
+			(\rho \dot{c})_t  + \nabla \cdot(\rho \dot{c} \otimes v) -  \nabla \cdot v = - \frac{\rho \dot{c}}{\kappa}. \\
+			(\rho \mathring{c})_t + \nabla \cdot (\rho c \otimes v) - \frac{1}{2} (\nabla v + (\nabla v)^T) = - \frac{\rho \mathring{c}}{\xi}.
+		\end{align}
+	\end{subequations}
+	此时由于动量方程中出现的高阶项$\nabla [ (\rho \dot{c})^2+ (\rho \mathring{c}) : (\rho \mathring{c})]$在平衡态附近的线性化为0。所以方程\eqref{eq:CDFalphaConst}的线性化与方程\eqref{eq:CDFspecific}的线性化结果类似。从而亦满足Kawashima条件。于是对于方程组\eqref{eq:CDFalphaConst}，定理\ref{th:Kawashima}亦成立。
+
+	对于包含温度的情况，我们取$\alpha_0=\alpha_1=\alpha_2=\rho$，令$\pi(\rho) = s_\nu(\nu)$，得到下面的模型。
+	\begin{subequations}\label{eq:CDFTemp}
+		\begin{align}
+			\rho_t + \nabla \cdot (\rho v) = 0, \\
+			(\rho v)_t + \nabla \cdot (\rho v \otimes v) + \nabla (\theta \pi) - \nabla \cdot ( \theta \dot{c} I + \theta \mathring{c}) = 0, \\
+			(\rho  e)_t + \nabla \cdot (\rho e v) + \nabla \cdot q + \nabla \cdot (P \cdot v) = 0\\
+			(\rho w)_t + \nabla \cdot (\rho w \otimes v) + \nabla \theta^{-1} = - M_0 w \\
+			(\rho \dot{c})_t  + \nabla \cdot(\rho \dot{c} \otimes v) -  \nabla \cdot v = - \frac{\dot{c}}{\kappa}. \\
+			(\rho \mathring{c})_t + \nabla \cdot (\rho c \otimes v) - \frac{1}{2} (\nabla v + (\nabla v)^T) = - \frac{ \mathring{c}}{\xi}.
+		\end{align}
+	\end{subequations}
+其中$q= -w,P = (\pi - \theta \dot{c}) I - \theta \mathring{c}$。写成坐标的形式为
+	\begin{eqnarray*} \tiny
+		U_t + \sum_j A_j(U) U_{x_j} = \mathcal{Q}(U), \\
+		U =\left( \begin{array}{cccc} 
+			\rho \\ \rho v_i \\ \rho e \\ \rho w_m \\ \rho \dot{c} \\ \rho \mathring{c}_{kl}
+		\end{array}\right), \quad 
+		\mathcal{Q}(U) = 
+		\left( \begin{array}{cccc} 
+			0 & & & \\
+			& 0 & & \\
+			& & -M_1 &\\
+			& &　& -M_2
+ 		\end{array}\right) U, \\
+ 		 A^{j}(U) = \\
+ 		 \tiny{ \left( \begin{array}{cccccc} 
+ 		v_j & \rho \delta_{i'j} & 0 & 0 & 0 & 0  \\
+ 		-v_i v_j + P_{ij} (-\frac{e}{\rho} + \frac{v^2}{\rho} ) + (\pi_\rho + \frac{\dot{c}}{\rho^2})\theta \delta_{ij} + \frac{\mathring{c}_{ij} \theta}{\rho}  & v_i \delta_{i'j} + v_j \delta_{ii'} - \frac{P_{ij}}{\rho} v_{i'}  & \frac{P_{ij}}{\rho} & 0 & -\frac{\theta}{\rho} \delta_{ij} & -\frac{\theta}{2\rho} (\delta_{ik'}\delta_{jl'} + \delta_{jk'}\delta_{il'})  \\
+ 		-e v_j - \frac{w_j}{\rho} -\frac{P_{ij} v_i}{\rho} + v_j (\pi_\rho + \frac{\dot{c}}{\rho}) + \frac{\mathring{c}_{ij} v_i}{\rho}   & e \delta_{i'j} + \frac{P_{ij}}{\rho} \delta_{ii'} & v_{j} & \frac{1}{\rho} \delta_{jm}  & -\frac{v_j}{\rho} & -\frac{v_i}{\rho} \delta_{ik'} \delta_{jl'} \\
+ 		-w_m v_j - \theta^{-2} (-\frac{e}{\rho} +　\frac{v^2}{\rho}) \delta_{jm} & w_m \delta_{i'j} + \frac{\theta^{-2} v_{i'}}{\rho} \delta_{jm} & -\frac{\theta^{-2}}{\rho} \delta_{jm} & v_j \delta_{m m'} & 0 & 0 \\
+ 		-\dot{c} v_j + \frac{v_j}{\rho} & \dot{c} - \frac{1}{\rho} & 0 & 0 & v_j & 0 \\
+ 		-\mathring{c}_{kl} v_j + \frac{1}{2} (v_k \delta_{jl} + v_l \delta_{jk}) & - \frac{1}{2\rho} (\delta_{jk} \delta_{i'l} +　\delta_{jl} \delta_{i'k}) + \mathring{c}_{kl} \delta_{i'j} & 0 & 0 & 0 & v_j 
+ 		\end{array}\right) }.
+	\end{eqnarray*}
+	在平衡态$\rho=\bar{\rho},v=0,e=\bar{e} = \bar{\theta},w= 0,\dot{c} = 0, \mathring{c}=0$，$\bar{P} = \bar{\theta} \pi(\bar{\rho}) I$，$A_j(U_e)$取值如下
+	\begin{equation*}
+		 \tiny{ \left( \begin{array}{cccccc} 
+ 		0 & \bar{\rho} \delta_{i'j} & 0 & 0 & 0 & 0  \\
+ 		\bar{\theta} \pi(\bar{\rho}) (-\frac{\bar{\theta}}{\bar{\rho}} ) \delta_{ij} + \pi_\rho(\bar{\rho})\bar{\theta} \delta_{ij}   &  0  & \frac{\bar{\theta} \pi(\bar{\rho})}{\bar{\rho}}\delta_{ij} & 0 & -\frac{\bar{\theta}}{\bar{\rho}} \delta_{ij} & -\frac{\bar{\theta}}{2\bar{\rho}} (\delta_{ik'}\delta_{jl'} + \delta_{jk'}\delta_{il'})  \\
+ 		0  & \bar{\theta} \delta_{i'j} + \frac{\bar{\theta} \pi(\bar{\rho})}{\rho} \delta_{ji'} & 0 & \frac{1}{\bar{\rho}} \delta_{jm}  & 0 & 0 \\
+ 		- \bar{\theta}^{-2} (-\frac{\bar{\theta}}{\rho} ) \delta_{jm} & 0 & -\frac{\bar{\theta}^{-2}}{\rho} \delta_{jm} & 0 & 0 & 0 \\
+ 		0 &  -\frac{1}{\rho} & 0 & 0 & 0 & 0 \\
+ 		0 & -\frac{1}{2\bar{\rho}} (\delta_{jk} \delta_{i'l} +　\delta_{jl} \delta_{i'k}) & 0 & 0 & 0 & 0  
+ 		\end{array}\right) }.
+	\end{equation*}
+	假设$W=(W_1,W_2,W_3,W_4,W_5,W_6)$为矩阵$\sum_j \omega_j A_j(U_e)$的特征值，即存在$\mu$，使得$\sum_h \omega_j A_j(U_e)W = \mu W$。并且假设$W$在$\mathcal{Q}_U(U_e)$的零空间中。我们得到
+	\begin{eqnarray*}
+				\bar{\rho} \omega \cdot W_2 = \mu W_1, \\ 
+				\quad [( (\bar{\theta}  \pi_{\rho}(\bar{\rho})-\frac{\pi(\bar{\rho})\bar{\theta}^2}{\bar{\rho}}) W_1 + \frac{\bar{\theta} \pi(\bar{\rho})}{\bar{\rho}}W_3 I - \frac{\bar{\theta}}{\bar{\rho}} W_5 )I- \frac{\bar{\theta} \pi(\bar{\rho})}{\bar{\rho}} W_6] \cdot \omega =\mu W_2, \\
+				\left( (\bar{\theta} + \frac{\bar{\theta} \pi(\bar{\theta})}{\bar{\rho}})W_2 + \frac{1}{\bar{\rho}} W_3 I \right) \cdot \omega = \mu W_3 \\
+				\frac{\bar{\theta}^{-1}}{\bar{\rho}} W_1 -\frac{\bar{\theta}^{-2}}{\bar{\rho}} W_3 = \mu W_4\\
+		-\frac{1}{\bar{\rho}} W_2 \cdot \omega  = \mu W_5, \\
+		-\frac{1}{\bar{\rho}} (\omega \otimes W_2 + W_2 \otimes \omega) = \mu W_6.
+	\end{eqnarray*}
+	首先根据前面的分析我们知道第五个和第六个式子给出$W_2=0$。$\mu \neq 0$时将其代入第一个式子得到$W_1=0$。代入第四个式子得到$W_3=0$。从而$W=0$。$\mu=0$时，将$W_2=0$代入第三个式子得到$W_3=0$。将$W_3=0$代入第四个式子可得到$W_1=0$，从而$W=0$。这样我们验证了Kawashima条件成立。即对于模型\eqref{eq:CDFTemp}，定理\ref{th:Kawashima}也成立。
+
+
+
+
 	\subsection{松弛极限}
 	实际中经常需要考虑系统在平衡态附近的情况。这是方程的源项经常会包含小参数\cite{}。即方程\eqref{eq:CDF}具有下面的形式。
 	\begin{equation}\label{eq:CDFSingular}
 		\partial_t U + \sum_{j=1}^3 \partial_{x_j} F_j(U) = \frac{1}{\epsilon}\mathcal{Q} (U) .
 	\end{equation}
-	其中$\epsilon$很小。对$\epsilon \rightarrow 0$时的极限的研究可以参看文献\cite{}。雍稳安的博士论文\cite{}中提出了极限的奇异摄动展开收敛的充分条件。在文献\cite{}中讨论了$\epsilon \rightarrow 0$时采用Maxwell迭代（Chapman-Enskog展开）得到近似方程的有效性。下面我们将这些结果用于线性粘弹性流体力学模型。
+	其中$\epsilon$很小。对$\epsilon \rightarrow 0$时的极限的研究可以参看文献\cite{}。雍稳安的博士论文\cite{}中提出了极限的奇异摄动展开收敛的充分条件。在文献\cite{}中讨论了$\epsilon \rightarrow 0$时采用Maxwell迭代（Chapman-Enskog展开）得到近似方程的有效性。下面我们将这些结果用于线性粘弹性流体力学模型。为了简单我们在本节考虑模型\eqref{eq:CDFspecific}。其他情况的计算复杂些但思想是相同的。
 
 	\subsubsection{线性粘弹性模型的摄动展开}
 
