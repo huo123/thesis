@@ -156,13 +156,13 @@ FENE-P model $\mathcal{T}  = Z(\mbox{Tr}(\tau_p))\tau_p  -\lambda (\tau_p + \fra
 		&&\eta_t + \nabla \cdot (\eta v) \\
 		&=& \rho (s_t + v \cdot \nabla s) \\
 		&=& -\nabla \cdot (\theta^{-1} q) + s_w \cdot [\rho (w_t + v \cdot \nabla w)] \\
-		&&+ (s_c:[\rho (c_t + v \cdot \nabla c - (\nabla v) c - c (\nabla v)^T) + (\nabla v) c + c (\nabla v)^T) ] - \theta^{-1} \tau : D) \\
-		&=& -\nabla \cdot (\theta^{-1} q) + s_w \cdot [\rho (w_t + v \cdot \nabla w)] + [s_c:\stackrel{\nabla}{c} + (2 s_c c - \theta^{-1} \tau): D]   \\
+		&&+ (s_c:[\rho (c_t + v \cdot \nabla c - (\nabla v) c - c (\nabla v)^T) + \rho (\nabla v c + c (\nabla v)^T)] - \theta^{-1} \tau : D) \\
+		&=& -\nabla \cdot (\theta^{-1} q) + s_w \cdot [\rho (w_t + v \cdot \nabla w)] + [s_c:\rho \stackrel{\nabla}{c} + (2 \rho s_c c - \theta^{-1} \tau): D]   \\
 		&=& -\nabla \cdot J + \Delta.
 	\end{eqnarray*}	
 	这里我们假设了$q=s_w$，$c$为对称的。$w$的方程同经典的守恒-耗散理论相同。为了得到$c$的方程，由两个选择，一是令
 	\begin{equation*}
-		\theta^{-1} \tau = 2 s_c c.
+		\theta^{-1} \tau = 2 \rho s_c c.
 	\end{equation*}
 	得到
 	\begin{equation} \label{eq:ECDFgeneral1}
@@ -175,7 +175,7 @@ FENE-P model $\mathcal{T}  = Z(\mbox{Tr}(\tau_p))\tau_p  -\lambda (\tau_p + \fra
 		\end{array}\right).
 	\end{equation}
 	我们称这样的选择得到的模型为第一类模型。
-	另一个选择为令$\theta^{-1} \tau = s_c + 2 s_c c$。此时本构方程可以写为
+	另一个选择为令$\theta^{-1} \tau = s_c + 2 \rho s_c c$。此时本构方程可以写为
 	\begin{equation}
 	\left( \begin{array}{c} 
 			(\rho w)_t +  \nabla \cdot (\rho w \otimes v)  + \nabla \theta^{-1} \\
@@ -188,15 +188,17 @@ FENE-P model $\mathcal{T}  = Z(\mbox{Tr}(\tau_p))\tau_p  -\lambda (\tau_p + \fra
 	我们称这样的选择得到的模型为第二类模型。
 
 	\subsection{第一类模型}
+	许多经典的模型都可以归为此类。
+	\subsubsection{上对流导数Maxwell模型}
 	首先我们推导上对流导数的Maxwell模型。取熵函数的形式为
 	\begin{equation*}
-			s = s_0(\nu,u)  - \frac{1}{2 \nu \alpha_0} w^2 - \frac{1}{2 \nu \alpha_1} (\mbox{Tr}(c) - \ln \det c).
+			s = s_0(\nu,u)  - \frac{1}{2  \alpha_0} w^2 - \frac{1}{2  \alpha_1} (\mbox{Tr}(c) - \ln \det c).
 	\end{equation*}
-	从而$q=s_w=-\frac{\rho w}{\alpha_0},\tau = \frac{1}{\alpha_1} \rho \theta (I-c)$。取$M$为
+	从而$q=s_w=-\frac{ w}{\alpha_0},\tau = \frac{1}{\alpha_1} \rho \theta (I-c)$。取$M$为
 	\begin{equation*}
 		M = \left( \begin{array}{ccc} 
 			\frac{1}{\theta^2 \lambda} & 0 \\
-			0 &  \frac{2 \rho \theta c \otimes I}{\xi}   
+			0 &  \frac{2 \rho^2 \theta c \otimes I}{\xi}   
 		\end{array} \right).
 	\end{equation*}
 	我们得到
@@ -211,8 +213,100 @@ FENE-P model $\mathcal{T}  = Z(\mbox{Tr}(\tau_p))\tau_p  -\lambda (\tau_p + \fra
 	分别为经典的Fourier和牛顿本构关系。
 
 
+	在不可压缩($\rho=1$)和忽略温度的情形($\theta=1$)，$\nabla \cdot v = 0$，则$\sigma = -\tau$的演化方程为
+	\begin{equation*}
+		\partial_t \sigma + v \cdot \nabla \sigma - \nabla v \sigma - \sigma (\nabla v)^T - D = -\frac{\sigma}{\xi}. 
+	\end{equation*}
+	此即上对流导数Maxwell粘弹性流体力学模型\eqref{eq:UCM}.	
 
+	考虑温度的不可压Maxwell模型为
+	\begin{eqnarray} \label{eq:Tmaxwell}
+		v_t + v \cdot \nabla v + \nabla \cdot (-\theta \frac{c-I}{\alpha_1}) = 0, \\
+		c_t + v \cdot \nabla c - (\nabla v) c - c (\nabla v)^T - D = -\frac{1}{\xi} c.
+	\end{eqnarray}
+	取$\alpha_1 = \frac{2}{\eta_p k}, T = \theta,\xi = \frac{\zeta}{2 kT \beta}$，即可得到由微观理论推出的含温度上对流导数Maxwell模型\eqref{eq:MicroUCM}。	实际上，上对流导数Maxwell模型微观上可以通过稀疏高分子溶液的Hooke弹簧模型得到\cite{}。弹簧受到的力$F_s$一般写作
+	\begin{equation*}
+		F_s = H R = 2 k_B T \beta^2 R.
+	\end{equation*}
+	其中$H$为弹性常数，$R$为位移。实际上可以推出$<RR>$满足的方程同$c$一样（其中$<\cdot>$表示对$R$的积分）。这样$c$实际上代表了微观量的统计量。
 
+	下面我们来推导压力$p$的表达式。设$\pi= \pi(\rho) = s_{0\nu}$，由$\theta^{-1} p = s_\nu$，我们可以得到
+	\begin{equation*}
+		p = \theta s_\nu = \theta \pi(\rho) . 
+	\end{equation*}
+	我们得到的最终方程为
+	\begin{subequations}
+		\begin{align*}
+			\rho_t + \nabla \cdot (\rho v) = 0 ,\\
+			(\rho v)_t + \nabla \cdot (\rho v \otimes v) + \nabla (\theta \pi)  + \nabla \cdot ( \frac{\rho \theta(I-c)}{\alpha_1}) =0 ,\\
+			(\rho e)_t + \nabla \cdot q + \nabla \cdot (P \cdot v) = 0, \\
+			(\rho w)_t + \nabla \cdot (\rho w \otimes v) + \nabla \theta^{-1} = -\frac{1}{\lambda \theta^2} w, \\
+			(\rho c)_t +  \nabla \cdot (\rho c \otimes v) - (\nabla v) \rho c - (\rho c) (\nabla v)^T  = -\frac{\rho^2 (c-I) }{\xi}.
+		\end{align*}
+	\end{subequations}
+	其中$P = pI + \tau,q =-\frac{w}{\alpha_0}$。
+
+	向第二章一样，如果假设熵函数的形式为
+	\begin{equation*}
+			s = s_0(\nu,u)  - \frac{1}{2 \nu \alpha_0} w^2 - \frac{1}{2 \nu \alpha_1} (\mbox{Tr}(c) - \ln \det c).
+	\end{equation*}
+	其中$\alpha_0,\alpha_1$为常数。这样我们可以得到
+	\begin{equation*}
+		q = s_w = -\frac{\rho w}{\alpha_0} ,\quad \theta^{-1} \tau = \rho s_c c = \frac{1}{\alpha_1} \rho^2  (I-c).
+	\end{equation*}
+	由压力$p$的定义，可以得到
+	\begin{equation*}
+		\theta^{-1} p = s_\nu = \pi +\frac{\rho^2}{2} w^2 + \frac{\rho}{2} c:c.
+	\end{equation*}
+	取\begin{equation*}
+		M = \left( \begin{array}{ccc} 
+			\frac{1}{\theta^2 \lambda} & 0 \\
+			0 &  \frac{2 \rho^2 \theta c \otimes I}{\xi}   
+		\end{array} \right)，
+	\end{equation*}	
+	可以得到体系的方程为
+	\begin{subequations}
+		\begin{align*}
+			\rho_t + \nabla \cdot (\rho v) = 0 ,\\
+			(\rho v)_t + \nabla \cdot (\rho v \otimes v) + \nabla (\theta \pi + \frac{\rho^2}{2} w^2 + \frac{\rho}{2} c:c)  + \nabla \cdot ( \frac{\rho^2 \theta(I-c)}{\alpha_1}) =0 ,\\
+			(\rho e)_t + \nabla \cdot q + \nabla \cdot (P \cdot v) = 0, \\
+			(\rho w)_t + \nabla \cdot (\rho w \otimes v) + \nabla \theta^{-1} = -\frac{1}{\lambda \theta^2} w, \\
+			(\rho c)_t +  \nabla \cdot (\rho c \otimes v) - (\nabla v) \rho c - (\rho c) (\nabla v)^T  = -\frac{\rho (c-I) }{\xi}.
+		\end{align*}
+	\end{subequations}
+
+	\subsubsection{FENE-P模型}
+	由于粘弹性流体的弹簧模型中的Hooke弹簧是可以无限延展的。对于大分子这是不对的。所以人们发展了FENE（Finitely Extensible, Nonlinear Elastic）模型。FENE模型假设弹簧受力满足
+	\begin{equation*}
+		F_s = \frac{2 \beta^2 k_B T}{1-(|R|/L)^2} R = H(R^2)R.
+	\end{equation*}
+	但是FENE模型无法写成宏观方程的形式\cite{}。但是人们可以将$H$对$R^2$的依赖关系改为对$R^2$的空间平均的依赖，从而得到FENE-P模型（这里$P$代表Peterlin矩封闭\cite{}）。FENE-P模型的应力张量的表达式如下
+	\begin{equation} \label{eq:FENEP}
+		\sigma = \nu k_B T [ \beta^2 (1- \frac{\mbox{Tr}(S)}{2L^2})^{-1}S - I], \quad \stackrel{\nabla} S + \frac{1}{\lambda} (\frac{S}{1-\frac{\mbox{Tr}(S)}{2L^2}} - \beta^{-2}I) = 0. 
+	\end{equation}
+
+	下面我们利用推广的守恒-耗散理论推广这一模型到可压缩、包含温度的情形。根据\cite{}，我们取熵函数有形式
+	\begin{equation*}
+		s = s_0(\nu,u)  - \frac{1}{2  \alpha_0} w^2 + \frac{1}{2 \alpha_1} (a \ln \det c + b \ln(1-\frac{\mbox{Tr}(c)}{b})).
+	\end{equation*}
+	从而$q=s_w=-\frac{ w}{\alpha_0},\tau = \frac{1}{\alpha_1} \rho \theta (a I-\frac{c}{1-\frac{\mbox{Tr}(c)}{b}})$。取$M$为
+	\begin{equation*}
+		M = \left( \begin{array}{ccc} 
+			\frac{1}{\theta^2 \lambda} & 0 \\
+			0 &  \frac{2 \rho  c \otimes I}{\xi}   
+		\end{array} \right).
+	\end{equation*}
+	我们得到
+	\begin{eqnarray*}
+			(\rho w)_t + \nabla \cdot (\rho w \otimes v) + \nabla \theta^{-1} = -\frac{1}{\lambda \theta^2 \alpha_0} w, \\
+			(\rho c)_t +  \nabla \cdot (\rho c \otimes v) - (\nabla v) \rho c - (\rho c) (\nabla v)^T  = -\frac{\rho (\frac{c}{1-\frac{\mbox{Tr}(c)}{b}}-a I) }{\xi}.
+	\end{eqnarray*}
+	取$\alpha_1 = \frac{\beta^2}{\nu k_B},a=\beta^{-2},b=2L^2,\xi = \lambda$，假设流体不可压（$\rho=1$），那么我们可以由\eqref{eq:FENEP}得到$c=S,\tau = -\sigma$。从而我们得到了FENE-P模型。
+
+	\subsubsection{Onsager模型}
+
+	\subsection{推广的守恒-耗散理论应用于热传导}
+	由于Cattaneo定律和热质理论均采用向量来描述热流，采用经典的守恒-耗散理论就可以很好地处理。对于推广的Guyer-Krumhansl理论\eqref{eq:EGK}，我们采用了张量$Q$来描述热传导。从而我们也需要$Q$的导数满足客观性原理。
 
 
 
