@@ -10,7 +10,7 @@
 
 在本章中，我们将首先讨论客观性原理，然后推广守恒-耗散理论以包含客观导数。并利用守恒-耗散理论发展了非线性粘弹性流体力学模型。最后我们给出了这些模型的一些数学分析结果。
 
-\subsection{客观性原理与粘弹性流体模型}
+\section{客观性原理与粘弹性流体模型}
 1949年J. G. Oldroyd发表了题为《流变学状态方程的构建》一文\cite{}。这篇文章提出了一个重要的概念-客观性原理（Principle of Objectivity），或称为物质坐标不变性原理（Material Indifference Principle）。根据这一原理，如果物质附着的随体坐标系的力学描述在转换到固定坐标系时需要满足客观性原理。如果我们假设连续介质的物质坐标系（Lagrange坐标系）为$X$。运动到时间$t$时的空间坐标系（Euler坐标系）为$x(t)$。物质的运动方程的可以采用下面的函数来描述
 \begin{equation*}
 	x = x (t,X).
@@ -33,11 +33,187 @@
 \end{equation*}
 其中的上下标分别表示协变坐标和共变坐标。从而可以定义张量$T$沿速度场的李导数定义为
 \begin{equation*}
-	{\mathcal{L}_v T^{i_1 \cdots i_p}_{j_1 \cdots j_q} =\frac{d}{dt} (\mathcal{F}_t T)} |_{t=0} 
+	{\mathcal{L}_v T^{i_1 \cdots i_p}_{j_1 \cdots j_q} =\frac{d}{dt} (\mathcal{F}_t T)} |_{t=0}.
+\end{equation*}
+李导数给出了张量$T$沿速度向量场$v$的变化。通过计算我们可以得到上面的李导数的坐标表示如下。
+\begin{eqnarray} \label{eq:Lie}
+	 {\mathcal{L}_v T^{i_1 \cdots i_p}_{j_1 \cdots j_q} = \frac{d}{dt} (\mathcal{F}_t T)} |_{t=0}  = && v^s \frac{T^{i_1 \cdots i_p}_{j_1\cdots j_q}}{\partial x^s} + T^{i_1 \cdots i_p}_{k j_2 \cdots j_q}\frac{\partial v^k}{\partial x^{j_1}} + \cdots + T^{i_1 \cdots i_p}_{j_1\cdots j_{q-1}k}\frac{\partial v^k}{\partial x^{j_q}} 
+	\\ && - T^{li_2 \cdots i_p}_{j_1\cdots j_q}\frac{\partial v^{i_1}}{\partial x^l}- \cdots - T^{i_1 \cdots i_{p-1}l}_{j_1\cdots j_q}\frac{\partial v^{i_p}}{\partial x^l} \nonumber
+\end{eqnarray}
+在连续介质力学中我们还要考虑应力张量$T$本身随时间的变化，所以通常采用的时全导数，定义为
+\begin{equation*}
+	\frac{\mathcal{D} T}{\mathcal{D}t} = \frac{\partial T}{\partial t} + \mathcal{L}_v T. 
+\end{equation*}
+这样我们就得到了张量演化的全导数。这一导数很好地描述了由速度向量场$v$对应的单参数微分同胚群$\mathcal{F}_t$引起的空间形变\cite{}。
+
+J. G. Oldroyd定义的导数实际上就是张量场的李导数。李导数的定义是同坐标系的选取无关的，不同坐标系下张量坐标的转换满足张量坐标变换的一般原理。如果采用共变基底描述Cauchy应力张量$\sigma$，那么应力可以写作
+\begin{equation*}
+	\sigma^{ij} e_i \otimes e_j.
+\end{equation*}
+从而根据\eqref{eq:Lie}，我们可以得到
+\begin{equation}
+	\frac{\mathcal{D} \sigma}{\mathcal{D}t} = \partial_t \sigma + v^s \frac{\partial \sigma^{ij}}{\partial x^s} - \sigma^{lj} \frac{\partial v_i}{\partial x_l} -  \sigma^{il} \frac{\partial v_j}{\partial x_l}. 
+\end{equation}
+该导数即为Oldroyd论文中定义的右不变导数，又称作上对流Maxwell导数，记做$\stackrel{\nabla} \sigma$。如果采用反变坐标描述，则应力张量为$\sigma_{ij} e_i \otimes e_j$。其李导数为
+\begin{equation}
+	\frac{\mathcal{D} \sigma}{\mathcal{D}t} = \partial_t \sigma + v^s \frac{\partial \sigma_{ij}}{\partial x^s} + \sigma_{kj} \frac{\partial v_k}{\partial x_i} +  \sigma_{ik} \frac{\partial v_k}{\partial x_j}. 
+\end{equation}
+我们称这一导数为下对流Maxwell导数（或称作Cotter-Rivlin导数），记做$\stackrel{\Delta} \sigma$\cite{}。当然也可以采用混合基底来描述应力张量$\sigma$，从而可以定义混合导数。在连续介质力学中还存在其他客观导数如Jaumann导数。由于在粘弹性流体中大部分模型均采用上对流或者下对流Maxwell导数，我们在本章中仅考虑这两种导数，对于含其他导数的模型可以采用类似的方法得到。
+
+另外注意到J. G. Oldroyd定义的张量的变换关系考虑了空间压缩性的影响。此时张量的变换关系变为
+\begin{equation*}
+	(\mathcal{F}_t T)^{i_1,\cdots,i_p}_{j_1, \cdots,j_q} = {\det}^\gamma({\frac{\partial X}{\partial x}}) T^{l_1,\cdots,l_p}_{k_1, \cdots,k_q} \frac{\partial x^{k_1}}{\partial x_0^{j_1}} \cdots \frac{\partial x^{k_q}}{\partial x_0^{j_q}} \frac{\partial x_0^{i_1}}{\partial x^{l_1}} \cdots \frac{\partial x_0^{i_p}}{\partial x^{l_p}},  
+\end{equation*}
+定义形变张量
+\begin{equation*}
+	F = \frac{\partial x}{\partial X}.
+\end{equation*}
+从而我们可以得到$T$的全导数（考虑压缩性的导数记为$\frac{\mathcal{d}}{\mathcal{d} t}$，以上对流Maxwell导数为例）为
+\begin{equation*}
+	\frac{\mathcal{d} T}{\mathcal{d} t} =  T_t +v \cdot \nabla T + \gamma T \nabla \cdot v - (\nabla v) T - T(\nabla v)^T.   
 \end{equation*}
 
+由于坐标系的形变对张量的演化产生影响，所以张量的客观导数一般不是守恒形式的。这也意味着守恒-耗散理论对方程形式的假设不适用于张量。对于第二章考虑的线性粘弹性流体力学模型实际上不满足客观性原理，从而应用受到了很大的局限。通过直接将张量的导数$\partial_t \sigma  + v \cdot \nabla \sigma$写成客观导数的形式，可以推广线性Maxwell模型。例如下面的不可压粘弹性流体的上对流导数Maxwell模型就是通过推广线性的Maxwell模型得出的\cite{}。
+\begin{subequations} \label{eq:UCM}
+	\begin{align}
+		\nabla \cdot v &= 0, \\
+		v_t + v \cdot \nabla v + \nabla p  &= \nabla \cdot \tau, \\
+		\stackrel{\nabla} \tau - \frac{2\eta_p}{\lambda} D &= - \frac{\tau}{\lambda}
+	\end{align}
+\end{subequations}
+其中$\eta_p$为高分子引起的粘性系数。
+另外通过微观的方法推导出的粘弹性模型也经常包含客观导数。例如Giesekus模型、Phan-Thien-Tanner模型和FENE-P模型等。这些模型均具有下面的形式
+\begin{equation*}
+	\lambda \stackrel{\nabla} \tau  -2 \eta_p D = - \mathcal{T}(\tau,D).
+\end{equation*}
+其中$\mathcal{T}$的表达式见下表\cite{}。
 
-连续介质的Cauchy应力张量的时间演化需要采用客观导数来描述。
+Giesekus model $\mathcal{T} = \tau_p + \alpha \frac{\lambda}{\eta_p} \tau_p\tau_p$,
+PTT model $\mathcal{T} = e^{\phi \lambda \frac{\mbox{Tr}(\tau_p)}{\eta_p}}\tau_p + \frac{\xi}{2} \lambda (D \tau_p + \tau_p D)$,
+FENE-P model $\mathcal{T}  = Z(\mbox{Tr}(\tau_p))\tau_p  -\lambda (\tau_p + \frac{\eta_p}{\lambda} I)\left( (\partial_t + v \cdot \nabla) \ln \mbox{Tr}(\tau_p) \right), Z(\mbox{Tr}(\tau_p)) = 1 + \frac{d}{b} (1+ \lambda \frac{\mbox{Tr}{(\tau_p)}}{d \eta_p})$.
+
+另外，对于高分子熔融体，需要考虑高分子纠缠效应。得到的例如Doi-Edwards模型的一个简单形式（Larson近似）
+\begin{equation}
+	\stackrel{\nabla} \sigma + \frac{2}{3G} D:\sigma \sigma + \frac{1}{\lambda}(\sigma - G I) = 0
+\end{equation}
+也包含上对流Maxwell导数\cite{}。
+
+上面提到的模型均为不可压模型，且大部分没有考虑温度的影响。而由于张量客观导数的非守恒性，我们很难利用守恒-耗散理论来发展非线性的粘弹性流体力学模型。为了克服这一困难，我们将我们将推广守恒-耗散理论以包含客观导数的模型。
+
+%see http://imechanica.org/files/Cauchy_Sress_Tensor.pdf
+
+\section{推广的守恒-耗散理论}
+我们仍然认为热力学过程可以采用守恒过程和耗散过程来描述。与经典守恒-耗散理论不同的是，我们在这里不再假设耗散变量$U_d$满足守恒形式的方程。我们仍然假设守恒变量$U_c$满足
+\begin{equation*}
+	\partial_t U_c + \sum_{j=1}^n f_j(U) = 0.
+\end{equation*}
+但$U_d$的方程我们假设有形式
+\begin{eqnarray*}
+	\frac{\mathcal{D} U_d}{\mathcal{D} t} + \sum_{j=1}^d B_{j}(U)U_{x_j} = \mathcal{q}(U).
+\end{eqnarray*}
+为使热力学第二定律成立，我们仍然假设熵函数的存在性。然而由于耗散变量$U_d$方程的非守恒性质，我们不能假设$\eta_{UU}F_{jU} = 0$。我们在这里假设熵函数满足类似经典守恒-耗散理论中熵函数的方程。对于源项，我们采用同样的方式描述。推广的守恒-耗散理论的基本假设如下。
+\begin{enumerate}
+		\item 存在严格上凸函数$\eta = \eta (U)$，称为$\eta$为系统的熵函数，使得存在$J=J(U),\Delta{U}$，
+		\begin{equation}
+			\eta_t + \nabla \cdot J = \Delta
+		\end{equation}
+		\item 存在正定矩阵$M = M(U)$，称为耗散矩阵，使得$\mathcal{q}(U) = M \eta_{U_d}$。
+	\end{enumerate}
+	有这两条假设我们得到
+	\begin{equation*}
+		\Delta = \eta_{U_d}^T M \eta_{U_d} \ge 0.
+	\end{equation*}
+从而熵增大于0，即热力学第二定律成立。推广的守恒-耗散理论仅仅通过改变耗散变量满足的方程的形式来推广经典的守恒-耗散理论。而守恒-耗散理论的核心假设仍然不变。守恒变量的守恒方程保证了物理守恒律例如密度、动量、能量守恒的成立，熵的存在性保证了热力学第二定律的成立。另外，与经典守恒-耗散理论相同，我们一般假设$M$对称且其零空间不依赖于$U$。
+
+然而与经典守恒-耗散理论不同的是，熵函数的存在无法保证得到的方程是对称双曲组，从而其适定性需要单独考虑。另外形式上$\mathcal{Q}(U)=0$可以得到平衡态时耗散变量的值$U_d = U_{de}(U_c)$。此时可以得到对应的平衡态方程
+\begin{equation*}
+	\partial_t U_c +　\sum_{j=1}^d \partial_{x_j} f_j(U_c,U_{de}(U_c))=0.
+\end{equation*}
+如何说明这一模型在$\mathcal{Q}$很小时对原模型的近似性也是需要单独考虑的一个问题。
+
+我们期待类似第二章定理1的结论成立。needproof
+
+另外，第二章提到的一样，我们可以令$\mathcal{q}=0$而得到下面的方程
+\begin{eqnarray*}
+	\partial_t U_c + \sum_{j=1}^d f_j(U) = 0, \\
+	\mathcal{D}_t U_d + \sum_{j=1}^d B_j(U) U_{x_j} = 0.	
+\end{eqnarray*}
+这一模型亦可视为另一个平衡态体系的方程，对应的熵函数$\eta$满足$\eta_t + \nabla J = 0$。即我们可以认为推广的守恒-耗散理论所描述的体系是介于两个平衡态之间的。由一个平衡态到另一个平衡态的演化过程是非平衡态过程\cite{}。
+
+下面我们将利用推广的守恒耗散理论建立非线性粘弹性流体力学的模型。
+
+\section{推广的守恒-耗散理论在非线性粘弹性流体模型中的应用}
+与经典的守恒-耗散理论在粘弹性流体中的应用一节一样，我们取$U_c = \{ \rho,\rho v,\rho e\}$，其满足方程\eqref{eq:fluid}。耗散变量仍取作$U_d =\{ w,c\}$。仍然假设熵函数$\eta =\eta(\rho,\rho v,\rho e,\rho w,\rho c)$可以表示成
+\begin{equation*}
+	\eta = \rho s(\nu,u,w,c).
+\end{equation*}
+其中$s$为比熵，$\nu = \frac{1}{\rho}$，$u$为系统的内能。根据Gibbs关系
+\begin{equation*}
+		\theta^{-1} = s_u, \quad \theta^{-1} p = s_{\nu}.
+\end{equation*}
+下面计算熵的产生率
+\begin{eqnarray*}
+		&&\eta_t + \nabla \cdot (\eta v) \\
+		&=& \rho (s_t + v \cdot \nabla s) \\
+		&=& -\nabla \cdot (\theta^{-1} q) + s_w \cdot [\rho (w_t + v \cdot \nabla w)] \\
+		&&+ (s_c:[\rho (c_t + v \cdot \nabla c - (\nabla v) c - c (\nabla v)^T) + (\nabla v) c + c (\nabla v)^T) ] - \theta^{-1} \tau : D) \\
+		&=& -\nabla \cdot (\theta^{-1} q) + s_w \cdot [\rho (w_t + v \cdot \nabla w)] + [s_c:\stackrel{\nabla}{c} + (2 s_c c - \theta^{-1} \tau): D]   \\
+		&=& -\nabla \cdot J + \Delta.
+	\end{eqnarray*}	
+	这里我们假设了$q=s_w$，$c$为对称的。$w$的方程同经典的守恒-耗散理论相同。为了得到$c$的方程，由两个选择，一是令
+	\begin{equation*}
+		\theta^{-1} \tau = 2 s_c c.
+	\end{equation*}
+	得到
+	\begin{equation} \label{eq:ECDFgeneral1}
+		\left( \begin{array}{c} 
+			(\rho w)_t +  \nabla \cdot (\rho w \otimes v)  + \nabla \theta^{-1} \\
+			(\rho c)_t +  \nabla \cdot (\rho c \otimes v) - (\nabla v) \rho c - (\rho c) (\nabla v)^T 
+		\end{array} \right) = M \cdot
+		\left( \begin{array}{c} 
+			q \\ s_c
+		\end{array}\right).
+	\end{equation}
+	我们称这样的选择得到的模型为第一类模型。
+	另一个选择为令$\theta^{-1} \tau = s_c + 2 s_c c$。此时本构方程可以写为
+	\begin{equation}
+	\left( \begin{array}{c} 
+			(\rho w)_t +  \nabla \cdot (\rho w \otimes v)  + \nabla \theta^{-1} \\
+			(\rho c)_t +  \nabla \cdot (\rho c \otimes v) - (\nabla v) \rho c - (\rho c) (\nabla v)^T - D 
+		\end{array} \right) = M \cdot
+		\left( \begin{array}{c} 
+			q \\ s_c
+		\end{array}\right).	
+	\end{equation}
+	我们称这样的选择得到的模型为第二类模型。
+
+	\subsection{第一类模型}
+	首先我们推导上对流导数的Maxwell模型。取熵函数的形式为
+	\begin{equation*}
+			s = s_0(\nu,u)  - \frac{1}{2 \nu \alpha_0} w^2 - \frac{1}{2 \nu \alpha_1} (\mbox{Tr}(c) - \ln \det c).
+	\end{equation*}
+	从而$q=s_w=-\frac{\rho w}{\alpha_0},\tau = \frac{1}{\alpha_1} \rho \theta (I-c)$。取$M$为
+	\begin{equation*}
+		M = \left( \begin{array}{ccc} 
+			\frac{1}{\theta^2 \lambda} & 0 \\
+			0 &  \frac{2 \rho \theta c \otimes I}{\xi}   
+		\end{array} \right).
+	\end{equation*}
+	我们得到
+	\begin{eqnarray*}
+		\alpha_0 [\partial_t q +  \nabla \cdot (q \otimes v)] - \nabla \theta^{-1} = -\frac{q}{\theta^2 \lambda}, \\
+		\alpha_1[\partial_t (\theta^{-1} {\tau}) + \nabla \cdot (\theta^{-1} {\tau} \otimes v) - \nabla v \theta^{-1} \tau - \theta^{-1}\tau (\nabla v)^T] + \rho \dot{D} = -\frac{{\rho \tau}}{\xi}.
+	\end{eqnarray*}
+	当$\alpha_0, \alpha_1$趋于0时，可以得到
+	\begin{equation*}
+		q = -\lambda \nabla \theta, \quad \tau = - \xi {D} .
+	\end{equation*}
+	分别为经典的Fourier和牛顿本构关系。
+
+
+
+
+
 
 
 \end{document}

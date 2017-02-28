@@ -108,7 +108,7 @@
 	\begin{eqnarray*}
 		\eta_t + \nabla \cdot (\eta v) &=& \rho (s_t + v \cdot \nabla s), \\
 		&=& -\nabla \cdot (\theta^{-1} q) + s_w \cdot [\rho (w_t + v \cdot \nabla w)] \\
-		&&+ (s_c:[\rho (c_t + v \cdot \nabla v)] - \theta^{-1} \tau : D) \\
+		&&+ (s_c:[\rho (c_t + v \cdot \nabla c)] - \theta^{-1} \tau : D) \\
 		&& = -\nabla \cdot J + \Delta.
 	\end{eqnarray*}
 	其中$D = \frac{1}{2} [\nabla v + (\nabla v)^T], J =\theta^{-1} q $，
@@ -131,7 +131,7 @@
 	考虑不可压缩流体并忽略温度的影响，则$c$的演化方程可以写为
 	\begin{equation*}
 		\partial_t c + v \cdot \nabla c - D = M \tau.
-	\end{equation*}
+		\end{equation*}
 	这与不可压线性粘弹性的Maxwell模型相类似。只是这里左端$c$代替了$\tau$。而$\tau$可以表达为$c$的复杂函数。当$\tau$和$c$之间存在线性关系时，例如$\tau = c$时，$\tau$的演化方程为
 	\begin{equation*}
 		\partial_t \tau+ v \cdot \nabla \tau - D = M \tau.
