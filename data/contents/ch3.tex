@@ -157,7 +157,7 @@ FENE-P model $\mathcal{T}  = Z(\mbox{Tr}(\tau_p))\tau_p  -\lambda (\tau_p + \fra
 		&=& \rho (s_t + v \cdot \nabla s) \\
 		&=& -\nabla \cdot (\theta^{-1} q) + s_w \cdot [\rho (w_t + v \cdot \nabla w)] \\
 		&&+ (s_c:[\rho (c_t + v \cdot \nabla c - (\nabla v) c - c (\nabla v)^T) + \rho (\nabla v c + c (\nabla v)^T)] - \theta^{-1} \tau : D) \\
-		&=& -\nabla \cdot (\theta^{-1} q) + s_w \cdot [\rho (w_t + v \cdot \nabla w)] + [2 s_c:\rho \stackrel{\nabla}{c} + (2 \rho s_c c - \theta^{-1} \tau): D]   \\
+		&=& -\nabla \cdot (\theta^{-1} q) + s_w \cdot [\rho (w_t + v \cdot \nabla w)] + [ s_c:\rho \stackrel{\nabla}{c} + (\rho s_c c - \frac{1}{2} \theta^{-1} \tau): 2 D]   \\
 		&=& -\nabla \cdot J + \Delta.
 	\end{eqnarray*}	
 	这里我们假设了$q=s_w$，$c$为对称的。$w$的方程同经典的守恒-耗散理论相同。为了得到$c$的方程，由两个选择，一是令
@@ -175,7 +175,7 @@ FENE-P model $\mathcal{T}  = Z(\mbox{Tr}(\tau_p))\tau_p  -\lambda (\tau_p + \fra
 		\end{array}\right).
 	\end{equation}
 	我们称这样的选择得到的模型为第一类模型。
-	另一个选择为令$\theta^{-1} \tau = s_c + 2 \rho s_c c$。此时本构方程可以写为
+	另一个选择为令$\theta^{-1} \tau = 2 s_c + 2 \rho s_c c$。此时本构方程可以写为
 	\begin{equation}
 	\left( \begin{array}{c} 
 			(\rho w)_t +  \nabla \cdot (\rho w \otimes v)  + \nabla \theta^{-1} \\
@@ -339,13 +339,13 @@ FENE-P model $\mathcal{T}  = Z(\mbox{Tr}(\tau_p))\tau_p  -\lambda (\tau_p + \fra
 	\begin{equation*}
 		M = \left( \begin{array}{ccc} 
 			\frac{1}{\theta^2 \lambda} & 0 \\
-			0 &  \frac{2 \rho^2 \theta c \otimes I}{\xi}   
+			0 &  2 \rho^2 \theta c \otimes (\frac{1}{\kappa}\dot{\mathcal{T}} I +  \frac{1}{\xi}\dot{\mathcal{T}} I  )
 		\end{array} \right).
 	\end{equation*}
 	我们得到
 \begin{eqnarray*}
 			(\rho w)_t +  \nabla \cdot (\rho w \otimes v)  + \nabla \theta^{-1} = -\frac{1}{\lambda \theta^2}  \rho w \\
-			(\rho c)_t +  \nabla \cdot (\rho c \otimes v) - (\nabla v) \rho c - (\rho c) (\nabla v)^T - D = - \frac{\rho c}{\xi} .
+			(\rho c)_t +  \nabla \cdot (\rho c \otimes v) - (\nabla v) \rho c - (\rho c) (\nabla v)^T - D = - \frac{\rho \dot{c}I}{\kappa} -  \frac{\rho \mathring{c}}{\xi} .
 \end{eqnarray*}
 此时静压力$p$的表达式为
 \begin{equation*}
@@ -358,7 +358,7 @@ FENE-P model $\mathcal{T}  = Z(\mbox{Tr}(\tau_p))\tau_p  -\lambda (\tau_p + \fra
 			(\rho v)_t + \nabla \cdot (\rho v \otimes v) + \nabla (\theta\pi +\frac{\rho^2}{2} w^2 + \frac{1}{2} \rho c: \rho c)  - \nabla \cdot ( \frac{1}{\alpha_1}  \theta (2 \rho c + 2 \rho c \cdot \rho c)) =0 ,\\
 			(\rho e)_t + \nabla \cdot q + \nabla \cdot (P \cdot v) = 0, \\
 			(\rho w)_t + \nabla \cdot (\rho w \otimes v) + \nabla \theta^{-1} = -\frac{1}{\lambda \theta^2} w, \\
-			(\rho c)_t +  \nabla \cdot (\rho c \otimes v) - (\nabla v) \rho c - (\rho c) (\nabla v)^T - 2 D = - \frac{c}{\xi} .
+			(\rho c)_t +  \nabla \cdot (\rho c \otimes v) - (\nabla v) \rho c - (\rho c) (\nabla v)^T - 2 D = - \frac{\rho \dot{c}I}{\kappa} -  \frac{\rho \mathring{c}}{\xi}  .
 		\end{align*}
 	\end{subequations}
 	本文中我们将这一模型称为粘弹性流体第二模型。我们将在后文讨论这一模型的数学性质。
@@ -400,43 +400,78 @@ FENE-P model $\mathcal{T}  = Z(\mbox{Tr}(\tau_p))\tau_p  -\lambda (\tau_p + \fra
 	注意这里$[\cdot]$表示该项作为一个量，$(\cdot)$表示作为一个算子。
 	可以验证$L(X)$满足Possion矩阵的性质。
 
-	选取熵函数$s$为二次的。
-	\begin{equation*}
-		s = s_0(\rho, \epsilon) - \frac{1}{2} (\alpha'_0 w^2 + \alpha'_2 \mbox{Tr} (c^2) ).
-	\end{equation*}
-	则熵
+	% 选取熵函数$s$为二次的。
+	% \begin{equation*}
+	% 	s = s_0(\rho, \epsilon) - \frac{1}{2} ( w^2 +  \mbox{Tr} (c^2) ).
+	% \end{equation*}
+	熵
 	\begin{equation}
 		S(X) = \int s(x) dx
 	\end{equation}
 	的导数为
 	\begin{equation*}
-		\frac{\delta S(X)}{ \delta X} = \left( \begin{array}{c} 0 \\ 0 \\ T \\ -\alpha'_0 w \\ -\alpha'_1 c \end{array} \right).
+		\frac{\delta S(X)}{ \delta X} = \left( \begin{array}{c} 0 \\ 0 \\ 1 \\  0 \\ 0 \end{array} \right).
 	\end{equation*}
 	这里我们假设了平衡态熵满足
 	\begin{equation}
 		\frac{\delta \int s_0(x) dx}{ \delta X} = 0. 
 	\end{equation}
-	假设耗散矩阵为$M$，则根据GENERIC理论，系统的方程可以写为
+	假设耗散矩阵取值$M$如下
+	\begin{equation*}
+		M = \left( \begin{array}{ccccc} 
+		0 & & & & \\
+		& 0 & & &  \\
+		& & \frac{1}{T \tau_1} \phi_0 w^2 + \frac{\phi_1 \dot{c}^2}{2 T \tau_0} + \frac{\phi_1 \mathring{c}:\mathring{c}}{2 T \tau_2} & -\frac{w}{\tau_1} & -\frac{1}{\tau_0} \dot{c} I - \frac{1}{\tau_2} \mathring{c} \\  
+		& &  -\frac{w}{\tau_1} & \frac{T}{\tau_1} \phi_0^{-1} & 0  \\
+	    & &  -\frac{1}{\tau_0} \dot{c} I - \frac{1}{\tau_2} \mathring{c} & 0 & \frac{2T}{\tau_0} \dot{\mathcal{T}} I  + \frac{2T}{\tau_2}  \mathring{\mathcal{T}}   
+		\end{array} \right).
+	\end{equation*}
+	我们假设参数$\tau_0,\tau_1,\tau_2,\phi_0,\phi_1$均为正数，从而$M$为半正定的。
+	根据GENERIC理论，系统的方程可以写为
 	\begin{equation*}
 		\frac{dX}{dt} = L(X) \cdot \frac{\delta E(X)}{\delta X} + M(X) \cdot \frac{\delta S(X)}{\delta X} .
 	\end{equation*}
 	具体形式为
 	\begin{subequations}
-		\begin{align}
+		\begin{align} \label{eq:Ottinger}
 			\partial_t \rho + \nabla \cdot (\rho v) = 0, \\
 			\partial_t (\rho v) + \nabla \cdot (\rho v v ) + \nabla \cdot P + s \nabla T = 0, \\
-			\partial_t s + \nabla \cdot (s v) + \phi_0  \nabla w = 0  \\
-			\partial_t w + v \cdot \nabla w + (\nabla v)^T \cdot w + \nabla T  = 0, \\
-			\partial_t c + v \cdot \nabla c - (\nabla v) c - c (\nabla v)^T - (\nabla v + (\nabla v)^T) = 0
+			\partial_t s + \nabla \cdot (s v) + \phi_0  \nabla w = \frac{\phi_0 w^2}{T \tau_1} + \frac{1}{2} \frac{\phi_1 \dot{c}^2}{T \tau_0} + \frac{1}{2} \frac{\phi_1 \mathring{c}:\mathring{c}}{T \tau_2}  \\
+			\partial_t w + v \cdot \nabla w + (\nabla v)^T \cdot w + \nabla T  = -\frac{w}{\tau_1}, \\
+			\partial_t c + v \cdot \nabla c - (\nabla v) c - c (\nabla v)^T - (\nabla v + (\nabla v)^T) = -\frac{\dot{c}I}{\tau_0} - \frac{\mathring{c}}{\tau_1}.
 		\end{align}
 	\end{subequations}
 	其中
 	\begin{equation*}
-		P = - \phi_1 c \cdot (c+I) unfinished
+		P = (\rho \mu + sT - \epsilon) I  - \phi_1(c^2 + c) + \phi_0 w^2 I.
 	\end{equation*}
-	\subsection{推广的守恒-耗散理论应用于热传导}
-	由于Cattaneo定律和热质理论均采用向量来描述热流，采用经典的守恒-耗散理论就可以很好地处理。对于推广的Guyer-Krumhansl理论\eqref{eq:EGK}，我们采用了张量$Q$来描述热传导。从而我们也需要$Q$的导数满足客观性原理。
+	采用\"Ottinger的理论得到的模型\eqref{eq:Ottinger}与粘弹性流体第二模型\eqref{eq:ECDFsecond}的相同之处在于$w$和$c$的方程类似，且应力的表达式均出现了$c^2+c$和$w^2$。不同之处在于\eqref{eq:Ottinger}引入了熵函数作为系统的状态变量，在$w$的方程中包含了$(\nabla v)^T \cdot w$一项，并且$c$的演化方程并不包含密度$\rho$。而实际上，$w$作为一个向量，其客观导数就是其Lagrange导数。$(\nabla v)^T \cdot w$一项的引入似乎没有意义。另一方面，$c$的方程中采用了上对流Maxwell导数，且在应力张量中含有$c$的项也不含有密度，这无法很好地描述压缩性对应力张量的影响，也不符合J. G. Oldroyd提出的应力张量转换原理\cite{}。在耗散矩阵$M$的选取中，右下角$2\time 2$的子矩阵对于方程没有影响，但是对$M$的正定性影响很大。但是，\"Ottinger提出的模型抓住了系统的守恒律并采用耗散矩阵对不可逆过程进行了描述。我们采用推广的守恒-耗散理论避免了GENERIC中对Possion矩阵、耗散矩阵选取的复杂性，并且仅仅假设耗散矩阵的正定性，抓住了不可逆过程建模最关键的两个原理：热力学第一和第二定律。下面我们将会看出，采用推广的守恒-耗散理论导出的粘弹性流体第二模型具有很好的数学结构。
 
+%	\subsection{推广的守恒-耗散理论应用于热传导}
+%	由于Cattaneo定律和热质理论均采用向量来描述热流，采用经典的守恒-耗散理论就可以很好地处理。对于推广的Guyer-Krumhansl理论\eqref{eq:EGK}，我们采用了张量$Q$来描述热传导。从而我们也需要$Q$的导数满足客观性原理。
 
+\section{粘弹性流体第二模型的数学分析}
+由于推广的守恒-耗散理论破坏了方程的守恒结构，从而熵函数的存在无法保证方程的对称双曲性质。对于一般情况下有推广的守恒-耗散理论得到的模型的数学分析目前尚缺乏一般的结果。我们在本节将考虑采用第二种方法得到的粘弹性流体第二模型。为了简单，我们忽略温度的影响而考虑下面的等温粘弹性流体第二模型（取$\alpha_1=1，\theta=1$）。
+\begin{subequations} \label{eq:ECDFsecondisothermal}
+		\begin{align*}
+			\rho_t + \nabla \cdot (\rho v) = 0 ,\\
+			(\rho v)_t + \nabla \cdot (\rho v \otimes v) + \nabla (\pi + \frac{1}{2} \rho c: \rho c)  - \nabla \cdot ( (2 \rho c + 2 \rho c \cdot \rho c)) =0 ,\\
+			(\rho c)_t +  \nabla \cdot (\rho c \otimes v) - (\nabla v) \rho c - (\rho c) (\nabla v)^T - 2 D = - \frac{\rho \dot{c}I}{\kappa} -  \frac{\rho \mathring{c}}{\xi}  .
+		\end{align*}
+\end{subequations}
+在一维时，对应的方程为
+\begin{subequations} \label{eq:ECDFsecond1D}
+		\begin{align*}
+			\rho_t + \partial_x (\rho v) = 0 ,\\
+			(\rho v)_t + \partial_x (\rho v^2) + \partial_x (\pi)   -  (2+ 3 \rho c) \partial_x (  \rho c) =0 ,\\
+			(\rho c)_t +  \partial_x (\rho c  v) - 2 \rho c \partial_x  v  - 2 \partial_x v = - \frac{\rho \dot{c}}{\kappa}  .
+		\end{align*}
+\end{subequations}
+由于该方程的对称子可以找到，从而可以采用双曲方程的相关理论进行分析。
+
+我们首先给出其对称子，然后根据Kawashima理论证明平衡态附近解的整体存在性。最后我们将考虑其源项包含小参数时的松弛极限。
+\section{等温粘弹性流体第二模型的对称性}
+我们令$U = (\rho, v ,c)$
+\section{本章小结}
 
 \end{document}
