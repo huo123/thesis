@@ -12,6 +12,7 @@
 \theoremstyle{plain}
 \begin{document}
  \newtheorem{theorem}{定理}
+ \newtheorem{remark}{注释}
  \newtheorem{thm}{Theorem}
  \newtheorem{lemma}{Lemma}
  \theoremstyle{definition}
@@ -374,164 +375,160 @@ $\alpha$足够小时，由上述不等式可以导出
 
 我们的分析基于\cite{yang2015validity}，但是我们需要处理\eqref{eq:ECDFsecond1D}中的非守恒项。本小节的主要结果如下。
 \begin{theorem}\label{theoremCE}
-Let $s \ge 2$ be an integer and ${\bar u} =({\bar \rho}(x),\bar{\rho}(x){\bar v}(x))$ satisfy
+令整数$s \ge 2$， ${\bar u} =({\bar \rho}(x),\bar{\rho}(x){\bar v}(x))$满足
   \begin{eqnarray*}
-    \bar{u}\in H^{s+2} \quad  \mbox{and} \quad \inf_{x} \bar{\rho}(x)>0.
+    \bar{u}\in H^{s+2},\ \inf_{x} \bar{\rho}(x)>0.
  \end{eqnarray*}
-Then there exists $T_*>0$, independent of $\kappa$, such that the 1D system \eqref{eq:ECDFsecond1D} with initial data $(\bar{u},0)$ and the Navier-Stokes system \eqref{51} with initial data ${\bar u}$ have unique solutions $(u^\kappa=(\rho^\kappa,\rho^\kappa v^\kappa), c^\kappa)(x,t)$ and $u^\kappa_p=(\rho^\kappa_p,\rho^\kappa_p v^\kappa_p)(x,t)$ in $C([0,T_*], H^s)$ satisfying
+那么存在与松弛参数$\kappa$无关的时间$T_*>0$，使得方程组\eqref{eq:ECDFsecond1D}以$(\bar{u},0)$为初值的Cauchy问题和Navier-Stokes方程组\eqref{51}以${\bar u}$为初值的Cauchy问题分别有唯一解$(u^\kappa=(\rho^\kappa,\rho^\kappa v^\kappa), c^\kappa)(x,t)$与$u^\kappa_p=(\rho^\kappa_p,\rho^\kappa_p v^\kappa_p)(x,t)$ in $C([0,T_*], H^s)$。且对于充分小的$\kappa$，它们满足
   \begin{equation}\label{52}
     \sup_{t \in [0, T_*]} \|(u^\kappa-u^\kappa_p)(\cdot,t)\|_{H^s} \le C(T_*) \kappa^2
   \end{equation}
-  for $\kappa$ sufficiently small. Here $C(T_*)>0$ is independent of $\kappa$.
+ 其中$C(T_*)>0$不依赖于$\kappa$.
 \end{theorem}
 
-\begin{rem}
-For the sake of simplicity, Theorem 2 is stated only for the special initial data. But it holds with \eqref{52} replaced by
+\begin{remark}
+简单起见，定理\ref{theoremCE}中方程组\eqref{eq:ECDFsecond1D}和\eqref{51}的初值相同。但是对于一般的初值，对\eqref{51}$取初值{\tilde u}_p =({\tilde \rho}_p(x, \kappa),\tilde{\rho}_p(x,\kappa){\tilde v}_p(x, \kappa))$对$\eqref{eq:ECDFsecond1D}$取$({\tilde u} =({\tilde \rho}(x, \kappa),\tilde{\rho}(x,\kappa){\tilde v}(x, \kappa)),\tilde{\rho} \tilde {c}(x, \kappa))$，那么只要初值只要满足
+\begin{eqnarray*}
+    \tilde{u}_p(\cdot,\kappa),\tilde{u}(\cdot,\kappa) \in H^{s+2}, \quad  \inf_{x, \kappa} \tilde{\rho}_p(x,\kappa), \inf_{x, \kappa} \tilde{\rho}(x,\kappa)>0, \quad \inf_{x, \kappa} \tilde{c}(x,\kappa)> -2/3, \nonumber  \\
+    \|\tilde{\rho}(\cdot,\kappa)-\tilde{\rho}_p(\cdot,\kappa)\|_{H^s}, \| \tilde{\rho} \tilde{v}(\cdot,\kappa)-\tilde{\rho}_p\tilde{v}_p(\cdot,\kappa)- \frac{3}{2} \kappa \bar{c}_{0x} \bar{c}_0 +2 \kappa \bar{c}_{0x}\|_{H^s}  = O(\kappa^2)
+ \end{eqnarray*}
+  其中$\bar{c}_0=\tilde{c}(x,0)$。那么定理\ref{theoremCE}仍然成立，只是估计\eqref{52}变为
 \begin{equation*}\label{eq:Result}
     \sup_{t \in [-\kappa\ln\kappa, T_*]} \|(u^\kappa-
     %u'_\kappa-
     u^\kappa_p)(\cdot,t)\|_{H^s} \le C(T_*) \kappa^2,
   \end{equation*}
-due to initial layers, for more general initial data
-${\tilde u}_p =({\tilde \rho}_p(x, \kappa),\tilde{\rho}_p(x,\kappa){\tilde v}_p(x, \kappa))$ for \eqref{51} and $ ({\tilde u} =({\tilde \rho}(x, \kappa),\tilde{\rho}(x,\kappa){\tilde v}(x, \kappa)), \tilde {c}(x, \kappa))$ for \eqref{eq:ECDFsecond1D} satisfying
-  \begin{eqnarray*}
-    \tilde{u}_p(\cdot,\kappa),\tilde{u}(\cdot,\kappa),\tilde{c}(\cdot,\kappa) \in H^{s+2}, \quad  \inf_{x, \kappa} \tilde{\rho}_p(x,\kappa), \inf_{x, \kappa} \tilde{\rho}(x,\kappa)>0, \quad \sup_{x, \kappa} \tilde{c}(x,\kappa)< 2/3, \nonumber  \\
-    \|\tilde{\rho}(\cdot,\kappa)-\tilde{\rho}_p(\cdot,\kappa)\|_{H^s}, \| \tilde{\rho} \tilde{v}(\cdot,\kappa)-\tilde{\rho}_p\tilde{v}_p(\cdot,\kappa)- \frac{3}{2} \kappa \bar{c}_{0x} \bar{c}_0 +2 \kappa \bar{c}_{0x}\|_{H^s}  = O(\kappa^2)
-  \end{eqnarray*}
-  with $\bar{c}_0=\tilde{c}(x,0)$. This general statement can be proved by slightly modifying the proof below.
-\end{rem}
+  这是因为对一般的初始值边界层可能存在。只需要对下面的证明做微小改动就可以得到一般情况的证明。
+\end{remark}
 
-To prove the above theorem, we first  recall that the 1D system \eqref{eq:ECDFsecond1D} satisfies the second structural stability condition \cite{yong1992singular,yong1999singular}. Therefore, the singular perturbation theory developed therein applies. Namely, the solution $U^\kappa = (\rho^\kappa, \rho^\kappa v^\kappa, c^\kappa)^T$ to \eqref{eq:ECDFsecond1D} with initial data $(\bar{u},0)$ exists in the time interval $[0,T_*]$ where an approximate solution $U_\kappa^1=(\rho_\kappa^1,\rho_\kappa^1 v_\kappa^1, c^1_\kappa)^T$
-was constructed and satisfies
+为了证明上述定理，我们注意到方程组\eqref{eq:ECDFsecond1D}满足文献\cite{yong1992singular,yong1999singular}中的结构条件。从而，其中的一阶双曲偏微分方程的奇异摄动理论可以用于本方程组。于是我们得到\eqref{eq:ECDFsecond1D}以的解$(\bar{u},0)$为初值的解$U^\kappa = (\rho^\kappa, \rho^\kappa v^\kappa, c^\kappa)^T$的一阶摄动展开对应的方程组的解$U_\kappa^1=(\rho_\kappa^1,\rho_\kappa^1 v_\kappa^1, c^1_\kappa)^T$在$[0,T_*]$上满足
 \begin{eqnarray}\label{53}
   \sup_{t \in [0, T_*]} \|U^\kappa(\cdot, t) - U_\kappa^1(\cdot, t)\|_{H^s} \le K\kappa^2
 \end{eqnarray}
-with $K$ a positive constant independent of $\kappa$. Thus, the existence of $U^\kappa$ on the time interval $[0,T_*]$ is out of question.
+其中$K$为不依赖与$\kappa$的正常数。从而$U^\kappa$在$[0,T_*]$的解亦存在。
 
-To show the other conclusions of the theorem, we refer to \cite{yong1992singular,yong1999singular} for the construction of the approximate solution $U_\kappa^1$, which has the form
+$U^\kappa_1$的表达式可由\cite{yong1992singular,yong1999singular}中的方法得到。假设其形式为
 \begin{eqnarray*}
 U^1_\kappa  = U_0(x,t) + \kappa U_1(x,t) + U'_0(x,t') + \kappa U'_1(x,t')
 \end{eqnarray*}
-with $t'=t/\kappa$.
-Here the coefficients $U_0=(u_0, c_0)$ and $U_1=(u_1, c_1)$ of the outer solution solve
+其中$t'=t/\kappa$。
+对于外展开$U_0=(u_0, c_0)$和$U_1=(u_1, c_1)$满足
 \begin{eqnarray}
-  c_0 = 0, \quad
+ \rho_0 c_0 = 0, \quad
   \partial_t u_0+ \partial_x f(u_0,0)=0 , \nonumber \\
-  c_1 = 2\partial_x v_0, \quad
-  \partial_t u_1 + \partial_x (f_u(u_0,0) u_1)  -4 \partial^2_x v_0 = 0 \label{54}
-\end{eqnarray}
-with
+  (\rho c)_1 = 2\partial_x v_0, \quad
+  \partial_t u_1 + \partial_x (f_u(u_0,0) u_1)  -4 \partial^2_x v_0 = 0 \label{54},
+	\end{eqnarray}
+其中
 \begin{eqnarray*}
-  f(\rho,\rho v,c) = \left( \begin{array}{cc} \rho v \\ \rho v^2 + p + \frac{3}{2} c^2 - 2c \end{array} \right);
+  f(\rho,\rho v,\rho c) = \left( \begin{array}{cc} \rho v \\ \rho v^2 + p - \frac{3}{2} (\rho c)^2 - 2\rho c \end{array} \right);
 \end{eqnarray*}
-while $U_0'=(u_0', c_0')$ and $U_1'=(u_1', c_1')$ satisfy
+内展开$U_0'=(u_0', c_0')$和$U_1'=(u_1', c_1')$满足
 \begin{eqnarray*}
- \partial_{t'} u'_0 = 0,  \quad \partial_{t'} c'_0 = -c'_0 , \\
+ \partial_{t'} u'_0 = 0,  \quad \partial_{t'} (\rho c)'_0 = -(\rho c)'_0 , \\
   \partial_{t'} u'_1 = \partial_x(f(\bar u_0,0) - f(\bar u_0,c'_0)), \\
-  \partial_{t'} c'_1 = - c'_1 - \bar v_0 \partial_x c_0' -2c_0'\partial_x \bar v_0.
+  \partial_{t'} (\rho c)'_1 = - (\rho c)'_1 - \bar v_0 \partial_x (\rho c)_0' -2 (\rho c)_0'\partial_x \bar v_0.
 \end{eqnarray*}
-The required initial data for the above equations were obtained with the matching conditions
+其初值由下面的匹配条件决定。
 \begin{eqnarray*}
   \lim_{t' \to \infty} U'_0(x,t') = 0 , \quad \lim_{t' \to \infty} U'_1(x,t') = 0 .
 \end{eqnarray*}
-These and the requirement that the approximate solution should fulfil the prescribed initial condition lead to
+从而有
 \begin{eqnarray*}
- u'_0 =0, \quad u_0(x,0) = \bar{u}(x), \quad  c'_0 =c'_0(x,0)e^{-t/\kappa}=0 , \\[4mm]
- u'_1(x,0) = -\partial_x\int_0^{+\infty} (f(\bar u_0,0) - f(\bar u_0,c'_0)) dt'=0\\
+ u'_0 =0, \quad u_0(x,0) = \bar{u}(x), \quad  (\rho c)'_0 = (\rho c)'_0(x,0)e^{-t/\kappa}=0 , \\[4mm]
+ u'_1(x,0) = -\partial_x\int_0^{+\infty} (f(\bar u_0,0) - f(\bar u_0,(\rho c)'_0)) dt'=0\\
 % = \partial_x\int_0^{+\infty} \left( \begin{array}{cc} 0 \\  \frac{3}{2} (c_0')^2 - 2c'_0 \end{array} \right) dt' =
  %\left( \begin{array}{cc} 0 \\  \frac{3}{2} \bar c_{0x}\bar c_0 - 2\bar c_{0x} \end{array} \right), \\[4mm]
- u_1(x,0) =  - u'_1(x,0)=0, \quad c'_1(x,0) = - 2\partial_x\bar v_0(x).
+ u_1(x,0) =  - u'_1(x,0)=0, \quad (\rho c)'_1(x,0) = - 2\partial_x\bar v_0(x).
 \end{eqnarray*}
-These together with \eqref{53} show that
+这与式子\eqref{53}给出下面的估计
 \begin{eqnarray*}
   \|u^\kappa(\cdot, t) - u_0 (\cdot, t) - \kappa u_1(\cdot, t) \|_{H^s} \le K \kappa^2
 \end{eqnarray*}
-for $t \in [0,T_*]$. Thus, it reduces to establish
+对$t \in [0,T_*]$成立。从而为了证明定理\ref{theoremCE}，只需证明下面的结果。
 
-\addtocounter{thm}{-1}
-\renewcommand{\thethm}{\arabic{thm}$'$}
-\begin{thm}
-  Under the conditions of Theorem 2, %hold and $\tilde{u}^1(\cdot,\kappa) \in H^{s+2}$,$\tilde{u}_p(\cdot,\kappa)\in H^s$ satisfy
-the system \eqref{51} with initial data $\bar{u} $ has a unique solution $u_p^\kappa \in C([0,T_*],H^s)$ satisfying
+
+
+\begin{lemma}\label{lemmaCE}
+在定理\ref{theoremCE}的条件下，方程组\eqref{51}以$\bar{u}$为初值的Cauchy问题有唯一解$u_p^\kappa \in C([0,T_*],H^s)$，且对充分小的$\kappa$其满足
 \begin{eqnarray}\label{eq:wcediff}
   \sup_{t \in [0,T_*]} \| u^\kappa_p(\cdot,t) - u_0 (\cdot, t) - \kappa u_1(\cdot, t)\|_{H^s} \le C \kappa^2
 \end{eqnarray}
-for $\kappa$ sufficiently small. Here $C=C(T_*)$ is independent of $\kappa$.
-\end{thm}
+这里$C=C(T_*)$与$\kappa$无关。
+\end{lemma}
 
 \begin{proof}
-From the local existence theory of the Navier-Stokes equations \cite{kawashima1984phd}, the system \eqref{51} has a unique solution $u^\kappa_p=u^\kappa_p(x,t)$ satisfying $u^\kappa_p \in C([0,T],H^s)$. For $G_1\subset\subset G= \{(\rho, \rho v, c): \rho>0, \quad c< 2/3\}$, we define its maximum existence time as
+由Navier-Stokes方程的存在性定理\cite{kawashima1984phd}，方程组\eqref{51}存在唯一解$u^\kappa_p=u^\kappa_p(x,t)$，且其满足$u^\kappa_p \in C([0,T],H^s)$。对集合$G_1\subset\subset G= \{(\rho, \rho v, \rho c): \rho>0,\ \rho c > -2/3\}$，我们定义其解的最大存在时间为
 \begin{eqnarray*}
   T^\kappa :=\sup \{T>0 : u_p^\kappa  \in C([0,T],H^s), u^\kappa_p(x,t) \in G_1 \}.
 \end{eqnarray*}
-It can be shown as in \cite{yong2001basic} that
-\begin{eqnarray*}
-T^\kappa > T_*,
-\end{eqnarray*}
-provided that, as $\kappa$ tends to zero, the following error estimates
+由\cite{yong2001basic}中结果可知只要下面的估计成立就有$\kappa$趋于$0$时
+$T^\kappa > T_*$
+成立。
 \begin{eqnarray*}
 \sup_{x,t} |u_p^\kappa(x,t) - u_0 (x, t) - \kappa u_1(x,t)|=o(1), \\
 \sup_t \| u_p^\kappa(\cdot ,t) - u_0 (\cdot, t) - \kappa u_1(\cdot, t) \|_{H^s} = O(1)
 \end{eqnarray*}
-hold for $t \in [0,\min\{T_*,T^\kappa\})$. Thus it remains to prove the error estimate \eqref{eq:wcediff} with $T_*$ replaced by $\min\{T_*,T^\kappa\}$.
+对$t \in [0,\min\{T_*,T^\kappa\})$成立。这样我们只需证明误差估计\eqref{eq:wcediff}（其中$T_*$由$\min\{T_*,T^\kappa\}$代替）。
 
-For convenience, we will work with $w=(\rho,v)$, instead of $u=(\rho,\rho v)$, and  neglect the subscript $p$ to write $u^\kappa_p$ as $u^\kappa$. By the Sobolev calculus inequalities \cite{majda1984compressible}, the norms of $w$ are equivalent to those of $u$.
+方便起见，我们估计$w=(\rho,v)$从而得到$u=(\rho,\rho v)$的估计。这里我们将$u^\kappa_p$记做$u^\kappa$。由Sobolev演算不等式\cite{majda1984compressible}，$w$的范数与$u$的范数等价。
 
-Set
+令
 \begin{eqnarray*}
-  a(w) = \left( \begin{array}{cc} v & \rho \\ \frac{p_\rho}{\rho} & v \end{array} \right) \ \ \mbox{and} \ \
+  a(w) = \left( \begin{array}{cc} v & \rho \\ \frac{p_\rho}{\rho} & v \end{array} \right) \ \ \mbox{与} \ \
   a_0(w) = \left( \begin{array}{cc} \frac{p_\rho}{\rho^2} & 0 \\ 0 & 1 \end{array} \right).
 \end{eqnarray*}
-Note that $a_0(w)$ is symmetric positive definite for $\rho>0$ and $a_0(w)a(w)=a^T(w)a_0(w)$.
-Then equation \eqref{51} can be rewritten as
+这里$a_0(w)$是对称正定的且$a_0(w)a(w)=a^T(w)a_0(w)$。
+方程组\eqref{51}可以写作
 \begin{eqnarray}\label{57}
   \partial_t w^\kappa + a(w^\kappa) \partial_x w^\kappa = \left( \begin{array}{cc} 0 \\ \frac{4 \kappa}{\rho^\kappa} \partial^2_x v^\kappa \end{array} \right) .
 \end{eqnarray}
 
-On the other hand, we deduce from \eqref{54} that $u_\kappa \equiv u_0 +\kappa u_1$ satisfies
+另外，由\eqref{54}得到$u_\kappa \equiv u_0 +\kappa u_1$满足下面的方程
 \begin{eqnarray*}
   &&\partial_t u_\kappa + f(u_\kappa,0)_x \nonumber \\
   &=&  (f(u_\kappa,0) - \kappa f_u(u_0,0)u_1 - f(u_0,0))_x + \left( \begin{array}{c} 0 \\ 4 \kappa \partial^2_x v_0 \end{array} \right) \nonumber \\
 	&=& \left( \begin{array}{c} 0 \\ 4 \kappa \partial^2_x v_\kappa \end{array} \right)   + R
 \end{eqnarray*}
-with
+其中
 $$
 R=(f(u_\kappa,0) - \kappa f_u(u_0,0)u_1 - f(u_0,0))_x -\left( \begin{array}{c} 0 \\ 4 \kappa^2 \partial^2_x v_1 \end{array} \right).
 $$
-Then it is not difficult to see that $w_\kappa$ satisfies
+易知$w_\kappa$满足
 \begin{eqnarray}\label{58}
   \partial_t w_\kappa + a(w_\kappa) \partial_x w_\kappa = \left( \begin{array}{cc} 0 \\ \frac{4 \kappa}{\rho_\kappa} \partial^2_x v_\kappa \end{array} \right) + \hat R
 \end{eqnarray}
-with
+其中
 \begin{eqnarray*}
 \hat{R} = \left( \begin{array}{cc} 1 & 0 \\ 0 & 1/\rho_\kappa \end{array} \right)R .
 \end{eqnarray*}
-Obviously, we have $\|\hat{R}\|_{H^s} =O(\|R\|_{H^s})= O(\kappa^2)$, for
+由Sobolev演算不等式\cite{majda1984compressible}与$u_\kappa \in H^{s+2}$得到
 \begin{eqnarray*}
   \|\partial^2_x v_1 \|_{H^s} &\le&  \|v_1\|_{H^{s+2}}
 \end{eqnarray*}
-and
+与
 \begin{eqnarray*}
   \|(f(u_\kappa,0) &-& \kappa f_u(u_0,0)u_1 - f(u_0,0))_x\|_{H^s} \\
   &=& \kappa^2 \| u_1^Tf_{uu}(u_0+\kappa \theta_2 \theta_1  u_1,0) \theta_1 u_1\|_{H^{s+1}} \\
   &\le&  C \kappa^2 \|u_1\|_{H^{s+1}}^2 \|u_0+\kappa \theta_2 \theta_1  u_1\|_{H^{s+1}},
 \end{eqnarray*}
-where $\theta_1,\theta_2 \in (0,1)$. Here we have used the Sobolev calculus inequalities \cite{majda1984compressible} and the fact that $u_0, u_1 \in H^{s+2}$.
+其中$\theta_1,\theta_2 \in (0,1)$，从而$\|\hat{R}\|_{H^s} =O(\|R\|_{H^s})= O(\kappa^2)$。
 
-Set $E = w^\kappa - w_\kappa$. It follows from \eqref{57} and \eqref{57} that
+
+取$E = w^\kappa - w_\kappa$。由\eqref{57}和\eqref{57}得到
 \begin{eqnarray*}
   \partial_t E + a(w^\kappa) \partial_x E = (a(w_\kappa) - a(w^\kappa)) \partial_x w_\kappa + \left( \begin{array}{cc} 0 \\ \frac{4\kappa}{\rho^\kappa} \partial^2_x v^\kappa - \frac{4\kappa}{\rho_\kappa} \partial^2_x v_\kappa \end{array} \right) - \hat{R}.
 \end{eqnarray*}
-This can be rewritten as
+这可以重写为
 \begin{eqnarray*}
    \partial_t E + a(w^\kappa) \partial_x E = (a(w_\kappa) - a(w^\kappa)) \partial_x w_\kappa + \left( \begin{array}{cc} 0 \\ \frac{4\kappa}{\rho^\kappa} \partial^2_x (v^\kappa - v_\kappa) \end{array} \right) \\
    + \left( \begin{array}{cc} 0 \\ 4\kappa(\frac{1}{\rho^\kappa} -\frac{1}{ \rho_\kappa})\partial^2_x v_\kappa \end{array} \right)- \hat{R}.
 \end{eqnarray*}
-Taking the $l$-th order ($0 \le l \le s$) spatial derivatives leads to
+两边求$l$阶导数（$0 \le l \le s$）得到
 \begin{eqnarray*}
   \partial_t \partial^l_x E + a(w^\kappa) \partial^l_x E_x  = [a(w^\kappa),\partial^l_x] E_x  + \left( \begin{array}{cc} 0 \\4\kappa \partial^l_x(\frac{1}{\rho^\kappa} \partial^2_x (v^\kappa-v_\kappa)) \end{array} \right) \\  + \left( \begin{array}{cc} 0 \\ 4 \kappa \partial^l_x ((\frac{1}{\rho^\kappa} - \frac{1}{\rho_\kappa}) \partial^2_x v_\kappa) \end{array} \right) -\partial^l_x \hat{R} + \partial^l_x ((a(w_\kappa)-a(w^\kappa))\partial_x w_\kappa).
 \end{eqnarray*}
-We multiply the last equation with $\partial^l_x E^Ta_0(w^\kappa)$ and integrate the resultant equation over $x$ to obtain
+将上述等式乘以$\partial^l_x E^Ta_0(w^\kappa)$并对空间$x$积分得到
 \begin{eqnarray}\label{58}
 && (a_0(w^\kappa) \partial^l_x E,\partial^l_x E)_t + \int ( \partial^l_x E^T a_0(w^\kappa) a(w^\kappa) \partial^l_x E )_x dx \nonumber \\
 &=&  ((a_0(w^\kappa)_t + (a_0(w^\kappa)a(w^\kappa))_x) \partial^l_x E,\partial^l_x E)
@@ -541,7 +538,7 @@ We multiply the last equation with $\partial^l_x E^Ta_0(w^\kappa)$ and integrate
 & \equiv& I_1 +I_2 +I_3 +I_4+I_5 + I_6.
 \end{eqnarray}
 
-Next we estimate the terms in the last equation. To do this, we notice that the second term on the left-hand side vanishes. Moreover, we recall that $w^\kappa$ takes values in the compact set $G_1$ and $\|w_\kappa(\cdot, t)\|_{H^{s+2}}$ is bounded uniformly with respect to $\kappa$. Now, with the Sobolev inequalities \cite{majda1984compressible}, the terms $I_2, I_4, I_5$ and $I_6$ can be simply treated as follows
+下面我们估计上述方程中的项。首先我们注意到左端第二项为$0$。并且$w^\kappa$在紧集$G_1$中取值，$\|w_\kappa(\cdot, t)\|_{H^{s+2}}$对$\kappa$一致有界。 利用Sobolev演算不等式\cite{majda1984compressible}，$I_2, I_4, I_5$和$I_6$可以估计如下。
 \begin{eqnarray*}
   I_2 &\le& 2 |a_0(w^\kappa)|_{L^\infty} \|[a(w^\kappa),\partial^l_x]E_x\|_{L^2} \|\partial^l_x E\|_{L^2} \nonumber \\
   &\le& C \|\partial^l_x E\|_{L^2} (|\partial_x a(w^\kappa)|_{L^\infty}\|\partial^{s-1}_x E_x\|_{L^2} + |E_x|_{L^\infty} \|\partial^s_x a(w^\kappa)\|_{L^2})  \nonumber \\
@@ -554,7 +551,7 @@ Next we estimate the terms in the last equation. To do this, we notice that the 
       &\le&  C \|E\|_{H^s}^2. \label{515}
 \end{eqnarray*}
 
-For the first term, we deduce from equations in \eqref{51} that
+对第一项，利用\eqref{51}得到
 \begin{eqnarray*}
   I_1 &\le&  |a_0(w^\kappa)_t + (a_0(w^\kappa) a(w^\kappa))_x|_{L^\infty} \|\partial^l_x E\|_{L^2}^2 \nonumber\\
       &\le& C (|w^\kappa_t|_{L^\infty} + |w^\kappa_x|_{L^\infty}) \|\partial^l_x E\|_{L^2}^2 \nonumber\\
@@ -563,7 +560,7 @@ For the first term, we deduce from equations in \eqref{51} that
       &\le& C (\|w^\kappa-w_\kappa\|_{H^s}+\|w_\kappa\|_{H^s}+\kappa\|v_\kappa\|_{H^{s+1}} + \kappa \|\partial_x(v^\kappa-v_\kappa)\|_{H^s}) \|\partial^l_x E\|_{L^2}^2 \nonumber\\
       &\le& C (1+\|E\|_{H^s} + \kappa \|\partial_x (v^\kappa-v_\kappa)\|_{H^s}) \|E\|_{H^s}^2. \label{516}
 \end{eqnarray*}
-The treatment of the third term $I_3$ needs integration by parts:
+第三项$I_3$的处理需要采用分部积分。
 \begin{eqnarray*}
   I_3 &=& 8 \kappa ([\partial^l_x,\frac{1}{\rho^\kappa}] \partial^2_x(v^\kappa-v_\kappa) + \frac{1}{\rho^\kappa} \partial^{l+2}_x(v^\kappa-v_\kappa),\partial^l_x (v^\kappa-v_\kappa) )\\
   &=& 8 \kappa ([\partial^l_x,\frac{1}{\rho^\kappa}] \partial^2_x(v^\kappa-v_\kappa),\partial^l_x (v^\kappa-v_\kappa))  -8 \kappa(\partial_x (\frac{1}{\rho^\kappa}) \partial^l_x(v^\kappa-v_\kappa),\partial^{l+1}_x (v^\kappa-v_\kappa)) \\ && -8\kappa ( \frac{1}{\rho^\kappa} \partial^{l+1}_x(v^\kappa-v_\kappa), \partial^{l+1}_x (v^\kappa-v_\kappa)) \\
@@ -571,51 +568,50 @@ The treatment of the third term $I_3$ needs integration by parts:
   &\le& C\kappa \|\partial^l_x (v^\kappa-v_\kappa)\|_{L^2} (|\partial_x \frac{1}{\rho^\kappa}|_{L^\infty} \|\partial_x^{s-1} \partial^2_x(v^\kappa-v_\kappa)\|_{L^2} + |\partial^2_x (v^\kappa-v_\kappa)|_{L^\infty} \|\partial^s_x \frac{1}{\rho^\kappa}\|_{L^2})  \\ & & + C\kappa \|\rho^\kappa\|_{H^s} \|v^\kappa-v_\kappa\|_{H^s}\|\partial_x (v^\kappa-v_\kappa)\|_{H^s} -C_0 \kappa\|\partial^{l+1}_x (v^\kappa-v_\kappa)\|_{L^2}^2\\
   &\le& C\kappa (1+ \|E\|_{H^s})\|E\|_{H^s} \|\partial_x (v^\kappa-v_\kappa)\|_{H^s}-C_0 \kappa \|\partial^{l+1}_x (v^\kappa-v_\kappa)\|_{L^2}^2 ,
 \end{eqnarray*}
-where $C_0 =\frac{ 8}{{\max_{x,t,\kappa} \{\rho^\kappa(x,t) \}}}$.
+其中$C_0 =\frac{ 8}{{\max_{x,t,\kappa} \{\rho^\kappa(x,t) \}}}$.
 
-Combining \eqref{58} with the above estimates for the $I_k$'s and adding them together, we arrive at
+结合\eqref{58}和上面$I_k$的估计，我们得到
 \begin{eqnarray*}
  && \sum_{l=0}^s  (a_0(w^\kappa) \partial^l_x E,\partial^l_x E)_t + C_0 \kappa \|\partial_x (v^\kappa-v_\kappa)\|_{H^s}^2 \\
  &\le& C (1+\|E\|_{H^s})\|E\|_{H^s}^2 + C \kappa(1+\|E\|_{H^s})\|E\|_{H^s} \|\partial_x(v^\kappa-v_\kappa)\|_{H^s} + C \kappa^4  \\
  &\le& C (1+\|E\|_{H^s})\|E\|_{H^s}^2 + \frac{C_0\kappa}{2} \|\partial_x(v^\kappa-v_\kappa)\|_{H^s}^2 + C \kappa (1+\|E\|_{H^s})^2 \|E\|_{H^s}^2 + C \kappa^4.
 \end{eqnarray*}
-Thus we have
+从而
 \begin{eqnarray*}
   \sum_{l=0}^s  (a_0(w^\kappa) \partial^l_x E,\partial^l_x E)_t + \frac{C_0}{2} \kappa \|\partial_x (v^\kappa-v_\kappa)\|_{H^s}^2 \le   C (1+\|E\|_{H^s}^2)\|E\|_{H^s}^2 + C \kappa^4.
 \end{eqnarray*}
-Recall that $a_0(w^\kappa)$ is positive definite.
-We integrate this inequality over $t \in [0,T]$ with $T \le \min \{T_*,T^\kappa\}$ to obtain
+回忆$a_0(w^\kappa)$是正定的。我们将上述不等式在$t \in [0,T],\ T \le \min \{T_*,T^\kappa\}$上积分得到
 \begin{eqnarray} \label{59}
  && \|E(T)\|_{H^s}^2 + \kappa \int_0^T \|\partial_x(v^\kappa(t)-v_\kappa(t))\|_{H^s}^2 dt \nonumber \\
 & \le &  C\int_0^T (1+\|E(t)\|_{H^s}^2)\|E(t)\|_{H^s}^2 dt +CT_* \kappa^4.
 \end{eqnarray}
-Here we have used that $E(x, 0)=0$.
+这里我们用到了$E(x, 0)=0$。
 
-Set
+令
 \begin{eqnarray*}
   \phi(T) =  \int_0^T (1+\|E(t)\|_{H^s}^2)\|E(t)\|_{H^s}^2 dt + T_* \kappa^4.
 \end{eqnarray*}
-It follows from \eqref{59} that
+由\eqref{59}得到
 \begin{eqnarray*}
   \phi' \le C  \phi(1+C\phi)
 \end{eqnarray*}
-or
+或
 \begin{eqnarray*}
   -(\frac{1}{\phi})_t \le -C (-\frac{1}{\phi})+C^2.
 \end{eqnarray*}
-For this we use the Gronwall inequality to get
+采用Gronwall不等式我们得到
 \begin{eqnarray*}
   \phi(T) \le \frac{e^{CT} \phi_0}{1-C e^{CT}  \phi_0}\le\frac{e^{CT_*} \phi_0}{1-C e^{CT_*} \phi_0} .
 \end{eqnarray*}
-Choosing $\kappa$ sufficiently small such that $C e^{CT_*} \phi_0 \le \frac{1}{2}$ we arrive at
+选取充分小的$\kappa$以使$C e^{CT_*} \phi_0 \le \frac{1}{2}$，我们最终得到
 \begin{eqnarray*}
   \phi(T) \le 2T_*e^{CT_*}\kappa^4.
 \end{eqnarray*}
-Hence we have
+于是
 \begin{eqnarray*}
   \|E(T)\|_{H^s} \le C(T_*) \kappa^2
 \end{eqnarray*}
-for $T \in [0,\min\{T_*,T^\kappa\})$ and the proof is complete.
+对$T \in [0,\min\{T_*,T^\kappa\})$成立。我们证明了引理\ref{lemmaCE}，从而定理\ref{theoremCE}成立。
 \end{proof}
 
 \bibliography{Oldroydnew1}
