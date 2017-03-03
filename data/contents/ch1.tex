@@ -169,13 +169,50 @@ $L=L(x)$和$M=M(x)$为体系的Possion矩阵和耗散矩阵。通过给出系统
 \begin{equation}\label{eq:Feq}
 	\partial_t F + v \cdot \nabla F = (\nabla v) F.
 \end{equation}
-这一理论认为应力张量是$F$的历史和温度$T$的历史的函数。例如经典的上对流导数Maxwell模型的应力张量$\sigma$可以写为
+这一理论认为应力张量是$F$的历史和温度$T$的历史的函数。假设体系的自由能为
+\begin{equation*}
+	\psi = \mathop{\psi} \limits_{\tau=0}^{t}( C(t), C_t(\tau),\theta(t),\theta^t(\tau)).
+\end{equation*}
+其中$C(t) = F^T(t) F(t),C^t(\tau) = C(t - \tau)$。$\psi$依赖于从初始时刻到当前时刻$t$的应变历史。利用Gibbs关系，可以得到
+\begin{equation}\label{eq:en}
+	\rho \frac{d\psi}{dt} + \rho \eta \frac{d \theta}{dt} - T: \frac{dC}{dt} + w = 0.
+\end{equation}
+其中$T$代表第二Piola-Kirchhoff张量，与Cauchy应力张量的关系为$\sigma = \rho F T F^T$，$w$代表能量的耗散。由$\psi$的表达式可以得到
+\begin{equation*}
+	\frac{d\psi}{dt} = \frac{\partial \psi}{\partial C} : \frac{d C}{dt}+ \frac{\partial \psi}{\partial \theta} \frac{d\theta}{dt} + \delta \psi。
+\end{equation*}
+代入\eqref{eq:en}中得到
+\begin{equation*}
+	(\rho \frac{\partial \psi}{\partial C} - T) : \frac{dC}{dt} + \rho (\frac{\partial \psi}{\partial \theta} + \eta) d\theta + (w + \rho \delta \psi) dt  =0.
+\end{equation*}
+从而得到
+\begin{eqnarray*}
+	T = \rho \frac{\partial \psi}{\partial C} = \mathop{\mathcal{F}}\limits_{\tau=0}^{t} ( C(t), C_t(\tau),\theta(t),\theta^t(\tau)), \\
+	\eta = -\frac{\partial \psi}{\partial \theta},\\
+	w = -\rho \delta \psi.
+\end{eqnarray*}
+热力学第二定律由$w \ge 0$保证\cite{}。
+
+例如经典的上对流导数Maxwell模型的熵函数可以取作（忽略温度）
+\begin{equation*}
+	\psi  = \psi(t) = - \frac{1}{\lambda}  \ln \det (F^T(t) F(t)) + F^T(t) F(t) : \frac{1}{\lambda}  \int_{0}^t e^{-\frac{t-s}{\tau}} F^{-1}(\tau) F^{-T}(\tau) d\tau 
+\end{equation*}
+于是有
+\begin{equation*}
+	T = \frac{1}{\lambda}  \int_{0}^t e^{-\frac{t-s}{\tau}} F^{-1}(\tau) F^{-T}(\tau) d\tau -\frac{1}{\lambda}  F^{-1} F^{-T} 
+\end{equation*}
+应力张量$\sigma$可以写为
 \begin{equation*}
 	\sigma = \frac{1}{\lambda} \int_{0}^{t} e^{-\frac{(t-s)}{\lambda} } F(t)  F^{-1}(s) F^{-T}(s) F^T(t)  dx.
 \end{equation*}
-注意上面的积分是沿流线的积分。于是根据\eqref{eq:Feq}，可以得出$\sigma$满足上对流导数Maxwell模型。
+注意上面的积分是沿流线的积分。于是根据\eqref{eq:Feq}，可以得出$\sigma$满足上对流导数Maxwell模型。该模型的能量耗散为
+\begin{equation*}
+	w = - \rho \frac{1}{\lambda} \mbox{Tr}(I) = -\frac{3\rho}{\lambda} < 0.
+\end{equation*}
+这违背了热力学第二定律对$w>0$的要求。所以这一理论不能很好地包括上对流导数Maxwell模型。
 
-然而，这一理论得到的方程为积分-微分方程，且由于积分一般是沿着流线的积分，在实际计算中变得十分复杂。通过引入新的变量可以将积分方程变为微分方程，可以参看\cite{}。本论文将讨论基于CDF理论和有限形变理论的粘弹性流体建模方法。
+并且这一理论得到的方程为积分-微分方程，且由于积分一般是沿着流线的积分，在实际计算中变得十分复杂。通过引入新的变量可以将积分方程变为微分方程，可以参看\cite{}。本论文将讨论基于CDF理论和有限形变理论的粘弹性流体建模方法。
+
 \section{粘弹性流体的数学分析}
 
 \section{主要工作}

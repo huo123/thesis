@@ -1,0 +1,167 @@
+%\chapter{有限形变理论在粘弹性流体建模中的应用}
+
+\documentclass{article}
+\usepackage{ctex}
+\usepackage{amsmath}
+\usepackage{cite}
+\begin{document}
+本章我们将考虑有限形变理论在粘弹性流体力学中的应用。在第一章绪论中，我们已经看到积分形式的记忆衰减理论无法很好地用于粘弹性流体的建模中。在本章中我们将利用守恒-耗散理论和有限形变理论对粘弹性流体力学进行建模。有限形变理论采用形变张量$F$对流体的变形进行度量，由于形变张量满足力学上的适应性条件，可以将其方程写成守恒形式。从而我们可以将形变张量加入守恒变量中并可以利用守恒-耗散理论对粘弹性流通进行建模。
+
+这样得到的模型的数学分析将在本章第三节给出。
+% \abstract{ We apply the conservation dissipation formalism (CDF) of irreversible thermodynamics to the modeling of viscoelastic fluids. The fundamental structure of CDF is determined by the entropy and dissipation matrix as well as the conservation laws. In addition to the conservation laws of mass, momentum and energy, the evolution of the deformation tensor can be written in to a conservative form with the help of the compatibility conditions in continuum mechanics theory. Here we include this conservation laws into CDF and give two ways of formulation of partial differential equations for viscoelastic fluids from two ways of expressing entropy functions. These two ways are corresponding to the linear and nonlinear theory of viscoelasticity.}
+
+\section{连续介质的一般方程}
+在第二章第一节中，我们已经讨论了对连续介质变形的数学描述。连续介质的形变可以用$x=\mathcal{F}_t (X,t)$来描述。定义形变张量
+\begin{equation*}\label{eq:Fdef}
+	F_{ij} = \frac{\partial x_i}{\partial X_j}.
+\end{equation*}
+$F$的运动方程为
+\begin{eqnarray}\label{eq:Feq}
+F_t + v \cdot \nabla F = \nabla v F.
+\end{eqnarray}
+由$F$的定义\eqref{eq:Feq}，$F$满足下面的适应性条件
+\begin{eqnarray}
+\nabla \cdot (\rho F^T) = 0,\label{eq:compatibility1} \\
+ F_{lj} \partial_{x_l} F_{ik} = F_{lk} \partial_{x_k} F_{il} , \label{eq:compatibility2} \\
+ \rho \det F = 1. \label{eq:compatibilty3} \label{eq:compatibility3}
+\end{eqnarray}
+这三个适应性条件中不是独立的。由\eqref{eq:compatibility2}和\eqref{eq:compatibilty3}可以推出\eqref{eq:compatibility1}。这可由下面的计算给出
+needproof
+
+由适应性条件\eqref{eq:compatibility1}，$\rho F$的演化方程可以写成守恒形式
+\begin{eqnarray*}
+(\rho F)_t + \nabla \cdot (\rho \otimes v) - \nabla \cdot (\rho v \otimes F^T) = 0 .
+\end{eqnarray*} 
+
+将$F$的方程加入描述连续介质运动的一般方程\eqref{eq:fluid}中，我们得到对连续介质有限形变的描述如下。
+\begin{subequations}\label{eq:continuum}
+\begin{align}
+\rho_t + \nabla \cdot (\rho v )=0, \\
+(\rho v)_t + \nabla \cdot (\rho v \otimes v) + \nabla \cdot P = 0, \\
+(\rho e)_t + \nabla \cdot (\rho e v) + \nabla \cdot q + \nabla \cdot (P \cdot v) = 0 ,\\
+(\rho F)_t + \nabla \cdot (\rho \otimes v) - \nabla \cdot (\rho v \otimes F^T) = 0 .
+\end{align}
+\end{subequations}
+
+在有限形变理论中应力$P$为形变张量$F$的函数。如何得到它们之间的本构关系是热力学理论的主要目的。在粘弹性流体力学中，由于粘弹性的存在，应变能是耗散的，如何描述这一不可逆过程是非平衡态热力学理论的一个重要目的。
+
+\section{有限形变守恒-耗散理论}
+在守恒-耗散理论中，我们选取守恒量
+$$U_c = (\rho, \rho v, \rho e, \rho F).$$
+我们仍引入耗散变量$U_d = (\rho w,\rho c)$来描述不可逆过程。假设系统存在熵函数函数$\eta$如下
+Like in \cite{zhu2015conservation}, the entropy function can be written as
+\begin{eqnarray*}
+\eta(U) = \eta(\rho, \rho v, \rho e,\rho F,\rho w, \rho c) = \rho s(\nu,u,F,w,C)
+\end{eqnarray*}
+其中$s$为比熵。我们仍然假设$\eta$为其变量的上凸函数。
+
+由Gibbs关系我们得到
+$$\theta^{-1}:=s_{u} (\nu,u,F, w,C), \quad \theta^{-1} p := s_\nu (\nu,\mathcal{E},w,C).$$
+计算熵的变化率得到
+\begin{eqnarray*}
+		\eta_t + \nabla \cdot (\eta v) &=& \rho (s_t + v \cdot \nabla s), \\
+		&=& -\nabla \cdot (\theta^{-1} q) + s_w \cdot [\rho (w_t + v \cdot \nabla w)] + \rho s_F : \nabla v F  \\
+		&& + (s_c:[\rho (c_t + v \cdot \nabla c)] - \theta^{-1} \tau : D) \\
+		&=& -\nabla \cdot (\theta^{-1} q) + s_w \cdot [\rho (w_t + v \cdot \nabla w)] + \rho s_F F^T : D  \\
+		&& + (s_c:[\rho (c_t + v \cdot \nabla c)] - \theta^{-1} \tau : D + \rho s_F F^T : D)  \\
+		&& = -\nabla \cdot J + \Delta.
+\end{eqnarray*}
+这里我们假设了$q=s_w$。并且假设
+\begin{equation}
+	s_F F^T = F s_F^T.	
+\end{equation}
+这是根据客观性原理得到的\cite{}，类似在固体力学中对能量函数的要求。
+对于$\tau$，像在第三章第二节中的那样，我们有两种选择。一是令
+\begin{eqnarray*}
+\theta^{-1} \tau = \rho s_F F^T 
+\end{eqnarray*}
+得到本构关系
+\begin{eqnarray*}
+\left( \begin{array}{c} \partial_t (\rho w) + \nabla \cdot (\rho w \otimes v) + \nabla \theta^{-1}) \\
+	\partial_t (\rho c) + \nabla \cdot (\rho c \otimes v) \end{array} \right)
+=
+M \cdot \left( \begin{array}{c} q \\ s_C \end{array} \right)
+\end{eqnarray*}
+我们称这样的选择得到是第一类模型。另外我们可以选取
+\begin{eqnarray*}
+	\theta^{-1} \tau = \rho s_F F^T + s_c.
+\end{eqnarray*}
+得到
+\begin{eqnarray*}
+\left( \begin{array}{c} \partial_t (\rho w) + \nabla \cdot (\rho w \otimes v) + \nabla \theta^{-1}) \\
+	\partial_t (\rho c) + \nabla \cdot (\rho c \otimes v) - \nabla v \end{array} \right)
+=
+M \cdot \left( \begin{array}{c} q \\ s_c  \end{array} \right)
+\end{eqnarray*}
+
+-----------------------------------------------------------
+$$s = s_0(\nu,\mathcal{E}) - \frac{1}{2\nu} \alpha_0 |w|^2 - \frac{1}{2\nu\alpha_1} |C|$$
+
+
+\section{An Example}
+\begin{subequations}
+\begin{align}
+\rho_t + \nabla \cdot (\rho v )=0 \\
+(\rho v)_t + \nabla \cdot (\rho v \otimes v) + \nabla \cdot \sigma = 0 \\
+(\rho e)_t + \nabla \cdot (\rho e v) + \nabla \cdot q + \nabla \cdot \sigma = 0 \\
+A_t + v \cdot \nabla A + A \nabla v = 0
+\end{align}
+\end{subequations}
+
+
+\begin{eqnarray*}
+\eta = \eta (\rho, \rho v, A, C)  = \phi(\rho) + \frac{1}{2} \rho v^2 + \frac{1}{2}\rho \mbox{Tr} (A^T G^{-1} A)  - \frac{1}{2} \rho \ln \det (A^TA) - \frac{1}{2} \rho \ln \det G \\
+\eta_t + \nabla \cdot (\eta v ) = \eta_{\rho} \dot{\rho} + \eta_{\rho v} \dot {(\rho v)}  + \eta_{A} \dot{A}  + \eta \nabla \cdot v\\
+= (\eta - \rho \eta_\rho -\rho v \eta_{\rho v} -p) \nabla \cdot v - v \cdot \nabla \cdot \tau  - A^T \eta_A : \nabla v	\\
+== (\eta - \rho \eta_\rho -\rho v \eta_{\rho v} -p) \nabla \cdot v -  \nabla \cdot (\tau v)  + (\tau- A^T \eta_A ): \nabla v	
+\end{eqnarray*}
+$p = \eta - \rho \eta_\rho -\rho v \eta_{\rho v}$, $\tau = A^T\eta_A = \rho (A^T G^{-1} A - I)$
+
+$\eta_{G} =\frac{1}{2} ( \frac{\partial A_{ki}G^{-1}_{km}  A_{mi} }{\partial G_{i'j'}} -G^{-1} )  = -\frac{1}{2} (A_{ki} G^{-1}_{ki'} G^{-1}_{j'm} A_{mi} + G^{-1}) = -\frac{1}{2} (G^{-T}A A^T G^{-T} + G^{-1}) $
+
+\begin{eqnarray*}
+M \eta_G = M_{i'j'}^{ij} (\eta_{G})_{i'j'} =  -2 (GA^{-T}A^{-1} G)_{ii'} G_{j'j} (-\frac{1}{2}) (G^{-T}A A^T G^{-T} + G^{-1})_{i'j'} = G_{ij} + GA^{-T}A^{-1} G
+\end{eqnarray*}
+Thus
+\begin{eqnarray*}
+G_t + v \cdot \nabla G  = G + G A^{-T} A^{-1} G \\
+G^{-1}_t + v \cdot \nabla G^{-1}  =-G^{-1}( G + G A^{-T} A^{-1} G )G^{-1} = -G^{-1} - A^{-T}A^{-1}  \\
+(A^T G^{-1} A)_t +  v \cdot \nabla (A^T G^{-1} A) + (\nabla v)^T A^T G^{-1} A + A^T G^{-1} A \nabla v= - A^T G^{-1} A - I
+\end{eqnarray*}
+
+\begin{subequations}
+\begin{align}
+\rho_t + \nabla \cdot (\rho v )=0 \\
+(\rho v)_t + \nabla \cdot (\rho v \otimes v) + \nabla \cdot p + \nabla \rho( \sigma -I) = 0 \\
+A_t + v \cdot \nabla A + A \nabla v = 0 \\
+\sigma_t + v \cdot \nabla   \sigma + (\nabla v)^T \sigma +  \sigma \nabla v = -\sigma - I
+\end{align}
+\end{subequations}
+Suppose $\tau = - \sigma$, $ \sigma_t + v \cdot \nabla   \sigma + (\nabla v)^T \sigma +  \sigma \nabla v  = -\sigma +I$
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
+
+\end{document}
