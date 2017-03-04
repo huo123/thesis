@@ -64,9 +64,9 @@ $$\theta^{-1}:=s_{u} (\nu,u,F, w,C), \quad \theta^{-1} p := s_\nu (\nu,\mathcal{
 计算熵的变化率得到
 \begin{eqnarray*}
 		\eta_t + \nabla \cdot (\eta v) &=& \rho (s_t + v \cdot \nabla s), \\
-		&=& -\nabla \cdot (\theta^{-1} q) + s_w \cdot [\rho (w_t + v \cdot \nabla w)] + \rho s_F : \nabla v F  \\
+		&=& -\nabla \cdot (\theta^{-1} q) + s_w \cdot [\rho (w_t + v \cdot \nabla w) + \nabla \theta^{-1}] + \rho s_F : \nabla v F  \\
 		&& + (s_c:[\rho (c_t + v \cdot \nabla c)] - \theta^{-1} \tau : D) \\
-		&=& -\nabla \cdot (\theta^{-1} q) + s_w \cdot [\rho (w_t + v \cdot \nabla w)] + \rho s_F F^T : D  \\
+		&=& -\nabla \cdot (\theta^{-1} q) + s_w \cdot [\rho (w_t + v \cdot \nabla w)+\nabla \theta^{-1}] + \rho s_F F^T : D  \\
 		&& + (s_c:[\rho (c_t + v \cdot \nabla c)] - \theta^{-1} \tau : D + \rho s_F F^T : D)  \\
 		&& = -\nabla \cdot J + \Delta.
 \end{eqnarray*}
@@ -157,7 +157,7 @@ M \cdot \left( \begin{array}{c} q \\ s_c  \end{array} \right)
 从而实际上取$\Xi = \eta_U \otimes v^T$即可得到$\eta$满足\eqref{eq:invsym}。
 
 在守恒-耗散理论中，我们还假设熵函数$\eta=\eta(U)$为$U$的下凸函数。然而对于守恒律方程组\eqref{eq:continuum}，如果我们不考虑$w,c$而假设系统处于平衡态，那么根据连续介质的相关理论\cite{}，比熵函数$s$不一定是$F$的上凸函数。实际上，根据动量矩守恒和客观性原理，$s$需要满足
-\begin{equation}
+\begin{equation}\label{eq:sObjective}
 	s_F F^T = F s_F F^T, \ s(OF) = O s(F).
 \end{equation}
 其中$O$为旋转矩阵\cite{}。而根据\cite{}，满足这两个条件的凸函数必须是二次的。在弹性力学中，人们考虑的弹性能函数不仅仅是二次的，$s$只需要是$F$的秩一下凸函数（Rank-One concave），即
@@ -175,77 +175,77 @@ M \cdot \left( \begin{array}{c} q \\ s_c  \end{array} \right)
 
 综上所述，我们得到有限形变守恒-耗散理论的两条基本假设如下。
 \begin{enumerate}
-		\item 存在函数$\eta = \eta (U)$，满足\eqref{eq:FCDFconvex}，且存在$\Xi=\Xi(U)$，使得$\eta_{UU} F_{jU} + \Xi_U^T M_j $。我们称$\eta$为系统的熵函数。
+		\item 存在函数$\eta = \eta (U)$，满足\eqref{eq:FCDFconvex}与\eqref{eq:sObjective}，且存在$\Xi=\Xi(U)$，使得$\eta_{UU} F_{jU} + \Xi_U^T M_j $。我们称$\eta$为系统的熵函数。
 		\item 存在正定矩阵$M = M(U)$，使得$\mathcal{q}(U) = M \eta_{U_d}$。我们称$M$为耗散矩阵。
 \end{enumerate}
 
- $$s = s_0(\nu,\mathcal{E}) - \frac{1}{2\nu} \alpha_0 |w|^2 - \frac{1}{2\nu\alpha_1} |C|$$
+\subsection{第一类模型}
+由于第一类模型中熵函数不依赖于耗散变量时，应力张量$\tau$不依赖于耗散变量$c$，从而我们无法描述粘弹性流体的不可逆过程。所以在这里我们假设熵函数包含$F$和$c$的耦合项。由于我们要求\eqref{eq:sObjective}成立，所以我们假设$s$有下面的形式 
+ $$s = s_0(\nu,u) - \frac{1}{2 \nu \alpha_0} |w|^2 - \Phi (F) + \mbox{Tr} (FcF^T) - \Psi(c) .$$
+由有限形变守恒耗散理论的第一条假设，我们要求$s$满足\eqref{eq:FCDFconvex}，从而有
+\begin{equation*}
+	s_0(\nu,u) - \frac{1}{2\nu \alpha_0}|w|^2
+\end{equation*}
+为$\nu,u$的下凸函数。假设$u = c_v \ln \theta$且$p$仅依赖于密度$\rho$，$s_0(\nu,u) = c_v \ln u - \int_{\rho_0}^\rho \frac{p(z)}{z^2}dz$，那么$s_0$下凸给出
+\begin{equation*}
+	s_{0\nu u,\nu u} = \left( \begin{array}{ccc}
+		- \rho^2 \frac{\partial p}{\partial \rho} - \frac{\rho^3}{\alpha_0}|w|^2 & 0 & 0 \\
+		0 & -\frac{c_v}{u^2} & 0 \\
+		0 & 0 & -\frac{\rho}{2\alpha_0}
+	\end{array}\right)
+\end{equation*}
+负定。从而我们要求$\rho>0,\alpha_0>0$与$p_\rho>0$。这与我物理上的要求相同。对于$\Phi(F)$和$\Psi(c)$，我们要求
+\begin{equation*}
+	\left( \begin{array}{cc}
+		\xi_k \zeta_l & \omega_{rs} 
+	\end{array}\right)
+	\left( \begin{array}{cc}
+		\Phi_{F_{kl}F_{k'l'}} - 2\delta_{kk'} c_{ll'}& -2 F_{kr'} \delta_{ls'} \\
+		-2 F_{k'r} \delta_{l's} & \Psi_{c_{rs}c_{r's'}}
+	\end{array}\right) 
+	\left( \begin{array}{c}
+		\xi_{k'}  \zeta_{l'} \\ \omega_{s'r'} 
+	\end{array}\right) \ge \mu |\xi|^2|\zeta|^2 + ??
+\end{equation*}
 
+\subsection{第二类模型}
+在第二类模型中$\tau$可以看做由弹性应力$\tau_p = \theta \rho s_F F^T$和粘弹性应力$\tau_v=\theta s_c$
+两部分构成的。假设熵函数有形式
+\begin{equation*}
+ 	s = s_0(\nu,u) - \frac{1}{2 \nu \alpha_0} |w|^2 - \Phi (F)  - \frac{1}{2\nu \alpha_1}c:c .
+\end{equation*}
+其中为了满足\eqref{eq:FCDFconvex}，我们要求$\Phi(F)$为秩一下凸的。选取
+\begin{equation*}
+	M = \left( \begin{array}{ccc} 
+			\frac{1}{\theta^2 \lambda} & 0 \\
+			0 &  \theta(\frac{1}{\kappa} \dot{\mathcal{T}} + \frac{1}{\xi} \mathring{\mathcal{T}})  
+		\end{array} \right)
+\end{equation*}
+从而我们根据\eqref{eq:finite2}得到
+	\begin{subequations}
+		\begin{align*}
+			\alpha_0 [\partial_t q +  \nabla \cdot (q \otimes v)] - \nabla \theta^{-1} = -\frac{q}{\theta^2 \lambda}, \\
+			\alpha_1[\partial_t (\theta_v^{-1} \dot{\tau}) + \nabla \cdot (\theta_v^{-1} \dot{\tau_v} \otimes v)] + \dot{D} = -\frac{\dot{\tau_v}}{\kappa}, \\
+			\alpha_1[\partial_t (\theta_v^{-1} \mathring{\tau}) + \nabla \cdot (\theta_v^{-1} \mathring{\tau_v} \otimes v)] + \mathring{D} = -\frac{\dot{\tau_v}}{\xi}. 
+		\end{align*}
+	\end{subequations}
+这与第二章得到的线性粘弹性模型\eqref{eq:CDFMaxwell}相同。但是我们这里应力张量应取作
+\begin{equation*}
+	\tau = -\theta \rho \Phi_F F^T - \theta \frac{\rho c}{\alpha_1}.
+\end{equation*}
+取$\Phi(F)$为最简单的二次函数，$\Phi(F) = F:F$，那么
+\begin{equation*}
+	\tau = -\theta \rho F F^T - \theta \frac{\rho c}{\alpha_1}.
+\end{equation*}
 
-\section{An Example}
-\begin{subequations}
-\begin{align}
-\rho_t + \nabla \cdot (\rho v )=0 \\
-(\rho v)_t + \nabla \cdot (\rho v \otimes v) + \nabla \cdot \sigma = 0 \\
-(\rho e)_t + \nabla \cdot (\rho e v) + \nabla \cdot q + \nabla \cdot \sigma = 0 \\
-A_t + v \cdot \nabla A + A \nabla v = 0
+不考虑温度（$\theta=1$）的等温方程为
+\begin{subequations}\label{eq:compressibleRelax}
+  \begin{align}
+  \rho_t + \nabla \cdot (\rho \mathbf{v}) = 0, \\
+  (\rho \mathbf{v})_t + \nabla \cdot ( \rho \mathbf{v} \otimes \mathbf{v}) + \nabla p = \nabla \cdot (\rho F F^T) + \nabla \cdot ( \rho c), \\
+  (\rho F)_t + \nabla \cdot (F \otimes \rho \mathbf{v}) = (\nabla \mathbf{v}) \rho F, \\
+  (\rho c)_t + \nabla \cdot (\rho c) - D  = -\frac{\rho \dot{c}}{\kappa} - -\frac{\rho \mathring{c}}{\kappa}
 \end{align}
 \end{subequations}
-
-
-\begin{eqnarray*}
-\eta = \eta (\rho, \rho v, A, C)  = \phi(\rho) + \frac{1}{2} \rho v^2 + \frac{1}{2}\rho \mbox{Tr} (A^T G^{-1} A)  - \frac{1}{2} \rho \ln \det (A^TA) - \frac{1}{2} \rho \ln \det G \\
-\eta_t + \nabla \cdot (\eta v ) = \eta_{\rho} \dot{\rho} + \eta_{\rho v} \dot {(\rho v)}  + \eta_{A} \dot{A}  + \eta \nabla \cdot v\\
-= (\eta - \rho \eta_\rho -\rho v \eta_{\rho v} -p) \nabla \cdot v - v \cdot \nabla \cdot \tau  - A^T \eta_A : \nabla v	\\
-== (\eta - \rho \eta_\rho -\rho v \eta_{\rho v} -p) \nabla \cdot v -  \nabla \cdot (\tau v)  + (\tau- A^T \eta_A ): \nabla v	
-\end{eqnarray*}
-$p = \eta - \rho \eta_\rho -\rho v \eta_{\rho v}$, $\tau = A^T\eta_A = \rho (A^T G^{-1} A - I)$
-
-$\eta_{G} =\frac{1}{2} ( \frac{\partial A_{ki}G^{-1}_{km}  A_{mi} }{\partial G_{i'j'}} -G^{-1} )  = -\frac{1}{2} (A_{ki} G^{-1}_{ki'} G^{-1}_{j'm} A_{mi} + G^{-1}) = -\frac{1}{2} (G^{-T}A A^T G^{-T} + G^{-1}) $
-
-\begin{eqnarray*}
-M \eta_G = M_{i'j'}^{ij} (\eta_{G})_{i'j'} =  -2 (GA^{-T}A^{-1} G)_{ii'} G_{j'j} (-\frac{1}{2}) (G^{-T}A A^T G^{-T} + G^{-1})_{i'j'} = G_{ij} + GA^{-T}A^{-1} G
-\end{eqnarray*}
-Thus
-\begin{eqnarray*}
-G_t + v \cdot \nabla G  = G + G A^{-T} A^{-1} G \\
-G^{-1}_t + v \cdot \nabla G^{-1}  =-G^{-1}( G + G A^{-T} A^{-1} G )G^{-1} = -G^{-1} - A^{-T}A^{-1}  \\
-(A^T G^{-1} A)_t +  v \cdot \nabla (A^T G^{-1} A) + (\nabla v)^T A^T G^{-1} A + A^T G^{-1} A \nabla v= - A^T G^{-1} A - I
-\end{eqnarray*}
-
-\begin{subequations}
-\begin{align}
-\rho_t + \nabla \cdot (\rho v )=0 \\
-(\rho v)_t + \nabla \cdot (\rho v \otimes v) + \nabla \cdot p + \nabla \rho( \sigma -I) = 0 \\
-A_t + v \cdot \nabla A + A \nabla v = 0 \\
-\sigma_t + v \cdot \nabla   \sigma + (\nabla v)^T \sigma +  \sigma \nabla v = -\sigma - I
-\end{align}
-\end{subequations}
-Suppose $\tau = - \sigma$, $ \sigma_t + v \cdot \nabla   \sigma + (\nabla v)^T \sigma +  \sigma \nabla v  = -\sigma +I$
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-\end{document}
 
 \end{document}
