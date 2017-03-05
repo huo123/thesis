@@ -1,15 +1,13 @@
-\documentclass{article}
-\usepackage{ctex}
-\usepackage{amssymb}
-\usepackage{amsmath}
-\usepackage{amsthm}
-\newtheorem{theorem}{定理}
-\newtheorem{remark}{注释}
-\newtheorem{lemma}{引理}
-
-           \begin{document}
-
-
+%\documentclass{article}
+%\usepackage{ctex}
+% \usepackage{amssymb}
+% \usepackage{amsmath}
+% \usepackage{amsthm}
+% \newtheorem{theorem}{定理}
+% \newtheorem{remark}{注释}
+% \newtheorem{lemma}{引理}
+% \begin{document}
+\section{有限形变粘弹性流体模型的数学分析}
 本小节将讨论方程\eqref{eq:compressibleRelax}的Maxwell迭代一阶近似方程组的整体存在性。首先由\eqref{eq:compressibleRelax}中$c$的方程得到
 \begin{eqnarray*}
     (\rho \dot{c})_t + \nabla \cdot (\rho \dot{c}) -  \nabla \cdot v  = - \frac{1}{\kappa} (\rho  \dot{c}), \\
@@ -51,7 +49,7 @@
 
 我们的证明将方程\eqref{eq:compressible}的结构特点和细致的估计。首先由前面的推导可以得到系统的熵函数存在。然后我们将给出方程\eqref{eq:compressible}的对称子。注意到由有限形变的守恒-耗散理论我们并得不到该方程的对称性质。从而该方程组可以写为对称双曲-抛物方程组。接下来我们将验证其不满足Kawashima等人对双曲-抛物方程组提出的Kawashima条件。为了得到定理\ref{theoremcom}，我们利用适应性条件\eqref{eq:compatibility1}和\eqref{eq:compatibility2}来得到整体存在性所需的估计。最后我们将采用\cite{kawashima1984systems,yong2004entropy}中的方法给出证明的过程。
 
-\subsection{Entropy and symmetrizability}
+\subsection{熵函数与对称性}
 由前面的分析，我们可以得到方程组\eqref{eq:compressible}的熵函数为
 \begin{eqnarray}\label{22}
   \eta(\rho,\rho  v ,\rho F) = \rho s(\nu,F) =  \rho \int_{\rho_0}^\rho \frac{p(\zeta)}{\zeta^2} d\zeta + \frac{1}{2} \rho | v |^2 + \frac{1}{2} \rho |F|^2.
@@ -388,9 +386,9 @@ $$
 
 %    Bibliographies can be prepared with BibTeX using amsplain,
 %    amsalpha, or (for "historical" overviews) natbib style.
-\bibliographystyle{amsplain}
+%\bibliographystyle{amsplain}
 %    Insert the bibliography data here.
-\bibliography{entropyviscoelastic}
+%\bibliography{ref}
 
 
 
@@ -462,4 +460,4 @@ $$
 %          \end{thebibliography}
 
 
-          \end{document}
+%          \end{document}

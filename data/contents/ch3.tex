@@ -1,9 +1,20 @@
 % \chapter{非线性粘弹性流体的守恒-耗散理论}
- \documentclass{article}
- \usepackage{ctex}
- \usepackage{amsmath}
- \usepackage{amsthm}
+  \documentclass{article}
+\usepackage{ctex}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{cite}
+%\usepackage{showkeys}
+\theoremstyle{plain}
  \newtheorem{theorem}{定理}
+ \newtheorem{remark}{注释}
+ \newtheorem{thm}{Theorem}
+ \newtheorem{lemma}{Lemma}
+ \theoremstyle{definition}
+ \theoremstyle{Remark}
+\newtheorem{rem}{Remark}
+\newtheorem{defn}{Definition}
 
 \begin{document}
 上一章我们讨论了线性粘弹性流体力学的模型。守恒-耗散理论可以很好地用来建立线性粘弹性流体力学模型。然而，粘弹性流体的建模中存在一个重要法则——客观性原理，线性粘弹性模型由于违背这一原理所以无法很好地描述粘弹性流体的行为\cite{}。为了在模型中考虑这一原理，我们需要包含应力张量的客观导数。而由于这一导数并不是守恒形式的，所以守恒-耗散理论的假设并不成立。
@@ -470,8 +481,13 @@ FENE-P model $\mathcal{T}  = Z(\mbox{Tr}(\tau_p))\tau_p  -\lambda (\tau_p + \fra
 由于该方程的对称子可以找到，从而可以采用双曲方程的相关理论进行分析。
 
 我们首先给出其对称子，然后根据Kawashima理论证明平衡态附近解的整体存在性。最后我们将考虑其源项包含小参数时的松弛极限。
-\section{等温粘弹性流体第二模型的对称性}
-我们令$U = (\rho, v ,c)$
+
+\include{OldroydV12}
+
+
 \section{本章小结}
+
+\bibliography{ref}
+\bibliographystyle{unsrt}
 
 \end{document}

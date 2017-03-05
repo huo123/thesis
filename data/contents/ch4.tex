@@ -4,15 +4,17 @@
 \usepackage{ctex}
 \usepackage{amsmath}
 \usepackage{cite}
+\usepackage{amssymb}
+\usepackage{amsthm}
 \newtheorem{theorem}{定理}
-\begin{document}
-本章我们将考虑有限形变理论在粘弹性流体力学中的应用。在第一章绪论中，我们已经看到积分形式的记忆衰减理论无法很好地用于粘弹性流体的建模中。在本章中我们将利用守恒-耗散理论和有限形变理论对粘弹性流体力学进行建模。有限形变理论采用形变张量$F$对流体的变形进行度量，由于形变张量满足力学上的适应性条件，可以将其方程写成守恒形式。从而我们可以将形变张量加入守恒变量中并可以利用守恒-耗散理论对粘弹性流通进行建模。
+\newtheorem{remark}{注释}
+\newtheorem{lemma}{引理}
 
-这样得到的模型的数学分析将在本章第三节给出。
-% \abstract{ We apply the conservation dissipation formalism (CDF) of irreversible thermodynamics to the modeling of viscoelastic fluids. The fundamental structure of CDF is determined by the entropy and dissipation matrix as well as the conservation laws. In addition to the conservation laws of mass, momentum and energy, the evolution of the deformation tensor can be written in to a conservative form with the help of the compatibility conditions in continuum mechanics theory. Here we include this conservation laws into CDF and give two ways of formulation of partial differential equations for viscoelastic fluids from two ways of expressing entropy functions. These two ways are corresponding to the linear and nonlinear theory of viscoelasticity.}
+\begin{document}
+本章我们将考虑有限形变理论在粘弹性流体力学中的应用。在第一章绪论中，我们已经看到积分形式的记忆衰减理论无法很好地用于粘弹性流体的建模。在本章中我们将利用守恒-耗散理论和有限形变理论对粘弹性流体力学进行建模。而有限形变理论采用形变张量$F$对流体的变形进行度量，由于形变张量满足力学上的适应性条件，可以将其方程写成守恒形式。从而我们可以将形变张量加入守恒变量中并可以利用守恒-耗散理论对粘弹性流通进行建模。在第一节中我们将给出连续介质运动方程的一般描述。第二节给出有限形变守恒-耗散理论的主要假设和一般框架。第三节讨论其在粘弹性流体中应用的几个例子。最后一节我们将讨论其中一个例子对应方程组的平衡态附近解的整体存在性。
 
 \section{连续介质的一般方程}
-在第二章第一节中，我们已经讨论了对连续介质变形的数学描述。连续介质的形变可以用$x=\mathcal{F}_t (X,t)$来描述。定义形变张量
+在第二章第一节中，我们已经讨论了对连续介质变形的数学描述。连续介质的形变可以用函数$x=\mathcal{F}_t (X,t)$来描述。定义形变张量
 \begin{equation*}\label{eq:Fdef}
 	F_{ij} = \frac{\partial x_i}{\partial X_j}.
 \end{equation*}
@@ -20,21 +22,38 @@ $F$的运动方程为
 \begin{eqnarray}\label{eq:Feq}
 F_t + v \cdot \nabla F = \nabla v F.
 \end{eqnarray}
-由$F$的定义\eqref{eq:Feq}，$F$满足下面的适应性条件
-\begin{eqnarray}
+由$F$的定义\eqref{eq:Fdef}，$F$满足下面的适应性条件
+% \begin{eqnarray}
+\begin{subequations}
+\begin{align}
 \nabla \cdot (\rho F^T) = 0,\label{eq:compatibility1} \\
  F_{lj} \partial_{x_l} F_{ik} = F_{lk} \partial_{x_k} F_{il} , \label{eq:compatibility2} \\
- \rho \det F = 1. \label{eq:compatibilty3} \label{eq:compatibility3}
-\end{eqnarray}
-这三个适应性条件中不是独立的。由\eqref{eq:compatibility2}和\eqref{eq:compatibilty3}可以推出\eqref{eq:compatibility1}。这可由下面的计算给出
-needproof
-
+ \rho \det F = 1. \label{eq:compatibilty3} 
+% \end{eqnarray}
+\end{align}
+\end{subequations}
+这三个适应性条件中不是独立的。由\eqref{eq:compatibility2}和\eqref{eq:compatibilty3}可以推出\eqref{eq:compatibility1}。实际上，由
+Jacobi公式
+$$
+\partial_{x_i}\det A = \det A \mbox{Tr}(A^{-1} \partial_{x_i} A),
+$$
+成立
+\begin{eqnarray*}
+\nabla \cdot (\rho F^T)  & = &\partial_{x_i} ( \rho F_{ij}) = \partial_{x_i} ( \frac{1}{\det F} F_{ij})  \\
+&=& \frac{1}{\det F} \partial_{x_i} F_{ij}  - \frac{1}{(\det F)^2} F_{ij} \det F \mbox{Tr}(F^{-1} \partial_{x_i} F) \\
+&=&\frac{1}{\det F} (\partial_{x_i} F_{ij} - F_{ij} (F^{-1})_{mn} \partial_{x_i} F_{nm}) \\
+&=& \frac{1}{\det F} (\partial_{x_i} F_{ij} - (F^{-1})_{mn} F_{ij} \partial_{x_i} F_{nm}) \\
+&=&  \frac{1}{\det F} (\partial_{x_i} F_{ij} - (F^{-1})_{mn} F_{im} \partial_{x_i} F_{nj}) \\
+&=&  \frac{1}{\det F} (\partial_{x_i} F_{ij} - \delta_{in} \partial_{x_i} F_{nj}) \\
+&=&  \frac{1}{\det F} (\partial_{x_i} F_{ij} - \partial_{x_i} F_{ij}) =0 ,
+\end{eqnarray*}
+其中倒数第五个等式用到了条件\eqref{eq:compatibilty2}
 由适应性条件\eqref{eq:compatibility1}，$\rho F$的演化方程可以写成守恒形式
 \begin{eqnarray*}
 (\rho F)_t + \nabla \cdot (\rho \otimes v) - \nabla \cdot (\rho v \otimes F^T) = 0 .
 \end{eqnarray*} 
 
-将$F$的方程加入描述连续介质运动的一般方程\eqref{eq:fluid}中，我们得到对连续介质有限形变的描述如下。
+将$F$的方程加入描述连续介质运动的一般方程\eqref{eq:fluid}中，我们得到对连续介质的运动描述如下。
 \begin{subequations}\label{eq:continuum}
 \begin{align}
 \rho_t + \nabla \cdot (\rho v )=0, \\
@@ -44,23 +63,23 @@ needproof
 \end{align}
 \end{subequations}
 
-在有限形变理论中应力$P$为形变张量$F$的函数。如何得到它们之间的本构关系是热力学理论的主要目的。在粘弹性流体力学中，由于粘弹性的存在，应变能是耗散的，如何描述这一不可逆过程是非平衡态热力学理论的一个重要目的。
+在有限形变理论中应力$P$为形变张量$F$的函数。如何得到它们之间的本构关系是热力学理论的主要目的。而在粘弹性流体力学中，由于粘弹性的存在，应变能是耗散的，如何描述这一不可逆过程是非平衡态热力学理论的一个重要目的和粘弹性流体建模的关键。
 
 \section{有限形变守恒-耗散理论}
-在守恒-耗散理论中，我们选取守恒量
-$$U_c = (\rho, \rho v, \rho e, \rho F).$${}
-我们仍引入耗散变量$U_d = (\rho w,\rho c)$来描述不可逆过程。$U$满足方程\eqref{eq:CDF}，即
-\begin{equation*}
+为了描述粘弹性流体流动的不可逆性，我们仍然借助非平衡态热力学的守恒-耗散理论。由于$\rho F$的方程是守恒形式，我们可以将其加入守恒量中。选取守恒量
+$$U_c = (\rho, \rho v, \rho e, \rho F).$$
+我们仍引入耗散变量$U_d = (\rho w,\rho c)$来描述不可逆过程。$U$满足方程\eqref{eq:FCDF}，即
+\begin{equation}\label{eq:FCDF}
 		\partial_t U + \sum_{j=1}^3 \partial_{x_j} F_j(U) = \mathcal{Q} (U) .
-\end{equation*}
+\end{equation}
 假设系统存在熵函数函数$\eta$如下
 \begin{eqnarray*}
 \eta(U) = \eta(\rho, \rho v, \rho e,\rho F,\rho w, \rho c) = \rho s(\nu,u,F,w,C)
 \end{eqnarray*}
-其中$s$为比熵。我们仍然假设$\eta$为其变量的上凸函数。
+其中$s$为比熵。
 
 由Gibbs关系我们得到
-$$\theta^{-1}:=s_{u} (\nu,u,F, w,C), \quad \theta^{-1} p := s_\nu (\nu,\mathcal{E},w,C).$$
+$$\theta^{-1}:=s_{u} (\nu,u,F, w,C), \quad \theta^{-1} p := s_\nu (\nu,u,w,C).$$
 计算熵的变化率得到
 \begin{eqnarray*}
 		\eta_t + \nabla \cdot (\eta v) &=& \rho (s_t + v \cdot \nabla s), \\
@@ -74,7 +93,7 @@ $$\theta^{-1}:=s_{u} (\nu,u,F, w,C), \quad \theta^{-1} p := s_\nu (\nu,\mathcal{
 \begin{equation}
 	s_F F^T = F s_F^T.	
 \end{equation}
-这是根据客观性原理得到的\cite{}，类似在固体力学中对能量函数的要求。
+这个假设是角动量守恒的要求得到的\cite{dimitrienko2010nonlinear,dafermos2010hyperbolic}，下面可以看出其保证了应力张量的对称性。
 对于$\tau$，像在第三章第二节中的那样，我们有两种选择。一是令
 \begin{eqnarray*}
 \theta^{-1} \tau = \rho s_F F^T 
@@ -97,30 +116,32 @@ M \cdot \left( \begin{array}{c} q \\ s_c \end{array} \right)
 =
 M \cdot \left( \begin{array}{c} q \\ s_c  \end{array} \right)
 \end{eqnarray}
-我们称这样的选择的得到的模型是第二类模型。由于我们的选取使得熵函数$\eta$的演化均可以写作以下形式
+我们称这样的选择的得到的模型是第二类模型。
+
+由于我们的选取使得熵函数$\eta$的演化均可以写作以下形式
 \begin{equation}\label{eq:entropypro}
 	\eta_t + \nabla \cdot J = \eta_U^T M \eta_U.
 \end{equation}
-为了保证熵增大于等于$0$，我们仍然假设守恒-耗散理论的第二个假设成立，即$M$是正定的。
+为了保证熵增大于等于$0$，我们仍然假设守恒-耗散理论的第二个假设成立，即耗散矩阵$M$是正定的。
 
-然而由于在方程组的守恒性需要适应性条件\eqref{eq:compatibility1}来保证。所以守恒-耗散理论第一条假设中$\eta_{UU} F_{jU}$对称的条件不一定满足。但是实际上方程组\eqref{eq:CDF}满足带对合条件（involutions）的守恒形式方程组\cite{}。即存在$n$个矩阵$R_j,j=1,2,\cdots,n$，使得
+然而由于在方程组的守恒性需要适应性条件\eqref{eq:compatibility1}来保证。所以守恒-耗散理论第一条假设中$\eta_{UU} F_{jU}$对称的条件不一定满足。但是实际上方程组\eqref{eq:FCDF}满足带对合条件（involutions）的守恒形式方程组\cite{dafermos1986quasilinear,dafermos2013non,benzoni2007multi}。即存在$n$个矩阵$R_j,j=1,2,\cdots,n$，使得
 \begin{equation*}
 	M_i F_{j} + M_j F_i = 0, \ i,j = 1, \cdots,n .
 \end{equation*}
 其中$M_j$为（$U= (\rho,\rho v_i,\rho e, \rho F_{kl},\rho w_m, \rho c_{rs})$）
 \begin{equation*}
-	M_{} = \left( \begin{array}{ccccccc}
+	M_{j} = \left( \begin{array}{ccccccc}
 		0 \\
 		& 0 \\
 		& & 0 \\
-		& & & \delta_{jk} \\
+		& & & \delta_{jk'}\delta_{ll'} \\
 		& & & & 0 \\
 		& & & & & 0
 	\end{array} \right).
 \end{equation*}
 从而
 \begin{equation}\label{eq:involutions}
-	R_j \partial_j U = 0.
+	M_j \partial_j U = 0.
 \end{equation}
 该条件称为对合条件。该对合条件的具体形式为
 \begin{equation*}
@@ -128,9 +149,9 @@ M \cdot \left( \begin{array}{c} q \\ s_c  \end{array} \right)
 \end{equation*}
 这就是第一个适应性条件\eqref{eq:compatibility1}。对于带对合的双曲守恒律方程组，Serre等发展了附随熵（contingent entropy entropy）的概念。如果存在函数$\eta = \eta(U)$和函数$J_j=J_j(U),j=1, \cdots n$使得
 \begin{equation*}
-	J_{jU}  = \eta_U F_{jU} + \Xi(U)^T M_j,\quad j=1,2, \cdots n.
+	J_{jU}  = \eta_U F_{jU} + \Xi(U)^T M_j,\quad j=1,2, \cdots n,
 \end{equation*}
-从而
+那么成立
 \begin{equation*}
 	\partial_t U + \sum_{j=1}^n \partial_{x_j} J_{j}(U) = \eta_U^T \mathcal{Q}(U).
 \end{equation*}
@@ -138,7 +159,7 @@ M \cdot \left( \begin{array}{c} q \\ s_c  \end{array} \right)
 \begin{equation}\label{eq:invsym}
 	\eta_{UU} F_{jU} + \Xi_U^T M_j = F_{jU}^T \eta_{UU} + M_j \Xi_U(U).
 \end{equation}
-另外对于本章考虑的两种选择得到的方程组\eqref{eq:CDF}（其中$w,c$满足\eqref{eq:finite1}或\eqref{eq:finite2}）与适应性条件\eqref{eq:compatibility1}，如果存在函数$\eta = \eta(U)$满足\eqref{eq:entropypro}，则存在$Xi$，使得\eqref{eq:invsym}成立。实际上在我们的计算中采用的是下面的方程
+另外对于本章考虑的两种选择得到的方程组\eqref{eq:FCDF}（其中$w,c$满足\eqref{eq:finite1}或\eqref{eq:finite2}）与适应性条件\eqref{eq:compatibility1}，如果存在函数$\eta = \eta(U)$满足\eqref{eq:entropypro}，则存在$\Xi$，使得\eqref{eq:invsym}成立。实际上在我们的计算中采用的是下面的方程
 \begin{equation*}
 	\rho F_t + v \nabla \cdot F = \nabla v F.
 \end{equation*}
@@ -156,15 +177,15 @@ M \cdot \left( \begin{array}{c} q \\ s_c  \end{array} \right)
 \end{equation*}
 从而实际上取$\Xi = \eta_U \otimes v^T$即可得到$\eta$满足\eqref{eq:invsym}。
 
-在守恒-耗散理论中，我们还假设熵函数$\eta=\eta(U)$为$U$的下凸函数。然而对于守恒律方程组\eqref{eq:continuum}，如果我们不考虑$w,c$而假设系统处于平衡态，那么根据连续介质的相关理论\cite{}，比熵函数$s$不一定是$F$的上凸函数。实际上，根据动量矩守恒和客观性原理，$s$需要满足
+在守恒-耗散理论中，我们还假设熵函数$\eta=\eta(U)$为$U$的上凸函数。然而对于守恒律方程组\eqref{eq:continuum}，如果我们不考虑$w,c$而假设系统处于平衡态，那么根据连续介质的相关理论\cite{ball1976convexity,dimitrienko2010nonlinear,dafermos2013non}，比熵函数$s$不一定是$F$的上凸函数。实际上，根据动量矩守恒和客观性原理，$s$需要满足
 \begin{equation}\label{eq:sObjective}
 	s_F F^T = F s_F F^T, \ s(OF) = O s(F).
 \end{equation}
-其中$O$为旋转矩阵\cite{}。而根据\cite{}，满足这两个条件的凸函数必须是二次的。在弹性力学中，人们考虑的弹性能函数不仅仅是二次的，$s$只需要是$F$的秩一下凸函数（Rank-One concave），即
+其中$O$为旋转矩阵\cite{dafermos2013non}。而根据\cite{ball1976convexity}，满足这两个条件的凸函数必须是二次的。在弹性力学中，人们考虑的弹性能函数不仅仅是二次的，$s$只需要是$F$的秩一上凸函数（Rank-One concave），即存在$\mu>0$使得
 \begin{equation*}
 	\frac{\partial^2 s(F)}{\partial F_{i\alpha} \partial F_{j\beta}} \xi_i \xi_j \nu_\alpha \nu_\beta \le -\mu |\xi|^2 |\nu|^2, \xi \in \mathbf{R}^n, \ \nu \in \mathbf{R}^n. 
 \end{equation*}
-恒成立（$\mu>0$）。然而对于我们考虑的系统$s$还依赖于非平衡态变量$c,w$，我们假设$s$是$c,w$的凸函数，且为$F$的秩一下凸函数，且对$s=s(W),\ W= (\nu,u,F,c,w)$成立
+恒成立。然而对于我们考虑的系统$s$还依赖于非平衡态变量$c,w$，我们假设$s$是$c,w$的凸函数，且为$F$的秩一上凸函数，且对$s=s(W),\ W= (\nu,u,F,c,w)$成立
 \begin{eqnarray}
 	\Omega^T s_{WW} \omega \le -\mu |\Omega|^2, \label{eq:FCDFconvex}\\ 
 	\Omega = \left( \begin{array}{c}
@@ -175,18 +196,18 @@ M \cdot \left( \begin{array}{c} q \\ s_c  \end{array} \right)
 
 综上所述，我们得到有限形变守恒-耗散理论的两条基本假设如下。
 \begin{enumerate}
-		\item 存在函数$\eta = \eta (U)$，满足\eqref{eq:FCDFconvex}与\eqref{eq:sObjective}，且存在$\Xi=\Xi(U)$，使得$\eta_{UU} F_{jU} + \Xi_U^T M_j $。我们称$\eta$为系统的熵函数。
+		\item 存在函数$\eta = \eta (U) = \rho s(\nu,u,F,w,c)$，满足\eqref{eq:FCDFconvex}与\eqref{eq:sObjective}，且存在$\Xi=\Xi(U)$，使得$\eta_{UU} F_{jU} + \Xi_U^T M_j $。我们称$\eta$为系统的熵函数（$s$为比熵函数）。
 		\item 存在正定矩阵$M = M(U)$，使得$\mathcal{q}(U) = M \eta_{U_d}$。我们称$M$为耗散矩阵。
 \end{enumerate}
 
 \subsection{第一类模型}
-由于第一类模型中熵函数不依赖于耗散变量时，应力张量$\tau$不依赖于耗散变量$c$，从而我们无法描述粘弹性流体的不可逆过程。所以在这里我们假设熵函数包含$F$和$c$的耦合项。由于我们要求\eqref{eq:sObjective}成立，所以我们假设$s$有下面的形式 
+由于第一类模型中熵函数不依赖于耗散变量时，应力张量$\tau$不依赖于耗散变量$c$，此时我们无法描述粘弹性流体的不可逆过程。所以在这里我们假设熵函数包含$F$和$c$的耦合项。由于我们要求\eqref{eq:sObjective}成立，所以我们假设$s$有下面的形式 
  $$s = s_0(\nu,u) - \frac{1}{2 \nu \alpha_0} |w|^2 - \Phi (F) + \mbox{Tr} (FcF^T) - \Psi(c) .$$
 由有限形变守恒耗散理论的第一条假设，我们要求$s$满足\eqref{eq:FCDFconvex}，从而有
 \begin{equation*}
 	s_0(\nu,u) - \frac{1}{2\nu \alpha_0}|w|^2
 \end{equation*}
-为$\nu,u$的下凸函数。假设$u = c_v \ln \theta$且$p$仅依赖于密度$\rho$，$s_0(\nu,u) = c_v \ln u - \int_{\rho_0}^\rho \frac{p(z)}{z^2}dz$，那么$s_0$下凸给出
+为$\nu,u$的上凸函数。假设$u = c_v \ln \theta$且$p$仅依赖于密度$\rho$，$s_0(\nu,u) = c_v \ln u - \int_{\rho_0}^\rho \frac{p(z)}{z^2}dz$，那么$s_0$下凸给出
 \begin{equation*}
 	s_{0\nu u,\nu u} = \left( \begin{array}{ccc}
 		- \rho^2 \frac{\partial p}{\partial \rho} - \frac{\rho^3}{\alpha_0}|w|^2 & 0 & 0 \\
@@ -194,7 +215,7 @@ M \cdot \left( \begin{array}{c} q \\ s_c  \end{array} \right)
 		0 & 0 & -\frac{\rho}{2\alpha_0}
 	\end{array}\right)
 \end{equation*}
-负定。从而我们要求$\rho>0,\alpha_0>0$与$p_\rho>0$。这与我物理上的要求相同。对于$\Phi(F)$和$\Psi(c)$，我们要求
+负定。从而我们要求$\rho>0,\alpha_0>0$与$p_\rho>0$。这与物理上的要求相同。对于$\Phi(F)$和$\Psi(c)$，我们要求
 \begin{equation*}
 	\left( \begin{array}{cc}
 		\xi_k \zeta_l & \omega_{rs} 
@@ -205,7 +226,8 @@ M \cdot \left( \begin{array}{c} q \\ s_c  \end{array} \right)
 	\end{array}\right) 
 	\left( \begin{array}{c}
 		\xi_{k'}  \zeta_{l'} \\ \omega_{s'r'} 
-	\end{array}\right) \ge \mu |\xi|^2|\zeta|^2 + ??
+	\end{array}\right) \\
+	\ge \mu |\xi|^2|\zeta|^2 + \mu \omega:\omega
 \end{equation*}
 
 \subsection{第二类模型}
@@ -218,7 +240,7 @@ M \cdot \left( \begin{array}{c} q \\ s_c  \end{array} \right)
 \begin{equation*}
 	M = \left( \begin{array}{ccc} 
 			\frac{1}{\theta^2 \lambda} & 0 \\
-			0 &  \theta(\frac{1}{\kappa} \dot{\mathcal{T}} + \frac{1}{\xi} \mathring{\mathcal{T}})  
+			0 &  \theta(\frac{1}{\kappa} \dot{\mathcal{T}} + \frac{1}{\xi} \mathring{\mathcal{T}})  ,
 		\end{array} \right)
 \end{equation*}
 从而我们根据\eqref{eq:finite2}得到
@@ -247,5 +269,12 @@ M \cdot \left( \begin{array}{c} q \\ s_c  \end{array} \right)
   (\rho c)_t + \nabla \cdot (\rho c) - D  = -\frac{\rho \dot{c}}{\kappa} - -\frac{\rho \mathring{c}}{\kappa}
 \end{align}
 \end{subequations}
+\input{Yong_Global}
 
+
+
+
+\bibliographystyle{amsplain}
+%    Insert the bibliography data here.
+\bibliography{ref}
 \end{document}
