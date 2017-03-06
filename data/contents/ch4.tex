@@ -199,6 +199,26 @@ M \cdot \left( \begin{array}{c} q \\ s_c  \end{array} \right)
 		\item 存在函数$\eta = \eta (U) = \rho s(\nu,u,F,w,c)$，满足\eqref{eq:FCDFconvex}与\eqref{eq:sObjective}，且存在$\Xi=\Xi(U)$，使得$\eta_{UU} F_{jU} + \Xi_U^T M_j $。我们称$\eta$为系统的熵函数（$s$为比熵函数）。
 		\item 存在正定矩阵$M = M(U)$，使得$\mathcal{q}(U) = M \eta_{U_d}$。我们称$M$为耗散矩阵。
 \end{enumerate}
+\begin{remark}
+这里对熵函数的假设\eqref{eq:FCDFconvex}实际上保证了对应Lagrange坐标$X$的下的方程是双曲的。根据\cite{dafermos2010hyperbolic}，不考虑温度时体系\eqref{eq:continuum}在Lagrange坐标下的方程满足
+\begin{subequations}\label{eq:continuum}
+\begin{align*}
+	\rho_0 \partial_t = \nabla \cdot S, \\
+	\partial_t F = \nabla v.\\
+\end{align*}
+\end{subequations}
+而$c$的方程满足
+\begin{equation*}
+	\rho_0 \partial_t c = M s_c,
+\end{equation*}
+或者取
+\begin{equation*}
+	\rho_0 \partial_t c - \frac{1}{2} (\nabla_X v + (\nabla_X v)^T)= M s_c.
+\end{equation*}
+根据\cite{dafermos2010hyperbolic}，条件\eqref{eq:FCDFconvex}可以保证这样的体系的双曲性。
+\end{remark}
+
+
 
 \subsection{第一类模型}
 由于第一类模型中熵函数不依赖于耗散变量时，应力张量$\tau$不依赖于耗散变量$c$，此时我们无法描述粘弹性流体的不可逆过程。所以在这里我们假设熵函数包含$F$和$c$的耦合项。由于我们要求\eqref{eq:sObjective}成立，所以我们假设$s$有下面的形式 
@@ -216,8 +236,8 @@ M \cdot \left( \begin{array}{c} q \\ s_c  \end{array} \right)
 	\end{array}\right)
 \end{equation*}
 负定。从而我们要求$\rho>0,\alpha_0>0$与$p_\rho>0$。这与物理上的要求相同。对于$\Phi(F)$和$\Psi(c)$，我们要求
-\begin{equation*}
-	\left( \begin{array}{cc}
+\begin{eqnarray*}
+	&&\left( \begin{array}{cc}
 		\xi_k \zeta_l & \omega_{rs} 
 	\end{array}\right)
 	\left( \begin{array}{cc}
@@ -227,8 +247,8 @@ M \cdot \left( \begin{array}{c} q \\ s_c  \end{array} \right)
 	\left( \begin{array}{c}
 		\xi_{k'}  \zeta_{l'} \\ \omega_{s'r'} 
 	\end{array}\right) \\
-	\ge \mu |\xi|^2|\zeta|^2 + \mu \omega:\omega
-\end{equation*}
+	&&\ge \mu |\xi|^2|\zeta|^2 + \mu \omega:\omega
+\end{eqnarray*}
 
 \subsection{第二类模型}
 在第二类模型中$\tau$可以看做由弹性应力$\tau_p = \theta \rho s_F F^T$和粘弹性应力$\tau_v=\theta s_c$
@@ -247,8 +267,8 @@ M \cdot \left( \begin{array}{c} q \\ s_c  \end{array} \right)
 	\begin{subequations}
 		\begin{align*}
 			\alpha_0 [\partial_t q +  \nabla \cdot (q \otimes v)] - \nabla \theta^{-1} = -\frac{q}{\theta^2 \lambda}, \\
-			\alpha_1[\partial_t (\theta_v^{-1} \dot{\tau}) + \nabla \cdot (\theta_v^{-1} \dot{\tau_v} \otimes v)] + \dot{D} = -\frac{\dot{\tau_v}}{\kappa}, \\
-			\alpha_1[\partial_t (\theta_v^{-1} \mathring{\tau}) + \nabla \cdot (\theta_v^{-1} \mathring{\tau_v} \otimes v)] + \mathring{D} = -\frac{\dot{\tau_v}}{\xi}. 
+			\alpha_1[\partial_t (\theta^{-1} \dot{\tau}) + \nabla \cdot (\theta^{-1} \dot{\tau_v} \otimes v)] + \dot{D} = -\frac{\dot{\tau_v}}{\kappa}, \\
+			\alpha_1[\partial_t (\theta^{-1} \mathring{\tau}) + \nabla \cdot (\theta^{-1} \mathring{\tau_v} \otimes v)] + \mathring{D} = -\frac{\dot{\tau_v}}{\xi}. 
 		\end{align*}
 	\end{subequations}
 这与第二章得到的线性粘弹性模型\eqref{eq:CDFMaxwell}相同。但是我们这里应力张量应取作
@@ -263,9 +283,9 @@ M \cdot \left( \begin{array}{c} q \\ s_c  \end{array} \right)
 不考虑温度（$\theta=1$）的等温方程为
 \begin{subequations}\label{eq:compressibleRelax}
   \begin{align}
-  \rho_t + \nabla \cdot (\rho \mathbf{v}) = 0, \\
-  (\rho \mathbf{v})_t + \nabla \cdot ( \rho \mathbf{v} \otimes \mathbf{v}) + \nabla p = \nabla \cdot (\rho F F^T) + \nabla \cdot ( \rho c), \\
-  (\rho F)_t + \nabla \cdot (F \otimes \rho \mathbf{v}) = (\nabla \mathbf{v}) \rho F, \\
+  \rho_t + \nabla \cdot (\rho v) = 0, \\
+  (\rho v)_t + \nabla \cdot ( \rho v \otimes v) + \nabla p = \nabla \cdot (\rho F F^T) + \nabla \cdot ( \rho c), \\
+  (\rho F)_t + \nabla \cdot (F \otimes \rho v) - \nabla \cdot (v \otimes \rho F^T), \\
   (\rho c)_t + \nabla \cdot (\rho c) - D  = -\frac{\rho \dot{c}}{\kappa} - -\frac{\rho \mathring{c}}{\kappa}
 \end{align}
 \end{subequations}
