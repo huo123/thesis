@@ -8,26 +8,40 @@
 % \newtheorem{lemma}{引理}
 % \begin{document}
 \section{有限形变粘弹性流体模型的数学分析}
-本小节将讨论方程\eqref{eq:compressibleRelax}解的存在性。这里我们用$W=(\rho,\rho v,\rho F,\rho c)$表示上面的$U$。而利用$U$表示$U = (\rho, v, F, c)。$首先由$s$的形式为
+本小节将讨论方程\eqref{eq:compressibleRelax}解的存在性。
+%这里我们用$W=(\rho,\rho v,\rho F,\rho c)$表示上面的$U$。而利用$U$表示$U = (\rho, v, F, 、\rho c)$，
+首先由熵$\eta(U) = \rho s$的形式为
 \begin{equation*}
       s = s_0(\nu) - \frac{v^2}{2} - \frac{1}{2 \nu \alpha_0} |w|^2 - \Phi (F)  - \frac{1}{2\nu \alpha_1}c:c .
 \end{equation*}
 可知$s$是下凸的。这里$s_0$定义为
 \begin{equation*}
-    s_0(\nu) = \int_{\rho_0}^{1/\nu} \frac{p(z)}{z^2} dz.
+    s_0(\nu) = -\int_{\rho_0}^{1/\nu} \frac{\pi(z)}{z^2} dz.
 \end{equation*}
-由有限形变的守恒-耗散理论我们无法得到$s_{UU}$可以将$U$的方程对陈化。然而由于这里熵函数的简单形式，我们可以验证$s_{UU}$可以对称化$U$的方程。首先将$U$的方程写成下面的形式。 
+由有限形变的守恒-耗散理论我们无法得到$\eta_{UU}$可以将$U$的方程对称化。然而由于熵函数是二次的，$\eta_{UU}$是负定的。可以验证$A_0(U) = -\eta_{UU}$可以将$U$的方程对称化。首先将$U$的方程写成下面的形式。 
 \begin{eqnarray*}
 U_t + \sum_{j=1}^n A_j(U) U_{x_j} = \mathcal{Q}(U),\\
-  U = \left( \begin{array}{c} \rho \\ v_i \\ F_{kl} \\ c_{rs} \end{array} \right), \\
-  A_j(U)= 
-  \left( \begin{array}{cccc} v_j & \rho \delta_{i'j} & 0 &０ \\
-    \frac{p_\rho}{\rho} \delta_{ij} & v_j \delta_{ii'} & -F_{jl'} \delta_{ik'}　& 0 \\
-    0 & - F_{jl}\delta_{ki'}  & v_j \delta_{kk'} \delta_{ll'} & 0  \\
-    0 & 0 & 0 & v_j \delta_{rr'} \delta_{ss'} \end{array} \right), \\
-  \mathcal{Q}(U) = 
-\left( \begin{array}{c} 0 \\ \frac{\mu}{\rho} \Delta {v_i} + \frac{\mu'}{\rho} \partial_{x_i} \partial_{x_j} v_j  \\ 0 \end{array} \right).
+  U = \left( \begin{array}{c} \rho \\ \rho v_i \\ \rho  F_{kl} \\ \rho c_{rs} \end{array} \right), \quad \mathcal{Q}(U) = 
+\left( \begin{array}{c} 0 \\ 0  \\ -\frac{1}{\kappa} \dot{\mathcal{T}}I - \frac{1}{\xi} \mathring{\mathcal{T}} \end{array} \right)U, \quad   A_j(U)= \\
+ \tiny \left( \begin{array}{cccc} 
+     0 & \delta_{i'j} & 0 & 0 \\
+     p_\rho - v_i v_j - F_{jl'} F_{il'} & v_i \delta_{i'j} v_j \delta_{i'i} & -\rho F_{jl'} \delta_{ik'}　& -\frac{1}{2}(\delta_{jr'} \delta_{is'} +\delta_{js'}\delta_{ir'}) \\
+    0 & -F_{kl} v_j + F_{jl} v_k  & F_{kl} \delta_{i'j} - F_{jl} \delta_{i'k} & v_j \delta_{kk'} \delta_{ll'} & 0  \\
+    -c_{rs} v_j - \frac{1}{2\rho} (\delta_{jr}\delta_{i's} + \delta_{js} \delta_{i'r}) &  c-\frac{1}{2}(\delta_{jr} \delta_{i's} +\delta_{js}\delta_{i'r}) & 0 & v_j \delta_{rr'} \delta_{ss'} \end{array} \right), 
 \end{eqnarray*}
+计算$s$的Hessian矩阵为
+\begin{equation*}
+    s_{UU} = \left( \begin{array}{cccc}
+        p_{\nu} - \frac{c:c}{\nu^3} & 0 & 0 & \frac{1}{2\nu^2} c_{r's'} \\
+        0 & - \delta_{ii'} & 0 & 0 \\
+        0 & 0 & -\delta_{kk'} \delta_{ll'} & 0 \\
+        \frac{1}{2\nu^2} c_{rs} & 0 & 0 & -\frac{1}{2\nu} \delta_{rr'} \delta_{ss'}
+    \end{array}\right)
+\end{equation*}
+从而$A_0 = -s_{UU}$与$A_j$的乘积为
+\begin{equation*}
+    A_0(U) A_j(U) = 
+\end{equation*}
 
 
 Maxwell迭代一阶近似方程组的整体存在性。首先由\eqref{eq:compressibleRelax}中$c$的方程得到
