@@ -7,7 +7,7 @@
 \newtheorem{theorem}{定理}
 
  \begin{document}
- 	非平衡态热力学的核心是热力学第二定律。有热力学第二定律可以知道不可逆过程必然伴随熵增，而如何描述这一定律变得十分重要。无论是CIT、EIT，还是RT、GENERIC，其出发点均为热力学第二定律。通过引入非平衡状态变量，拓展经典平衡态热力学的Gibbs关系，以及采用合适的方式描述热力学熵的增长是这些理论的共有特性。守恒－耗散理论就是基于热力学第二定律的直接表述得到的。与之前的理论不同的是，守恒－耗散理论是建立在严格的数学结构上的。数学上对方程适定性等性质的要求同物理上的热力学第一和第二定律相联系，从而采用合适的方式对不可逆过程进行建模\cite{}。
+ 	非平衡态热力学的核心是热力学第二定律。有热力学第二定律可以知道不可逆过程必然伴随熵增，而如何描述这一定律变得十分重要。无论是CIT、EIT，还是RT、GENERIC，其出发点均为热力学第二定律。通过引入非平衡状态变量，拓展经典平衡态热力学的Gibbs关系，以及采用合适的方式描述热力学熵的增长是这些理论的共有特性。守恒－耗散理论就是基于热力学第二定律的直接表述得到的。与之前的理论不同的是，守恒－耗散理论是建立在严格的数学结构上的。数学上对方程适定性等性质的要求同物理上的热力学第一和第二定律相联系，从而采用合适的方式对不可逆过程进行建模\cite{zhu2014conservation,ottinger2005beyond,jou1996extended}。
 	
 	\section{守恒－耗散理论}
 	首先，守恒－耗散理论认为，热力学过程可以由守恒过程和耗散过程来描述。守恒率可以采用守恒变量$U_c$来描述。例如$U_c$可以是质量、动量、能量等守恒量。耗散过程采用耗散变量$U_d$来描述。类似于其他非平衡态热力学理论的非平衡态状态变量，然而守恒－耗散理论并不假定其形式。守恒－耗散理论假设不可逆过程可以用下面的偏微分方程来描述
@@ -26,7 +26,7 @@
 			0 \\ \mathcal{q} (U) 
 			\end{array} \right).
 	\end{equation*}
-	根据文献\cite{}，如果假设$Q(U)$前有参数$\frac{1}{\epsilon}$。当$\epsilon$很小时我们期望方程和平衡态的方程相近。基于数学上的考虑\cite{}，结合热力学第二定律，守恒－耗散理论的假设如下\cite{}。
+	根据文献\cite{yong1999singular,yang2015validity,yong2008interesting}，如果假设$Q(U)$前有参数$\frac{1}{\epsilon}$。当$\epsilon$很小时我们期望方程和平衡态的方程相近。基于数学上的考虑，结合热力学第二定律，守恒－耗散理论的假设如下\cite{zhu2014conservation}。
 	\begin{enumerate}
 		\item 存在严格上凸函数$\eta = \eta (U)$，使得$\eta_{UU} F_{jU}$对称。我们称$\eta$为系统的熵函数。
 		\item 存在正定矩阵$M = M(U)$，使得$\mathcal{q}(U) = M \eta_{U_d}$。我们称$M$为耗散矩阵。
@@ -35,7 +35,7 @@
 	\begin{equation*}
 		\eta_t + \nabla \cdot J ＝ \eta_{U_d}^T M \eta_{U_d} \ge 0.
 	\end{equation*}
-	可以看出熵的产生率大于等于0，而这是由第二个假设保证的（$M$正定）。于是守恒－耗散理论通过这两个条件使得模型满足热力学第二定律。且不可逆过程是由耗散变量引起的\cite{}。
+	可以看出熵的产生率大于等于0，而这是由第二个假设保证的（$M$正定）。于是守恒－耗散理论通过这两个条件使得模型满足热力学第二定律。且不可逆过程是由耗散变量引起的\cite{zhu2014conservation}。
 	
 	另外，一般我们假定$M$的零空间不依赖于$U$。这样我们可以得到熵的产生率为$0$对应着$\eta_U (U_d)= 0$。我们可以将对应的$U_d=U_{de}(U_c)$称为平衡态时耗散变量的值。此时我们可以得到下面的模型。
 	\begin{equation*}
@@ -62,9 +62,9 @@
 	\end{equation*}
 	体系的熵函数$\eta$满足
 	\begin{equation*}
-		\eta_t + \nabla \cdot J = 0
-	\end{equation*}
-	从而我们可以将这个方程所描述的体系也视为平衡态。这样我们可以得到守恒－耗散理论所描述的非平衡态体系实际上是介于两个平衡态体系之间的。如果没有耗散，则为平衡态$M=0$，如果时间趋于无穷则方程会趋于另一平衡态体系。这于Elliott Lieb等所讨论的非平衡态的概念有些类似\cite{}。他们认为非平衡态为由一个平衡态到另一个平衡态的演化过程。
+		\eta_t + \nabla \cdot J = 0,
+	\end{equation*},
+	从而我们可以将这个方程所描述的体系也视为平衡态。这样我们可以得到守恒－耗散理论所描述的非平衡态体系实际上是介于两个平衡态体系之间的。如果没有耗散，则为平衡态$M=0$,，如果时间趋于无穷则方程会趋于另一平衡态体系。这于Elliott Lieb等所讨论的非平衡态的概念有些类似\cite{lieb2000fresh,lieb2013entropy,lieb2014entropy}。他们认为非平衡态为由一个平衡态到另一个平衡态的演化过程。
 	
 	守恒-耗散理论中耗散矩阵$M$一般假设为对称的。这可以看做Onsager倒易关系的一个推广。实际上如果熵函数是二次的，那么$\eta_{U_d} = \mu U_d$，而熵的产生率
 	\begin{equation*}
@@ -82,8 +82,6 @@
 	守恒-耗散理论可以成功地用于线性粘弹性流体的建模。然而，由于客观导数的非守恒形式，在应用到非线性粘弹性模型时会有困难，如何推广并应用于非线性粘弹性流体模型将在下一章给出。这里，我们首先考察线性粘弹性流体力学模型。
 
 	\section{守恒-耗散理论在线性粘弹性流体模型中的应用}
-	本节的内容摘自文献\cite{}。
-
 	首先考虑流体运动的守恒率方程\eqref{eq:fluid}。从而我们取
 	\begin{equation*}
 		U_c = \{\rho, \rho v, \rho e\}.
@@ -115,7 +113,7 @@
 	\begin{equation*}
 		\Delta = s_w \cdot [\rho (w_t + v \cdot \nabla w)] + (s_c:[\rho (c_t + v \cdot \nabla v)] - \theta^{-1} \tau : \nabla v) .
 	\end{equation*}
-	这里我们用到了$\tau$的对称性，这是动量矩守恒的自然结果\cite{}。
+	这里我们用到了$\tau$的对称性，这是动量矩守恒的自然结果\cite{dimitrienko2010nonlinear}。
 	取$q =s_w,\tau = \theta s_c$，由守恒-耗散理论的假设，可以得到
 	\begin{equation} \label{eq:CDFgeneral  }
 		\left( \begin{array}{c} 
@@ -150,7 +148,7 @@
 		\end{array} \right)
 	\end{equation*}
 	其中$\dot{\mathcal{T}}, \mathring{\mathcal{T}}$均为四阶张量，其坐标表示为$\dot{\mathcal{T}}_{kl,k'l'} = \frac{1}{3}\delta_{kl} \delta_{k'l'}, \mathring{\mathcal{T}}_{kl,k'l'} =\frac{1}{2}(\delta_{kk'}\delta_{ll'} + \delta_{kl'} \delta_{lk'} ) -\frac{1}{3}\delta_{kl} \delta_{k'l'} $。从而$\dot{\mathcal{T}} A = \dot{A},\mathring{\mathcal{T}} A = \mathring{A}$。$M$的正定性参看附录1。needapp
-	于是我们可以得到系统的演化方程为\cite{}.
+	于是我们可以得到系统的演化方程为\cite{zhu2014conservation}.
 	\begin{subequations}\label{eq:CDFMaxwell}
 		\begin{align}
 			\alpha_0 [\partial_t q +  \nabla \cdot (q \otimes v)] - \nabla \theta^{-1} = -\frac{q}{\theta^2 \lambda}, \\
@@ -162,7 +160,7 @@
 	\begin{equation*}
 		q = -\lambda \nabla \theta, \quad \tau = - \xi \mathring{D} - \kappa \dot{D} I.
 	\end{equation*}
-	分别为经典的Fourier-Newton-Stokes本构关系\cite{}。
+	分别为经典的Fourier-Newton-Stokes本构关系\cite{zhu2014conservation,jou1996extended}。
 
 	在不可压缩和忽略温度的情形，$\nabla \cdot v = 0, \dot{\tau}=0$，$\tau = \mathring{\tau}$，则$\sigma = -\tau$的演化方程为
 	\begin{equation*}
@@ -175,7 +173,7 @@
 		v_t + v \cdot \nabla v + \nabla \cdot (-\theta \frac{c}{\alpha_2}) = 0, \\
 		c_t + v \cdot \nabla c - D = -\frac{1}{\xi} c.
 	\end{eqnarray}
-	而由微观方法得到的高分子稀溶液的模型为 \cite{}
+	而由微观方法得到的高分子稀溶液的模型为 \cite{le2009multiscale,larson1999structure}
 	\begin{eqnarray*}
 		v_t + v \cdot \nabla v = \eta_p (H A - KT I), \\
 		A_t + v \cdot \nabla A - \nabla v A - A(\nabla v)^T  = -\frac{4 H}{\zeta} A+ \frac{4kT}{\zeta} I.
@@ -274,7 +272,7 @@
 \tau_{TM}=\frac{\lambda \rho}{2 \gamma c_v^2 T} \quad {L}=\frac{\lambda \rho}{2 \gamma c_v^3 T^2}{q} \quad M_H^2=\frac{\lambda \rho {q}^2}{2\gamma c_v^3 T^3}
 \end{equation*}
 
-由过增元等人发展的热质理论的模型为\cite{}
+由过增元等人发展的热质理论的模型为\cite{dong2011generalized,zeng2006motion,sellitto2013entropy}
 \begin{equation}
 \tau_{TM} {q}_t-c_v {L}T_t+\nabla {q} \cdot {L}+\lambda(1-M_H^2)\nabla T+{q}=0.
 \end{equation}
@@ -293,7 +291,7 @@
 从这一例子可以看出，简单的熵函数的形式就可以导出复杂的热传导本构关系。推广的Cattaneo定律在特定的参数选择下可以得到与热质理论方程类似的模型。
 
 \subsection{Guyer-Krumhansl模型}
-物质中的热传导可以采用线性化的声子Boltzmann方程来导出。1966年Guyer和Krumhansl发展了固体结构热传导的Guyer-Krumhansl模型\cite{guyer1966solution}。这一模型考虑了固体结构对热传导的影响。而由于粘弹性流体中高分子也具有一定的结构，这一模型也可以用来描述液晶等粘弹性流体的热传导\cite{}。
+物质中的热传导可以采用线性化的声子Boltzmann方程来导出。1966年Guyer和Krumhansl发展了固体结构热传导的Guyer-Krumhansl模型\cite{guyer1966solution}。这一模型考虑了固体结构对热传导的影响。而由于粘弹性流体中高分子也具有一定的结构，这一模型也可以用来描述液晶等粘弹性流体的热传导\cite{van2002weakly,van2005exploiting}。
 
 由于晶格等结构的存在，在固体中热传导可能出现各向异性。同样的在粘弹性流体中也可能与高分子取向等结构引起的热传导各向异性。为了描述热传导的各项异性我们采用张量$Q$来描述。我们假设张量${Q}$对称。其可以分解为${Q}=\mathring{{Q}}+\dot{Q}{I}$。
 
@@ -445,7 +443,7 @@ M_0=\frac{1}{\lambda \theta^2}, M_1=\frac{\lambda \theta^2}{d\tau}, M_2=\frac{2\
 
 	守恒-耗散理论得到的方程均为可对称双曲方程组，所以可以采用对称双曲组的相关理论对方程的解进行分析。例如在平衡态附近方程解的全局适定性可以采用Kawashima理论进行分析\cite{}。可压缩模型的小马赫数极限可以采用类似可压Euler方程的小马赫数极限进行分析\cite{}。方程的弱解的存在性和间断解可以采用相关的理论进行分析\cite{}。
 
-	本节主要考虑方程的强解（经典解），我们采用的解空间为Sobolev空间$H^s, s > \frac{n}{2}+1$，其中$n$为空间的维数。
+	本节主要考虑方程的强解（经典解），我们采用的解空间为Sobolev空间$H^s, s > \frac{n}{2}+1$，其中$n$为空间的维数。由方程的对称双曲性说明其解的局部存在性。然后由Kawashima理论，通过验证Kawashima条件得到其解在平衡态附近的整体存在性。最后，通过验证其满足Chapman-Enskog展开相关定理的条件来说明其与Navier-Stokes方程的一致性。
 
 	\subsection{方程解的局部存在性}
 	由守恒-耗散理论的第一条假设，存在正定对称矩阵$A_0(U)  = -\eta_{UU}$使得$A_0(U) A_j(U)$对称。$A_0$的正定性可由$\eta$的上凸性得到。假设状态变量$U$定义域在$R^{n}$的开集$G$中，$G_1$紧包含在$G$中$\bar{G_1} \subset\subset G$。利用对称双曲方程组的存在性理论，可以得到下面的定理\cite{}。
@@ -655,7 +653,7 @@ M_0=\frac{1}{\lambda \theta^2}, M_1=\frac{\lambda \theta^2}{d\tau}, M_2=\frac{2\
 			(\rho  e)_t + \nabla \cdot (\rho e v) + \nabla \cdot q + \nabla \cdot (P \cdot v) = 0\\
 			(\rho w)_t + \nabla \cdot (\rho w \otimes v) + \nabla \theta^{-1} = - \frac{1}{\lambda \theta^2} w \\
 			(\rho \dot{c})_t  + \nabla \cdot(\rho \dot{c} \otimes v) -  \nabla \cdot v = - \frac{\dot{c}}{\kappa}. \\
-			(\rho \mathring{c})_t + \nabla \cdot (\rho c \otimes v) - \frac{1}{2} (\nabla v + (\nabla v)^T) = - \frac{ \mathring{c}}{\xi}.
+			(\rho \mathring{c})_t + \nabla \cdot (\rho c \otimes v) - \frac{1}{2} (\nabla v + (\nabla v)^T - \frac{2}{3} \nabla \cdot v) = - \frac{ \mathring{c}}{\xi}.
 		\end{align}
 	\end{subequations}
 其中$q= -w,P = (\pi - \theta \dot{c}) I - \theta \mathring{c}$。写成坐标的形式为
@@ -717,19 +715,61 @@ M_0=\frac{1}{\lambda \theta^2}, M_1=\frac{\lambda \theta^2}{d\tau}, M_2=\frac{2\
 	\end{eqnarray*}
 	首先根据前面的分析我们知道第五个和第六个式子给出$W_2=0$。$\mu \neq 0$时将其代入第一个式子得到$W_1=0$。代入第四个式子得到$W_3=0$。从而$W=0$。$\mu=0$时，将$W_2=0$代入第三个式子得到$W_3=0$。将$W_3=0$代入第四个式子可得到$W_1=0$，从而$W=0$。这样我们验证了Kawashima条件成立。即对于模型\eqref{eq:CDFTemp}，定理\ref{th:Kawashima}也成立。
 
-	\subsection{松弛极限}
+	\subsection{与Navier-Stokes方程组的一致性}%松弛极限}
 	实际中经常需要考虑系统在平衡态附近的情况。这是方程的源项经常会包含小参数\cite{}。即方程\eqref{eq:CDF}具有下面的形式。
 	\begin{equation}\label{eq:CDFSingular}
 		\partial_t U + \sum_{j=1}^3 \partial_{x_j} F_j(U) = \frac{1}{\epsilon}\mathcal{Q} (U) .
 	\end{equation}
 	其中$\epsilon$很小。对$\epsilon \rightarrow 0$时的极限的研究可以参看文献\cite{}。雍稳安的博士论文\cite{}中提出了极限的奇异摄动展开收敛的充分条件。在文献\cite{}中讨论了$\epsilon \rightarrow 0$时采用Maxwell迭代（Chapman-Enskog展开）得到近似方程的有效性。下面我们将这些结果用于线性粘弹性流体力学模型。为了简单我们在本节考虑模型\eqref{eq:CDFspecific}。其他情况的计算复杂些但思想是相同的。我们的主要目的是要说明当$\epsilon$很小时可以采用Navier-Stokes方程组近似本章发展的粘弹性流体力学模型。
 
-	\subsubsection{线性粘弹性模型的摄动展开}
-	
-	\subsubsection{线性粘弹性模型的Chapman-Enskog展开}
+	% \subsubsection{线性粘弹性模型的摄动展开}
 
-	\subsection{可压模型的不可压极限}
-	经典可压Euler方程的小马赫数极限的数学分析依赖于Euler方程的双曲性\cite{}。由于守恒-耗散理论得到的方程是对称双曲的，前面导出的可压粘弹性流体力学方程的小马赫数极限问题可以采用类似Euler方程的分析方法进行处理。本小节我们将忽略热传导并假设压力$p$为密度的函数，满足$p(\rho) = \kappa \rho^\gamma, \gamma>1$。
+%	\subsubsection{线性粘弹性模型的Chapman-Enskog展开}
+	首先我们从形式上说明方程组\eqref{eq:CDFalphaConst}当松弛参数$\kappa,\xi$同时趋于$0$时可以趋于Navier-Stokes方程组。为此我们采用Maxwell迭代。首先方程组\eqref{eq:CDFalphaConst}中$\dot{c}$和$\mathring{c}$的方程可以写作
+	\begin{eqnarray*}
+			\rho \dot{c} = - \kappa \left( (\rho \dot{c})_t  + \nabla \cdot(\rho \dot{c} \otimes v) -  \nabla \cdot v  \right). \\
+			\rho \mathring{c} = -\xi \left( (\rho \mathring{c})_t + \nabla \cdot (\rho c \otimes v) - \frac{1}{2} (\nabla v + (\nabla v)^T) \right).
+	\end{eqnarray*}
+	迭代一次得到
+	\begin{eqnarray*}
+		\rho \dot{c} = \kappa \nabla \cdot v + O(\kappa^2), \\
+		\rho \mathring{c} =  \frac{\xi}{2}  (\nabla v + (\nabla v)^T - \frac{2}{3} \nabla \cdot v) + O(\xi^2).
+	\end{eqnarray*}
+	将其代入方程组\eqref{eq:CDFalphaConst}，得到下面的Navier-Stoekes方程组。
+	\begin{subequations}\label{eq:CDFalphaConstNS}
+		\begin{align}
+			\rho_t + \nabla \cdot (\rho v) &=0, \\
+			(\rho v)_t + \nabla \cdot (\rho v \otimes v) + \nabla \pi(\rho) &= \kappa \nabla \nabla \cdot v + \xi \nabla \cdot   (\frac{\nabla v + (\nabla v)^T}{2} - \frac{1}{3} \nabla \cdot v), \\
+			(\rho \dot{c})_t  + \nabla \cdot(\rho \dot{c} \otimes v) -  \nabla \cdot v &= - \frac{\rho \dot{c}}{\kappa}. \\
+			(\rho \mathring{c})_t + \nabla \cdot (\rho c \otimes v) - \frac{1}{2} (\nabla v + (\nabla v)^T) &= - \frac{\rho \mathring{c}}{\xi}.
+		\end{align}
+	\end{subequations}
+	这样我们从形式上说明了当松弛参数$\kappa,\xi$同时趋于$0$时，方程组\eqref{eq:CDFalphaConst}趋近于Navier-Stokes方程组\eqref{eq:CDFalphaConstNS}。
+
+	下面我们将采用文献\cite{yong1992singular,yong1999singular,yang2015validity}的结果对这一过程进行严格地数学分析。首先我们假设$\kappa$和$\xi$具有相同的无穷小的阶，从而不妨设$\kappa = \xi$。假设方程\eqref{eq:CDFalphaConst}的解为$U = (U^I,U^{II})$，其中$U^I = (\rho, \rho v)$，$U^{II}= (\rho \dot{c},\rho \mathring{c})$。假设方程组\eqref{eq:CDFalphaConstNS}的解为$W = (\rho,\rho v)$。由文献\cite{yang2015validity}可以得到如果方程组\eqref{eq:CDFalphaConst}满足一定的条件，则下面的定理成立。
+	\begin{theorem} \label{th:chapmanenskog}
+		令整数$s \ge \frac{1}{2}n+1$。假设方程组\eqref{eq:CDFalphaConst}和\eqref{eq:CDFalphaConstNS}的初值分别为$U_0(x,\kappa) = (U^I_0(x,\kappa),U^{II}_0(x,\kappa))$和$W_0(x,\kappa)$。且满足
+		\begin{eqnarray}
+			U_0 \in H^s(\mathbf{R}^n), W_0 \in H^s(\mathbf{R}^n)
+		\end{eqnarray}
+		以及
+		\begin{equation*}
+			\|U^I_0(\cdot,\kappa) - W_0(\cdot, \kappa) \|_{H^s} = O(\kappa^2).
+		\end{equation*}
+		那么存在不依赖与$\kappa$的时间常数$T>0$和常数$K(T)$使得以$U_0$和$W_0$为初值的方程组\eqref{eq:CDFalphaConst}和\eqref{eq:CDFalphaConstNS}的解$U=U(x,t)$和$W=W(x,t)$在空间$C([0,T],H^s)$中存在且唯一。并且对充分小的$\kappa$，下面的式子成立。
+		\begin{equation}
+			\sup_{t \in [0,T]} \| U(\cdot,t) - W(\cdot,t) \|_{H^s} \le K(T) \kappa^2.
+		\end{equation}
+	\end{theorem}
+
+	\begin{proof}
+	\end{proof}
+	% \subsection{可压模型的不可压极限}
+	% 经典可压Euler方程的小马赫数极限的数学分析依赖于Euler方程的双曲性\cite{}。由于守恒-耗散理论得到的方程是对称双曲的，前面导出的可压粘弹性流体力学方程的小马赫数极限问题可以采用类似Euler方程的分析方法进行处理。本小节我们将忽略热传导并假设压力$p$为密度的函数，满足$p(\rho) = \kappa \rho^\gamma, \gamma>1$。
 	\subsection{本章小结}
+
+	\bibliography{ref}
+	\bibliographystyle{unsrt}
+
 
 	\end{document}

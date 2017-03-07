@@ -19,21 +19,21 @@
 %  \theoremstyle{Remark}
 % \newtheorem{rem}{Remark}
 % \newtheorem{defn}{Definition}
-\begin{subequations} \label{eq:ECDFsecondisothermal}
-		\begin{align}
-			\rho_t + \nabla \cdot (\rho v) = 0 ,\\
-			(\rho v)_t + \nabla \cdot (\rho v \otimes v) + \nabla (p + \frac{1}{2} \rho c: \rho c)  - \nabla \cdot ( (2 \rho c + 2 \rho c \cdot \rho c)) =0 ,\\
-			(\rho c)_t +  \nabla \cdot (\rho c \otimes v) - (\nabla v) \rho c - (\rho c) (\nabla v)^T - 2 D = - \frac{\rho \dot{c}I}{\kappa} -  \frac{\rho \mathring{c}}{\xi}  .
-		\end{align}
-\end{subequations}
-在一维时，对应的方程为
-\begin{subequations} \label{eq:ECDFsecond1D}
-		\begin{align}
-			\rho_t + \partial_x (\rho v) = 0 ,\\
-			(\rho v)_t + \partial_x (\rho v^2) + \partial_x (p)   -  (2+ 3 \rho c) \partial_x (  \rho c) =0 ,\\
-			(\rho c)_t +  \partial_x (\rho c  v) - 2 \rho c \partial_x  v  - 2 \partial_x v = - \frac{\rho \dot{c}}{\kappa}  .
-		\end{align}
-\end{subequations}
+% \begin{subequations} \label{eq:ECDFsecondisothermal}
+% 		\begin{align}
+% 			\rho_t + \nabla \cdot (\rho v) = 0 ,\\
+% 			(\rho v)_t + \nabla \cdot (\rho v \otimes v) + \nabla (p + \frac{1}{2} \rho c: \rho c)  - \nabla \cdot ( (2 \rho c + 2 \rho c \cdot \rho c)) =0 ,\\
+% 			(\rho c)_t +  \nabla \cdot (\rho c \otimes v) - (\nabla v) \rho c - (\rho c) (\nabla v)^T - 2 D = - \frac{\rho \dot{c}I}{\kappa} -  \frac{\rho \mathring{c}}{\xi}  .
+% 		\end{align}
+% \end{subequations}
+% 在一维时，对应的方程为
+% \begin{subequations} \label{eq:ECDFsecond1D}
+% 		\begin{align}
+% 			\rho_t + \partial_x (\rho v) = 0 ,\\
+% 			(\rho v)_t + \partial_x (\rho v^2) + \partial_x (p)   -  (2+ 3 \rho c) \partial_x (  \rho c) =0 ,\\
+% 			(\rho c)_t +  \partial_x (\rho c  v) - 2 \rho c \partial_x  v  - 2 \partial_x v = - \frac{\rho \dot{c}}{\kappa}  .
+% 		\end{align}
+% \end{subequations}
 
 虽然模型\eqref{eq:ECDFsecond1D}的熵函数存在，但是由于方程不是守恒形式，熵函数的Hessian矩阵无法对称化这一一维方程组。我们在本小节中将会首先给出这一方程组的一个对称子。然后验证其满足Kawashima条件，从而证明平衡态附近解的整体存在性定理。最后我们讨论了源项含有小参数时的松弛极限，并给出了松弛参数趋于0时其近似一维Navier-Stokes方程的严格分析。
 
@@ -120,7 +120,6 @@ A_0(U) A(U) = \frac{1}{\rho} \left( \begin{array}{ccc}
 p_\rho > 0 \quad \mbox{and} \quad \rho c > -\frac{2}{3} \quad \mbox{or} \quad  \rho c < -2 
 \end{eqnarray*}
 时，$A_0(U)$为正定的。在这里，我们取
-For this reason, we take
 \begin{equation}\label{37}
 G := \{(\rho, v, c): \rho>0, \quad c> - \frac{2}{3}\}
 % \ \mbox{or} \ > 1
@@ -495,7 +494,7 @@ $$
 R=(f(u_\kappa,0) - \kappa f_u(u_0,0)u_1 - f(u_0,0))_x -\left( \begin{array}{c} 0 \\ 4 \kappa^2 \partial^2_x v_1 \end{array} \right).
 $$
 易知$w_\kappa$满足
-\begin{eqnarray}\label{58}
+\begin{eqnarray}\label{580}
   \partial_t w_\kappa + a(w_\kappa) \partial_x w_\kappa = \left( \begin{array}{cc} 0 \\ \frac{4 \kappa}{\rho_\kappa} \partial^2_x v_\kappa \end{array} \right) + \hat R
 \end{eqnarray}
 其中
@@ -614,10 +613,10 @@ $$
 对$T \in [0,\min\{T_*,T^\kappa\})$成立。我们证明了引理\ref{lemmaCE}，从而定理\ref{theoremCE}成立。
 \end{proof}
 
-%\bibliography{ref}
-%\bibliographystyle{unsrt}
+% \bibliography{ref}
+% \bibliographystyle{unsrt}
 
-% \end{document}
+ % \end{document}
 
 
 
