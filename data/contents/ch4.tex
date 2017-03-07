@@ -28,11 +28,11 @@ F_t + v \cdot \nabla F = \nabla v F.
 \begin{align}
 \nabla \cdot (\rho F^T) = 0,\label{eq:compatibility1} \\
  F_{lj} \partial_{x_l} F_{ik} = F_{lk} \partial_{x_k} F_{il} , \label{eq:compatibility2} \\
- \rho \det F = 1. \label{eq:compatibilty3} 
+ \rho \det F = 1. \label{eq:compatibility3} 
 % \end{eqnarray}
 \end{align}
 \end{subequations}
-这三个适应性条件中不是独立的。由\eqref{eq:compatibility2}和\eqref{eq:compatibilty3}可以推出\eqref{eq:compatibility1}。实际上，由
+这三个适应性条件中不是独立的。由\eqref{eq:compatibility2}和\eqref{eq:compatibility3}可以推出\eqref{eq:compatibility1}。实际上，由
 Jacobi公式
 $$
 \partial_{x_i}\det A = \det A \mbox{Tr}(A^{-1} \partial_{x_i} A),
@@ -47,7 +47,7 @@ $$
 &=&  \frac{1}{\det F} (\partial_{x_i} F_{ij} - \delta_{in} \partial_{x_i} F_{nj}) \\
 &=&  \frac{1}{\det F} (\partial_{x_i} F_{ij} - \partial_{x_i} F_{ij}) =0 ,
 \end{eqnarray*}
-其中倒数第五个等式用到了条件\eqref{eq:compatibilty2}
+其中倒数第五个等式用到了条件\eqref{eq:compatibility2}。
 由适应性条件\eqref{eq:compatibility1}，$\rho F$的演化方程可以写成守恒形式
 \begin{eqnarray*}
 (\rho F)_t + \nabla \cdot (\rho \otimes v) - \nabla \cdot (\rho v \otimes F^T) = 0 .
@@ -201,7 +201,7 @@ M \cdot \left( \begin{array}{c} q \\ s_c  \end{array} \right)
 \end{enumerate}
 \begin{remark}
 这里对熵函数的假设\eqref{eq:FCDFconvex}实际上保证了对应Lagrange坐标$X$的下的方程是双曲的。根据\cite{dafermos2010hyperbolic}，不考虑温度时体系\eqref{eq:continuum}在Lagrange坐标下的方程满足
-\begin{subequations}\label{eq:continuum}
+\begin{subequations}
 \begin{align*}
 	\rho_0 \partial_t = \nabla \cdot S, \\
 	\partial_t F = \nabla v.\\
@@ -315,7 +315,8 @@ M \cdot \left( \begin{array}{c} q \\ s_c  \end{array} \right)
 
 \input{Yong_Global}
 
-
+\section{本章小结}
+本章利用了有限形变理论建立了有限形变守恒-耗散理论的一般框架。基于该框架发展了包含形变张量$F$的粘弹性流体力学模型。推广了林芳华等人的粘弹性流体力学模型而得到了模型\eqref{eq:compressibleRelax}。通过验证该方程的可对称双曲性说明了其局部解的存在性。利用Kawashima理论对该方程进行了数学分析，证明了其平衡态附近的整体存在性。最后，利用Maxwell迭代给出了其近似模型\eqref{eq:compressible}，并利用Kawashima的理论证明了其解的整体存在性。通过这些建模和分析工作，我们可以看出采用有限形变的理论对粘弹性流体进行数学描述是合理而有意义的。
 
 
 \bibliographystyle{amsplain}
