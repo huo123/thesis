@@ -275,20 +275,44 @@ M \cdot \left( \begin{array}{c} q \\ s_c  \end{array} \right)
 \begin{equation*}
 	\tau = -\theta \rho \Phi_F F^T - \theta \frac{\rho c}{\alpha_1}.
 \end{equation*}
-取$\Phi(F)$为最简单的二次函数，$\Phi(F) = F:F$，那么
+
+
+从而我们得到第二类模型的方程如下。
+% 不考虑温度（$\theta=1$）的等温方程为
+\begin{subequations}
+  \begin{align}
+  \rho_t + \nabla \cdot (\rho v) = 0, \\
+  (\rho v)_t + \nabla \cdot ( \rho v \otimes v) + \nabla p - \nabla \cdot (\theta \rho \Phi_F F^T) - \nabla \cdot (\frac{1}{\alpha_1}\theta \rho c) = 0, \\
+  (\rho e)_t + \nabla \cdot (\rho e v) + \nabla \cdot (P \cdot v) + \nabla \cdot q = 0, \\
+  (\rho F)_t + \nabla \cdot (F \otimes \rho v) - \nabla \cdot (v \otimes \rho F^T) = 0, \\
+  (\rho w)_t + \nabla \cdot (\rho w \otimes v) + \nabla \theta^{-1} = -\frac{1}{\lambda \theta^2} \rho w, \\
+  (\rho c)_t + \nabla \cdot (\rho c) - D  = -\frac{\theta \rho \dot{c}}{\kappa}  -\frac{\theta \rho \mathring{c}}{\xi}.
+\end{align}
+\end{subequations}
+最简单的情况，取$\Phi(F)$为的二次函数，$\Phi(F) = F:F$，$\alpha_1=1$，并忽略温度的影响（$\theta=1$），以及
+\begin{equation*}
+    s_0(\nu) = -\int_{\rho_0}^{1/\nu} \frac{\pi(z)}{z^2} dz.
+\end{equation*}
+那么
 \begin{equation*}
 	\tau = -\theta \rho F F^T - \theta \frac{\rho c}{\alpha_1}.
 \end{equation*}
-
-不考虑温度（$\theta=1$）的等温方程为
+以及由Gibbs关系可以得到压力$p$的表达式为
+\begin{equation*}
+    p = s_\nu = \pi(\rho) + \frac{1}{2\nu^2} c:c.
+\end{equation*}
+从而我们得到下面的等温粘弹性流体模型。
 \begin{subequations}\label{eq:compressibleRelax}
   \begin{align}
   \rho_t + \nabla \cdot (\rho v) = 0, \\
-  (\rho v)_t + \nabla \cdot ( \rho v \otimes v) + \nabla p = \nabla \cdot (\rho F F^T) + \nabla \cdot ( \rho c), \\
-  (\rho F)_t + \nabla \cdot (F \otimes \rho v) - \nabla \cdot (v \otimes \rho F^T), \\
-  (\rho c)_t + \nabla \cdot (\rho c) - D  = -\frac{\rho \dot{c}}{\kappa} - -\frac{\rho \mathring{c}}{\xi}
+  (\rho v)_t + \nabla \cdot ( \rho v \otimes v) + \nabla (\pi + \frac{1}{2}\rho^2c:c) - \nabla \cdot (\rho F F^T) - \nabla \cdot (\rho c) = 0, \\
+    (\rho F)_t + \nabla \cdot (F \otimes \rho v) - \nabla \cdot (v \otimes \rho F^T) = 0, \\
+  (\rho c)_t + \nabla \cdot (\rho c) - D  = -\frac{ \rho \dot{c}}{\kappa}  -\frac{ \rho \mathring{c}}{\xi}.
 \end{align}
 \end{subequations}
+
+
+
 \input{Yong_Global}
 
 
