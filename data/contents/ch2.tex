@@ -286,7 +286,7 @@
 \begin{eqnarray*}
 {q}=\alpha(u){c} \le \frac{\rho c_v T}{\sqrt{6}} \sqrt{\frac{\lambda}{\rho c_v \tau_{TM}}}
 \end{eqnarray*}
-其中 $\sqrt{\frac{\lambda}{\rho c_v \tau_{TM}}}$ 为热波的最大速度\cite{Jou1996extended}。 所以熵函数仅在热流小于特定值时为负定的。这一特定值对应于热波允许的最大速度。
+其中 $\sqrt{\frac{\lambda}{\rho c_v \tau_{TM}}}$ 为热波的最大速度\cite{jou1996extended}。 所以熵函数仅在热流小于特定值时为负定的。这一特定值对应于热波允许的最大速度。
 
 从这一例子可以看出，简单的熵函数的形式就可以导出复杂的热传导本构关系。推广的Cattaneo定律在特定的参数选择下可以得到与热质理论方程类似的模型。
 
@@ -331,7 +331,7 @@ s_t &=& \theta^{-1} u_t +s_{w} \cdot {w}_t + s_{\mathring{{Q}}}:\mathring{{Q}}_t
 M_0=\frac{1}{\lambda \theta^2}, M_1=\frac{\lambda \theta^2}{d\tau}, M_2=\frac{2\lambda \theta^2}{5d\tau}
 \end{equation}
 与$a_0=\frac{\tau_0}{\lambda \theta^2}$,
-我们可以得到Guyer-Krumhansl模型（以$T$代替$\theta$）\cite{Jou1996extended}
+我们可以得到Guyer-Krumhansl模型（以$T$代替$\theta$）\cite{jou1996extended}。
 \begin{equation}
 {q}_t+\frac{{q}}{\tau_0}+\frac{\lambda}{\tau_0}\nabla T=\frac{1}{2}d(\nabla^2 {q}+2\nabla \nabla \cdot {q})
 \end{equation}
@@ -562,13 +562,14 @@ M_0=\frac{1}{\lambda \theta^2}, M_1=\frac{\lambda \theta^2}{d\tau}, M_2=\frac{2\
 			& 0 & & \\
 			& & -\frac{1}{\rho \kappa} &\\
 			& &　& -\frac{1}{\rho \xi}
- 		\end{array}\right) U, \\
- 		\tiny{ A^{j}(U) = \left( \begin{array}{cccc} 
+ 		\end{array}\right) U,  A^{j}(U) =  \\
+ 		{\left( \begin{smallmatrix}
  		v_j & \rho \delta_{i'j} & 0 & 0 \\
  		-v_i v_j + p_{\rho} \delta_{ij} + \frac{\dot{c}}{\rho} \delta_{ij}  + \frac{\mathring{c}_{ij}}{\rho} & v_i \delta_{i'j} + v_j \delta_{ii'} & -\frac{1}{\rho}\delta_{ij} & -\frac{1}{\rho}(\delta_{ik'} \delta_{jl'}+\delta_{jk'}\delta_{il'}) \\
  		- \dot{c} v_j + \frac{v_j}{\rho} & \frac{\dot{c}}{\rho} \delta_{i'j} - \frac{1}{\rho} \delta_{i'j} & v_{j} & 0 \\
  		- \mathring{c}_{kl} v_j + \frac{1}{2}(\frac{v_k}{\rho} \delta_{jl} + \frac{v_l}{\rho} \delta_{jk}) & \frac{\mathring{c}_{kl}}{\rho} \delta_{i'j} - \frac{1}{\rho}(\delta_{i'k} \delta_{jl} + \delta_{jk} \delta_{il}) & 0 & v_j \delta_{kk'} \delta_{ll'}  
- 		\end{array}\right) }.
+ 		\end{smallmatrix}
+ 		\right) }.
 	\end{eqnarray*}
 	在平衡态附近$\rho = \bar{\rho},v=0,\dot{c} = 0,\mathring{c}=0$，对应的$A_j(U_e)$为
 	\begin{eqnarray*}
@@ -657,7 +658,7 @@ M_0=\frac{1}{\lambda \theta^2}, M_1=\frac{\lambda \theta^2}{d\tau}, M_2=\frac{2\
 		\end{align}
 	\end{subequations}
 其中$q= -w,P = (\pi - \theta \dot{c}) I - \theta \mathring{c}$。写成坐标的形式为
-	\begin{eqnarray*} \tiny
+	\begin{eqnarray*} 
 		U_t + \sum_j A_j(U) U_{x_j} = \mathcal{Q}(U), \\
 		U =\left( \begin{array}{cccc} 
 			\rho \\ \rho v_i \\ \rho e \\ \rho w_m \\ \rho \dot{c} \\ \rho \mathring{c}_{kl}
@@ -671,15 +672,15 @@ M_0=\frac{1}{\lambda \theta^2}, M_1=\frac{\lambda \theta^2}{d\tau}, M_2=\frac{2\
 			& & & & -\frac{1}{\rho \kappa} & \\
 			& & & & & -\frac{1}{\rho\xi}  \\
  		\end{array}\right) U, \\
-	 		 A^{j}(U) = \\
- 		 \tiny{ \left( \begin{array}{cccccc} 
+	 		 A^{j}(U) =  \\
+ 		\left( \begin{smallmatrix} 
  		v_j & \rho \delta_{i'j} & 0 & 0 & 0 & 0  \\
  		-v_i v_j + P_{ij} (-\frac{e}{\rho} + \frac{v^2}{\rho} ) + (\pi_\rho + \frac{\dot{c}}{\rho^2})\theta \delta_{ij} + \frac{\mathring{c}_{ij} \theta}{\rho}  & v_i \delta_{i'j} + v_j \delta_{ii'} - \frac{P_{ij}}{\rho} v_{i'}  & \frac{P_{ij}}{\rho} & 0 & -\frac{\theta}{\rho} \delta_{ij} & -\frac{\theta}{2\rho} (\delta_{ik'}\delta_{jl'} + \delta_{jk'}\delta_{il'})  \\
  		-e v_j - \frac{w_j}{\rho} -\frac{P_{ij} v_i}{\rho} + v_j (\pi_\rho + \frac{\dot{c}}{\rho}) + \frac{\mathring{c}_{ij} v_i}{\rho}   & e \delta_{i'j} + \frac{P_{ij}}{\rho} \delta_{ii'} & v_{j} & \frac{1}{\rho} \delta_{jm}  & -\frac{v_j}{\rho} & -\frac{v_i}{\rho} \delta_{ik'} \delta_{jl'} \\
  		-w_m v_j - \theta^{-2} (-\frac{e}{\rho} +　\frac{v^2}{\rho}) \delta_{jm} & w_m \delta_{i'j} + \frac{\theta^{-2} v_{i'}}{\rho} \delta_{jm} & -\frac{\theta^{-2}}{\rho} \delta_{jm} & v_j \delta_{m m'} & 0 & 0 \\
  		-\dot{c} v_j + \frac{v_j}{\rho} & \dot{c} - \frac{1}{\rho} & 0 & 0 & v_j & 0 \\
  		-\mathring{c}_{kl} v_j + \frac{1}{2} (v_k \delta_{jl} + v_l \delta_{jk}) & - \frac{1}{2\rho} (\delta_{jk} \delta_{i'l} +　\delta_{jl} \delta_{i'k}) + \mathring{c}_{kl} \delta_{i'j} & 0 & 0 & 0 & v_j 
- 		\end{array}\right) }.
+ 		\end{smallmatrix} \right).
 	\end{eqnarray*}
 	在平衡态$\rho=\bar{\rho},v=0,e=\bar{e} = \bar{\theta},w= 0,\dot{c} = 0, \mathring{c}=0$，$\bar{P} = \bar{\theta} \pi(\bar{\rho}) I$，假设$W=(W_1,W_2,W_3,W_4,W_5,W_6)$在$\mathcal{Q}_U(U_e)$的零空间中。由
 	\begin{equation*}
@@ -763,11 +764,28 @@ M_0=\frac{1}{\lambda \theta^2}, M_1=\frac{\lambda \theta^2}{d\tau}, M_2=\frac{2\
 	\end{theorem}
 
 	\begin{proof}
+		我们只需要验证方程组满足\cite{yang2015validity}中定理2.1的条件。这些条件的前三条可以由守恒耗散理论的假设得到。即
+		\begin{enumerate}
+			\item 	存在严格上凸熵函数$\eta = \eta(U)$使得$\eta_{UU} F_{jU}$对称。
+			\item 	存在对称半正定矩阵$L=L(U)$，使得$\mathcal{Q}(U) = -L \eta_{U}(U)$。实际上我们取$L = diag(0,M)$即可满足要求。
+			\item   $L(U)$的零空间不依赖于$U$，这对$L = diag(0,M)$显然成立。
+		\end{enumerate}
+		
+		另外为了使定理\ref{th:chapmanenskog}成立，方程还需要满足迷向条件（“isotropic condition”）。迷向条件要求矩阵$\sum_{j=1}^n F^I_{jU^{II}} \omega_j$的左零空间不依赖于$\omega = (\omega_1,\omega_2,\cdots,\omega_n) \neq 0$和满足$\eta_{U_d}(U)=0$的$U$。由方程\eqref{eq:CDFalphaConst}可得
+		\begin{equation*}
+			\sum_{j=1}^n F^I_{jU^{II}} \omega_j = \left( \begin{matrix}
+				0 & 0 \\
+				-\frac{1}{\rho} \omega_i & -\frac{1}{\rho} (\omega_{l'} \delta_{ik'} + \omega_{k'} \delta_{il'})
+			\end{matrix}
+			\right).
+		\end{equation*}
+
+
 	\end{proof}
 	% \subsection{可压模型的不可压极限}
 	% 经典可压Euler方程的小马赫数极限的数学分析依赖于Euler方程的双曲性\cite{}。由于守恒-耗散理论得到的方程是对称双曲的，前面导出的可压粘弹性流体力学方程的小马赫数极限问题可以采用类似Euler方程的分析方法进行处理。本小节我们将忽略热传导并假设压力$p$为密度的函数，满足$p(\rho) = \kappa \rho^\gamma, \gamma>1$。
 	\subsection{本章小结}
-
+	本章我们利用守恒-耗散理论讨论了线性粘弹性流体的数学建模。将热传导的热质理论和Guyer-Krumhansl理论推广并应用于粘弹性流体的建模之中。另外我们还对得到的方程的数学性质进行了讨论。证明了由守恒-耗散理论得到的一些模型满足Kawashima条件，从而平衡态附近解具有整体存在性。最后，我们讨论了当松弛参数趋于$0$时模型\eqref{eq:CDFalphaConst}和Navier-Stokes方程\eqref{eq:CDFalphaConstNS}的一致性。通过这些建模和分析，我们可以看出守恒-耗散理论可以很好地用来描述线性粘弹性模型。
 	\bibliography{ref}
 	\bibliographystyle{unsrt}
 
