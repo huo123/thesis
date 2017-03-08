@@ -211,10 +211,44 @@ $L=L(x)$和$M=M(x)$为体系的Possion矩阵和耗散矩阵。通过给出系统
 \end{equation*}
 这违背了热力学第二定律对$w>0$的要求。所以这一理论不能很好地包括上对流导数Maxwell模型。
 
-并且这一理论得到的方程为积分-微分方程，且由于积分一般是沿着流线的积分，在实际计算中变得十分复杂。通过引入新的变量可以将积分方程变为微分方程，可以参看\cite{dimitrienko2010nonlinear}。本论文将讨论基于CDF理论和有限形变理论的粘弹性流体建模方法。
+并且这一理论得到的方程为积分-微分方程，且由于积分一般是沿着流线的积分，在实际计算中变得十分复杂。通过引入新的变量可以将积分方程变为微分方程，可以参看\cite{dimitrienko2010nonlinear}。
+
+另外，林芳华等人在文献\cite{lin2005hydrodynamics}中提出了下面的模型。
+\begin{subequations}\label{eq:linincompressible}
+	\begin{align}
+		\nabla \cdot v = 0, \\
+		v_t + v \cdot \nabla v + \nabla p = \mu \Delta v + \nabla \cdot( F F^T), \\
+		F_t + v \cdot \nabla F = \nabla v F.
+	\end{align}
+\end{subequations}
+文献\cite{liu2008global}中发展这一方程组至可压缩形式。这里的模型实际上是Navier-Stokes方程的一个推广。利用有限形变理论将弹性形变$F F^T$包含在了应力张量之中。这一模型因为有着良好的数学结构而得到了许多数学上的好的结果\cite{lin2012some}。但是尚缺乏在实际中的应用实例。
+
+综上所述，有限形变理论是一个描述连续介质力学的很好工具，利用有限形变理论，结合非平衡态热力学的方法发展起来的热力学理论在粘弹性流体的建模方面有一定的优势，但是也存在一些问题。
+
+本论文将讨论基于CDF理论和有限形变理论的粘弹性流体建模方法。
 
 \section{粘弹性流体的数学分析}
-由于粘弹性流体方程的重要性和复杂性，其数学分析一直以来都吸引了很多数学家的兴趣\cite{}。
+由于粘弹性流体方程的重要性和复杂性，其数学分析一直以来都吸引了很多数学家的兴趣\cite{lin2012some,fabrizio1992mathematical,renardy2008mathematical,joseph1987hyperbolicity,guillope2010regular,saut2012lectures,yong2014newtonian,qian2010well,hu2011global,lei2005global,fang2014incompressible}。目前的分析重要集中于不可压方程，主要包括Oldroyd-B模型、上对流导数Maxwell模型、FENE模型、以及林芳华等人发展的粘弹性流体力学的分析\cite{elgindi2015global,saut2012lectures,renardy2000mathematical,masmoudi2011global,lions2000global,masmoudi2008well,lei2010remarks}。近些年来，有部分工作讨论了可压粘弹性流体方程\cite{fang2014incompressible,hu2012strong,qian2010global,qian2011initial}。
+\subsection{经典不可压粘弹性流体力学模型的分析}
+经典线性粘弹性模型的数学分析见，
+\subsection{林芳华等提出的模型的数学分析}
+由于林芳华等提出的模型有着良好的数学结构，其吸引了许多数学家的兴趣\cite{lin2005hydrodynamics,lebon2008classical,qian2010well,qian2011initial,hu2012formation,hu2015global}。在\cite{lin2005hydrodynamics}中，该方程在二维的Cauchy问题的局部存在性和在平衡态附近的额整体存在性均得到了证明。证明基于力学上的适应性条件$\nabla \cdot F^T$，从而可以找到势函数$\phi$使得$F = \nabla \times \phi$。在二维时
+\begin{equation*}
+	F = \left( \begin{matrix}
+		-\partial_{x_2} \phi_1 &　-\partial_{x_2} \phi_2 \\
+		\partial_{x_1} \phi_1 & \partial_{x_1} \phi_2
+	\end{matrix}\right).
+\end{equation*}
+于是方程\eqref{eq:linincompressible}可以写为下面的形式。
+\begin{eqnarray*}
+	\nabla \cdot v = 0, \\
+	v_t + v \cdot \nabla v + \nabla p =  \mu \Delta v - \sum_{i=1}^2 \Delta \phi_i \nabla \phi_i, \\
+	\nabla \cdot v = 0.
+\end{eqnarray*}
+利用Galerkin逼近，\cite{lin2005hydrodynamics}中其解的局部存在性得到了证明。证明采用了Gagliardo–Nirenberg不等式
+
+
+\subsection{可压粘弹性流体模型的分析}
 
 
 \section{主要工作}
@@ -245,6 +279,6 @@ $L=L(x)$和$M=M(x)$为体系的Possion矩阵和耗散矩阵。通过给出系统
 
 
 	\bibliography{ref}
-	\bibliographystyle{unsrt}
+	\bibliographystyle{plain}
 
  \end{document}
