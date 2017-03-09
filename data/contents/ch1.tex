@@ -243,7 +243,25 @@ $L=L(x)$和$M=M(x)$为体系的Possion矩阵和耗散矩阵。通过给出系统
 \subsection{经典不可压粘弹性流体力学模型的数学分析}
 经典的粘弹性流体模型主要包括线性粘弹性流体力学模型Maxwell模型\eqref{eq:maxwell}和Kelvin-Voigt模型，以及非线性粘弹性流体模型上对流导数Maxwell模型\eqref{eq:chap1UCMmaxll}、Oldroyd-B模型\eqref{eq:Oldroyd}和采用其他客观导数的类似模型等。我们这里只考虑宏观模型，对于微观模型的数学结果可以参看文献\cite{masmoudi2013global,masmoudi2008well,li2007mathematical,li2004local,li2004well,lions2007global}等。对这些方程的分析主要集中于方程弱解的全局存在性、光滑解的局部存在性和平衡态附近解的整体存在性。以及当松弛参数（通常为Weissenberg数）趋于$0$时的极限分析。
 
-对于线性粘弹性流体的分析结果可以参看\cite{fabrizio1992mathematical,renardy2000mathematical}。书中对线性粘弹性的数学结果做了总结。主要讨论并证明了方程解的存在性和唯一性，并讨论了解的稳定性和稳态方程解的存在性和唯一性。由于线性粘弹性流体的适用范围的局限性和方程形式较为简单，大部分分析工作均围绕非线性粘弹性流体模型。而由于Oldroyd模型的广泛应用和重要性，大部分数学工作都是围绕这一方程进行的。
+对于线性粘弹性流体的分析结果可以参看\cite{fabrizio1992mathematical,renardy2000mathematical}。书中对线性粘弹性的数学结果做了总结。主要讨论并证明了方程解的存在性和唯一性，并讨论了解的稳定性和稳态方程解的存在性和唯一性。由于线性粘弹性流体的适用范围的局限性和方程形式较为简单，大部分分析工作均围绕非线性粘弹性流体模型。最简单的粘弹性流体模型是对流导数Maxwell模型和Oldroyd模型。首先我们考虑对流导数的Maxwell模型
+\begin{subequations}\label{eq:Oldroyda}
+\begin{align}
+	\lambda \frac{\mathcal{D}_a \sigma}{\mathcal{D} t} + \sigma = 2 \eta D, \\
+	\partial_t v + v \cdot \nabla v  + \nabla p = \nabla \cdot \sigma, \\
+	\nabla \cdot v = 0.
+\end{align}
+\end{subequation}
+其中
+\begin{equation}\label{eq:convectderivative}
+	\frac{\mathcal{D}_a \sigma}{\mathcal{D} t} = \partial_t \sigma + v \cdot \nabla \sigma + \sigma W- W \sigma - a(D \sigma + \sigma D). 	
+\end{equation}
+当$a=1$时\eqref{eq:Oldroyda}即为上对流导数Maxwell模型\eqref{eq:chap1UCMmaxll}。$a=-1,0$分别对应于Jaumann和下对流导数Maxwell模型。首先I. Rutkevich等人对其双曲性进行了分析\cite{rutkevich1969some,rutkevich1970propagation}，并且Joseph、Saut、Renardy等人发展了Rutkevich的结果\cite{joseph1987hyperbolicity,joseph1986change}。由这些工作，可以得到方程组\eqref{eq:Oldroyda}在下面的条件下会出现Hadamard不稳定性。
+\begin{equation*}
+	\frac{1-a}{2} \Lambda_M - \frac{1+a}{2} \Lambda_m > \frac{\eta}{\lambda}.
+\end{equation*}
+其中$\Lambda_M$和$\Lambda_m$分别为$\sigma$的最大和最小特征值。根据这一分析，可以得到不稳定性仅可能在$a\in (0,1)$时发生。对于上对流和下对流导数（分别对应于$a=-1$和$1$）Maxwell模型是双曲的，不会出现Hadamard不稳定性。另外Joseph、Saut、Renardy等人还对稳态方程的双曲性进行了分析。对Maxwell模型的解的存在性结果参看\cite{saut2012lectures}。
+
+而由于Oldroyd模型的广泛应用和重要性，大部分数学工作都是围绕这一方程进行的。下面我们将讨论这一模型的主要数学结果。首先其解的局部存在性定理在\cite{guillope1990existence}给出。主要采用
 
 
 
