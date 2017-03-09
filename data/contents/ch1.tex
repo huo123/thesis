@@ -3,6 +3,7 @@
  \usepackage{ctex}
  \usepackage{amsmath}
  \begin{document}
+ \newtheorem{theorem}{定理}
 
 \section{问题背景}
 粘弹性流体广泛存在于日常生活中。粥、冰淇凌、油漆、细胞液等都是粘弹性流体。由于这些流体中高分子的存在，它们表现出一定的弹性效应。且这一效应是随着流动而衰减的\cite{coleman1961foundations,larson1999structure}， 我们把这一特性称为粘弹性。材料粘弹性行为的数学模型已经有很长的研究历史。\cite{maxwell2013scientific,kelvin1887stability,oldroyd1950formulation,weissenberg1947continuum,zimm1956dynamics,ferry1980viscoelastic,larson1999structure}. 随着近些年来材料科学和生命科学的发展，越来越多的新材料被发现，例如液晶、凝胶、活性物质等\cite{de1975physics,prost2015active,marchetti2013hydrodynamics,ramaswamy2010mechanics,berthier2013non}。利用数学物理方法对这些流体的粘弹性特性进行建模，获得了快速发展\cite{lin2012some,larson1999structure,joseph2013fluid}。
@@ -26,7 +27,7 @@ picneed
 交换上面方程中的应力应变张量得到的模型称为Kelvin–Voigt模型，由物理学家Lord Kelvin和Woldemar Voigt在19世纪末提出\cite{kelvin1887stability}。
 
 19世纪中叶Karl Weissenberg发现了Weissenberg效应。这一效应是指当转动的杆置于粘弹性流体中时，流体将会沿着杆“爬上”或者"爬下"\cite{weissenberg1947continuum}。为了解释这一效应，James G. Oldroyd提出了粘弹性建模的重要法则：物质坐标不变性原理。这一原理是说模型不应依赖于坐标系的选取。基于这一原理，他提出了客观导数的概念。他提出了经典的Oldroyd—B模型。这一模型如下
-\begin{equation} \label{eq：Oldroyd}
+\begin{equation} \label{eq:Oldroyd}
 	{\sigma} + \lambda_1 \stackrel{\nabla}{{\sigma}} = 2\eta_0 ({D} + \lambda_2 \stackrel{\nabla}{{D}}).
 \end{equation}
 其中$\sigma$为应力张量，$\lambda_1$和$\lambda_2$为松弛时间和迟滞时间，$\eta_0$为流体的粘性系数。$\stackrel{\sigma} = \partial_t \sigma + v \cdot \nabla \sigma - (\nabla v)\  \sigma + \sigma (\nabla v)^T$为$\sigma$的上对流Maxwell导数\cite{oldroyd1950formulation}。J. Oldroyd的这一论文对粘弹性流体的建模这一领域产生了深远的影响。基于这一原理，修改经典Maxwell模型和Kelvin-Voigt模型中的导数为客观导数可以得到许多模型\cite{lin2005hydrodynamics,larson1999structure}。
@@ -127,10 +128,12 @@ $L=L(x)$和$M=M(x)$为体系的Possion矩阵和耗散矩阵。通过给出系统
  	Tr}(c(x))- \frac{1}{2} \rho \ln \det c(x) dx
 \end{equation*}
 于是我们可以得到下面的上对流导数Maxwell模型
-\begin{eqnarray*}
+\begin{subequations}\label{eq:chap1UCMmaxll}
+\begin{align}
 	v_t + v \cdot \nabla v + \nabla p  - \nabla \cdot (c - I) = 0, \\
 	c_t - v \cdot \nabla v - (\nabla v)c - c (\nabla v)^T = -\frac{c-I}{\lambda}.
-\end{eqnarray*}
+\end{align}
+\end{subequations}
 
 由于Beris和Edwards理论要求的耗散括号的复杂性，如何提出满足要求的耗散矩阵是一个很有挑战性的问题。
  Hans C. \"Ottinger与Miroslav Grmela发展了GENERIC理论。GENERIC并不假设非平衡态Hamilton函数的存在，而是仅仅假设能量和熵的存在性。假设$X$为非平衡态系统的状态变量。其演化方程可以写为
@@ -221,16 +224,35 @@ $L=L(x)$和$M=M(x)$为体系的Possion矩阵和耗散矩阵。通过给出系统
 		F_t + v \cdot \nabla F = \nabla v F.
 	\end{align}
 \end{subequations}
-文献\cite{liu2008global}中发展这一方程组至可压缩形式。这里的模型实际上是Navier-Stokes方程的一个推广。利用有限形变理论将弹性形变$F F^T$包含在了应力张量之中。这一模型因为有着良好的数学结构而得到了许多数学上的好的结果\cite{lin2012some}。但是尚缺乏在实际中的应用实例。
+文献\cite{liu2008global}中发展这一方程组至可压缩形式。可压形式的方程组如下
+\begin{subequations}\label{eq:lincompressible}
+	\begin{align}
+		\rho_t + \nabla \cdot (\rho v) = 0, \\
+		(\rho v)_t + \nabla \cdot (\rho\otimes v) + \nabla p = \mu \Delta v + \mu' \nabla \nabla \cdot v+ \nabla \cdot( F F^T), \\
+		F_t + v \cdot \nabla F = \nabla v F.
+	\end{align}
+\end{subequations}
+这里的模型实际上是Navier-Stokes方程的一个推广。利用有限形变理论将弹性形变$F F^T$包含在了应力张量之中。这一模型因为有着良好的数学结构而得到了许多数学上的好的结果\cite{lin2012some}。但是尚缺乏在实际中的应用实例。
 
 综上所述，有限形变理论是一个描述连续介质力学的很好工具，利用有限形变理论，结合非平衡态热力学的方法发展起来的热力学理论在粘弹性流体的建模方面有一定的优势，但是也存在一些问题。
 
 本论文将讨论基于CDF理论和有限形变理论的粘弹性流体建模方法。
 
 \section{粘弹性流体的数学分析}
-由于粘弹性流体方程的重要性和复杂性，其数学分析一直以来都吸引了很多数学家的兴趣\cite{lin2012some,fabrizio1992mathematical,renardy2008mathematical,joseph1987hyperbolicity,guillope2010regular,saut2012lectures,yong2014newtonian,qian2010well,hu2011global,lei2005global,fang2014incompressible}。目前的分析重要集中于不可压方程，主要包括Oldroyd-B模型、上对流导数Maxwell模型、FENE模型、以及林芳华等人发展的粘弹性流体力学的分析\cite{elgindi2015global,saut2012lectures,renardy2000mathematical,masmoudi2011global,lions2000global,masmoudi2008well,lei2010remarks}。近些年来，有部分工作讨论了可压粘弹性流体方程\cite{fang2014incompressible,hu2012strong,qian2010global,qian2011initial}。
-\subsection{经典不可压粘弹性流体力学模型的分析}
-经典线性粘弹性模型的数学分析见，
+由于粘弹性流体方程的重要性和复杂性，其数学分析一直以来都吸引了很多数学家的兴趣\cite{lin2012some,li2007mathematical,weinan2002convergence,fabrizio1992mathematical,renardy2008mathematical,joseph1987hyperbolicity,guillope2010regular,saut2012lectures,yong2014newtonian,qian2010well,hu2011global,lei2005global,fang2014incompressible}。目前的分析重要集中于不可压方程，主要包括Oldroyd-B模型、上对流导数Maxwell模型、FENE模型、以及林芳华等人发展的粘弹性流体力学的分析\cite{elgindi2015global,saut2012lectures,renardy2000mathematical,masmoudi2011global,lions2000global,masmoudi2008well,lei2010remarks}。近些年来，有部分工作讨论了可压粘弹性流体方程\cite{fang2014incompressible,hu2012strong,qian2010global,qian2011initial}。
+\subsection{经典不可压粘弹性流体力学模型的数学分析}
+经典的粘弹性流体模型主要包括线性粘弹性流体力学模型Maxwell模型\eqref{eq:maxwell}和Kelvin-Voigt模型，以及非线性粘弹性流体模型上对流导数Maxwell模型\eqref{eq:chap1UCMmaxll}、Oldroyd-B模型\eqref{eq:Oldroyd}和采用其他客观导数的类似模型等。我们这里只考虑宏观模型，对于微观模型的数学结果可以参看文献\cite{masmoudi2013global,masmoudi2008well,li2007mathematical,li2004local,li2004well,lions2007global}等。对这些方程的分析主要集中于方程弱解的全局存在性、光滑解的局部存在性和平衡态附近解的整体存在性。以及当松弛参数（通常为Weissenberg数）趋于$0$时的极限分析。
+
+对于线性粘弹性流体的分析结果可以参看\cite{fabrizio1992mathematical,renardy2000mathematical}。书中对线性粘弹性的数学结果做了总结。主要讨论并证明了方程解的存在性和唯一性，并讨论了解的稳定性和稳态方程解的存在性和唯一性。由于线性粘弹性流体的适用范围的局限性和方程形式较为简单，大部分分析工作均围绕非线性粘弹性流体模型。而由于Oldroyd模型的广泛应用和重要性，大部分数学工作都是围绕这一方程进行的。
+
+
+
+
+
+
+\subsection{可压粘弹性流体模型的数学分析}
+近些年来，一些可压缩粘弹性流体力学模型的数学分析开始吸引一些数学家的兴趣。
+
 \subsection{林芳华等提出的模型的数学分析}
 由于林芳华等提出的模型有着良好的数学结构，其吸引了许多数学家的兴趣\cite{lin2005hydrodynamics,lebon2008classical,qian2010well,qian2011initial,hu2012formation,hu2015global}。在\cite{lin2005hydrodynamics}中，该方程在二维的Cauchy问题的局部存在性和在平衡态附近的额整体存在性均得到了证明。证明基于力学上的适应性条件$\nabla \cdot F^T$，从而可以找到势函数$\phi$使得$F = \nabla \times \phi$。在二维时
 \begin{equation*}
@@ -265,23 +287,55 @@ $L=L(x)$和$M=M(x)$为体系的Possion矩阵和耗散矩阵。通过给出系统
 \end{eqnarray*}
 这样一来在平衡态附近$w$由于右端项$-v$的衰减效应，以及$w$方程的抛物效应，该方程的整体解存在。从而可以得到下面的定理。
 \begin{theorem}
+	令$s \ge 2$，$\nabla \phi_0 \in H^s(\mathbf{R}^2),\det(\phi_0) = 1, v_0 \in H^s(\mathbf{R}^2)$。那么对于足够小的$\|\nabla \psi_0\|_{H^2}$和$\|v_0\|_{H^2}$，方程\eqref{eq:linincompressible}存在唯的整体光滑解$U=(v,F-I=\nabla \psi) \in C([0,\infty],H^s)$。且满足
+	\begin{equation*}
+		\|v\|_{H^2}^2 +\|\nabla \psi\|_{H^2}^2 + \int_0^\infty \|\nabla v\|_{H^2}
+^2ds \le C \|\nabla \psi_0\|_{H^2} + \|v_0\|_{H^2}.
+	\end{equation*}
+	\end{theorem}
+	在二维的情形，证明中利用了力学上的适应性条件$\nabla \cdot F^T = 0$和$\det F =1$。其中第一个条件保证了势函数$\phi$的存在，第二个条件保证了$\nabla \cdot \psi$充分小，从而可以得到整体存在性定理。
+对于三维的情形，\cite{lei2008global}中证明了其解的局部存在性和整体存在性。其局部存在性证明方法与\cite{lin2005hydrodynamics}类似，但是采用了三维情况下的Gagliardo–Nirenberg插值不等式。对于整体解存在性的证明，其采用了$E=F-I$的适应性条件$E_{lj}\partial_{x_l} E_{ik}=E_{lk}\partial_{x_l} E_{ij}$以及$\nabla \cdot F^T=\nabla \cdot E^T=0$。从而$\Delta E$可以采用Hodge分解得到
+\begin{equation*}
+	\Delta E = \nabla \nabla \cdot E^T -  \nabla \time \nabla E.
+\end{equation*}
+于是成立下面的估计
+\begin{equation*}
+	\|\Delta E\|^2_{L^2} \le C \|E\|_{H^2}^2 \|\Delta E\|_{L^2}^2.
+\end{equation*}
+于是$E$很小时可以得到$\|\Delta E\|^2_{L^2}$有界，从而可以得到整体存在性定理的证明\cite{lin2005hydrodynamics}。
+
+另外，这一模型还可以推广到可压缩模型\eqref{eq:lincompressible}。其可压缩模型的局部存在性和平衡态附近的解的整体存在性定理的证明可以参看\cite{qian2010global,hu2011global,hu2012strong}等。其中的证明采用了Besov空间，并利用了Danchine等关于Navier-Stokes小解整体存在性的证明思路和方法\cite{danchin2000global}。并很好地利用了力学上的适应性条件。例如\cite{qian2010global}中考虑平衡点$\rho=\rho_e,v=0,F=I$附近解的存在性。通过定义
+\begin{equation*}
+	d:=\Lambda^{-1} \nabla \cdot v, e:= \Lambda^{-1} \nabla v, \Lambda :=(-\Delta)^{-\frac{1}{2}}
+\end{equation*}
+以及
+\begin{equation*}
+	E=F-I, \ \sigma = \frac{\gamma}{\rho_e} (\rho - \rho_e), \ \gamma = (p_{\rho}(\rho_e))^{1/2},
+\end{equation*}
+可以将方程\eqref{eq:lincompressible}写成下面的双曲-抛物方程组。
+\begin{eqnarray*}
+	\sigma_t + v \cdot \nabla \sigma + \gamma \Lambda d = G_1, \\
+	e_t + v \cdot \nabla e - \mu \Delta e - \mu' \nabla \nabla d + \gamma \Lambda^{-1} \nabla \nabla \sigma _ \Lambda E = G_2, \\
+	E_t + v \cdot E - \Lambda e = G_3.
+\end{eqnarray*}
+通过对这一系统利用Fourier变换和Besov空间中的不等式做估计，下面的定理可以得到证明\cite{qian2010global,hu2011global}。
+\begin{theorem}
+	假设初值$\rho=\rho_0(x),v=v_0(x),F=F_0(x)$满足
+	\begin{equation*}
+		(\rho - \rho_e,v_0,F_0-I) \in \dot{B}_{2,1}^{n/2} \times \dot{B}_{2,1}^{n/2-1} \times \dot{B}_{2,1}^{n/2-1}
+	\end{equation*}
+	足够小。那么存在整体唯一解$(\rho,v,F)$满足
+	\begin{eqnarray*}
+		\rho - \rho_e \in L^2(\mathbf{R}^+,\dot{B}_{2,1}^s) \cap C(\mathbf{R}^+,\dot{B}_{2,1}^s\cap \dot{B}_{2,1}^{s-1}),\\
+		v \in \left( L^1(\mathbf{R}^+,\dot{B}_{2,1}^{s+1}) \cap C(\mathbf{R}^+,\dot{B}_{2,1}^s \cap \dot{B}_{2,1}^{s-1}) \right)^n, \\
+		F- I \in \left( L^2(\mathbf{R}^+,\dot{B}_{2,1}^s) \cap C(\mathbf{R}^+,\dot{B}_{2,1}^s \cap \dot{B}_{2,1}^{s-1}) \right)^{n^2}.
+	\end{eqnarray*}
+	且对应的范数有界。
 \end{theorem}
 
+对于该方程初边值问题、间断解等的分析可以参看文献\cite{qian2011initial,lin2008initial,lei2010remarks,hu2012formation,hu2015global}等。
 
-
-
-
-
-
-
-
-
-
-
-\subsection{可压粘弹性流体模型的分析}
-
-
-\section{主要工作}
+\section{研究思路和主要工作}
 从当前的研究可以看出各种非平衡态热力学理论对经典的粘弹性流体力学的建模存在各种各样的问题，亦缺乏对数学上的考虑。如何考虑温度和压缩型的影响对粘弹性力学的模型十分重要。对粘弹性流体力学方程的分析工作目前仍然是具体模型具体分析，缺乏一个统一的框架。
 
 为了解决这些问题，本论文基于守恒－耗散理论提出了建立粘弹性流体力学模型的一般框架，并利用双曲方程的一般理论对一些模型进行了数学分析。主要完成了以下工作
@@ -294,7 +348,7 @@ $L=L(x)$和$M=M(x)$为体系的Possion矩阵和耗散矩阵。通过给出系统
 \item 考察了一般弹性能函数下林芳华等人提出的无穷大Weissenberg数粘弹性流体力学模型的平衡态附近解的整体存在性。分析了力学适应性条件在方程解的存在性证明中的作用。
 \end{enumerate}
 
-\section{行文结构}
+\section{文章结构}
 本论文共分六章。
 \begin{itemize}
 \item 第二章首先讨论了守恒－耗散理论的一般框架及其在线性粘弹性流体力学模型中的应用。考察了压缩性和温度的影响。并给出了守恒－耗散结构在数学上的意义。利用双曲方程的相关理论给出了线性粘弹性流体力学模型的解的全局存在性和同经典Navier－Stokes方程的一致性分析。
