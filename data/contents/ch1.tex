@@ -245,7 +245,37 @@ $L=L(x)$和$M=M(x)$为体系的Possion矩阵和耗散矩阵。通过给出系统
 	v_t + v \cdot \nabla v + \nabla p =  \mu \Delta v - \sum_{i=1}^2 \Delta \phi_i \nabla \phi_i, \\
 	\nabla \cdot v = 0.
 \end{eqnarray*}
-利用Galerkin逼近，\cite{lin2005hydrodynamics}中其解的局部存在性得到了证明。证明采用了Gagliardo–Nirenberg不等式
+利用Galerkin逼近，\cite{lin2005hydrodynamics}中其解的局部存在性得到了证明。证明采用了Gagliardo–Nirenberg插值不等式
+\begin{equation*}
+	\|v\|_{L^4}^2 \le C \|v\|_{L^2} \| \nabla v\|_{L^2} ,\ \|\nabla \phi\|_{L^4}^2 \le C \|\nabla \phi\|_{L^2}^{3/2} \|\nabla \Delta \phi\|_{L^2}^{1/2}.
+\end{equation*}
+利用基本的能量估计和上面的不等式，对高阶导数进行估计，可以得到下面的存在性定理\cite{lin2005hydrodynamics}。
+\begin{theorem}
+	令$s \ge 2$，$\nabla \phi_0 \in H^s(\mathbf{R}^2),v_0 \in H^s(\mathbf{R}^2)$。那么存在仅仅依赖于$\|\nabla \phi_0\|_{H^2}$和$\|v_0\|_{H^2}$的时间$T>0$，使得方程\eqref{eq:linincompressible}在时间区间$[0,T]$上存在唯一解$U=(v,F=\nabla \phi) \in C([0,T],H^s) \cap C([0,T],H^{s+1})$。且如果解的最大存在时间为$T^*$，那么
+	\begin{equation*}
+		\int_0^{T^*} \|\nabla v\|_{H^2}^2 ds = + \infty.
+	\end{equation*}
+\end{theorem}
+
+为了分析方程\eqref{eq:linincompressible}在二维时解在平衡态附近的整体存在性。\cite{lin2005hydrodynamics}中取$\psi(x) = \phi(x)-1$，并令$w=v-\frac{1}{\mu}\psi$，而将方程组\eqref{eq:linincompressible}写成了下面的形式
+\begin{eqnarray*}
+	\nabla \cdot v =0 , \\
+	w_t - \mu \Delta w = - v \cdot \nabla w - \nabla p = - \Delta \psi \nabla \psi + \frac{v}{\mu}, \\
+	\psi_t + v \cdot \nabla \psi = -v.
+\end{eqnarray*}
+这样一来在平衡态附近$w$由于右端项$-v$的衰减效应，以及$w$方程的抛物效应，该方程的整体解存在。从而可以得到下面的定理。
+\begin{theorem}
+\end{theorem}
+
+
+
+
+
+
+
+
+
+
 
 
 \subsection{可压粘弹性流体模型的分析}
