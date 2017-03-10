@@ -250,10 +250,10 @@ $L=L(x)$和$M=M(x)$为体系的Possion矩阵和耗散矩阵。通过给出系统
 	\partial_t v + v \cdot \nabla v  + \nabla p = \nabla \cdot \sigma, \\
 	\nabla \cdot v = 0.
 \end{align}
-\end{subequation}
+\end{subequations}
 其中
 \begin{equation}\label{eq:convectderivative}
-	\frac{\mathcal{D}_a \sigma}{\mathcal{D} t} = \partial_t \sigma + v \cdot \nabla \sigma + \sigma W- W \sigma - a(D \sigma + \sigma D). 	
+	\frac{\mathcal{D}_a \sigma}{\mathcal{D} t} = \partial_t \sigma + v \cdot \nabla \sigma + \sigma W- W \sigma - a(D \sigma + \sigma D), \ W = \frac{1}{2}(\nabla v - (\nabla v)^T)
 \end{equation}
 当$a=1$时\eqref{eq:Oldroyda}即为上对流导数Maxwell模型\eqref{eq:chap1UCMmaxll}。$a=-1,0$分别对应于Jaumann和下对流导数Maxwell模型。首先I. Rutkevich等人对其双曲性进行了分析\cite{rutkevich1969some,rutkevich1970propagation}，并且Joseph、Saut、Renardy等人发展了Rutkevich的结果\cite{joseph1987hyperbolicity,joseph1986change}。由这些工作，可以得到方程组\eqref{eq:Oldroyda}在下面的条件下会出现Hadamard不稳定性。
 \begin{equation*}
@@ -261,10 +261,69 @@ $L=L(x)$和$M=M(x)$为体系的Possion矩阵和耗散矩阵。通过给出系统
 \end{equation*}
 其中$\Lambda_M$和$\Lambda_m$分别为$\sigma$的最大和最小特征值。根据这一分析，可以得到不稳定性仅可能在$a\in (0,1)$时发生。对于上对流和下对流导数（分别对应于$a=-1$和$1$）Maxwell模型是双曲的，不会出现Hadamard不稳定性。另外Joseph、Saut、Renardy等人还对稳态方程的双曲性进行了分析。对Maxwell模型的解的存在性结果参看\cite{saut2012lectures}。
 
-而由于Oldroyd模型的广泛应用和重要性，大部分数学工作都是围绕这一方程进行的。下面我们将讨论这一模型的主要数学结果。首先其解的局部存在性定理在\cite{guillope1990existence}给出。主要采用
+而由于Oldroyd模型的广泛应用和重要性，大部分数学工作都是围绕这一方程进行的。这一模型的一般方程为
+\begin{subequations}\label{eq:Oldroydb}
+\begin{align}
+	\lambda \frac{\mathcal{D}_a \sigma}{\mathcal{D} t} + \sigma = 2 \eta_p D, \\
+	\partial_t v + v \cdot \nabla v  + \nabla p = \nabla \cdot \sigma + 2 \eta_s \Delta v, \\
+	\nabla \cdot v = 0.
+\end{align}
+\end{subequations}
+其中$\eta_s,\eta_p$分别为溶剂和溶质的粘性系数。
+下面我们将讨论这一模型的主要数学结果。首先其解的局部存在性定理在\cite{guillope1990existence}给出。主要采用了包含时间的Stokes问题的解的存在性结果\cite{temam1995navier}，并利用了Sobolev演算不等式\cite{majda2012compressible}，通过经典的不动点理论得到解的存在唯一性。例如对于\eqref{eq:Oldroydb}$\sigma$的估计，$\sigma$的方程两端与$\sigma$做内积可以得到
+\begin{equation*}
+	\frac{d}{dt} \|\sigma\|_{L^2}^2  =  -\frac{1}{\lambda} \|\sigma\|_{L^2}^2 + 2 (\frac{\eta}{\lambda} D, \sigma) + \left( (a(D \sigma + \sigma D) - (\sigma W -W \sigma)),\sigma \right).
+\end{equation*}
+右端第二项可以利用H\"older不等式估计如下
+\begin{equation*}
+	(\frac{\eta}{\lambda} D, \sigma) \le \frac{\eta}{\lambda} \|\sigma\|_{L^2} \|\nabla v\|_{L^2}.
+\end{equation*}
+第三项可以估计为
+\begin{equation*}
+	 \left( (a(D \sigma + \sigma D) - (\sigma W -W \sigma)),\sigma \right) \le \|\sigma\|_{L^2}^2 \|\nabla v\|_{L^\infty} \le \|\sigma\|^2 \|\nabla v\|_{H^2}
+.
+\end{equation*}
+上面最后一个不等号由Sobolev嵌入定理得到。为了估计$\|\nabla v\|_{H^2}$，需要对$v$的方程估计。最终可以得到\cite{guillope1990existence}
+\begin{equation*}
+		\frac{d}{dt} \|\sigma\|_{H^2}^2 + \frac{1}{\lambda} \|\sigma\|_{H^2}^2 \le C \frac{\eta}{\lambda} \|v\|_{H^3} \|\sigma\|_{H^2} + C \|v\|_{H^3} \|\sigma\|_{H^2}^2.
+\end{equation*}
+从而得到$\sigma \in L^\infty([0,T],H^2)$。然后利用Stokes问题的结论，最终可以证明下面的局部存在性定理\cite{guillope1990existence,saut2012lectures}。
+\begin{theorem}
+	假设$\sigma_0 \in H^2(\mathbf{R}^3),v_0 \in D(A)$，$D(A)$为$L^2$上Stokes算子的定义域。那么存在时间$T>0$，使得方程组\eqref{eq:Oldroydb}存在唯一的光滑解$(v,p,\sigma)$，且满足
+	\begin{equation*}
+		v \in L^2([0,T],H^3) \cap C([0,T],D(A)), \ p \in L^2([0,T],H^2) \ \sigma \in C([0,T],H^2).
+	\end{equation*}
+\end{theorem}
+方程\eqref{eq:Oldroydb}的平衡点$(v=0,\sigma=0)$附近解的整体存在性首先由文献\cite{guillope1990existence}给出，其中假设了$\eta_s/\eta_p$足够大。这一假设是为了保证粘性项$ 2 \eta_s \Delta v$的耗散足够好从而使得$\sigma$的范数可以被$v$的范数控制。采用不同的方法，这一假设被移除，更一般的整体存在性结果也已经被证明\cite{chupin2004some,molinet2004global,molinet2004existence}。文献\cite{molinet2004global,molinet2004existence}中的证明采用了$\|\mathcal{P}\nabla \cdot \sigma\|_{H^1}$来代替文献\cite{guillope1990existence}中的$\|\nabla \cdot \sigma\|_{H^1}$从而得到更好的结果如下。
+\begin{theorem}
+	假设$\sigma_0 \in H^2(\mathbf{R}^3),v_0 \in D(A)$足够小。那么存在时间$T>0$，使得方程组\eqref{eq:Oldroydb}存在唯一的光滑解$(v,p,\sigma)$，且满足
+	\begin{eqnarray*}
+		v \in L^2([0,\infty],H^3) \cap C([0,\infty],D(A)), \ p \in L^2([0,\infty],H^2) \ \sigma \in C([0,\infty],H^2).
+	\end{eqnarray*}
+\end{theorem}
+在$L^p$框架下方程\eqref{eq:Oldroyda}的证明可以参见\cite{fernandez1998some}。Besov空间的存在性结果见\cite{chemin2001lifespan}。
 
+对于方程\eqref{eq:Oldroydb}的弱解的整体存在性，Constantin和Sun证明了在空间$C^\alpha(\mathbf{R}^n) \cap L^1(\mathbf{R}^n)$中弱解的存在性\cite{constantin2010remarks,saut2012lectures}。对于$a=0$的情况，$L^2$意义下的弱解被P. L. Lions和N. Masmoudi证明\cite{lions2000global}。这一证明利用了对于$a=0$的模型，方程组\eqref{eq:Oldroydb}中$\sigma$的$L^2$范数守恒，即
+\begin{equation*}
+	\frac{d}{dt} \left(\frac{1}{2} \|v\|_{L^2}^2 +  \frac{\lambda}{4 \eta_p} \|\sigma\|_{L^2}^2 \right) + \frac{1}{2\eta_p} \|\sigma\|_{L^2}^2 + {2 \eta_s} \|\nabla v\|_{L^2}^2 = 0.
+\end{equation*}
+从而可以得到其弱解整体存在的证明。然而由于对于一般的情况例如上对流导数Maxwell模型，其弱解的存在性尚未得到证明\cite{saut2012lectures}。
 
-
+另外一个重要的数学问题为$\lambda$趋于$0$时方程\eqref{eq:Oldroydb}的极限分析。形式上有$\lambda$很小，我们将$\sigma$的方程写成下面的形式
+\begin{equation*}
+	 \sigma = -	\lambda \frac{\mathcal{D}_a \sigma}{\mathcal{D} t} +  2 \eta_p D.
+\end{equation*}
+$\lambda=0$时，$\sigma= 2 \eta_p D$，从而方程组\eqref{eq:Oldroydb}成为经典的不可压Navier-Stokes方程组。
+\begin{subequations} \label{eq:innavierstokes}
+\begin{align}
+	\partial_t v + v \cdot \nabla v  + \nabla p &=& \nabla \cdot \sigma + 2 \eta \Delta v, \\
+	\nabla \cdot v &=& 0.
+\end{align}
+\end{subequations}
+其中$\eta= \eta_s + \eta_p$。Luc Molinet和Raafat Talhouk基于Fourier分析，通过对低频和高频情况的分析，得到了\eqref{eq:Oldroydb}和上面的Navier-Stokes方程组\eqref{eq:innavierstokes}一致性的分析。证明了下面的定理\cite{}。
+\begin{theorem}
+	令$n=2,3$，$(v_0,\sigma_0) \in H^s(\mathbf{R}^n) \times H^s(\mathbf{R}^{n^2})$
+\end{theorem}
 
 
 
