@@ -40,13 +40,14 @@
 \subsection{熵函数和对称性}
 首先由前面的分析，我们可以得到方程\eqref{eq:ECDFsecondisothermal}的比熵为
 \begin{equation*}
-	s (\nu, c ) =  -\int_{\rho_0}^{1/\nu} \frac{p(z)}{z^2} dx - \frac{1}{2 \nu}  \mbox{Tr} (c^2).
+	s (\nu, c ) =  -\int_{\rho_0}^{1/\nu} \frac{\pi(z)}{z^2} dx - \frac{1}{2 \nu}  \mbox{Tr} (c^2).
 \end{equation*}
 令$U = (\rho, \rho v, \rho c)^T$。我们可以得到方程的熵函数
 \begin{equation*}
 	\eta = \eta(U) = \frac{(\rho v)^2}{2\rho}+\rho \int_{\rho_0}^{\rho} \frac{p(z)}{z^2} dz + \frac{1}{2}  \mbox{Tr} \left((\rho c)^2\right).
 \end{equation*}
-注意我们在这里采用的熵函数$\eta$的符号与之前正好相反。实际上这里$\eta$代表的是Hemholtz自由能。$\eta$为其变量的上凸函数。这是因为
+注意我们在这里采用的熵函数$\eta$的符号与之前正好相反。%实际上这里$\eta$代表的是Hemholtz自由能。
+$\eta$为其变量的下凸函数。这是因为
 \begin{equation*}
 	\eta_{U_{i''k''l''}U_{ikl}} = \left( \begin{array}{ccc} 
 		\frac{p_\rho}{\rho} + \frac{v^2}{\rho} & -\frac{v_i}{\rho} & 0 \\
@@ -71,33 +72,36 @@
 \end{equation*}
 其中$A_j$和$\mathcal{Q}$的表达式如下
 \begin{eqnarray*}
-	\mathcal{Q} = \left( \begin{array}{c}
+	&&\mathcal{Q} (U)= \left( \begin{array}{c}
 		0 \\ 0 \\-\frac{1}{\kappa} \rho c
-	\end{array} \right), \\
-	 A_j(U)_{ikl,i'k'l'} = \\
-	 \tiny \left( \begin{array}{ccc}
+	\end{array} \right), \quad A_j(U)_{ikl,i'k'l'} = \\
+	 &&\left( \begin{array}{ccc}
 		0 & \delta_{i'j} & 0 \\
-		p_\rho -v_i v_j & v_i \delta_{i'j}+v_j \delta_{i'i} & \rho (c_{k'l'} \delta_{ij} - 2\delta_{ik'} c_{jl'} - 2\delta_{il'} c_{jk'} ) - (\delta_{ik'} \delta_{jl'} + \delta_{il'} \delta_{jk'}) \\
-		- c_{kl} v_j + c_{jl} v_k + c_{kj} v_l + \frac{1}{\rho}({v_k} \delta_{jl} + \frac{1}{\rho} v_l \delta_{jk})  & c_{kl} \delta_{i'j}- \frac{1}{\rho} ( \delta_{i'k} c_{jl} + \delta_{i'l} c_{jk} + \delta_{ik} \delta_{jl} + \delta_{il} \delta_{jk}) & v_j \delta_{kk'} \delta_{ll'}
+		p_\rho -v_i v_j & v_i \delta_{i'j}+v_j \delta_{i'i} & (23) \\
+		- c_{kl} v_j + c_{jl} v_k + c_{kj} v_l + \frac{1}{\rho}({v_k} \delta_{jl} + v_l \delta_{jk})  & (32) & v_j \delta_{kk'} \delta_{ll'}
 	\end{array} \right)
 \end{eqnarray*}
+其中$(23)=\rho (c_{k'l'} \delta_{ij} - 2\delta_{ik'} c_{jl'} - 2\delta_{il'} c_{jk'} ) - (\delta_{ik'} \delta_{jl'} + \delta_{il'} \delta_{jk'}),(32)= c_{kl} \delta_{i'j}- \frac{1}{\rho} ( \delta_{i'k} c_{jl} + \delta_{i'l} c_{jk} + \delta_{ik} \delta_{jl} + \delta_{il} \delta_{jk})$
 而熵函数的Hessian矩阵$\eta_{UU}$与$A_j$的乘积为
 \begin{eqnarray*}
 	\eta_{UU}  A_j(U) = \\
-		 \tiny \left( \begin{array}{ccc}
-		* & \frac{p_\rho -v_{i} v_j}{\rho}  & - c_{k'l'} v_j + 2 c_{jl'} v_{k'} + 2 c_{k'j} v_{l'} + \frac{1}{\rho}({v_{k'}} \delta_{j{l'}} + v_{l'} \delta_{jk'})  \\
-		\frac{p_\rho -v_i v_j}{\rho} & * &  c_{k'l'} \delta_{ij} -( \delta_{ik'} c_{jl'} + \delta_{il'} c_{jk'} +\delta_{ik'} \delta_{jl'} + \delta_{il'} \delta_{jk'}) \\
-		- c_{k''l''} v_j + c_{jl''} v_{k''} + c_{k''j} v_{l''} + \frac{1}{\rho}({v_{k''}} \delta_{j{l''}} + v_{l''} \delta_{jk''})  & c_{k''l''} \delta_{i'j} -( \delta_{i'k''} c_{jl''} + \delta_{i'l''} c_{jk''} + \delta_{ik''} \delta_{jl''} + \delta_{il''} \delta_{jk''}) & *
+		  \left( \begin{array}{ccc}
+		* & \frac{p_\rho -v_{i} v_j}{\rho}  & (13)  \\
+		\frac{p_\rho -v_i v_j}{\rho} & * &  (23) \\
+		(31) & (32) & *
 	\end{array} \right)
 \end{eqnarray*}
-注意到该矩阵的$(1,3)$和$(3,1)$项中$c_{jl''} v_{k''}+ c_{k''j} v_{l''}$与$c_{jl'} v_{k'}+ c_{k'j} v_{l'}$前的系数不同。实际上，由于上对流Maxwell导数中包含非守恒形式的项$(\nabla v) \rho c$和$\rho c (\nabla v)^T$，从而使得熵的Hessian矩阵无法对称化方程组\eqref{eq:ECDFsecondisothermal}。
+其中$(13)=- c_{k'l'} v_j + 2 c_{jl'} v_{k'} + 2 c_{k'j} v_{l'} + \frac{1}{\rho}({v_{k'}} \delta_{j{l'}} + v_{l'} \delta_{jk'}), (31)=- c_{k''l''} v_j + c_{jl''} v_{k''} + c_{k''j} v_{l''} + \frac{1}{\rho}({v_{k''}} \delta_{j{l''}} + v_{l''} \delta_{jk''}),(23)=c_{k'l'} \delta_{ij} -( \delta_{ik'} c_{jl'} + \delta_{il'} c_{jk'} +\delta_{ik'} \delta_{jl'} + \delta_{il'} \delta_{jk'}),(32) =c_{k''l''} \delta_{i'j} -( \delta_{i'k''} c_{jl''} + \delta_{i'l''} c_{jk''} + \delta_{ik''} \delta_{jl''} + \delta_{il''} \delta_{jk''}) $。
+注意到该矩阵的$(1,3)$和$(3,1)$项中$c_{jl''} v_{k''}+ c_{k''j} v_{l''}$与$c_{jl'} v_{k'}+ c_{k'j} v_{l'}$前的系数不同。
+%由于上对流Maxwell导数中包含非守恒形式的项$(\nabla v) \rho c$和$\rho c (\nabla v)^T$，
+从而熵的Hessian矩阵无法对称化方程组\eqref{eq:ECDFsecondisothermal}。
 
 然而，对于一维的情况，
 \begin{equation*}
 	A(U) = \left( \begin{array}{ccc}
 		0 & 1 & 0 \\
 		p_\rho - v^2 & 2v & -3 \rho c - 2 \\
-		cv + \frac{2 v}{\rho} & -  \rho c - 2 & v 
+		\frac{ (\rho c + 2) v}{\rho} & -  \frac{\rho c + 2}{\rho} & v 
 	\end{array}\right).
 \end{equation*}
 我们可以找到下面的对称子
@@ -121,7 +125,7 @@ p_\rho > 0 \quad \mbox{and} \quad \rho c > -\frac{2}{3} \quad \mbox{or} \quad  \
 \end{eqnarray*}
 时，$A_0(U)$为正定的。在这里，我们取
 \begin{equation}\label{37}
-G := \{(\rho, v, c): \rho>0, \quad c> - \frac{2}{3}\}
+G := \{(\rho,\rho v, \rho c): \rho>0, \quad \rho c> - \frac{2}{3}\}
 % \ \mbox{or} \ > 1
 \end{equation}
 作为1维模型\eqref{eq:ECDFsecond1D}的定义域。
@@ -139,26 +143,26 @@ A_0(U_e)Q_U(U_e) + Q_U^T(U_e)A_0(U_e) =-\frac{2}{\kappa}\mbox{diag}(0, 0, 1)
 \begin{eqnarray}\label{33}
 K=\left( \begin{array}{ccc}
 	0 & 1 & 0 \\
-	-1 & 0 & -1 \\
-	0 & 1 & 0
+	-1 & 0 & -\rho_e \\
+	0 & \rho_e & 0
 	\end{array} \right),
 \end{eqnarray}
 和$\bar{L} = \eta\mbox{diag}(0, 0, 1)$（\eqref{32}的对角矩阵）。计算可得
 \begin{eqnarray*}
 K A(U_e) + (K A(U_e))^T + \bar{L} =
 	\left( \begin{array}{ccc}
-	2p_\rho(\rho_e) & 0 & p_\rho(\rho_e) -2  \\
+	2 \pi_\rho(\rho_e) & 0 & \rho_e \pi_\rho(\rho_e) -2  \\
 	0 & 2 & 0 \\
-	p_\rho(\rho_e) - 2 & 0 & \eta -4 	
+	\rho_e \pi_\rho(\rho_e) - 2 & 0 & \eta -4 	
 	\end{array} \right).
 \end{eqnarray*}
 在下面的条件下该矩阵为正定的。
 \begin{eqnarray*}
-p_\rho  > 0, \ \eta > 4, \ 2p_\rho(\eta - 4)-(p_{\rho}-2)^2 = 2 p_\rho\eta  - (2 +  p_\rho)^2 >0.
+\pi_\rho  > 0, \ \eta > 4 \rho, \ 2\pi_\rho(\eta - 4)-(\pi_{\rho}-2)^2 = 2 \pi_\rho \eta  - (2 +  \rho \pi_\rho)^2 >0.
 \end{eqnarray*}
 第一个条件是物理上对压力的要求。后两个在
 $$
-\eta \ge 2 +\frac{(2 +  p_\rho(\rho_e))^2}{2 p_\rho(\rho_e)}.
+\eta \ge 2 \rho_e +\frac{(2 + \rho_e \pi_\rho(\rho_e))^2}{2 \pi_\rho(\rho_e)}.
 $$
 时成立。
 从而对于足够大的$\eta$，我们有
@@ -167,8 +171,9 @@ K A(U_e) + (K A(U_e))^T + \bar{L} \ge C_s I
 \end{eqnarray}
 其中$C_s$为仅依赖于$\rho_e$的常数。
 
-\subsection{整体存在性}
-由于Kawashima条件成立，我们期望方程组\eqref{eq:ECDFsecond1D}在平衡点$U_e$附近存在整体光滑解。我们将采用类似\cite{yong2004entropy,kawashima2009decay}中对于双曲守恒系统的估计得到\eqref{eq:ECDFsecond1D}的整体解存在的证明。这里主要的问题是处理上对流导数中非守恒形式的项。本小节的主要结果为下面的定理。
+\subsection{平衡态附近整体存在性}
+本小节我们考虑方程组\eqref{eq:ECDFsecond1D}在平衡态$U_e$附近解的整体存在性。我们将采用\cite{yong2004entropy,kawashima2009decay}中对于双曲守恒系统的相关估计得到\eqref{eq:ECDFsecond1D}的整体解存在的证明。虽然这里的方程是非守恒形式的，然而由于熵函数的存在、耗散性条件的成立\eqref{32}以及Kawashima条件的成立，我们仍然可以得到相关的估计及整体存在性定理。本小节的主要结果如下。
+% 我们期望方程组\eqref{eq:ECDFsecond1D}在平衡点$U_e$附近存在整体光滑解。这里主要的问题是处理上对流导数中非守恒形式的项。本小节的主要结果为下面的定理。
 
 \begin{theorem} \label{theoremglobal}
 令整数$s \ge 2$。假设$U_0=U_0(x) \in H^s(\mathbb{R})$且$\|U_0 -U_e\|_{H^s}$足够小。那么方程组\eqref{eq:ECDFsecond1D}以$U_0$为初值的Cauchy问题存在唯一的整体解$U=U(x,t)$。且对于任意的$T>0$，$U$满足
@@ -183,7 +188,7 @@ $$
 \end{theorem}
 
 \begin{proof}
-由于方程组\eqref{eq:ECDFsecond1D}是对称双曲组，根据相关理论\cite{majda1984compressible, kato1975cauchy}，其存在唯一的局部解$U \in H^s$。为了证明解的整体存在性，我们只需要证明一个先验估计（a priori estimate）\eqref{41}，然后解的整体存在性可以通过标准的分析得到\cite{yong2004entropy}。于是只需证明估计\eqref{41}成立。我们分三步证明。
+由于方程组\eqref{eq:ECDFsecond1D}是对称双曲组，根据相关理论\cite{majda1984compressible, kato1975cauchy}，其存在唯一的局部解$U \in H^s$。为了证明解的整体存在性，我们只需要证明先验估计（a priori estimate）\eqref{41}，然后解的整体存在性可以通过标准的分析得到\cite{yong2004entropy}。下面我们证明\eqref{41}成立。我们分三步证明。
 
 \emph{第一步：}我们首先利用熵函数得到$U-U_e$的$L^2$估计。
 
@@ -197,7 +202,8 @@ c_1 |U-U_e|^2 \le E(U,U_e) \le C_1 |U-U|^2
 \end{eqnarray}
 下面我们计算$E$的演化方程。根据\eqref{eq:ECDFsecond1D}和\eqref{23}，
 \begin{eqnarray}\label{43}
-E_t = \eta_t - \eta_U(U_e)U_t = -\nabla \cdot \left(J(U) +( \int_{\rho_0}^{\rho_e} \frac{p(z)}{z^2} dz + \frac{p(\rho_e)}{\rho_e})\rho v \right) - \frac{(\rho c)^2}{\kappa} - S_U(U_e)(\mathcal{Q}(U) - A(U)U_x).
+E_t &= \eta_t - \eta_U(U_e)U_t = -\nabla \cdot \left(J(U) +( \int_{\rho_0}^{\rho_e} \frac{\pi(z)}{z^2} dz + \frac{\pi(\rho_e)}{\rho_e})\rho v \right) - \frac{(\rho c)^2}{\kappa} \\
+& - S_U(U_e)(\mathcal{Q}(U) - A(U)U_x).
 \end{eqnarray}
 这里我们用到了
 \begin{eqnarray*}
@@ -209,7 +215,7 @@ E_t = \eta_t - \eta_U(U_e)U_t = -\nabla \cdot \left(J(U) +( \int_{\rho_0}^{\rho_
 	\end{array}\right)
 \left( \begin{array}{ccc}
 \rho \\ \rho v \\ \rho c \end{array} \right)_x \\
-&=& \left( \int_{\rho_0}^{\rho_e} \frac{p(z)}{z^2} dz + \frac{p(\rho_e)}{\rho_e}\right) (\rho v )_x,
+&=& \left( \int_{\rho_0}^{\rho_e} \frac{p(z)}{z^2} dz + \frac{p(\rho_e)}{\rho_e}\right) (\rho v )_x.
 \end{eqnarray*}
 在$(x, t)\in(-\infty, + \infty)\times[0,T]$对\eqref{43}积分可以得到
 \begin{eqnarray*}
@@ -257,7 +263,7 @@ E_t = \eta_t - \eta_U(U_e)U_t = -\nabla \cdot \left(J(U) +( \int_{\rho_0}^{\rho_
 \begin{eqnarray}\label{HsEST:2}
   2(A_0(U) [A,\partial_x^l] U_x,\partial^l_x U) \le C \|U-U_e\|_{H^s}\|\partial_x U\|_{H^{s-1}}^2.
 \end{eqnarray}
-对于第三项，回忆\eqref{24}和\eqref{31}中的$Q(U)$和$A_0(U)$，我们得到
+对于第三项，回忆$Q(U)$和$A_0(U)$的表达式，我们得到
 \begin{eqnarray}\label{HsEST:3}
 && 2(A_0(U)\partial^l_x Q(U),\partial^l_x U) \nonumber \\
 &=& 2( A_0(U_e)\partial^l_x Q(U),\partial^l_x U) + 2((A_0(U)-A_0(U_e)) \partial^l_x Q(U),\partial^l_x U) \nonumber \\
@@ -281,7 +287,7 @@ E_t = \eta_t - \eta_U(U_e)U_t = -\nabla \cdot \left(J(U) +( \int_{\rho_0}^{\rho_
 %  \\  \le C \|\partial_x U_0\|^2_{H^{s-1}} + C M(t)D_0(t)^2
 \end{eqnarray}
 
-\emph{第三步：}下面我们利用Kawashima条件来得到上式\eqref{eq:210}的估计。
+\emph{第三步：}下面我们利用Kawashima条件来得到上式\eqref{210}的估计。
 
 首先将\eqref{eq:ECDFsecond1D}写作
 \begin{eqnarray*}
@@ -349,30 +355,28 @@ $\alpha$足够小时，由上述不等式可以导出
 由此定理\ref{theoremglobal}中的先验估计对于足够小的$\|U_0 -U_e\|_{H^s}$成立。这样我们证明了定理\ref{theoremglobal}。
 \end{proof}
 
-\subsection{松弛极限
-%with the Navier-Stokes equations
-}
+\subsection{与一维Navier-Stokes方程的一致性}
 
-当$\kappa$足够小时，我们可以认为粘弹性的效应足够小，这时我们有理由相信仅考虑粘性效应足以对粘弹性流体做很好的近似描述。在本小节中，我们将说明一维的粘弹性流体第二模型\eqref{eq:ECDFsecond1D}与经典的可压Navier-Stokes方程在$\kappa$很小时是一致，即$\kappa$很小时Navier-Stokes方程可以很好地近似粘弹性流体第二模型。
+当$\kappa$足够小时，我们可以认为粘弹性的效应足够小，这时我们有理由相信仅考虑粘性效应足以对粘弹性流体做很好的近似描述。在本小节中，我们将说明一维的等温可压上对流导数Maxwell模型\eqref{eq:ECDFsecond1D}与经典的可压Navier-Stokes方程在$\kappa$很小时是一致，即$\kappa$很小时Navier-Stokes方程可以很好地近似等温可压上对流导数Maxwell模型。
 
-由\eqref{32}，方程组\eqref{eq:ECDFsecond1D}满足文献\cite{yong1999singular}中的条件。从而可以得知其一阶摄动展开方程组的解可以很好地近似原方程组的解。这样我们只需证明Navier-Stokes方程组可以很好地近似其摄动展开方程组。
-
-实际上，采用Maxwell迭代可以得到方程组\eqref{eq:ECDFsecond1D}形式上的近似Navier-Stokes方程组。将\eqref{eq:ECDFsecond1D}写为
+首先采用Maxwell迭代可以得到方程组\eqref{eq:ECDFsecond1D}形式上的近似Navier-Stokes方程组。将\eqref{eq:ECDFsecond1D}写为
 \begin{eqnarray*}
- \rho c= -\kappa(( \rho c)_t + v \partial_x (\rho c) - 2 \rho c \partial_x v + 2 \partial_x v.
+ \rho c= -\kappa(( \rho c)_t + v \partial_x (\rho c) -  \rho c \partial_x v + 2 \partial_x v.
 \end{eqnarray*}
 迭代一次得到
 \begin{eqnarray*}
   \rho c = 2 \kappa \partial_x v + O(\kappa^2)。
 \end{eqnarray*}
-带入\eqref{eq:ECDFsecond1D}中的动量方程，可以得到下面的一维Navier-Stokes方程组。
+带入\eqref{eq:ECDFsecond1D}中的动量方程，并忽略高阶项，可以得到下面的一维Navier-Stokes方程组。
 \begin{align}\label{51}
   \partial_t \rho + \partial_x (\rho v ) = 0, \nonumber \\
-  \partial_t (\rho v) + \partial_x( \rho v^2 + p) = 4 \kappa \partial^2_x v
+  \partial_t (\rho v) + \partial_x( \rho v^2 + \pi) = 4 \kappa \partial^2_x v
 \end{align}
-其中$4\kappa$为粘性系数。下面我们将严格地分析这一形式近似的合理性。
+其中$4\kappa$为粘性系数。这一形式近似的合理性由下面的定理保证。
 
-我们的分析基于\cite{yang2015validity}，但是我们需要处理\eqref{eq:ECDFsecond1D}中的非守恒项。本小节的主要结果如下。
+% 由\eqref{32}，方程组\eqref{eq:ECDFsecond1D}满足文献\cite{yong1999singular}中的条件。从而可以得知其一阶摄动展开方程组的解可以很好地近似原方程组的解。这样我们只需证明Navier-Stokes方程组可以很好地近似其摄动展开方程组。
+
+% 我们的分析基于\cite{yang2015validity}，但是我们需要处理\eqref{eq:ECDFsecond1D}中的非守恒项。本小节的主要结果如下。
 \begin{theorem}\label{theoremCE}
 令整数$s \ge 2$， ${\bar u} =({\bar \rho}(x),\bar{\rho}(x){\bar v}(x))$满足
   \begin{eqnarray*}
@@ -385,20 +389,20 @@ $\alpha$足够小时，由上述不等式可以导出
  其中$C(T_*)>0$不依赖于$\kappa$.
 \end{theorem}
 
-\begin{remark}
-简单起见，定理\ref{theoremCE}中方程组\eqref{eq:ECDFsecond1D}和\eqref{51}的初值相同。但是对于一般的初值，对\eqref{51}$取初值{\tilde u}_p =({\tilde \rho}_p(x, \kappa),\tilde{\rho}_p(x,\kappa){\tilde v}_p(x, \kappa))$对$\eqref{eq:ECDFsecond1D}$取$({\tilde u} =({\tilde \rho}(x, \kappa),\tilde{\rho}(x,\kappa){\tilde v}(x, \kappa)),\tilde{\rho} \tilde {c}(x, \kappa))$，那么只要初值只要满足
-\begin{eqnarray*}
-    \tilde{u}_p(\cdot,\kappa),\tilde{u}(\cdot,\kappa) \in H^{s+2}, \quad  \inf_{x, \kappa} \tilde{\rho}_p(x,\kappa), \inf_{x, \kappa} \tilde{\rho}(x,\kappa)>0, \quad \inf_{x, \kappa} \tilde{c}(x,\kappa)> -2/3, \nonumber  \\
-    \|\tilde{\rho}(\cdot,\kappa)-\tilde{\rho}_p(\cdot,\kappa)\|_{H^s}, \| \tilde{\rho} \tilde{v}(\cdot,\kappa)-\tilde{\rho}_p\tilde{v}_p(\cdot,\kappa)- \frac{3}{2} \kappa \bar{c}_{0x} \bar{c}_0 +2 \kappa \bar{c}_{0x}\|_{H^s}  = O(\kappa^2)
- \end{eqnarray*}
-  其中$\bar{c}_0=\tilde{c}(x,0)$。那么定理\ref{theoremCE}仍然成立，只是估计\eqref{52}变为
-\begin{equation*}\label{eq:Result}
-    \sup_{t \in [-\kappa\ln\kappa, T_*]} \|(u^\kappa-
-    %u'_\kappa-
-    u^\kappa_p)(\cdot,t)\|_{H^s} \le C(T_*) \kappa^2,
-  \end{equation*}
-  这是因为对一般的初始值边界层可能存在。只需要对下面的证明做微小改动就可以得到一般情况的证明。
-\end{remark}
+% \begin{remark}
+% 简单起见，定理\ref{theoremCE}中方程组\eqref{eq:ECDFsecond1D}和\eqref{51}的初值相同。但是对于一般的初值，对\eqref{51}取初值${\tilde u}_p =({\tilde \rho}_p(x, \kappa),\tilde{\rho}_p(x,\kappa){\tilde v}_p(x, \kappa))$，对$\eqref{eq:ECDFsecond1D}$取$({\tilde u} =({\tilde \rho}(x, \kappa),\tilde{\rho}(x,\kappa){\tilde v}(x, \kappa)),\tilde{\rho} \tilde {c}(x, \kappa))$，那么只要初值只要满足
+% \begin{eqnarray*}
+%     \tilde{u}_p(\cdot,\kappa),\tilde{u}(\cdot,\kappa) \in H^{s+2}, \quad  \inf_{x, \kappa} \tilde{\rho}_p(x,\kappa), \inf_{x, \kappa} \tilde{\rho}(x,\kappa)>0, \quad \inf_{x, \kappa} \tilde{c}(x,\kappa)> -2/3, \nonumber  \\
+%     \|\tilde{\rho}(\cdot,\kappa)-\tilde{\rho}_p(\cdot,\kappa)\|_{H^s}, \| \tilde{\rho} \tilde{v}(\cdot,\kappa)-\tilde{\rho}_p\tilde{v}_p(\cdot,\kappa)- \frac{3}{2} \kappa \bar{c}_{0x} \bar{c}_0 +2 \kappa \bar{c}_{0x}\|_{H^s}  = O(\kappa^2)
+%  \end{eqnarray*}
+%   其中$\bar{c}_0=\tilde{c}(x,0)$。那么定理\ref{theoremCE}仍然成立，只是估计\eqref{52}变为
+% \begin{equation*}\label{eq:Result}
+%     \sup_{t \in [-\kappa\ln\kappa, T_*]} \|(u^\kappa-
+%     %u'_\kappa-
+%     u^\kappa_p)(\cdot,t)\|_{H^s} \le C(T_*) \kappa^2,
+%   \end{equation*}
+%   这是因为对一般的初始值边界层可能存在。只需要对下面的证明做微小改动就可以得到一般情况的证明。
+% \end{remark}
 
 为了证明上述定理，我们注意到方程组\eqref{eq:ECDFsecond1D}满足文献\cite{yong1992singular,yong1999singular}中的结构条件。从而，其中的一阶双曲偏微分方程的奇异摄动理论可以用于本方程组。于是我们得到\eqref{eq:ECDFsecond1D}以的解$(\bar{u},0)$为初值的解$U^\kappa = (\rho^\kappa, \rho^\kappa v^\kappa, c^\kappa)^T$的一阶摄动展开对应的方程组的解$U_\kappa^1=(\rho_\kappa^1,\rho_\kappa^1 v_\kappa^1, c^1_\kappa)^T$在$[0,T_*]$上满足
 \begin{eqnarray}\label{53}
@@ -411,21 +415,27 @@ $U^\kappa_1$的表达式可由\cite{yong1992singular,yong1999singular}中的方�
 U^1_\kappa  = U_0(x,t) + \kappa U_1(x,t) + U'_0(x,t') + \kappa U'_1(x,t')
 \end{eqnarray*}
 其中$t'=t/\kappa$。
-对于外展开$U_0=(u_0, c_0)$和$U_1=(u_1, c_1)$满足
+对于外展开$U_0=(u_0, (\rho c)_0)$和$U_1=(u_1, (\rho c)_1)$满足
 \begin{eqnarray}
- \rho_0 c_0 = 0, \quad
+ (\rho c)_0 = 0, \quad
   \partial_t u_0+ \partial_x f(u_0,0)=0 , \nonumber \\
   (\rho c)_1 = 2\partial_x v_0, \quad
-  \partial_t u_1 + \partial_x (f_u(u_0,0) u_1)  -4 \partial^2_x v_0 = 0 \label{54},
+  \partial_t u_1 + \partial_x (f_u(u_0,0) u_1 + f_{\rho c}(u_0,0)(\rho c)_1)  = 0 \label{54},
 	\end{eqnarray}
 其中
 \begin{eqnarray*}
-  f(\rho,\rho v,\rho c) = \left( \begin{array}{cc} \rho v \\ \rho v^2 + p - \frac{3}{2} (\rho c)^2 - 2\rho c \end{array} \right);
+  f(\rho,\rho v,\rho c) = \left( \begin{array}{cc} \rho v \\ \rho v^2 + \pi - \frac{3}{2} (\rho c)^2 - 2\rho c \end{array} \right);
 \end{eqnarray*}
-内展开$U_0'=(u_0', c_0')$和$U_1'=(u_1', c_1')$满足
+由随后一个方程可得
+\begin{equation*}
+	  \partial_t u_1 + \partial_x (f_u(u_0,0) u_1   = \left( \begin{matrix}
+	  		0 \\ 4 \partial_x^2 v_0
+	  \end{matrix} \right).
+\end{equation*}
+内展开$U_0'=(u_0', (\rho c)_0')$和$U_1'=(u_1', (\rho c)_1')$满足
 \begin{eqnarray*}
  \partial_{t'} u'_0 = 0,  \quad \partial_{t'} (\rho c)'_0 = -(\rho c)'_0 , \\
-  \partial_{t'} u'_1 = \partial_x(f(\bar u_0,0) - f(\bar u_0,c'_0)), \\
+  \partial_{t'} u'_1 = \partial_x(f(\bar u_0,0) - f(\bar u_0,(\rho c)'_0)), \\
   \partial_{t'} (\rho c)'_1 = - (\rho c)'_1 - \bar v_0 \partial_x (\rho c)_0' -2 (\rho c)_0'\partial_x \bar v_0.
 \end{eqnarray*}
 其初值由下面的匹配条件决定。
@@ -474,8 +484,8 @@ $T^\kappa > T_*$
 
 令
 \begin{eqnarray*}
-  a(w) = \left( \begin{array}{cc} v & \rho \\ \frac{p_\rho}{\rho} & v \end{array} \right) \ \ \mbox{与} \ \
-  a_0(w) = \left( \begin{array}{cc} \frac{p_\rho}{\rho^2} & 0 \\ 0 & 1 \end{array} \right).
+  a(w) = \left( \begin{array}{cc} v & \rho \\ \frac{\pi_\rho}{\rho} & v \end{array} \right) \ \ \mbox{与} \ \
+  a_0(w) = \left( \begin{array}{cc} \frac{\pi_\rho}{\rho^2} & 0 \\ 0 & 1 \end{array} \right).
 \end{eqnarray*}
 这里$a_0(w)$是对称正定的且$a_0(w)a(w)=a^T(w)a_0(w)$。
 方程组\eqref{51}可以写作

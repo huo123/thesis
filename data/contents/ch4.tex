@@ -11,7 +11,10 @@
 % \newtheorem{lemma}{引理}
 
 % \begin{document}
-本章我们将考虑有限形变理论在粘弹性流体力学中的应用。在第一章绪论中，我们已经看到积分形式的记忆衰减理论无法很好地用于粘弹性流体的建模。在本章中我们将利用守恒-耗散理论和有限形变理论对粘弹性流体力学进行建模。而有限形变理论采用形变张量$F$对流体的变形进行度量，由于形变张量满足力学上的适应性条件，可以将其方程写成守恒形式。从而我们可以将形变张量加入守恒变量中并可以利用守恒-耗散理论对粘弹性流通进行建模。在第一节中我们将给出连续介质运动方程的一般描述。第二节给出有限形变守恒-耗散理论的主要假设和一般框架。第三节讨论其在粘弹性流体中应用的几个例子。最后一节我们将讨论其中一个例子对应方程组的平衡态附近解的整体存在性。
+本章我们将考虑有限形变理论在粘弹性流体力学中的应用。在第一章绪论中，我们已经看到积分形式的记忆衰减理论无法很好地用于粘弹性流体的建模。在本章中我们将利用守恒-耗散理论和有限形变理论对粘弹性流体力学进行建模。
+由于有限形变理论中的形变张量$F$满足力学上的适应性条件，可以将其方程写成守恒形式。从而我们可以将形变张量加入守恒变量中并可以利用守恒-耗散理论对粘弹性流体进行建模。
+
+在第一节中我们将给出连续介质运动方程的一般描述。第二节给出有限形变守恒-耗散理论的主要假设和一般框架。第三节讨论其在粘弹性流体中应用并对林芳华等提出的模型进行推广。最后一节我们将给出林芳华等提出的模型的整体存在性的一个新的证明。
 
 \section{连续介质的一般方程}
 在第二章第一节中，我们已经讨论了对连续介质变形的数学描述。连续介质的形变可以用函数$x=\mathcal{F}_t (X,t)$来描述。定义形变张量
@@ -65,13 +68,20 @@ $$
 
 在有限形变理论中应力$P$为形变张量$F$的函数。如何得到它们之间的本构关系是热力学理论的主要目的。而在粘弹性流体力学中，由于粘弹性的存在，应变能是耗散的，如何描述这一不可逆过程是非平衡态热力学理论的一个重要目的和粘弹性流体建模的关键。
 
-\section{有限形变守恒-耗散理论}
+\section{有限形变守恒—耗散理论}
+\subsection{有限形变守恒—耗散理论的一般框架}
 为了描述粘弹性流体流动的不可逆性，我们仍然借助非平衡态热力学的守恒-耗散理论。由于$\rho F$的方程是守恒形式，我们可以将其加入守恒量中。选取守恒量
 $$U_c = (\rho, \rho v, \rho e, \rho F).$$
 我们仍引入耗散变量$U_d = (\rho w,\rho c)$来描述不可逆过程。$U$满足方程\eqref{eq:FCDF}，即
 \begin{equation}\label{eq:FCDF}
 		\partial_t U + \sum_{j=1}^3 \partial_{x_j} F_j(U) = \mathcal{Q} (U) .
 \end{equation}
+其中
+\begin{equation*}
+	\mathcal{Q}(U) = \left( \begin{matrix}
+		0 \\ \mathcal{q}(U)
+	\end{matrix} \right).
+\end{equation*}
 假设系统存在熵函数函数$\eta$如下
 \begin{eqnarray*}
 \eta(U) = \eta(\rho, \rho v, \rho e,\rho F,\rho w, \rho c) = \rho s(\nu,u,F,w,C)
@@ -89,11 +99,8 @@ $$\theta^{-1}:=s_{u} (\nu,u,F, w,C), \quad \theta^{-1} p := s_\nu (\nu,u,w,C).$$
 		&& + (s_c:[\rho (c_t + v \cdot \nabla c)] - \theta^{-1} \tau : D + \rho s_F F^T : D)  \\
 		&& = -\nabla \cdot J + \Delta.
 \end{eqnarray*}
-这里我们假设了$q=s_w$。并且假设
-\begin{equation}
-	s_F F^T = F s_F^T.	
-\end{equation}
-这个假设是角动量守恒的要求得到的\cite{dimitrienko2010nonlinear,dafermos2010hyperbolic}，下面可以看出其保证了应力张量的对称性。
+这里我们假设了$q=s_w$。在第一步计算中应用了$F$的方程\eqref{eq:Fdef}，在这里并没有用到力学适应性条件。
+
 对于$\tau$，像在第三章第二节中的那样，我们有两种选择。一是令
 \begin{eqnarray*}
 \theta^{-1} \tau = \rho s_F F^T 
@@ -118,13 +125,49 @@ M \cdot \left( \begin{array}{c} q \\ s_c  \end{array} \right)
 \end{eqnarray}
 我们称这样的选择的得到的模型是第二类模型。
 
-由于我们的选取使得熵函数$\eta$的演化均可以写作以下形式
+\subsection{有限形变守恒—耗散理论的基本假设}
+我们仍然假设守恒—耗散理论的第二条假设成立。即
+\begin{itemize}
+	\item $\mathcal{q}(U) = M \eta_{U_d}$，其中$M$为正定的。
+\end{itemize}
+这一假设保证了熵函数$\eta$的演化
 \begin{equation}\label{eq:entropypro}
-	\eta_t + \nabla \cdot J = \eta_U^T M \eta_U.
+	\eta_t + \nabla \cdot J = \eta_U^T M \eta_U
 \end{equation}
-为了保证熵增大于等于$0$，我们仍然假设守恒-耗散理论的第二个假设成立，即耗散矩阵$M$是正定的。
+中熵的产生率大于等于$0$。
 
-然而由于在方程组的守恒性需要适应性条件\eqref{eq:compatibility1}来保证。所以守恒-耗散理论第一条假设中$\eta_{UU} F_{jU}$对称的条件不一定满足。但是实际上方程组\eqref{eq:FCDF}满足带对合条件（involutions）的守恒形式方程组\cite{dafermos1986quasilinear,dafermos2013non,benzoni2007multi}。即存在$n$个矩阵$R_j,j=1,2,\cdots,n$，使得
+对于熵函数的选取，在守恒—耗散理论中，我们假设熵函数$\eta=\eta(U)$为$U$的上凸函数。然而在有限形变守恒—耗散理论中根据动量矩守恒和客观性原理，$s$需要满足
+\begin{equation}\label{eq:sObjective}
+	s_F F^T = F s_F F^T, \quad s(OF) = O s(F).
+\end{equation}
+其中$O$为旋转矩阵\cite{dafermos2013non}。第一个式子保证了应变张量的对称性。第二个保证了客观性原理成立。根据\cite{ball1976convexity}，满足这两个条件的凸函数关于$F$是二次的。而在固体力学中，应变能$W=W(F)$一般并不假设为凸的。$W$只需要是$F$的秩一上凸函数（Rank-One concave），即存在$\mu>0$使得
+\begin{equation*}
+	\frac{\partial^2 W(F)}{\partial F_{i\alpha} \partial F_{j\beta}} \xi_i \xi_j \nu_\alpha \nu_\beta \le -\mu |\xi|^2 |\nu|^2, \xi \in \mathbf{R}^n, \ \nu \in \mathbf{R}^n. 
+\end{equation*}
+恒成立。此时根据力学适应性条件，方程仍然具有良好的数学结构。所以在这里我们也假设$\eta$不一定为$U$的上凸函数。受固体力学和双曲方程相关理论的启发，对熵函数$\eta = \rho s$做下面的假设。
+\begin{itemize}
+	\item $s$是$c,w$的凸函数，且为$F$的秩一上凸函数，且对$s=s(W),\ W= (\nu,u,F,c,w)$成立
+\begin{eqnarray}
+	\Omega^T s_{WW} \omega \le -\mu |\Omega|^2, \label{eq:FCDFconvex}\\ 
+	\Omega = \left( \begin{array}{cccccc}
+		\omega_1 & \omega_2 & \omega_3 & \xi \otimes \nu & \omega_5 & \omega_6
+	\end{array}\right). \nonumber
+\end{eqnarray}
+其中$\omega_1,\omega_2,\omega_3,\omega_5,\omega_6$分别为任意量，其阶数分别与$\rho, v,e, F,w,c$相同。
+\end{itemize}
+
+% 并且假设
+% \begin{equation}
+% 	s_F F^T = F s_F^T.	
+% \end{equation}
+% 这个假设是角动量守恒的要求得到的\cite{dimitrienko2010nonlinear,dafermos2010hyperbolic}，下面可以看出其保证了应力张量的对称性。
+
+% 由于我们的选取使得熵函数$\eta$的演化均可以写作以下形式
+% \begin{equation}\label{eq:entropypro}
+% 	\eta_t + \nabla \cdot J = \eta_U^T M \eta_U.
+% \end{equation}
+% 为了保证熵增大于等于$0$，我们仍然假设守恒-耗散理论的第二个假设成立，即耗散矩阵$M$是正定的。
+另外，守恒—耗散理论还假设熵函数$\eta$的Hessian矩阵可以对称化方程组\eqref{eq:FCDF}。然而在有限形变守恒—耗散理论中，由于力学适应性条件的存在，这一假设需要重新考虑。事实上，在守恒—耗散理论中熵流$J$的存在与$\eta_{UU}F_{jU}$对称是等价的。但是在有限形变守恒—耗散理论中，熵流$J$的存在是无法保证这一点的。但是实际上方程组\eqref{eq:FCDF}满足带对合条件（involutions）的守恒形式方程组\cite{dafermos1986quasilinear,dafermos2013non,benzoni2007multi}。即存在$n$个矩阵$R_j,j=1,2,\cdots,n$，使得
 \begin{equation*}
 	M_i F_{j} + M_j F_i = 0, \ i,j = 1, \cdots,n .
 \end{equation*}
@@ -155,13 +198,20 @@ M \cdot \left( \begin{array}{c} q \\ s_c  \end{array} \right)
 \begin{equation*}
 	\partial_t U + \sum_{j=1}^n \partial_{x_j} J_{j}(U) = \eta_U^T \mathcal{Q}(U).
 \end{equation*}
-所以守恒-耗散理论的第一条假设中$\eta_{UU} F_{jU}$应改为存在函数$\Xi(U)$，使得
+所以守恒-耗散理论的第一条假设中$\eta_{UU} F_{jU}$对称应改为存在函数$\Xi(U)$，使得
 \begin{equation}\label{eq:invsym}
 	\eta_{UU} F_{jU} + \Xi_U^T M_j = F_{jU}^T \eta_{UU} + M_j \Xi_U(U).
 \end{equation}
-另外对于本章考虑的两种选择得到的方程组\eqref{eq:FCDF}（其中$w,c$满足\eqref{eq:finite1}或\eqref{eq:finite2}）与适应性条件\eqref{eq:compatibility1}，如果存在函数$\eta = \eta(U)$满足\eqref{eq:entropypro}，则存在$\Xi$，使得\eqref{eq:invsym}成立。实际上在我们的计算中采用的是下面的方程
+
+综上所述，我们得到有限形变守恒-耗散理论的两条基本假设如下。
+\begin{enumerate}
+		\item 存在函数$\eta = \eta (U) = \rho s(\nu,u,F,w,c)$，满足\eqref{eq:FCDFconvex}与\eqref{eq:sObjective}，且存在$\Xi=\Xi(U)$，使得$\eta_{UU} F_{jU} + \Xi_U^T M_j $对称。我们称$\eta$为系统的熵函数（$s$为比熵函数）。
+		\item 存在正定矩阵$M = M(U)$，使得$\mathcal{q}(U) = M \eta_{U_d}$。我们称$M$为耗散矩阵。
+\end{enumerate}
+
+对于本章考虑的两种选择得到的方程组\eqref{eq:FCDF}（其中$w,c$满足\eqref{eq:finite1}或\eqref{eq:finite2}）与适应性条件\eqref{eq:compatibility1}，如果存在函数$\eta = \eta(U)$满足\eqref{eq:entropypro}，则存在$\Xi$，使得\eqref{eq:invsym}成立。实际上在我们的计算中采用的是下面的方程
 \begin{equation*}
-	\rho F_t + v \nabla \cdot F = \nabla v F.
+	F_t + v \nabla \cdot F = \nabla v F.
 \end{equation*}
 或者写作
 \begin{equation*}
@@ -175,51 +225,45 @@ M \cdot \left( \begin{array}{c} q \\ s_c  \end{array} \right)
 \begin{equation*}
 	\eta_U F_{jU} + \eta_{U} (v \otimes M_{j}) = J_{jU}.
 \end{equation*}
-从而实际上取$\Xi = \eta_U \otimes v^T$即可得到$\eta$满足\eqref{eq:invsym}。
+从而实际上取$\Xi = \eta_U \otimes v^T$即可得到$\eta$满足\eqref{eq:invsym}。于是对于模型\eqref{eq:finite1}和\eqref{eq:finite2}我们只需假设熵函数$\eta = \rho s$满足\eqref{eq:FCDFconvex}与\eqref{eq:sObjective}，且$M$正定。
 
-在守恒-耗散理论中，我们还假设熵函数$\eta=\eta(U)$为$U$的上凸函数。然而对于守恒律方程组\eqref{eq:continuum}，如果我们不考虑$w,c$而假设系统处于平衡态，那么根据连续介质的相关理论\cite{ball1976convexity,dimitrienko2010nonlinear,dafermos2013non}，比熵函数$s$不一定是$F$的上凸函数。实际上，根据动量矩守恒和客观性原理，$s$需要满足
-\begin{equation}\label{eq:sObjective}
-	s_F F^T = F s_F F^T, \ s(OF) = O s(F).
-\end{equation}
-其中$O$为旋转矩阵\cite{dafermos2013non}。而根据\cite{ball1976convexity}，满足这两个条件的凸函数必须是二次的。在弹性力学中，人们考虑的弹性能函数不仅仅是二次的，$s$只需要是$F$的秩一上凸函数（Rank-One concave），即存在$\mu>0$使得
-\begin{equation*}
-	\frac{\partial^2 s(F)}{\partial F_{i\alpha} \partial F_{j\beta}} \xi_i \xi_j \nu_\alpha \nu_\beta \le -\mu |\xi|^2 |\nu|^2, \xi \in \mathbf{R}^n, \ \nu \in \mathbf{R}^n. 
-\end{equation*}
-恒成立。然而对于我们考虑的系统$s$还依赖于非平衡态变量$c,w$，我们假设$s$是$c,w$的凸函数，且为$F$的秩一上凸函数，且对$s=s(W),\ W= (\nu,u,F,c,w)$成立
-\begin{eqnarray}
-	\Omega^T s_{WW} \omega \le -\mu |\Omega|^2, \label{eq:FCDFconvex}\\ 
-	\Omega = \left( \begin{array}{c}
-		\omega_1 \\ \omega_2 \\ \omega_3 \\ \xi \otimes \nu \\ \omega_5 \\ \omega_6
-	\end{array}\right). \nonumber
-\end{eqnarray}
-其中$\omega_1,\omega_2,\omega_3,\omega_5,\omega_6$分别为任意量，大小分别与$\rho, v,e, F,w,c$相同。
-
-综上所述，我们得到有限形变守恒-耗散理论的两条基本假设如下。
-\begin{enumerate}
-		\item 存在函数$\eta = \eta (U) = \rho s(\nu,u,F,w,c)$，满足\eqref{eq:FCDFconvex}与\eqref{eq:sObjective}，且存在$\Xi=\Xi(U)$，使得$\eta_{UU} F_{jU} + \Xi_U^T M_j $。我们称$\eta$为系统的熵函数（$s$为比熵函数）。
-		\item 存在正定矩阵$M = M(U)$，使得$\mathcal{q}(U) = M \eta_{U_d}$。我们称$M$为耗散矩阵。
-\end{enumerate}
-\begin{remark}
-这里对熵函数的假设\eqref{eq:FCDFconvex}实际上保证了对应Lagrange坐标$X$的下的方程是双曲的。根据\cite{dafermos2010hyperbolic}，不考虑温度时体系\eqref{eq:continuum}在Lagrange坐标下的方程满足
-\begin{subequations}
-\begin{align*}
-	\rho_0 \partial_t = \nabla \cdot S, \\
-	\partial_t F = \nabla v.\\
-\end{align*}
-\end{subequations}
-而$c$的方程满足
-\begin{equation*}
-	\rho_0 \partial_t c = M s_c,
-\end{equation*}
-或者取
-\begin{equation*}
-	\rho_0 \partial_t c - \frac{1}{2} (\nabla_X v + (\nabla_X v)^T)= M s_c.
-\end{equation*}
-根据\cite{dafermos2010hyperbolic}，条件\eqref{eq:FCDFconvex}可以保证这样的体系的双曲性。
-\end{remark}
+% 在守恒-耗散理论中，我们还假设熵函数$\eta=\eta(U)$为$U$的上凸函数。然而对于守恒律方程组\eqref{eq:continuum}，如果我们不考虑$w,c$而假设系统处于平衡态，那么根据连续介质的相关理论\cite{ball1976convexity,dimitrienko2010nonlinear,dafermos2013non}，比熵函数$s$不一定是$F$的上凸函数。实际上，根据动量矩守恒和客观性原理，$s$需要满足
+% \begin{equation}\label{eq:sObjective}
+% 	s_F F^T = F s_F F^T, \ s(OF) = O s(F).
+% \end{equation}
+% 其中$O$为旋转矩阵\cite{dafermos2013non}。而根据\cite{ball1976convexity}，满足这两个条件的凸函数必须是二次的。在弹性力学中，人们考虑的弹性能函数不仅仅是二次的，$s$只需要是$F$的秩一上凸函数（Rank-One concave），即存在$\mu>0$使得
+% \begin{equation*}
+% 	\frac{\partial^2 s(F)}{\partial F_{i\alpha} \partial F_{j\beta}} \xi_i \xi_j \nu_\alpha \nu_\beta \le -\mu |\xi|^2 |\nu|^2, \xi \in \mathbf{R}^n, \ \nu \in \mathbf{R}^n. 
+% \end{equation*}
+% 恒成立。然而对于我们考虑的系统$s$还依赖于非平衡态变量$c,w$，我们假设$s$是$c,w$的凸函数，且为$F$的秩一上凸函数，且对$s=s(W),\ W= (\nu,u,F,c,w)$成立
+% \begin{eqnarray}
+% 	\Omega^T s_{WW} \omega \le -\mu |\Omega|^2, \label{eq:FCDFconvex}\\ 
+% 	\Omega = \left( \begin{array}{c}
+% 		\omega_1 \\ \omega_2 \\ \omega_3 \\ \xi \otimes \nu \\ \omega_5 \\ \omega_6
+% 	\end{array}\right). \nonumber
+% \end{eqnarray}
+% 其中$\omega_1,\omega_2,\omega_3,\omega_5,\omega_6$分别为任意量，大小分别与$\rho, v,e, F,w,c$相同。
 
 
-
+% \begin{remark}
+% 这里对熵函数的假设\eqref{eq:FCDFconvex}实际上保证了对应Lagrange坐标$X$的下的方程是双曲的。根据\cite{dafermos2010hyperbolic}，不考虑温度时体系\eqref{eq:continuum}在Lagrange坐标下的方程满足
+% \begin{subequations}
+% \begin{align*}
+% 	\rho_0 \partial_t = \nabla \cdot S, \\
+% 	\partial_t F = \nabla v.\\
+% \end{align*}
+% \end{subequations}
+% 而$c$的方程满足
+% \begin{equation*}
+% 	\rho_0 \partial_t c = M s_c,
+% \end{equation*}
+% 或者取
+% \begin{equation*}
+% 	\rho_0 \partial_t c - \frac{1}{2} (\nabla_X v + (\nabla_X v)^T)= M s_c.
+% \end{equation*}
+% 根据\cite{dafermos2010hyperbolic}，条件\eqref{eq:FCDFconvex}可以保证这样的体系的双曲性。
+% \end{remark}
+\section{在粘弹性流体建模中的应用}
 \subsection{第一类模型}
 由于第一类模型中熵函数不依赖于耗散变量时，应力张量$\tau$不依赖于耗散变量$c$，此时我们无法描述粘弹性流体的不可逆过程。所以在这里我们假设熵函数包含$F$和$c$的耦合项。由于我们要求\eqref{eq:sObjective}成立，所以我们假设$s$有下面的形式 
  $$s = s_0(\nu,u) - \frac{1}{2 \nu \alpha_0} |w|^2 - \Phi (F) + \mbox{Tr} (FcF^T) - \Psi(c) .$$
@@ -263,6 +307,8 @@ M \cdot \left( \begin{array}{c} q \\ s_c  \end{array} \right)
 			0 &  \theta(\frac{1}{\kappa} \dot{\mathcal{T}} + \frac{1}{\xi} \mathring{\mathcal{T}})  ,
 		\end{array} \right)
 \end{equation*}
+假设$\alpha_0,\alpha_1,\lambda,\kappa,\xi$均为正数，那么可以得到有限形变守恒—耗散理论的两条假设均成立。
+
 从而我们根据\eqref{eq:finite2}得到
 	\begin{subequations}
 		\begin{align*}
