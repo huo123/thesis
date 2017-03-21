@@ -7,174 +7,176 @@
 % \newtheorem{remark}{注释}
 % \newtheorem{lemma}{引理}
 % \begin{document}
-\section{有限形变粘弹性流体模型的数学分析}
-本小节将讨论等温粘弹性流体模型\eqref{eq:compressibleRelax}解的存在性。首先我们将说明这一方程是可对称对称双曲组，然后利用Kawashima理论证明其解在平衡态附近的全局存在性。最后我们将证明$\kappa,\xi$同时趋于$0$时对应的方程组平衡态附近解的整体存在性。
+%\section{有限形变粘弹性流体模型的数学分析}
+% 本小节将讨论等温粘弹性流体模型\eqref{eq:compressibleRelax}解的存在性。首先我们将说明这一方程是可对称对称双曲组，然后利用Kawashima理论证明其解在平衡态附近的全局存在性。最后我们将证明$\kappa,\xi$同时趋于$0$时对应的方程组平衡态附近解的整体存在性。
 
-\subsection{粘弹性流体模型\eqref{eq:compressibleRelax}解的存在性}
-我们将讨论方程\eqref{eq:compressibleRelax}解的局部存在性以及平衡态附近解的整体存在性。
-\subsubsection{局部存在性}
-%这里我们用$W=(\rho,\rho v,\rho F,\rho c)$表示上面的$U$。而利用$U$表示$U = (\rho, v, F, 、\rho c)$，
-首先由有限形变的守恒-耗散理论我们无法得到$\eta_{UU}$可以将$U$的方程对称化。然而由于熵函数是二次的，$\eta_{UU}$是负定的。可以验证$A_0(U) = -\eta_{UU}$可以将$U$的方程对称化。从而方程局部解的存在性可由对称双曲方程的一般理论得到。
+% \subsection{粘弹性流体模型\eqref{eq:compressibleRelax}解的存在性}
+% 我们将讨论方程\eqref{eq:compressibleRelax}解的局部存在性以及平衡态附近解的整体存在性。
+% \subsubsection{局部存在性}
+% %这里我们用$W=(\rho,\rho v,\rho F,\rho c)$表示上面的$U$。而利用$U$表示$U = (\rho, v, F, 、\rho c)$，
+% 首先由有限形变的守恒-耗散理论我们无法得到$\eta_{UU}$可以将$U$的方程对称化。然而由于熵函数是二次的，$\eta_{UU}$是负定的。可以验证$A_0(U) = -\eta_{UU}$可以将$U$的方程对称化。从而方程局部解的存在性可由对称双曲方程的一般理论得到。
 
-下面我们将验证$A_0(U) = -\eta_{UU}$可以将$U$的方程对称化。首先将$U$的方程写成下面的形式。 
-\begin{eqnarray*}
-U_t + \sum_{j=1}^n A_j(U) U_{x_j} = \mathcal{Q}(U),\\
-  U = \left( \begin{array}{c} \rho \\ \rho v_i \\ \rho  F_{kl} \\ \rho c_{rs} \end{array} \right), \quad \mathcal{Q}(U) = 
-\left( \begin{array}{c} 0 \\ 0  \\ -\frac{1}{\kappa} \dot{\mathcal{T}}I - \frac{1}{\xi} \mathring{\mathcal{T}} \end{array} \right)U, \quad   A_j(U)= \\
- % \tiny \left( \begin{array}{cccc} 
- %     0 & \delta_{i'j} & 0 & 0 \\
- %     p_\rho - v_i v_j - F_{jl'} F_{il'} & v_i \delta_{i'j} v_j \delta_{i'i} & -\rho F_{jl'} \delta_{ik'}　& -\frac{1}{2}(\delta_{jr'} \delta_{is'} +\delta_{js'}\delta_{ir'}) \\
- %    0 & -F_{kl} v_j + F_{jl} v_k  & F_{kl} \delta_{i'j} - F_{jl} \delta_{i'k} & v_j \delta_{kk'} \delta_{ll'} & 0  \\
- %    -c_{rs} v_j - \frac{1}{2\rho} (\delta_{jr}\delta_{i's} + \delta_{js} \delta_{i'r}) &  c-\frac{1}{2}(\delta_{jr} \delta_{i's} +\delta_{js}\delta_{i'r}) & 0 & v_j \delta_{rr'} \delta_{ss'} \end{array} \right), 
- \left(
- \begin{smallmatrix}
-     0 & \delta_{i'j} & 0 & 0 \\
-     p_\rho \delta_{ij} - v_i v_j + F_{jl'} F_{il'} & v_i \delta_{i'j} + v_j \delta_{i'i} & - F_{jl'} \delta_{ik'}　& \rho c_{r's'}-\frac{1}{2}(\delta_{jr'} \delta_{is'} +\delta_{js'}\delta_{ir'}) \\
-    -F_{kl} v_j + F_{jl} v_k  & F_{kl} \delta_{i'j} - F_{jl} \delta_{i'k} & v_j \delta_{kk'} \delta_{ll'} & 0  \\
-    -c_{rs} v_j + \frac{1}{2\rho} (\delta_{jr}v_s+ \delta_{js} v_r) &  c_{rs}-\frac{1}{2\rho }(\delta_{jr} \delta_{i's} +\delta_{js}\delta_{i'r}) & 0 & v_j \delta_{rr'} \delta_{ss'} 
-    \end{smallmatrix}\right).
-\end{eqnarray*}
-计算$-\eta$的Hessian矩阵为
-\begin{equation*}
-    -\eta_{UU} = \left( \begin{array}{cccc}
-        \frac{p_{\rho} + v^2 + F:F}{\rho} & -\frac{v_i}{\rho} & -\frac{F_{kl}}{\rho} & 0 \\
-        -\frac{v_{i''}}{\rho} &  \frac{1}{\rho}\delta_{ii''} & 0 & 0 \\
-        -\frac{F_{k''l''}}{\rho} & 0 & \frac{1}{\rho} \delta_{kk''} \delta_{ll''} & 0 \\
-        0 & 0 & 0 & \delta_{rr''} \delta_{ss''}
-    \end{array}\right).
-\end{equation*}
-从而$A_0 = -s_{UU}$与$A_j$的乘积为
-\begin{eqnarray*}
-   && A_0(U) A_j(U) = \\
-   && \left(
-    \begin{smallmatrix}
-        * & \frac{1}{\rho} (p_\rho \delta_{i'j}- v_{i'} v_j + F_{jl} F_{{i'}l})  &  \frac{1}{\rho}(v_{k'} F_{jl'} -  v_j F_{k'l'}) & (14) \\
-        %(14)　- c_{r's'}v_i + \frac{1}{2\rho} (v_{s'}\delta_{jr'} + v_{r'} \delta_{js'})　\\
-        \frac{1}{\rho} (p_\rho \delta_{i''j}- v_{i''} v_j + F_{jl'} F_{{i''}l'}) & * &　-\frac{1}{\rho} F_{jl'} \delta_{i''k'} & (24) \\
-        %c_{r''s''}-\frac{1}{2\rho}(\delta_{i''s'}\delta_{jr'} + \delta_{i''r'} \delta_{js'})  \\
-        \frac{1}{\rho} (-F_{k''l''} v_j + F_{jl''} v_{k''}) &　-\frac{F_{jl}\delta_{ik'}}{\rho} & 0 & 0 \\
-        (41) & (42) & 0 & * 
-        %c_{rs}-\frac{1}{2\rho }(\delta_{jr''} \delta_{i's''} +\delta_{js''}\delta_{i'r''}) & 0 & * 
-        % (41)-c_{r''s''} v_j + \frac{1}{2\rho} (\delta_{jr''} v_{s''} + \delta_{js''} v_{r''}) &  c_{rs}-\frac{1}{2\rho }(\delta_{jr''} \delta_{i's''} +\delta_{js''}\delta_{i'r''}) & 0 & * 
-    \end{smallmatrix}
-     \right)
-\end{eqnarray*}
-其中$(14) = - c_{r's'}v_i + \frac{1}{2\rho} (v_{s'}\delta_{jr'} + v_{r'} \delta_{js'}),(41) = -c_{r''s''} v_j + \frac{1}{2\rho} (\delta_{jr''} v_{s''} + \delta_{js''} v_{r''})$，
-$(24) = c_{r''s''}-\frac{1}{2\rho}(\delta_{i''s'}\delta_{jr'} + \delta_{i''r'} \delta_{js'}), (42)=c_{rs}-\frac{1}{2\rho }(\delta_{jr''} \delta_{i's''} +\delta_{js''}\delta_{i'r''})$。从而可以看出$A_0A_j$对称。
+% 下面我们将验证$A_0(U) = -\eta_{UU}$可以将$U$的方程对称化。首先将$U$的方程写成下面的形式。 
+% \begin{eqnarray*}
+% U_t + \sum_{j=1}^n A_j(U) U_{x_j} = \mathcal{Q}(U),\\
+%   U = \left( \begin{array}{c} \rho \\ \rho v_i \\ \rho  F_{kl} \\ \rho c_{rs} \end{array} \right), \quad \mathcal{Q}(U) = 
+% \left( \begin{array}{c} 0 \\ 0  \\ -\frac{1}{\kappa} \dot{\mathcal{T}}I - \frac{1}{\xi} \mathring{\mathcal{T}} \end{array} \right)U, \quad   A_j(U)= \\
+%  % \tiny \left( \begin{array}{cccc} 
+%  %     0 & \delta_{i'j} & 0 & 0 \\
+%  %     p_\rho - v_i v_j - F_{jl'} F_{il'} & v_i \delta_{i'j} v_j \delta_{i'i} & -\rho F_{jl'} \delta_{ik'}　& -\frac{1}{2}(\delta_{jr'} \delta_{is'} +\delta_{js'}\delta_{ir'}) \\
+%  %    0 & -F_{kl} v_j + F_{jl} v_k  & F_{kl} \delta_{i'j} - F_{jl} \delta_{i'k} & v_j \delta_{kk'} \delta_{ll'} & 0  \\
+%  %    -c_{rs} v_j - \frac{1}{2\rho} (\delta_{jr}\delta_{i's} + \delta_{js} \delta_{i'r}) &  c-\frac{1}{2}(\delta_{jr} \delta_{i's} +\delta_{js}\delta_{i'r}) & 0 & v_j \delta_{rr'} \delta_{ss'} \end{array} \right), 
+%  \left(
+%  \begin{smallmatrix}
+%      0 & \delta_{i'j} & 0 & 0 \\
+%      p_\rho \delta_{ij} - v_i v_j + F_{jl'} F_{il'} & v_i \delta_{i'j} + v_j \delta_{i'i} & - F_{jl'} \delta_{ik'}　& \rho c_{r's'}-\frac{1}{2}(\delta_{jr'} \delta_{is'} +\delta_{js'}\delta_{ir'}) \\
+%     -F_{kl} v_j + F_{jl} v_k  & F_{kl} \delta_{i'j} - F_{jl} \delta_{i'k} & v_j \delta_{kk'} \delta_{ll'} & 0  \\
+%     -c_{rs} v_j + \frac{1}{2\rho} (\delta_{jr}v_s+ \delta_{js} v_r) &  c_{rs}-\frac{1}{2\rho }(\delta_{jr} \delta_{i's} +\delta_{js}\delta_{i'r}) & 0 & v_j \delta_{rr'} \delta_{ss'} 
+%     \end{smallmatrix}\right).
+% \end{eqnarray*}
+% 计算$-\eta$的Hessian矩阵为
+% \begin{equation*}
+%     -\eta_{UU} = \left( \begin{array}{cccc}
+%         \frac{p_{\rho} + v^2 + F:F}{\rho} & -\frac{v_i}{\rho} & -\frac{F_{kl}}{\rho} & 0 \\
+%         -\frac{v_{i''}}{\rho} &  \frac{1}{\rho}\delta_{ii''} & 0 & 0 \\
+%         -\frac{F_{k''l''}}{\rho} & 0 & \frac{1}{\rho} \delta_{kk''} \delta_{ll''} & 0 \\
+%         0 & 0 & 0 & \delta_{rr''} \delta_{ss''}
+%     \end{array}\right).
+% \end{equation*}
+% 从而$A_0 = -s_{UU}$与$A_j$的乘积为
+% \begin{eqnarray*}
+%    && A_0(U) A_j(U) = \\
+%    && \left(
+%     \begin{smallmatrix}
+%         * & \frac{1}{\rho} (p_\rho \delta_{i'j}- v_{i'} v_j + F_{jl} F_{{i'}l})  &  \frac{1}{\rho}(v_{k'} F_{jl'} -  v_j F_{k'l'}) & (14) \\
+%         %(14)　- c_{r's'}v_i + \frac{1}{2\rho} (v_{s'}\delta_{jr'} + v_{r'} \delta_{js'})　\\
+%         \frac{1}{\rho} (p_\rho \delta_{i''j}- v_{i''} v_j + F_{jl'} F_{{i''}l'}) & * &　-\frac{1}{\rho} F_{jl'} \delta_{i''k'} & (24) \\
+%         %c_{r''s''}-\frac{1}{2\rho}(\delta_{i''s'}\delta_{jr'} + \delta_{i''r'} \delta_{js'})  \\
+%         \frac{1}{\rho} (-F_{k''l''} v_j + F_{jl''} v_{k''}) &　-\frac{F_{jl}\delta_{ik'}}{\rho} & 0 & 0 \\
+%         (41) & (42) & 0 & * 
+%         %c_{rs}-\frac{1}{2\rho }(\delta_{jr''} \delta_{i's''} +\delta_{js''}\delta_{i'r''}) & 0 & * 
+%         % (41)-c_{r''s''} v_j + \frac{1}{2\rho} (\delta_{jr''} v_{s''} + \delta_{js''} v_{r''}) &  c_{rs}-\frac{1}{2\rho }(\delta_{jr''} \delta_{i's''} +\delta_{js''}\delta_{i'r''}) & 0 & * 
+%     \end{smallmatrix}
+%      \right)
+% \end{eqnarray*}
+% 其中$(14) = - c_{r's'}v_i + \frac{1}{2\rho} (v_{s'}\delta_{jr'} + v_{r'} \delta_{js'}),(41) = -c_{r''s''} v_j + \frac{1}{2\rho} (\delta_{jr''} v_{s''} + \delta_{js''} v_{r''})$，
+% $(24) = c_{r''s''}-\frac{1}{2\rho}(\delta_{i''s'}\delta_{jr'} + \delta_{i''r'} \delta_{js'}), (42)=c_{rs}-\frac{1}{2\rho }(\delta_{jr''} \delta_{i's''} +\delta_{js''}\delta_{i'r''})$。从而可以看出$A_0A_j$对称。
 
-于是由对称双曲方程组的相关理论\cite{majda2012compressible}，其光滑解局部存在。
+% 于是由对称双曲方程组的相关理论\cite{majda2012compressible}，其光滑解局部存在。
 
-\subsubsection{整体存在性}
-我们在平衡态$U_e = (\rho_e=0,\rho_e v_e = 0, \rho_e F_e = \rho_e I, \rho_e c_e = 0)$附近考虑方程\eqref{eq:compressibleRelax}的整体存在性。由于其为可对称双曲的，可以采用验证Kawashima条件得到。我们这里采用的Kawashima条件的形式为
-\begin{itemize}
-  \item $\sum_j \omega_j A_j(U_e)$的特征向量不在矩阵$\mathcal{Q}_U(U_e)$的零空间中。
-\end{itemize}
+% \subsubsection{整体存在性}
+% 我们在平衡态$U_e = (\rho_e=0,\rho_e v_e = 0, \rho_e F_e = \rho_e I, \rho_e c_e = 0)$附近考虑方程\eqref{eq:compressibleRelax}的整体存在性。由于其为可对称双曲的，可以采用验证Kawashima条件得到。我们这里采用的Kawashima条件的形式为
+% \begin{itemize}
+%   \item $\sum_j \omega_j A_j(U_e)$的特征向量不在矩阵$\mathcal{Q}_U(U_e)$的零空间中。
+% \end{itemize}
 
-首先计算$\mathcal{Q}_U(U_e)$如下。
-\begin{equation*}
-    \mathcal{Q}_U(U_e) = \left( \begin{matrix}
-        0 & &　\\
-        & 0 & \\
-        & &　-\frac{1}{\kappa} \dot{\mathcal{T}}I - \frac{1}{\xi} \mathring{\mathcal{T}}
-    \end{matrix} \right)
-\end{equation*}
-其中$\omega \in S^{d-1}$，$S$为单位球。我们假设$W = (W_1,W_{2i},W_{3kl},W_{4rs})$在$\mathcal{Q}_U(U_e)$的零空间中，那么成立
-\begin{equation}\label{eq:Wzero}
-    W_{4rs} = 0
-\end{equation}
-对任意$r,s$成立。下面我们假设其还是$\sum_j \omega_j A_j(U_e)$的特征向量。即存在数$\mu$，使得
-\begin{equation*}
-    \sum_j \omega_j A_j(U_e) W = \mu W.
-\end{equation*}
-表示成坐标形式并利用\eqref{eq:Wzero}，得到
-\begin{eqnarray}
-    \omega \cdot W_2  = \mu W_1, \label{eq:WCondition1} \\
-    (p_\rho(\rho_e) +1 ) W_1 \omega_i  - \omega_j W_{3ij} = \mu W_{2i},  \label{eq:WCondition2}\\
-     \omega \cdot W_2 \delta_{kl}  - \omega_l W_{2k} = \mu W_{3kl}, \label{eq:WCondition3}\\
-     -\frac{1}{2\rho_e} (\omega_r W_{2s} + \omega_s W_{2r}) = \mu W_{4rs} = 0 \label{eq:WCondition4}.
-\end{eqnarray}
-首先假设$\mu \neq 0$。
-将式子\eqref{eq:WCondition3}带入\eqref{eq:WCondition2}中得到
-\begin{equation*}
-    (p_\rho(\rho_e) +1 ) W_1 \omega_i  - \frac{1}{\mu} \omega_i (\omega \cdot W_2) + \frac{1}{\mu}|\omega|^2  W_{2i} = \mu W_{2i}.
-\end{equation*}
-将$W_1 = \frac{1}{\mu} \omega \cdot W_2$代入上式得到
-\begin{equation*}
-    (p_\rho(\rho_e) +1 )\frac{1}{\mu} \omega \cdot W_2 \omega_i - \frac{1}{\mu} \omega_i (\omega \cdot W_2)+ \frac{1}{\mu}|\omega|^2  W_{2i} = \mu W_{2i}.
-\end{equation*}
-于是
-\begin{equation*}
-      p_\rho(\rho_e)\frac{1}{\mu} \omega \cdot W_2 \omega_i  =(\mu - \frac{1}{\mu}|\omega|^2) W_{2i}.
-\end{equation*}
-若$\mu - \frac{1}{\mu}|\omega|^2 = 0$，那么$\omega \cdot W_2 = 0$，代入\eqref{eq:WCondition3}可知$W_3=0$，代入\eqref{eq:WCondition2}可知$W_1=0$，从而$W=0$。若$\mu - \frac{1}{\mu}|\omega|^2 \neq 0$，$W_2$与$\omega$共线，假设$W_2 = \beta \omega$，代入\eqref{eq:WCondition4}得到
-\begin{equation*}
-    \frac{2}{\beta} W_{2r} W_{2s} = 0.
-\end{equation*}
-于是$W_2=0$。从而有上面的分析可以得到$W=0$。从而非零特征值不存在。
-下面假设$\mu=0$，那么由\eqref{eq:WCondition1}得到
-\begin{equation*}
-    \omega \cdot W_2 = 0.
-\end{equation*}
-将\eqref{eq:WCondition4}两边同乘以$\omega_r$并对$r$相加，利用上式得到
-\begin{equation*}
-    |\omega|^2 W_{2rs} = 0.
-\end{equation*}
-从而$W_2 = 0$。
-% 由此代入\eqref{eq:WCondition3}可知$W_3=0$，代入\eqref{eq:WCondition2}可知$W_1=0$，从而$W=0$。即零特征值对应的特征向量不存在。下面
-我们得到对应的特征向量需要满足
-\begin{equation*}
-    (p_\rho(\rho_e) + 1)\xi_i W_1  - \xi_j W_{3ij} = 0.
-\end{equation*}
-例如可取$W = (1,0,(p_\rho(\rho_e) + 1),0)$满足条件。
-从而存在$\sum_j \omega_j A_j(U_e)$的特征向量在矩阵$\mathcal{Q}_U(U_e)$的零空间中。于是Kawashima条件不成立。
+% 首先计算$\mathcal{Q}_U(U_e)$如下。
+% \begin{equation*}
+%     \mathcal{Q}_U(U_e) = \left( \begin{matrix}
+%         0 & &　\\
+%         & 0 & \\
+%         & &　-\frac{1}{\kappa} \dot{\mathcal{T}}I - \frac{1}{\xi} \mathring{\mathcal{T}}
+%     \end{matrix} \right)
+% \end{equation*}
+% 其中$\omega \in S^{d-1}$，$S$为单位球。我们假设$W = (W_1,W_{2i},W_{3kl},W_{4rs})$在$\mathcal{Q}_U(U_e)$的零空间中，那么成立
+% \begin{equation}\label{eq:Wzero}
+%     W_{4rs} = 0
+% \end{equation}
+% 对任意$r,s$成立。下面我们假设其还是$\sum_j \omega_j A_j(U_e)$的特征向量。即存在数$\mu$，使得
+% \begin{equation*}
+%     \sum_j \omega_j A_j(U_e) W = \mu W.
+% \end{equation*}
+% 表示成坐标形式并利用\eqref{eq:Wzero}，得到
+% \begin{eqnarray}
+%     \omega \cdot W_2  = \mu W_1, \label{eq:WCondition1} \\
+%     (p_\rho(\rho_e) +1 ) W_1 \omega_i  - \omega_j W_{3ij} = \mu W_{2i},  \label{eq:WCondition2}\\
+%      \omega \cdot W_2 \delta_{kl}  - \omega_l W_{2k} = \mu W_{3kl}, \label{eq:WCondition3}\\
+%      -\frac{1}{2\rho_e} (\omega_r W_{2s} + \omega_s W_{2r}) = \mu W_{4rs} = 0 \label{eq:WCondition4}.
+% \end{eqnarray}
+% 首先假设$\mu \neq 0$。
+% 将式子\eqref{eq:WCondition3}带入\eqref{eq:WCondition2}中得到
+% \begin{equation*}
+%     (p_\rho(\rho_e) +1 ) W_1 \omega_i  - \frac{1}{\mu} \omega_i (\omega \cdot W_2) + \frac{1}{\mu}|\omega|^2  W_{2i} = \mu W_{2i}.
+% \end{equation*}
+% 将$W_1 = \frac{1}{\mu} \omega \cdot W_2$代入上式得到
+% \begin{equation*}
+%     (p_\rho(\rho_e) +1 )\frac{1}{\mu} \omega \cdot W_2 \omega_i - \frac{1}{\mu} \omega_i (\omega \cdot W_2)+ \frac{1}{\mu}|\omega|^2  W_{2i} = \mu W_{2i}.
+% \end{equation*}
+% 于是
+% \begin{equation*}
+%       p_\rho(\rho_e)\frac{1}{\mu} \omega \cdot W_2 \omega_i  =(\mu - \frac{1}{\mu}|\omega|^2) W_{2i}.
+% \end{equation*}
+% 若$\mu - \frac{1}{\mu}|\omega|^2 = 0$，那么$\omega \cdot W_2 = 0$，代入\eqref{eq:WCondition3}可知$W_3=0$，代入\eqref{eq:WCondition2}可知$W_1=0$，从而$W=0$。若$\mu - \frac{1}{\mu}|\omega|^2 \neq 0$，$W_2$与$\omega$共线，假设$W_2 = \beta \omega$，代入\eqref{eq:WCondition4}得到
+% \begin{equation*}
+%     \frac{2}{\beta} W_{2r} W_{2s} = 0.
+% \end{equation*}
+% 于是$W_2=0$。从而有上面的分析可以得到$W=0$。从而非零特征值不存在。
+% 下面假设$\mu=0$，那么由\eqref{eq:WCondition1}得到
+% \begin{equation*}
+%     \omega \cdot W_2 = 0.
+% \end{equation*}
+% 将\eqref{eq:WCondition4}两边同乘以$\omega_r$并对$r$相加，利用上式得到
+% \begin{equation*}
+%     |\omega|^2 W_{2rs} = 0.
+% \end{equation*}
+% 从而$W_2 = 0$。
+% % 由此代入\eqref{eq:WCondition3}可知$W_3=0$，代入\eqref{eq:WCondition2}可知$W_1=0$，从而$W=0$。即零特征值对应的特征向量不存在。下面
+% 我们得到对应的特征向量需要满足
+% \begin{equation*}
+%     (p_\rho(\rho_e) + 1)\xi_i W_1  - \xi_j W_{3ij} = 0.
+% \end{equation*}
+% 例如可取$W = (1,0,(p_\rho(\rho_e) + 1),0)$满足条件。
+% 从而存在$\sum_j \omega_j A_j(U_e)$的特征向量在矩阵$\mathcal{Q}_U(U_e)$的零空间中。于是Kawashima条件不成立。
 
-虽然Kawashima条件对方程组\eqref{eq:compressibleRelax}不成立，但是由于力学适应性条件的存在，我们仍然可以证明其平衡态附近解的整体存在性定理。实际上，我们可以利用适应性条件\eqref{eq:compatibility1}和\eqref{eq:compatibility2}来弥补Kawashima条件的缺失。在定义下面的线性算子
-\begin{eqnarray}\label{eq:cformula}
-{\mathcal C}_1(U) = & -\nabla\rho - \rho_e \nabla\cdot F^T, \nonumber \\
-{[{\mathcal C}_2(U)]}_{kmj} = & \partial_{x_m} F_{kj} - \partial_{x_j} F_{km}
-\end{eqnarray}
-分别为适应性条件\eqref{eq:compatibility1}和\eqref{eq:compatibility2}在平衡点附近的线性部分。
-假设上面的$W$也在算子${\mathcal C}_1(U)$的符号矩阵的零空间中，我们有
-\begin{equation*}
-    \omega_i W_{3ij} = 0.
-\end{equation*}
-将\eqref{eq:WCondition2}乘以$\omega_i$，我们得到
-\begin{equation*}
-        (p_\rho(\rho_e) +1 ) W_1 |\omega|^2  - \omega_j \omega_i W_{3ij} = (p_\rho(\rho_e) +1 ) W_1 |\omega|^2 =0.
-\end{equation*}
-于是得到$W_1=0$，以及
-\begin{equation}\label{eq:W3ij}
-    \omega_j W_{3ij} =0.
-\end{equation}
-假设上面的$W$也在算子${\mathcal C}_2(U)$的符号矩阵的零空间中，我们有
-\begin{equation*}
-    \omega_k W_{3ij} = \omega_j W_{3ik}
-\end{equation*}
-对任意$i,j,k$成立。将等式\eqref{eq:W3ij}乘以$F_{im}$并利用上式得到
-\begin{equation*}
-    \omega_j W_{3im} W_{3ij} = \omega_m W_{3ij}W_{3ij} =0.
-\end{equation*}
-于是$W_3=0$，从而我们得到$W=0$，即不存在$\sum_j \omega_j A_j(U_e)$的特征向量既在矩阵$\mathcal{Q}_U(U_e)$的零空间中也在$\mathcal{C}_1,\mathcal{C}_2$的符号矩阵的零空间中。
-
-
+% 虽然Kawashima条件对方程组\eqref{eq:compressibleRelax}不成立，但是由于力学适应性条件的存在，我们仍然可以证明其平衡态附近解的整体存在性定理。实际上，我们可以利用适应性条件\eqref{eq:compatibility1}和\eqref{eq:compatibility2}来弥补Kawashima条件的缺失。在定义下面的线性算子
+% \begin{eqnarray}\label{eq:cformula}
+% {\mathcal C}_1(U) = & -\nabla\rho - \rho_e \nabla\cdot F^T, \nonumber \\
+% {[{\mathcal C}_2(U)]}_{kmj} = & \partial_{x_m} F_{kj} - \partial_{x_j} F_{km}
+% \end{eqnarray}
+% 分别为适应性条件\eqref{eq:compatibility1}和\eqref{eq:compatibility2}在平衡点附近的线性部分。
+% 假设上面的$W$也在算子${\mathcal C}_1(U)$的符号矩阵的零空间中，我们有
+% \begin{equation*}
+%     \omega_i W_{3ij} = 0.
+% \end{equation*}
+% 将\eqref{eq:WCondition2}乘以$\omega_i$，我们得到
+% \begin{equation*}
+%         (p_\rho(\rho_e) +1 ) W_1 |\omega|^2  - \omega_j \omega_i W_{3ij} = (p_\rho(\rho_e) +1 ) W_1 |\omega|^2 =0.
+% \end{equation*}
+% 于是得到$W_1=0$，以及
+% \begin{equation}\label{eq:W3ij}
+%     \omega_j W_{3ij} =0.
+% \end{equation}
+% 假设上面的$W$也在算子${\mathcal C}_2(U)$的符号矩阵的零空间中，我们有
+% \begin{equation*}
+%     \omega_k W_{3ij} = \omega_j W_{3ik}
+% \end{equation*}
+% 对任意$i,j,k$成立。将等式\eqref{eq:W3ij}乘以$F_{im}$并利用上式得到
+% \begin{equation*}
+%     \omega_j W_{3im} W_{3ij} = \omega_m W_{3ij}W_{3ij} =0.
+% \end{equation*}
+% 于是$W_3=0$，从而我们得到$W=0$，即不存在$\sum_j \omega_j A_j(U_e)$的特征向量既在矩阵$\mathcal{Q}_U(U_e)$的零空间中也在$\mathcal{C}_1,\mathcal{C}_2$的符号矩阵的零空间中。
 
 
-\section{松弛参数趋于$0$时方程组\eqref{eq:compressibleRelax}极限方程的解的存在性}
-下面考虑\eqref{eq:compressibleRelax}的Maxwell迭代一阶近似方程组的整体存在性。首先由\eqref{eq:compressibleRelax}中$c$的方程得到
+
+
+% \section{松弛参数趋于$0$时方程组\eqref{eq:compressibleRelax}极限方程的解的存在性}
+下面我们指出，这一模型在$\kappa,\xi$趋于$0$时形式上可以近似林芳华等提出的模型。为此，我们利用Maxwell迭代。
+% 下面考虑\eqref{eq:compressibleRelax}的Maxwell迭代一阶近似方程组的整体存在性。
+首先由\eqref{eq:compressibleRelax}中$c$的方程得到
 \begin{eqnarray*}
     (\rho \dot{c})_t + \nabla \cdot (\rho \dot{c}) -  \nabla \cdot v  = - \frac{1}{\kappa} (\rho  \dot{c}), \\
-    (\rho \mathring{c})_t + \nabla \cdot (\rho \mathring{c}) -  \frac{1}{2} (\nabla v + (\nabla v)^T  - \frac{2}{3} \nabla \cdot v I)  = - \frac{1}{\xi} (\rho  \mathring{c}).
+    (\rho \mathring{c})_t + \nabla \cdot (\rho \mathring{c}) -  \frac{1}{2} (\nabla v + (\nabla v)^T  - \frac{2}{n} \nabla \cdot v I)  = - \frac{1}{\xi} (\rho  \mathring{c}).
 \end{eqnarray*}
 可以写为
 \begin{eqnarray*}
     \rho \dot{c} = - \kappa\left( (\rho \dot{c})_t + \nabla \cdot (\rho \dot{c}) -  \nabla \cdot v\right), \\
-    \rho \mathring{c} = - \xi \left( (\rho \mathring{c})_t + \nabla \cdot (\rho \mathring{c}) -  \frac{1}{2} (\nabla v + (\nabla v)^T  - \frac{2}{3} \nabla \cdot v I) \right).
+    \rho \mathring{c} = - \xi \left( (\rho \mathring{c})_t + \nabla \cdot (\rho \mathring{c}) -  \frac{1}{2} (\nabla v + (\nabla v)^T  - \frac{2}{n} \nabla \cdot v I) \right).
 \end{eqnarray*}
 假设$\kappa,\xi$很小，迭代一次得到
 \begin{equation*}
-    \rho \dot{c} = \kappa \nabla \cdot v + O(\kappa^2), \ \rho \mathring{c} =  \frac{\xi}{2} (\nabla v + (\nabla v)^T  - \frac{2}{3} \nabla \cdot v I) + O(\xi^2).
+    \rho \dot{c} = \kappa \nabla \cdot v + O(\kappa^2), \ \rho \mathring{c} =  \frac{\xi}{2} (\nabla v + (\nabla v)^T  - \frac{2}{n} \nabla \cdot v I) + O(\xi^2).
 \end{equation*}
-代入方程\eqref{eq:compressibleRelax}中可以得到
+代入方程\eqref{eq:compressibleRelax}中，并忽略高阶项，可以得到
 \begin{subequations}\label{eq:compressible}
   \begin{align}
   \rho_t + \nabla \cdot (\rho  v ) = 0, \\
@@ -183,12 +185,15 @@ $(24) = c_{r''s''}-\frac{1}{2\rho}(\delta_{i''s'}\delta_{jr'} + \delta_{i''r'} \
 \end{align}
 \end{subequations}
 其中$\mu = \kappa,\ \mu'=\xi + \frac{\kappa}{3}$均大于$0$。
+此即林芳华等提出的模型的可压形式\cite{lin2005hydrodynamics,lei2008global}。
 
-下面我们将考虑该方程组在平衡态附近整体解的存在性。首先我们将说明该方程组可以看作对称双曲-抛物系统。从而其整体存在性可由Kawashima等人的理论\cite{kawashima1984systems,kawashima1985systems,yong2004entropy}进行研究。然而通过验证，Kawashima条件并不成立。幸运的是我们可以通过力学上的适应性条件来弥补这一缺陷，从而可以采用Kawashima的一般框架得到存在性定理的证明。
+\section{林芳华等提出的模型的整体存在性}
 
-为了方便本小节假设$U = (\rho, v ,F)$，而采用$W$表示上文中的$U$，即$W=(\rho, \rho v ,\rho F)$。平衡态取$U_e$定义为$\rho=\rho_e>0,  v =0 $和$F=I_{n^2}$ （$I_k$表示$k$阶单位矩阵）。本节的主要结果如下。
+下面我们将考虑林芳华等提出的模型\eqref{eq:compressible}在平衡态附近整体解的存在性。首先我们将说明该方程组可以看作对称双曲-抛物系统。从而其整体存在性可由Kawashima等人的理论\cite{kawashima1984systems,kawashima1985systems,yong2004entropy}进行研究。然而通过验证，Kawashima条件并不成立。幸运的是我们可以通过力学上的适应性条件来弥补这一缺陷，从而可以采用Kawashima的一般框架得到存在性定理的证明。
+
+为了方便本节假设$U = (\rho, v ,F)$，而采用$W$表示上文中的$U$，即$W=(\rho, \rho v ,\rho F)$。平衡态取$U_e$定义为$\rho=\rho_e>0,  v =0 $和$F=I_{n^2}$ （$I_k$表示$k$阶单位矩阵）。本节的主要结果如下。
 \begin{theorem}\label{theoremcom}
-令正整数$s > \frac{n}{2}+1$。假设$U_0-U_e\in H^s$且$\|U_0-U_e\|_{H^s}$足够。并且$U_0 = U_0(x)$满足适应性条件\eqref{eq:compatibility1}和\eqref{eq:compatibility2}。那么方程组\eqref{eq:compressible}以$U_0$为初值的Cauchy问题存在唯一整体解$U=U(x,t)$,满足
+令正整数$s > \frac{n}{2}+1$。假设$U_0-U_e\in H^s$且$\|U_0-U_e\|_{H^s}$足够小。并且$U_0 = U_0(x)$满足适应性条件\eqref{eq:compatibility1}和\eqref{eq:compatibility2}。那么方程组\eqref{eq:compressible}以$U_0$为初值的Cauchy问题存在整体唯一解$U=U(x,t)$,满足
     \begin{eqnarray}\label{eq:thmincom}
        U - U_e\in C([0,+\infty), H^s) \cap L^2([0,+\infty), H^{s}), \nonumber \quad
          v \in L^2([0,+\infty), H^{s+1}),\\[2mm]
@@ -199,9 +204,9 @@ $(24) = c_{r''s''}-\frac{1}{2\rho}(\delta_{i''s'}\delta_{jr'} + \delta_{i''r'} \
 
 实际上，本定理已经在\cite{qian2010global,hu2011global}中得到证明。对于不可压缩的情形，文献\cite{lin2005hydrodynamics,lei2008global,chen2006global}也证明了类似的定理。在这里我们将给出一个新的证明。这一证明利用了双曲-抛物方程的Kawashima理论，给出了统一的证明方法，阐释了整体存在性成立的原因。并且这里提出的证明方法对于不可压方程仍成立。另外，我们还分析了不同适应性条件，解释了文献\cite{lin2005hydrodynamics,lei2008global,chen2006global,qian2010global,hu2011global}中不同适应性条件下整体存在性成立的原因。
 
-我们的证明将方程\eqref{eq:compressible}的结构特点和细致的估计。首先由前面的推导可以得到系统的熵函数存在。然后我们将给出方程\eqref{eq:compressible}的对称子。注意到由有限形变的守恒-耗散理论我们并得不到该方程的对称性质。从而该方程组可以写为对称双曲-抛物方程组。接下来我们将验证其不满足Kawashima等人对双曲-抛物方程组提出的Kawashima条件。为了得到定理\ref{theoremcom}，我们利用适应性条件\eqref{eq:compatibility1}和\eqref{eq:compatibility2}来得到整体存在性所需的估计。最后我们将采用\cite{kawashima1984systems,yong2004entropy}中的方法给出证明的过程。
+我们的证明依赖于方程\eqref{eq:compressible}的结构特点和细致的估计。首先由前面的推导可以得到系统的熵函数存在。然后我们将给出方程\eqref{eq:compressible}的对称子，从而该方程组可以写为对称双曲-抛物方程组。接下来我们将验证其不满足Kawashima等人对双曲-抛物方程组提出的Kawashima条件。为了得到定理\ref{theoremcom}，我们利用适应性条件\eqref{eq:compatibility1}和\eqref{eq:compatibility2}来得到整体存在性所需的估计。最后我们将采用\cite{kawashima1984systems,yong2004entropy}中的方法给出证明的过程。
 
-\subsubsection{熵函数与对称性}
+\subsection{熵函数与对称性}
 由前面的分析，我们可以得到方程组\eqref{eq:compressible}的熵函数为
 \begin{eqnarray}\label{22}
   \eta(\rho,\rho  v ,\rho F) = \rho s(\nu,u,F) =  \rho \int_{\rho_0}^\rho \frac{p(\zeta)}{\zeta^2} d\zeta + \frac{1}{2} \rho | v |^2 + \frac{1}{2} \rho |F|^2.
@@ -250,7 +255,7 @@ $\eta = \eta(W)$为$W$的上凸函数。注意我们这里的$\eta$与前文的�
 \end{eqnarray}
 从而可以验证$A_0(U) A_j(U)$对称，即方程组\eqref{eq:symmetrichyperbolic}存在对称子$A_0$。
 
-\subsubsection{Kawashima条件}
+\subsection{Kawashima条件}
 下面我们将说明对于方程组\eqref{eq:compressible}，Kawashima条件在平衡点$U_e$不成立。但是Kawashima等人论文\cite{shizuta1985systems,kawashima1984systems}中的类似估计可以利用适应性条件\eqref{eq:compatibility1}与\eqref{eq:compatibility2}得到。
 
 首先我们检验Kawashima条件。首先我们考虑平衡点$U_e$附近双曲-抛物组\eqref{eq:symmetrichyperbolic}的线性方程。
@@ -300,12 +305,12 @@ $\eta = \eta(W)$为$W$的上凸函数。注意我们这里的$\eta$与前文的�
 例如$\hat{U} = (1,0,\frac{p_\rho(\rho_e)}{\rho_e} I_{n^2})$即满足既是矩阵$ \sum_{j=1}^n \xi_j A_j(U_e)$的特征向量又在矩阵$\sum_{j=1}^n \sum_{k=1}^n \xi_j \xi_k D_{jk}(U_e)$的零空间中。从而Kawashima条件对于\eqref{eq:compressible}不成立。
 
 然而我们可以利用适应性条件\eqref{eq:compatibility1}和\eqref{eq:compatibility2}来弥补Kawashima条件的缺失。
-在定义下面的线性算子
-% \begin{eqnarray}\label{eq:cformula}
-% {\mathcal C}_1(U) = & -\nabla\rho - \rho_e \nabla\cdot F^T, \nonumber \\
-% {[{\mathcal C}_2(U)]}_{kmj} = & \partial_{x_m} F_{kj} - \partial_{x_j} F_{km}
-% \end{eqnarray}
-% 分别为适应性条件\eqref{eq:compatibility1}和\eqref{eq:compatibility2}在平衡点附近的线性部分。
+定义下面的线性算子
+ \begin{eqnarray}\label{eq:cformula}
+ {\mathcal C}_1(U) = & -\nabla\rho - \rho_e \nabla\cdot F^T, \nonumber \\
+ {[{\mathcal C}_2(U)]}_{kmj} = & \partial_{x_m} F_{kj} - \partial_{x_j} F_{km}
+ \end{eqnarray}
+分别为适应性条件\eqref{eq:compatibility1}和\eqref{eq:compatibility2}在平衡点附近的线性部分。
 假设上面的$\hat{U}$也在算子${\mathcal C}_1(U)$和${\mathcal C}_2(U)$（定义见\eqref{eq:cformula}）的符号矩阵的零空间中，我们有
 \begin{eqnarray}
 \xi_i \hat{\rho} + \rho_e \xi_{j} \hat{F}_{ji} = 0 , \label{eq:linear1}\\
@@ -411,7 +416,7 @@ $$
 是矩阵$ \sum_{j=1}^n \xi_j A_j(U_e)$的零特征值对应的一个特征向量。从而引理\ref{lemmaK}对适应性条件\eqref{eq:compatibility1}和\eqref{eq:compatibility3}在大于二维时不成立。这也给出了文献\cite{lin2005hydrodynamics}和\cite{liu2008global}中二维和三维假设不同适应性条件的一个解释。
 \end{remark}
 
-\subsubsection{定理\ref{theoremcom}的证明}
+\subsection{定理\ref{theoremcom}的证明}
 因为方程组\eqref{eq:compressible}可以对称化，其解的局部存在性成立\cite{kawashima1984systems}。另外方程组\eqref{eq:compressible}的局部存在性定理的证明也可以在文献\cite{lin2005hydrodynamics,lei2008global,hu2013global}中找到。下面我们将推导定理\ref{theoremcom}中的\emph{先验估计}\eqref{eq:thmincom}。
 
 证明分三步，第一步利用熵的演化方程得到$U-U_e$的$L^2$估计，然后求导得到高阶导数的估计。最后利用引理\ref{lemmaK}完成证明。

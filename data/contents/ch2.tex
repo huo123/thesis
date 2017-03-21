@@ -150,10 +150,11 @@
 			s_{0\nu\nu} - \frac{1}{\nu^3 \alpha_0} w^2 - \frac{1}{\nu^3 \alpha_1} \dot{c}^2- \frac{1}{\nu^3 \alpha_2} \mathring{c}:\mathring{c} & s_{0\nu u} & \frac{w}{\nu^2 \alpha_0} & \frac{\dot{c}}{\nu^2 \alpha_1} + \frac{\mathring{c}}{\nu^2 \alpha_1} \\
 			s_{0u\nu} & s_{0uu} & 0 & 0 \\
 			\frac{w}{\nu^2\alpha_0} & 0 & -\frac{1}{\nu \alpha_0} & 0 \\
-			\frac{\dot{c}}{\nu^2 \alpha_1} + \frac{\mathring{c}}{\nu^2 \alpha_1} & 0 & 0 & -\frac{1}{\nu \alpha_1} \dot{\mathcal{T}} I -\frac{1}{\nu \alpha_2} \mathring{\mathcal{T}} 
+			\frac{\dot{c}}{\nu^2 \alpha_1} + \frac{\mathring{c}}{\nu^2 \alpha_1} & 0 & 0 & -\frac{1}{\nu \alpha_1} \dot{\mathcal{T}}  -\frac{1}{\nu \alpha_2} \mathring{\mathcal{T}} 
 		\end{array} \right)
 	\end{equation*}
-	为负定的。于是得到$s_0(\nu,u)$负定，以及$\alpha_0,\alpha_1,\alpha_2$均大于$0$。所以我们对熵函数做下面的假设
+	为负定的。于是得到$s_0(\nu,u)$负定，以及$\alpha_0,\alpha_1,\alpha_2$均大于$0$。其中$\dot{\mathcal{T}}, \mathring{\mathcal{T}}$均为四阶张量，其坐标表示为$\dot{\mathcal{T}}_{kl,k'l'} = \frac{1}{n}\delta_{kl} \delta_{k'l'}, \mathring{\mathcal{T}}_{kl,k'l'} =\frac{1}{2}(\delta_{kk'}\delta_{ll'} + \delta_{kl'} \delta_{lk'} ) -\frac{1}{n}\delta_{kl} \delta_{k'l'} $。从而$\dot{\mathcal{T}} A = \dot{A} I,\mathring{\mathcal{T}} A = \mathring{A}$。
+	所以我们对熵函数做下面的假设
 	\begin{itemize}
 		\item $\alpha_0,\alpha_1,\alpha_2>0, \quad s_0(\nu,u) \text{负定。}$
 	\end{itemize}
@@ -165,7 +166,7 @@
 			0 &  \theta(\frac{1}{\kappa} \dot{\mathcal{T}} + \frac{1}{\xi} \mathring{\mathcal{T}})  
 		\end{array} \right)
 	\end{equation*}
-	其中$\dot{\mathcal{T}}, \mathring{\mathcal{T}}$均为四阶张量，其坐标表示为$\dot{\mathcal{T}}_{kl,k'l'} = \frac{1}{n}\delta_{kl} \delta_{k'l'}, \mathring{\mathcal{T}}_{kl,k'l'} =\frac{1}{2}(\delta_{kk'}\delta_{ll'} + \delta_{kl'} \delta_{lk'} ) -\frac{1}{n}\delta_{kl} \delta_{k'l'} $。从而$\dot{\mathcal{T}} A = \dot{A},\mathring{\mathcal{T}} A = \mathring{A}$。我们这里假设
+	我们这里假设
 	\begin{itemize}
 		\item $\theta,\lambda,\kappa,\xi > 0$.
 	\end{itemize}
@@ -517,12 +518,12 @@ M_0=\frac{1}{\lambda \theta^2}, M_1=\frac{\lambda \theta^2}{d\tau}, M_2=\frac{2\
 			& & & -\frac{1}{\rho\xi}  \\
  		\end{array}\right) U, \\%\quad  \\
 	 		&&  A_{j}(U) =
- 		\left( \begin{smallmatrix} 
+ 		\left( \begin{matrix} 
  		0 & \delta_{i'j} & 0 & 0  \\
  		-v_i v_j  + \pi_\rho \delta_{ij} & v_i \delta_{i'j} + v_j \delta_{ii'}   &  \rho \dot{c} \delta_{ij} - \delta_{ij} & a_{24}  \\
  		-\dot{c} v_j + \frac{v_j}{\rho} & (\dot{c} - \frac{1}{\rho}) \delta_{i'j} &  v_j & 0 \\
  		-\mathring{c}_{kl} v_j + \frac{1}{2 \rho} (v_k \delta_{jl} + v_l \delta_{jk}) & a_{42} & 0 & v_j 
- 		\end{smallmatrix} \right).
+ 		\end{matrix} \right).
 	\end{eqnarray*}
 	其中$a_{24}=\rho \mathring{c}_{k'l'} \delta_{ij}- \frac{1}{2}(\delta_{ik'}\delta_{jl'} + \delta_{jk'}\delta_{il'})$，$a_{42} =  \mathring{c}_{kl} \delta_{i'j}  - \frac{1}{2\rho} (\delta_{jk} \delta_{i'l} +　\delta_{jl} \delta_{i'k})$。
 

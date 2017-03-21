@@ -58,7 +58,7 @@
 	\pi =  - \zeta \nabla \cdot v, \\
 	\mathring{P} = - 2 \eta \mathring{D}.
 \end{eqnarray*}
-此即热传导的NAvier-Stokes定律与应力张量的Stokes和Newton本构关系。
+此即热传导的Navier-Stokes定律与应力张量的Stokes和Newton本构关系。
 
 然而，由于局部平衡假设的存在，CIT仅能描述远离平衡态不远的系统。为了拓展CIT，大部分理论假设非平衡态不仅需要平衡态变量，而且需要非平衡态变量来描述。Coleman、Truesdell、Noll等人发展了理性热力学RT。RT理论认为非平衡态不仅依赖于平衡态状态变量，还依赖于状态变量的空间梯度。通过推广Clausius-Duhem不等式，利用Onsager倒易关系得到本构关系。Fourier-Stokes-Newton定律可以由RT理论导出\cite{jou1996extended}。另外，David Jou、Georgy Lebon等人发展了EIT。EIT通过拓展非平衡态状态变量，将CIT中的热力学流引入非平衡态状态变量中，来对不可逆过程进行建模。例如我们将$q,\pi,\mathring{P}$引入非平衡态状态变量中，并假设$s = s(\frac{1}{\rho}, u,q,\pi,\mathring{P} )$，则通过计算可以得到熵的产生率为
 \begin{equation*}
@@ -316,7 +316,7 @@ $\lambda=0$时，$\sigma= 2 \eta_p D$，从而方程组\eqref{eq:Oldroydb}成为
 \end{align}
 \end{subequations}
 其中$\eta= \eta_s + \eta_p$。Luc Molinet和Raafat Talhouk基于Fourier分析，通过对低频和高频情况的分析，得到了\eqref{eq:Oldroydb}和上面的Navier-Stokes方程组\eqref{eq:innavierstokes}一致性的分析。证明了下面的定理\cite{}。
-\begin{theorem}（\cite{molinet2008newtonian}）
+\begin{theorem}（Monlinet和Talhouk\cite{molinet2008newtonian}）
 	令$n=2,3$，$(v_0,\sigma_0) \in H^s(\mathbf{R}^n) \times H^s(\mathbf{R}^{n^2}), s>\frac{n}{2}$。假设$v$为方程组\eqref{eq:innavierstokes}以$v_0$为初值的解，假设其在$[0,T_0],T_0>0$上存在且$v \in C([0,T_0],H^s)$。那么对于任意的$\delta \in (0,1)$，存在
 	\begin{equation*}
 		\varepsilon_0 = \varepsilon_0 (n,\lambda,\eta_p,\eta_s,\delta, \|v\|_{L_{T_0}^\infty}H^s, \|\nabla v\|_{L^2_{T_0}}H^s, \|\sigma_0\|_{H^s}) >0,

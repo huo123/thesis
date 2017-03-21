@@ -263,7 +263,7 @@ M \cdot \left( \begin{array}{c} q \\ s_c  \end{array} \right)
 % \end{equation*}
 % 根据\cite{dafermos2010hyperbolic}，条件\eqref{eq:FCDFconvex}可以保证这样的体系的双曲性。
 % \end{remark}
-\section{在粘弹性流体建模中的应用}
+\section{有限形变守恒—耗散理论在粘弹性流体建模中的应用}
 \subsection{第一类模型}
 由于第一类模型中熵函数不依赖于耗散变量时，应力张量$\tau$不依赖于耗散变量$c$，此时我们无法描述粘弹性流体的不可逆过程。所以在这里我们假设熵函数包含$F$和$c$的耦合项。由于我们要求\eqref{eq:sObjective}成立，所以我们假设$s$有下面的形式 
  $$s = s_0(\nu,u) - \frac{1}{2 \nu \alpha_0} |w|^2 - \Phi (F) + \mbox{Tr} (FcF^T) - \Psi(c) .$$
@@ -335,7 +335,7 @@ M \cdot \left( \begin{array}{c} q \\ s_c  \end{array} \right)
   (\rho c)_t + \nabla \cdot (\rho c) - D  = -\frac{\theta \rho \dot{c}}{\kappa}  -\frac{\theta \rho \mathring{c}}{\xi}.
 \end{align}
 \end{subequations}
-最简单的情况，取$\Phi(F)$为的二次函数，$\Phi(F) = F:F$，$\alpha_1=1$，并忽略温度的影响（$\theta=1$），以及
+最简单的情况，取$\Phi(F)$为的二次函数，$\Phi(F) = F:F$，$\alpha_1=1$，并忽略温度的影响（$\theta=1$），取
 \begin{equation*}
     s_0(\nu) = -\int_{\rho_0}^{1/\nu} \frac{\pi(z)}{z^2} dz.
 \end{equation*}
@@ -343,7 +343,7 @@ M \cdot \left( \begin{array}{c} q \\ s_c  \end{array} \right)
 \begin{equation*}
 	\tau = -\theta \rho F F^T - \theta \frac{\rho c}{\alpha_1}.
 \end{equation*}
-以及由Gibbs关系可以得到压力$p$的表达式为
+由Gibbs关系可以得到压力$p$的表达式为
 \begin{equation*}
     p = s_\nu = \pi(\rho) + \frac{1}{2\nu^2} c:c.
 \end{equation*}
@@ -362,7 +362,8 @@ M \cdot \left( \begin{array}{c} q \\ s_c  \end{array} \right)
 \input{data/contents/Yong_Global}
 
 \section{本章小结}
-本章利用了有限形变理论建立了有限形变守恒-耗散理论的一般框架。基于该框架发展了包含形变张量$F$的粘弹性流体力学模型。推广了林芳华等人的粘弹性流体力学模型而得到了模型\eqref{eq:compressibleRelax}。通过验证该方程的可对称双曲性说明了其局部解的存在性。利用Kawashima理论对该方程进行了数学分析，证明了其平衡态附近的整体存在性。最后，利用Maxwell迭代给出了其近似模型\eqref{eq:compressible}，并利用Kawashima的理论证明了其解的整体存在性。通过这些建模和分析工作，我们可以看出采用有限形变的理论对粘弹性流体进行数学描述是合理而有意义的。
+本章利用了有限形变理论建立了有限形变守恒-耗散理论的一般框架。基于该框架推广了林芳华等人提出的粘弹性流体力学模型。最后，利用双曲—抛物方程组的Kawashima理论，结合守恒—耗散理论的结构条件，给出了林芳华等提出的模型平衡态附近解的整体存在性的一个新的证明。
+% 通过验证该方程的可对称双曲性说明了其局部解的存在性。利用Kawashima理论对该方程进行了数学分析，证明了其平衡态附近的整体存在性。最后，利用Maxwell迭代给出了其近似模型\eqref{eq:compressible}，并利用Kawashima的理论证明了其解的整体存在性。通过这些建模和分析工作，我们可以看出采用有限形变的理论对粘弹性流体进行数学描述是合理而有意义的。
 
 
 % \bibliographystyle{amsplain}
