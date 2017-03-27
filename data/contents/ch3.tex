@@ -153,7 +153,7 @@ J. G. Oldroyd定义的导数实际上就是张量场的李导数。李导数的�
 % \end{eqnarray*}
 % 这一模型亦可视为另一个平衡态体系的方程，对应的熵函数$\eta$满足$\eta_t + \nabla J = 0$。即我们可以认为推广的守恒－耗散理论所描述的体系是介于两个平衡态之间的。由一个平衡态到另一个平衡态的演化过程是非平衡态过程\cite{lieb2000fresh,lieb2013entropy,lieb2014entropy}。
 
-下面我们将利用推广的守恒耗散理论建立非线性粘弹性流体力学的模型。
+下面我们将利用推广的守恒－耗散理论建立非线性粘弹性流体力学的模型。
 
 \section{推广的守恒－耗散理论在非线性粘弹性流体模型中的应用}
 与经典的守恒－耗散理论在粘弹性流体中的应用一节一样，我们取$U_c = \{ \rho,\rho v,\rho e\}$，其满足方程\eqref{eq:fluid}。耗散变量仍取作$U_d =\{ w,c\}$。仍然假设熵函数$\eta =\eta(\rho,\rho v,\rho e,\rho w,\rho c)$可以表示成
@@ -234,7 +234,8 @@ J. G. Oldroyd定义的导数实际上就是张量场的李导数。李导数的�
 	\begin{equation*}
 		p = \theta s_\nu = \theta \pi . 
 	\end{equation*}
-	我们得到的最终方程为
+	我们得到的最终方程为 
+	\newpage
 	\begin{subequations} \label{eq:genUCM}
 		\begin{align}
 			\rho_t + \nabla \cdot (\rho v) = 0 ,\\
@@ -471,7 +472,7 @@ J. G. Oldroyd定义的导数实际上就是张量场的李导数。李导数的�
 		\begin{align} 
 			\partial_t \rho + \nabla \cdot (\rho v) = 0, \\
 			\partial_t (\rho v) + \nabla \cdot (\rho v v ) + \nabla \cdot P + s \nabla T = 0, \\
-			\partial_t s + \nabla \cdot (s v) + \phi_0  \nabla w = \frac{\phi_0 w^2}{T \tau_1} + \frac{1}{2} \frac{\phi_1 \dot{c}^2}{T \tau_0} + \frac{1}{2} \frac{\phi_1 \mathring{c}:\mathring{c}}{T \tau_2}  \\
+			\partial_t s + \nabla \cdot (s v) + \phi_0  \nabla w = \frac{\phi_0 w^2}{T \tau_1} + \frac{1}{2} \frac{\phi_1 \dot{c}^2}{T \tau_0} + \frac{1}{2} \frac{\phi_1 \mathring{c}:\mathring{c}}{T \tau_2}, \\
 			\partial_t w + v \cdot \nabla w + (\nabla v)^T \cdot w + \nabla T  = -\frac{w}{\tau_1}, \\
 			\partial_t c + v \cdot \nabla c - (\nabla v) c - c (\nabla v)^T - (\nabla v + (\nabla v)^T) = -\frac{\dot{c}I}{\tau_0} - \frac{\mathring{c}}{\tau_1}.
 		\end{align}
@@ -503,7 +504,7 @@ J. G. Oldroyd定义的导数实际上就是张量场的李导数。李导数的�
 \input{data/contents/OldroydV12}
 
 \section{本章小结}
-本章通过推广守恒－耗散理论将非线性粘弹性流体力学模型纳入了守恒－耗散理论的框架中。利用推广的守恒－耗散理论我们推广了上对流导数Maxwell模型和FENE-P模型，这些模型包含了温度和压缩性的影响。另外，我们还利用守恒－耗散理论导出了等温可压上对流导数Maxwell模型。并证明了这一模型在一维时光滑解在平衡态附近的整体存在性以及当松弛参数$\kappa$趋于$0$时与Navier-Stokes方程组的一致性。
+本章通过推广守恒－耗散理论将非线性粘弹性流体力学模型纳入了守恒－耗散理论的框架中。利用推广的守恒－耗散理论我们推广了上对流导数Maxwell模型和FENE-P模型，这些模型包含了温度和压缩性的影响。另外，我们还利用守恒－耗散理论导出了等温可压上对流导数Maxwell模型。并证明了这一模型在一维时光滑解在平衡态附近的整体存在性（定理\ref{theoremglobal}）以及当松弛参数$\kappa$趋于$0$时与Navier-Stokes方程组的一致性（定理\ref{theoremCE}）。
 %应力张量的方程由于满足客观性原理不可以写成守恒形式，然而物理上的守恒律和熵增原理仍然成立。通过假设熵函数的存在性而放松对方程守恒形式的要求，推广的守恒－耗散理论很好地纳入了客观导数。本章利用推广的守恒－耗散理论推广了上对流导数Maxwell模型\eqref{eq:generalizedUCM}和FENE-P模型\eqref{eq:generalizedFENEP}，这些模型包含了温度和压缩性的影响。另外，我们还利用守恒－耗散理论导出了类似\"Ottinger的一个模型——粘弹性流体力学第二模型\eqref{eq:ECDFsecond}。这一模型有很好的Hamilton结构。另外我们证明了其在一维时的光滑解在平衡态附近的整体存在性以及严格分析了在右端松弛参数趋于$0$时与Navier-Stokes方程组的一致性。
 
 

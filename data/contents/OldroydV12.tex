@@ -137,7 +137,7 @@ A_0(U_e)Q_U(U_e) + Q_U^T(U_e)A_0(U_e) =-\frac{2}{\kappa}\mbox{diag}(0, 0, 1)
 从而\eqref{eq:ECDFsecond1D}在文献\cite{yong1992singular,yong1999singular}中定义的意义下是耗散的。
 
 \subsection{Kawashima条件}
-对于存在熵函数的带松弛源项双曲守恒律方程组，其平衡态附近的整体存在性已经在文献\cite{yong2004entropy,hanouzet2003global}中给。其整体存在性的证明是基于Kawashima理论。对于非守恒形式含有熵的方程\eqref{eq:ECDFsecond1D}的整体存在性，无法采用一般的Kawashima理论直接得到。在这里我们将验证方程组\eqref{eq:ECDFsecond1D}满足Kawashima条件并给出补偿矩阵（Compensating Matrix）$K$\cite{kawashima1985systems}，然后利用Kawashima理论来做估计得到整体存在性定理的证明。
+对于存在熵函数的带松弛源项的双曲守恒律方程组，其平衡态附近的整体存在性已经在文献\cite{yong2004entropy,hanouzet2003global}中给。其整体存在性的证明是基于Kawashima理论。对于非守恒形式含有熵的方程\eqref{eq:ECDFsecond1D}的整体存在性，无法采用一般的Kawashima理论直接得到。在这里我们将验证方程组\eqref{eq:ECDFsecond1D}满足Kawashima条件并给出补偿矩阵（Compensating Matrix）$K$\cite{kawashima1985systems}，然后利用Kawashima理论来做估计得到整体存在性定理的证明。
 
 令
 \begin{eqnarray}\label{33}
@@ -196,26 +196,26 @@ $$
 \begin{eqnarray*}
 E=E(U,U_e) = \eta(U)-\eta(U_e)-\eta_U(U_e)(U-U_e).
 \end{eqnarray*}
-因为$\eta=\eta(U)$是严格下凸的，所以存在正常数$c_1$ and $C_1$，使得对于充分靠近$U_e$的$U$，有
+因为$\eta=\eta(U)$是严格下凸的，所以存在正常数$c_1$ 和 $C_1$，使得对于充分靠近$U_e$的$U$，有
 \begin{eqnarray}\label{42}
 c_1 |U-U_e|^2 \le E(U,U_e) \le C_1 |U-U|^2
 \end{eqnarray}
 下面我们计算$E$的演化方程。根据\eqref{eq:ECDFsecond1D}和\eqref{23}，
 \begin{eqnarray}\label{43}
-E_t &= \eta_t - \eta_U(U_e)U_t = -\nabla \cdot \left(J(U) +( \int_{\rho_0}^{\rho_e} \frac{\pi(z)}{z^2} dz + \frac{\pi(\rho_e)}{\rho_e})\rho v \right) - \frac{(\rho c)^2}{\kappa} \\
+E_t &= \eta_t - \eta_U(U_e)U_t = -\nabla \cdot \left(J(U) +( \int_{\rho_0}^{\rho_e} \frac{\pi(z)}{z^2} dz + \frac{\pi(\rho_e)}{\rho_e})\rho v \right) - \frac{(\rho c)^2}{\kappa} \nonumber \\
 & - S_U(U_e)(\mathcal{Q}(U) - A(U)U_x).
 \end{eqnarray}
 这里我们用到了
 \begin{eqnarray*}
-\eta_U(U_e) A(U) U_x &=& ( \int_{\rho_0}^{\rho_e} \frac{p(z)}{z^2} dz + \frac{p(\rho_e)}{\rho_e}, 0, 0)
+\eta_U(U_e) A(U) U_x &=& ( \int_{\rho_0}^{\rho_e} \frac{\pi(z)}{z^2} dz + \frac{\pi(\rho_e)}{\rho_e}, 0, 0)
 \left( \begin{array}{ccc}
 		0 & 1 & 0 \\
-		p_\rho - v^2 & 2v & -3 \rho c - 2 \\
+		\pi_\rho - v^2 & 2v & -3 \rho c - 2 \\
 		cv + \frac{2 v}{\rho} & -  \rho c - 2 & v 
 	\end{array}\right)
 \left( \begin{array}{ccc}
 \rho \\ \rho v \\ \rho c \end{array} \right)_x \\
-&=& \left( \int_{\rho_0}^{\rho_e} \frac{p(z)}{z^2} dz + \frac{p(\rho_e)}{\rho_e}\right) (\rho v )_x.
+&=& \left( \int_{\rho_0}^{\rho_e} \frac{\pi(z)}{z^2} dz + \frac{\pi(\rho_e)}{\rho_e}\right) (\rho v )_x.
 \end{eqnarray*}
 在$(x, t)\in(-\infty, + \infty)\times[0,T]$对\eqref{43}积分可以得到
 \begin{eqnarray*}
@@ -238,7 +238,7 @@ E_t &= \eta_t - \eta_U(U_e)U_t = -\nabla \cdot \left(J(U) +( \int_{\rho_0}^{\rho
   = ((\partial_t A_0(U)+\partial_x(A_0(U)A(U)))\partial^l_x U,\partial^l_x U) \\
   + 2(A_0(U)[A(U),\partial^l_x]U_x,\partial^l_x U) + 2(A_0(U) \partial^l_x Q(U), \partial^l_x U).
 \end{multline}
-对任意的时间$t$，$U(\cdot, t)\in H^s(\mathbb{R})$。所以上式左端第二项为0。右端三项估计如下。
+对任意的时间$t$，$U(\cdot, t)\in H^s(\mathbb{R})$，所以上式左端第二项为0。右端三项估计如下。
 %It follows from the postive definite property of $A_0(U)$ that
 
 对第一项，有
@@ -268,7 +268,7 @@ E_t &= \eta_t - \eta_U(U_e)U_t = -\nabla \cdot \left(J(U) +( \int_{\rho_0}^{\rho
 && 2(A_0(U)\partial^l_x Q(U),\partial^l_x U) \nonumber \\
 &=& 2( A_0(U_e)\partial^l_x Q(U),\partial^l_x U) + 2((A_0(U)-A_0(U_e)) \partial^l_x Q(U),\partial^l_x U) \nonumber \\
 &\le&  -2 \|\partial^l_x c\|_{L^2}^2 + C|U-U_e|_{L^\infty} \|\partial^l_x U\|_{L^2}^2 \nonumber \\
-&\le& -2 \|\partial^l_x c\|_{L^2}^2 + C\|U-U_e\|_{H^s} \|\partial^l_x U\|_{L^2}^2
+&\le& -2 \|\partial^l_x c\|_{L^2}^2 + C\|U-U_e\|_{H^s} \|\partial^l_x U\|_{L^2}^2.
 \end{eqnarray}
 
 由估计\eqref{HsEST:1}、\eqref{HsEST:2}和\eqref{HsEST:3}，我们在$[0,T]$对\eqref{45}积分得到
@@ -287,7 +287,7 @@ E_t &= \eta_t - \eta_U(U_e)U_t = -\nabla \cdot \left(J(U) +( \int_{\rho_0}^{\rho
 %  \\  \le C \|\partial_x U_0\|^2_{H^{s-1}} + C M(t)D_0(t)^2
 \end{eqnarray}
 
-\emph{第三步：}下面我们利用Kawashima条件来得到上式\eqref{210}的估计。
+\emph{第三步：}下面我们利用Kawashima条件来得到上式\eqref{210}中最后一项的估计。
 
 首先将\eqref{eq:ECDFsecond1D}写作
 \begin{eqnarray*}
@@ -324,12 +324,12 @@ E_t &= \eta_t - \eta_U(U_e)U_t = -\nabla \cdot \left(J(U) +( \int_{\rho_0}^{\rho
 \end{eqnarray}
 这里我们也用到了交换子的估计。
 
-利用估计\eqref{212}——\eqref{215}，我们从\eqref{211}可以得到
+利用估计\eqref{212}—\eqref{215}，我们从\eqref{211}可以得到
 \begin{multline*}
   C_s \|\partial^l_x U_x\|^2_{L^2} \le (\eta+\frac{C}{\epsilon}) \|\partial^l_x c\|_{L^2}^2-\frac{1}{2} (K \partial^l_x U,\partial^l_x U_x)_t  + 2\epsilon \|\partial^l_x U_x\|^2_{L^2} \\
   +C(\epsilon) |U-U_e|_{L^\infty}^2 \|\partial^l_x U_x\|_{L^2}^2 + C(\epsilon) |U_x|_{L^\infty}^2 \|\partial^l_x U\|_{L^2}^2.
 \end{multline*}
-选取足够小的$\epsilon$（例如$\epsilon = C_s/4$）。在$[0,T]$上述不等式积分，我们得到对于$1\le l \le s-1$，估计
+选取足够小的$\epsilon$（例如$\epsilon = C_s/4$）。在$[0,T]$上对上述不等式积分，我们得到对于$1\le l \le s-1$，估计
 \begin{multline*}
   \int_0^T \|\partial^l_x U_x(t)\|^2_{L^2} dt \le C \int_0^T \|\partial^l_x c(t)\|^2_{L^2} dt
   +C\|\partial^l_x U(T)\|_{H^1}^2 + C\|\partial^l_x U_0\|_{H^1}^2 \\
@@ -341,7 +341,7 @@ E_t &= \eta_t - \eta_U(U_e)U_t = -\nabla \cdot \left(J(U) +( \int_{\rho_0}^{\rho
   \le C \int_0^T \|c(t)\|_{H^s}^2 dt + C \|U_0-U_e\|_{H^s}^2 + C\|U(T) -U_e\|_{H^s}^2  \\ + C \sup_{t \in [0,T] }\|U(t)-U_e\|_{H^s}^2 \int_0^T \|\partial_x U(t)\|_{H^{s-1}}^2 dt.
 \end{multline}
 
-令$\alpha>0$。 用$\alpha$乘式子\eqref{216} 并将结果与\eqref{210}相加可以得到
+令$\alpha>0$，用$\alpha$乘式子\eqref{216} 并将结果与\eqref{210}相加可以得到
 \begin{eqnarray*}
   \|U(T)-U_e\|_{H^s}^2 + \int_0^T \|c(t)\|_{H^s}^2 dt + \alpha \int_0^T \|\partial_x U(t)\|_{H^{s-1}}^2 dt \\
   \le C \alpha \int_0^T \|c(t)\|_{H^s}^2 dt +C(1+\alpha)\|U_0 -U_e\|_{H^s}^2 + C \alpha \|U(T)-U_e\|_{H^s}^2  \\ + C(\sup_{t \in [0,T]} \|U(t)-U_e\|_{H^s} + \alpha \sup_{t \in [0,T]} \|U(t)-U_e\|_{H^s}^2)  \int_0^T \|\partial_x U\|_{H^{s-1}}^2 dt.
@@ -352,12 +352,12 @@ $\alpha$足够小时，由上述不等式可以导出
   \le C \|U_0-U_e\|_{H^s}^2 + C \sup_{t \in [0,T]} \|U(t)-U_e\|_{H^s} \int_0^T \|\partial_x U(t)\|_{H^{s-1}}^2 dt \\
   +C\alpha  \sup_{t \in [0,T]} \|U(t)-U_e\|_{H^s}^2 \int_0^T \|\partial_x U(t)\|_{H^{s-1}}^2 dt.
 \end{eqnarray*}
-由此定理\ref{theoremglobal}中的先验估计对于足够小的$\|U_0 -U_e\|_{H^s}$成立。这样我们证明了定理\ref{theoremglobal}。
+由此定理\ref{theoremglobal}中的先验估计对于足够小的$\|U_0 -U_e\|_{H^s}$成立，这样我们证明了定理\ref{theoremglobal}。
 \end{proof}
 
 \subsection{与一维Navier-Stokes方程的一致性}
 
-当$\kappa$足够小时，我们可以认为粘弹性的效应足够小，这时我们有理由相信仅考虑粘性效应足以对粘弹性流体做很好的近似描述。在本小节中，我们将说明一维的等温可压上对流导数Maxwell模型\eqref{eq:ECDFsecond1D}与经典的可压Navier-Stokes方程在$\kappa$很小时是一致，即$\kappa$很小时Navier-Stokes方程可以很好地近似等温可压上对流导数Maxwell模型。
+当$\kappa$足够小时，我们可以认为粘弹性的效应足够小，这时我们有理由相信仅考虑粘性效应足以对粘弹性流体做很好的近似描述。在本小节中，我们将说明一维的等温可压上对流导数Maxwell模型\eqref{eq:ECDFsecond1D}与经典的可压Navier-Stokes方程在$\kappa$很小时是一致的，即$\kappa$很小时Navier-Stokes方程可以很好地近似等温可压上对流导数Maxwell模型。
 
 首先采用Maxwell迭代可以得到方程组\eqref{eq:ECDFsecond1D}形式上的近似Navier-Stokes方程组。将\eqref{eq:ECDFsecond1D}写为
 \begin{eqnarray*}
@@ -382,7 +382,7 @@ $\alpha$足够小时，由上述不等式可以导出
   \begin{eqnarray*}
     \bar{u}\in H^{s+2},\ \inf_{x} \bar{\rho}(x)>0.
  \end{eqnarray*}
-那么存在与松弛参数$\kappa$无关的时间$T_*>0$，使得方程组\eqref{eq:ECDFsecond1D}以$(\bar{u},0)$为初值的Cauchy问题和Navier-Stokes方程组\eqref{51}以${\bar u}$为初值的Cauchy问题分别有唯一解$(u^\kappa=(\rho^\kappa,\rho^\kappa v^\kappa), c^\kappa)(x,t)$与$u^\kappa_p=(\rho^\kappa_p,\rho^\kappa_p v^\kappa_p)(x,t)$ in $C([0,T_*], H^s)$。且对于充分小的$\kappa$，它们满足
+那么存在与松弛参数$\kappa$无关的时间$T_*>0$，使得方程组\eqref{eq:ECDFsecond1D}以$(\bar{u},0)$为初值的Cauchy问题和Navier-Stokes方程组\eqref{51}以${\bar u}$为初值的Cauchy问题分别有唯一解$(u^\kappa=(\rho^\kappa,\rho^\kappa v^\kappa), c^\kappa)(x,t),u^\kappa_p=(\rho^\kappa_p,\rho^\kappa_p v^\kappa_p)(x,t) \in C([0,T_*], H^s)$。且对于充分小的$\kappa$，它们满足
   \begin{equation}\label{52}
     \sup_{t \in [0, T_*]} \|(u^\kappa-u^\kappa_p)(\cdot,t)\|_{H^s} \le C(T_*) \kappa^2
   \end{equation}
@@ -404,15 +404,15 @@ $\alpha$足够小时，由上述不等式可以导出
 %   这是因为对一般的初始值边界层可能存在。只需要对下面的证明做微小改动就可以得到一般情况的证明。
 % \end{remark}
 
-为了证明上述定理，我们注意到方程组\eqref{eq:ECDFsecond1D}满足文献\cite{yong1992singular,yong1999singular}中的结构条件。从而，其中的一阶双曲偏微分方程的奇异摄动理论可以用于本方程组。于是我们得到\eqref{eq:ECDFsecond1D}以的解$(\bar{u},0)$为初值的解$U^\kappa = (\rho^\kappa, \rho^\kappa v^\kappa, c^\kappa)^T$的一阶摄动展开对应的方程组的解$U_\kappa^1=(\rho_\kappa^1,\rho_\kappa^1 v_\kappa^1, c^1_\kappa)^T$在$[0,T_*]$上满足
+为了证明上述定理，我们注意到方程组\eqref{eq:ECDFsecond1D}满足文献\cite{yong1992singular,yong1999singular}中的结构条件。从而，其中的一阶双曲偏微分方程的奇异摄动理论可以用于本方程组。于是我们得到\eqref{eq:ECDFsecond1D}以$(\bar{u},0)$为初值的解$U^\kappa = (\rho^\kappa, \rho^\kappa v^\kappa, c^\kappa)^T$和一阶摄动展开对应的方程组的解$U_\kappa^1=(\rho_\kappa^1,\rho_\kappa^1 v_\kappa^1, c^1_\kappa)^T$在$[0,T_*]$上满足
 \begin{eqnarray}\label{53}
-  \sup_{t \in [0, T_*]} \|U^\kappa(\cdot, t) - U_\kappa^1(\cdot, t)\|_{H^s} \le K\kappa^2
+  \sup_{t \in [0, T_*]} \|U^\kappa(\cdot, t) - U_\kappa^1(\cdot, t)\|_{H^s} \le K\kappa^2,
 \end{eqnarray}
 其中$K$为不依赖与$\kappa$的正常数。从而$U^\kappa$在$[0,T_*]$的解亦存在。
 
 $U^\kappa_1$的表达式可由\cite{yong1992singular,yong1999singular}中的方法得到。假设其形式为
 \begin{eqnarray*}
-U^1_\kappa  = U_0(x,t) + \kappa U_1(x,t) + U'_0(x,t') + \kappa U'_1(x,t')
+U^1_\kappa  = U_0(x,t) + \kappa U_1(x,t) + U'_0(x,t') + \kappa U'_1(x,t'),
 \end{eqnarray*}
 其中$t'=t/\kappa$。
 对于外展开$U_0=(u_0, (\rho c)_0)$和$U_1=(u_1, (\rho c)_1)$满足
@@ -524,7 +524,7 @@ $$
 其中$\theta_1,\theta_2 \in (0,1)$，从而$\|\hat{R}\|_{H^s} =O(\|R\|_{H^s})= O(\kappa^2)$。
 
 
-取$E = w^\kappa - w_\kappa$。由\eqref{57}和\eqref{57}得到
+取$E = w^\kappa - w_\kappa$，由\eqref{57}和\eqref{57}得到
 \begin{eqnarray*}
   \partial_t E + a(w^\kappa) \partial_x E = (a(w_\kappa) - a(w^\kappa)) \partial_x w_\kappa + \left( \begin{array}{cc} 0 \\ \frac{4\kappa}{\rho^\kappa} \partial^2_x v^\kappa - \frac{4\kappa}{\rho_\kappa} \partial^2_x v_\kappa \end{array} \right) - \hat{R}.
 \end{eqnarray*}

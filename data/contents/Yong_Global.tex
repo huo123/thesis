@@ -164,17 +164,17 @@
 % 下面考虑\eqref{eq:compressibleRelax}的Maxwell迭代一阶近似方程组的整体存在性。
 首先由\eqref{eq:compressibleRelax}中$c$的方程得到
 \begin{eqnarray*}
-    (\rho \dot{c})_t + \nabla \cdot (\rho \dot{c}) -  \nabla \cdot v  = - \frac{1}{\kappa} (\rho  \dot{c}), \\
+    (\rho \dot{c})_t + \nabla \cdot (\rho \dot{c}) -  \frac{1}{n} \nabla \cdot v  = - \frac{1}{\kappa} (\rho  \dot{c}), \\
     (\rho \mathring{c})_t + \nabla \cdot (\rho \mathring{c}) -  \frac{1}{2} (\nabla v + (\nabla v)^T  - \frac{2}{n} \nabla \cdot v I)  = - \frac{1}{\xi} (\rho  \mathring{c}).
 \end{eqnarray*}
 可以写为
 \begin{eqnarray*}
-    \rho \dot{c} = - \kappa\left( (\rho \dot{c})_t + \nabla \cdot (\rho \dot{c}) -  \nabla \cdot v\right), \\
+    \rho \dot{c} = - \kappa\left( (\rho \dot{c})_t + \nabla \cdot (\rho \dot{c}) - \frac{1}{n} \nabla \cdot v\right), \\
     \rho \mathring{c} = - \xi \left( (\rho \mathring{c})_t + \nabla \cdot (\rho \mathring{c}) -  \frac{1}{2} (\nabla v + (\nabla v)^T  - \frac{2}{n} \nabla \cdot v I) \right).
 \end{eqnarray*}
 假设$\kappa,\xi$很小，迭代一次得到
 \begin{equation*}
-    \rho \dot{c} = \kappa \nabla \cdot v + O(\kappa^2), \ \rho \mathring{c} =  \frac{\xi}{2} (\nabla v + (\nabla v)^T  - \frac{2}{n} \nabla \cdot v I) + O(\xi^2).
+    \rho \dot{c} = \frac{\kappa}{n} \nabla \cdot v + O(\kappa^2), \ \rho \mathring{c} =  \frac{\xi}{2} (\nabla v + (\nabla v)^T  - \frac{2}{n} \nabla \cdot v I) + O(\xi^2).
 \end{equation*}
 代入方程\eqref{eq:compressibleRelax}中，并忽略高阶项，可以得到
 \begin{subequations}\label{eq:compressible}
@@ -184,14 +184,14 @@
   (\rho F)_t + \nabla \cdot (F \otimes \rho  v ) = (\nabla  v ) \rho F
 \end{align}
 \end{subequations}
-其中$\mu = \kappa,\ \mu'=\xi + \frac{\kappa}{3}$均大于$0$。
+其中$\mu = \xi/2,\ \mu'=\xi/2 + (\kappa - \xi)/n$均大于$0$（$n\ge 2$时显然成立，$n=1$时$\mu + \mu' = \kappa>0$）。
 此即林芳华等提出的模型的可压形式\cite{lin2005hydrodynamics,lei2008global}。
 
 \section{林芳华等提出的模型的整体存在性}
 
-下面我们将考虑林芳华等提出的模型\eqref{eq:compressible}在平衡态附近整体解的存在性。首先我们将说明该方程组可以看作对称双曲-抛物系统。从而其整体存在性可由Kawashima等人的理论\cite{kawashima1984systems,kawashima1985systems,yong2004entropy}进行研究。然而通过验证，Kawashima条件并不成立。幸运的是我们可以通过力学上的适应性条件来弥补这一缺陷，从而可以采用Kawashima的一般框架得到存在性定理的证明。
+下面我们将考虑林芳华等提出的模型\eqref{eq:compressible}在平衡态附近整体解的存在性。首先我们将说明该方程组可以看作对称双曲－抛物系统。从而其整体存在性可由Kawashima等人的理论\cite{kawashima1984systems,kawashima1985systems,yong2004entropy}进行研究。然而通过验证，Kawashima条件并不成立。幸运的是我们可以通过力学上的适应性条件来弥补这一缺陷，从而可以采用Kawashima的一般框架得到存在性定理的证明。
 
-为了方便本节假设$U = (\rho, v ,F)$，而采用$W$表示上文中的$U$，即$W=(\rho, \rho v ,\rho F)$。平衡态取$U_e$定义为$\rho=\rho_e>0,  v =0 $和$F=I_{n^2}$ （$I_k$表示$k$阶单位矩阵）。本节的主要结果如下。
+为了方便，本节假设$U = (\rho, v ,F)$，而采用$W$表示上文中的$U$，即$W=(\rho, \rho v ,\rho F)$。平衡态取$U_e$定义为$\rho=\rho_e>0,  v =0 $和$F=I_{n^2}$ （$I_k$表示$k$阶单位矩阵）。本节的主要结果如下。
 \begin{theorem}\label{theoremcom}
 令正整数$s > \frac{n}{2}+1$。假设$U_0-U_e\in H^s$且$\|U_0-U_e\|_{H^s}$足够小。并且$U_0 = U_0(x)$满足适应性条件\eqref{eq:compatibility1}和\eqref{eq:compatibility2}。那么方程组\eqref{eq:compressible}以$U_0$为初值的Cauchy问题存在整体唯一解$U=U(x,t)$,满足
     \begin{eqnarray}\label{eq:thmincom}
@@ -202,16 +202,16 @@
     \end{eqnarray}
 \end{theorem}
 
-实际上，本定理已经在\cite{qian2010global,hu2011global}中得到证明。对于不可压缩的情形，文献\cite{lin2005hydrodynamics,lei2008global,chen2006global}也证明了类似的定理。在这里我们将给出一个新的证明。这一证明利用了双曲-抛物方程的Kawashima理论，给出了统一的证明方法，阐释了整体存在性成立的原因。并且这里提出的证明方法对于不可压方程仍成立。另外，我们还分析了不同适应性条件，解释了文献\cite{lin2005hydrodynamics,lei2008global,chen2006global,qian2010global,hu2011global}中不同适应性条件下整体存在性成立的原因。
+实际上，本定理已经在\cite{qian2010global,hu2011global}中得到证明。对于不可压缩的情形，文献\cite{lin2005hydrodynamics,lei2008global,chen2006global}也证明了类似的定理。在这里我们将给出一个新的证明。这一证明利用了双曲－抛物方程的Kawashima理论，给出了统一的证明方法，阐释了整体存在性成立的原因。并且这里提出的证明方法对于不可压方程仍成立。另外，我们还分析了不同适应性条件，解释了文献\cite{lin2005hydrodynamics,lei2008global,chen2006global,qian2010global,hu2011global}中不同适应性条件下整体存在性成立的原因。
 
-我们的证明依赖于方程\eqref{eq:compressible}的结构特点和细致的估计。首先由前面的推导可以得到系统的熵函数存在。然后我们将给出方程\eqref{eq:compressible}的对称子，从而该方程组可以写为对称双曲-抛物方程组。接下来我们将验证其不满足Kawashima等人对双曲-抛物方程组提出的Kawashima条件。为了得到定理\ref{theoremcom}，我们利用适应性条件\eqref{eq:compatibility1}和\eqref{eq:compatibility2}来得到整体存在性所需的估计。最后我们将采用\cite{kawashima1984systems,yong2004entropy}中的方法给出证明的过程。
+我们的证明依赖于方程\eqref{eq:compressible}的结构特点和细致的估计。首先由前面的推导可以得到系统的熵函数存在。然后我们将给出方程\eqref{eq:compressible}的对称子，从而该方程组可以写为对称双曲－抛物方程组。接下来我们将验证其不满足Kawashima等人对双曲－抛物方程组提出的Kawashima条件。为了得到定理\ref{theoremcom}，我们利用适应性条件\eqref{eq:compatibility1}和\eqref{eq:compatibility2}来得到整体存在性所需的估计。最后我们将采用\cite{kawashima1984systems,yong2004entropy}中的方法给出证明的过程。
 
 \subsection{熵函数与对称性}
 由前面的分析，我们可以得到方程组\eqref{eq:compressible}的熵函数为
 \begin{eqnarray}\label{22}
   \eta(\rho,\rho  v ,\rho F) = \rho s(\nu,u,F) =  \rho \int_{\rho_0}^\rho \frac{p(\zeta)}{\zeta^2} d\zeta + \frac{1}{2} \rho | v |^2 + \frac{1}{2} \rho |F|^2.
 \end{eqnarray}
-$\eta = \eta(W)$为$W$的上凸函数。注意我们这里的$\eta$与前文的熵函数相差一个符号，这是为了之后分析的简便。
+$\eta = \eta(W)$为$W$的下凸函数。注意我们这里的$\eta$与前文的熵函数相差一个符号，这是为了之后分析的简便。
 
 由计算可以得到熵函数的时间演化满足
 \begin{eqnarray}\label{eq:entropy}
@@ -258,15 +258,15 @@ $\eta = \eta(W)$为$W$的上凸函数。注意我们这里的$\eta$与前文的�
 \subsection{Kawashima条件}
 下面我们将说明对于方程组\eqref{eq:compressible}，Kawashima条件在平衡点$U_e$不成立。但是Kawashima等人论文\cite{shizuta1985systems,kawashima1984systems}中的类似估计可以利用适应性条件\eqref{eq:compatibility1}与\eqref{eq:compatibility2}得到。
 
-首先我们检验Kawashima条件。首先我们考虑平衡点$U_e$附近双曲-抛物组\eqref{eq:symmetrichyperbolic}的线性方程。
+首先我们检验Kawashima条件。首先我们考虑平衡点$U_e$附近双曲－抛物组\eqref{eq:symmetrichyperbolic}的线性方程。
 \begin{eqnarray}\label{eq:symmtrickawashima}
   U_t + \sum_{j=1}^n A_j(U_e) U_{x_j} -\sum_{j=1}^n \sum_{k=1}^n D_{jk}(U_e) U_{x_j x_k}=  0.
 \end{eqnarray}
 其中
 \begin{eqnarray*}
-  D_{jk}(U) = \left( \begin{array}{ccc} 0 & 0 & 0 \\ 0 & \frac{\mu}{\rho} \delta_{jk} + \frac{\mu'}{\rho} \delta_{ij}\delta_{ki'}& 0 \\ 0 & 0 & 0 \end{array} \right).
+  D_{jk}(U) = \left( \begin{array}{ccc} 0 & 0 & 0 \\ 0 & \frac{\mu}{\rho} \delta_{jk} \delta_{ii'} + \frac{\mu'}{\rho} \delta_{ij}\delta_{ki'}& 0 \\ 0 & 0 & 0 \end{array} \right).
 \end{eqnarray*}
-令$\xi=(\xi_1, \xi_2, \cdots, \xi_d)\in S^{n-1}$（$S$表示单位球）。这里我们取Kawashima条件的一个形式为
+令$\xi=(\xi_1, \xi_2, \cdots, \xi_d)\in \mathbf{S}^{n-1}$（$\mathbf{S}$表示$\mathbf{R}^{n}$中的单位球）。这里我们取Kawashima条件的一个形式为
 \begin{itemize}
     \item 矩阵$ \sum_{j=1}^n \xi_j A_j(U_e)$的特征向量不在矩阵$\sum_{j=1}^n \sum_{k=1}^n \xi_j \xi_k D_{jk}(U_e)$的零空间中。
 \end{itemize}
@@ -302,7 +302,7 @@ $\eta = \eta(W)$为$W$的上凸函数。注意我们这里的$\eta$与前文的�
 \begin{eqnarray} \label{eq:linear}
     \hat{ v }=0, \quad \xi_i \frac{p_\rho(\rho_e)}{\rho_e} \hat{\rho} - \xi_{l'} \hat{F}_{il'} = 0.
 \end{eqnarray}
-例如$\hat{U} = (1,0,\frac{p_\rho(\rho_e)}{\rho_e} I_{n^2})$即满足既是矩阵$ \sum_{j=1}^n \xi_j A_j(U_e)$的特征向量又在矩阵$\sum_{j=1}^n \sum_{k=1}^n \xi_j \xi_k D_{jk}(U_e)$的零空间中。从而Kawashima条件对于\eqref{eq:compressible}不成立。
+例如$\hat{U} = (1,0,\frac{p_\rho(\rho_e)}{\rho_e} I_{n^2})$既是矩阵$ \sum_{j=1}^n \xi_j A_j(U_e)$的特征向量又在矩阵$\sum_{j=1}^n \sum_{k=1}^n \xi_j \xi_k D_{jk}(U_e)$的零空间中，从而Kawashima条件对于\eqref{eq:compressible}不成立。
 
 然而我们可以利用适应性条件\eqref{eq:compatibility1}和\eqref{eq:compatibility2}来弥补Kawashima条件的缺失。
 定义下面的线性算子
@@ -324,7 +324,7 @@ $$
  $\xi_{l'} \hat{F}_{il'} = 0 .$
 乘以$\hat{F}_{im}$并对$i$求和，利用\eqref{eq:linear2}可以导出
 $$0=\xi_{l'} \hat{F} _{il'} \hat{F}_{im} = \xi_m \hat{F} _{il'}\hat{F} _{il'}.$$
-从上面的等式由$\xi \neq 0$可以知道$\hat{F}=0$。这样对应零特征值的非零特征向量$U$不在线性算子${\mathcal C}_1(U)$ and ${\mathcal C}_2(U)$的符号矩阵的零空间中。基于这样的结果，我们期望Kawashima条件在适应性条件的约束下成立。
+从上面的等式由$\xi \neq 0$可以知道$\hat{F}=0$。这样对应零特征值的非零特征向量$U$不在线性算子${\mathcal C}_1(U)$ 和 ${\mathcal C}_2(U)$的符号矩阵的零空间中。基于这样的结果，我们期望Kawashima条件在适应性条件的约束下成立。
 
 在文献\cite{shizuta1985systems}中，Kawashima条件等价于存在反对称矩阵$K=K(U_e, \xi)$，使得
 \begin{eqnarray*}
@@ -417,15 +417,15 @@ $$
 \end{remark}
 
 \subsection{定理\ref{theoremcom}的证明}
-因为方程组\eqref{eq:compressible}可以对称化，其解的局部存在性成立\cite{kawashima1984systems}。另外方程组\eqref{eq:compressible}的局部存在性定理的证明也可以在文献\cite{lin2005hydrodynamics,lei2008global,hu2013global}中找到。下面我们将推导定理\ref{theoremcom}中的\emph{先验估计}\eqref{eq:thmincom}。
+因为方程组\eqref{eq:compressible}可以对称化，其解的局部存在性成立\cite{kawashima1984systems}，另外方程组\eqref{eq:compressible}的局部存在性定理的证明也可以在文献\cite{lin2005hydrodynamics,lei2008global,hu2013global}中找到。下面我们将推导定理\ref{theoremcom}中的\emph{先验估计}\eqref{eq:thmincom}。
 
-证明分三步，第一步利用熵的演化方程得到$U-U_e$的$L^2$估计，然后求导得到高阶导数的估计。最后利用引理\ref{lemmaK}完成证明。
+证明分三步，第一步利用熵的演化方程得到$U-U_e$的$L^2$估计，然后求导得到高阶导数的估计，最后利用引理\ref{lemmaK}完成证明。
 
 \emph{第一步：}令
 \begin{eqnarray*}
   G(W) = S(W) - S(W_e) - S_W(W_e) (W-W_e).
 \end{eqnarray*}
-其中$W_e = (\rho_e, 0_d, \rho_e I_{d^2})$。由熵函数的上凸性可知存在常数$C_1$ and $C_2$，使得
+其中$W_e = (\rho_e, 0_d, \rho_e I_{d^2})$。由熵函数的上凸性可知存在常数$C_1$ 和 $C_2$，使得
 \begin{eqnarray*}
   C_1 |W-W_e|^2 \le G(W) \le C_2 |W-W_e|^2, \quad C_1 |U-U_e|^2 \le |W-W_e|^2 \le C_2 |U-U_e|^2
 \end{eqnarray*}
