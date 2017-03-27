@@ -250,10 +250,10 @@ J. G. Oldroyd定义的导数实际上就是张量场的李导数。李导数的�
 	此即上对流导数Maxwell粘弹性流体力学模型\eqref{eq:UCM}.	
 
 	考虑温度的不可压Maxwell模型为
-	\begin{eqnarray} \label{eq:Tmaxwell}
+	\begin{eqnarray*}% \label{eq:Tmaxwell}
 		v_t + v \cdot \nabla v + \nabla \cdot (-\theta \frac{c-I}{\alpha_1}) = 0, \\
 		c_t + v \cdot \nabla c - (\nabla v) c - c (\nabla v)^T - 2 D = -\frac{1}{\xi} c.
-	\end{eqnarray}
+	\end{eqnarray*}
 	取$\alpha_1 = \frac{2}{\eta_p k}, T = \theta,\xi = \frac{\zeta}{2 kT \beta}$，即可得到由微观理论推出的含温度上对流导数Maxwell模型\eqref{eq:MicroUCM}。	实际上，上对流导数Maxwell模型微观上可以通过稀疏高分子溶液的Hooke弹簧模型得到\cite{larson1999structure,le2009multiscale}。弹簧受到的力$F_s$一般写作
 	\begin{equation*}
 		F_s = H R = 2 k_B T \beta^2 R.

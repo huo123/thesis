@@ -7,12 +7,12 @@
 % \newtheorem{theorem}{定理}
 
  % \begin{document}
- 	非平衡态热力学的核心是热力学第二定律。由热力学第二定律可以知道不可逆过程必然伴随熵增，而如何描述这一定律变得十分重要。无论是CIT、EIT，还是RT、GENERIC等非平衡态热力学理论，其出发点均为热力学第二定律。通过引入非平衡状态变量，拓展经典平衡态热力学的Gibbs关系，以及采用合适的方式描述热力学熵的增长是这些理论的共有特性。守恒－耗散理论就是基于热力学第二定律的直接表述得到的。与之前的理论不同的是，守恒—耗散理论是建立在严格的数学结构上的。基于数学上对方程适定性等性质的要求以及物理上的热力学第一和第二定律，守恒—耗散理论提出了不可逆过程建模的一般框架\cite{zhu2014conservation,ottinger2005beyond,jou1996extended}。
+ 	非平衡态热力学的核心是热力学第二定律。由热力学第二定律可以知道不可逆过程必然伴随熵增，如何描述这一定律是非平衡态热力学的核心问题。无论是CIT、EIT，还是RT、GENERIC等非平衡态热力学理论，其出发点均为热力学第二定律。这些理论通过引入非平衡状态变量，拓展经典平衡态热力学的Gibbs关系，采用合适的方式描述热力学熵的增长，来达到对不可逆过程建模的目的。守恒－耗散理论也是采用类似的方式对非平衡态过程进行建模的。然而，与之前的理论不同的是，守恒－耗散理论是建立在严格的数学结构上的。基于数学上对方程适定性等性质的要求以及物理上的热力学第一和第二定律，守恒－耗散理论提出了不可逆过程建模的一般框架\cite{zhu2014conservation,ottinger2005beyond,jou1996extended}。
 	
-	本章第一节将回顾守恒—耗散理论的一般框架，第二节回顾其在粘弹性建模中的应用。第三节讨论了热传导定律的守恒—耗散结构，提出了推广的Guyer-Krumhansl定律并应用于粘弹性模型中。第四节对等温可压线性粘弹性Maxwell模型进行了数学上的分析，考察了平衡态附近解的整体存在性与牛顿极限问题。
+	本章第一节将回顾守恒－耗散理论的一般框架，第二节回顾其在粘弹性建模中的应用，第三节讨论了热传导定律的守恒－耗散结构，提出了推广的Guyer-Krumhansl定律并应用于粘弹性模型中，第四节对等温可压线性粘弹性Maxwell模型进行了数学上的分析，考察了平衡态附近解的整体存在性与牛顿极限问题。
 
-	\section{守恒—耗散理论}
-	本节我们回顾由朱毅、洪柳、杨再宝、雍稳安人发展的不可逆热力学的守恒—耗散理论。
+	\section{守恒－耗散理论}
+	本节我们回顾由雍稳安、朱毅、洪柳、杨再宝发展的不可逆热力学的守恒－耗散理论。
 
 	首先，守恒－耗散理论认为，热力学过程可以由守恒过程和耗散过程来描述。守恒率可以采用守恒变量$U_c$来描述。例如$U_c$可以是质量、动量、能量等守恒量。耗散过程采用耗散变量$U_d$来描述。守恒－耗散理论假设不可逆过程可以用下面的偏微分方程来描述
 	\begin{equation}\label{eq:CDF}
@@ -32,7 +32,7 @@
 	\end{equation*}
 	$n$为空间的维数。
 	% 根据文献\cite{yong1999singular,yang2015validity,yong2008interesting}，如果假设$Q(U)$前有参数$\frac{1}{\epsilon}$。当$\epsilon$很小时我们期望方程和平衡态的方程相近。基于数学上的考虑，结合热力学第二定律，守恒－耗散理论的假设如下\cite{zhu2014conservation}。
-	基于文献\cite{yong1999singular,yang2015validity,yong2008interesting}中对双曲方程数学结构的考虑以及热力学第一、第二定律，朱毅等人提出的守恒—耗散理论的假设如下\cite{zhu2014conservation}。
+	基于文献\cite{yong1999singular,yang2015validity,yong2008interesting}中对双曲方程数学结构的考虑以及热力学第一、第二定律，守恒－耗散理论的假设如下\cite{zhu2014conservation}。
 	\begin{enumerate}
 		\item 存在严格上凸函数$\eta = \eta (U)$，使得$\eta_{UU} F_{jU}$对称。我们称$\eta$为系统的熵函数。
 		\item 存在正定矩阵$M = M(U)$，使得$\mathcal{q}(U) = M \eta_{U_d}$。我们称$M$为耗散矩阵。
@@ -41,7 +41,7 @@
 	\begin{equation*}
 		\eta_t + \nabla \cdot J = \eta_{U_d}^T M \eta_{U_d} \ge 0.
 	\end{equation*}
-	从而可以看出熵的产生率大于等于0。第一个假设保证了熵流$J$的存在性（由$\eta_{UU} F_{jU}$对称及Poincare引理），第二个假设保证了熵增大于等于0（$M$正定）。于是守恒－耗散理论通过这两个条件使得模型满足热力学第二定律。且熵增是由耗散变量引起的\cite{zhu2014conservation}。
+	由此可以看出熵的产生率大于等于0。实际上，第一个假设保证了熵流$J$的存在性（由$\eta_{UU} F_{jU}$对称及Poincare引理），第二个假设保证了熵增大于等于0（$M$正定）。于是守恒－耗散理论通过这两个条件使得热力学第二定律得到满足，且熵增由耗散变量引起\cite{zhu2014conservation}。
 	
 % 	另外，一般我们假定$M$的零空间不依赖于$U$。这样我们可以得到熵的产生率为$0$对应着$\eta_U (U_d)= 0$。我们可以将对应的$U_d=U_{de}(U_c)$称为平衡态时耗散变量的值。此时我们可以得到下面的模型。
 % 	\begin{equation*}
@@ -72,42 +72,47 @@
 % 	\end{equation*},
 % 	从而我们可以将这个方程所描述的体系也视为平衡态。这样我们可以得到守恒－耗散理论所描述的非平衡态体系实际上是介于两个平衡态体系之间的。如果没有耗散，则为平衡态$M=0$,，如果时间趋于无穷则方程会趋于另一平衡态体系。这于Elliott Lieb等所讨论的非平衡态的概念有些类似\cite{lieb2000fresh,lieb2013entropy,lieb2014entropy}。他们认为非平衡态为由一个平衡态到另一个平衡态的演化过程。
 	
-	守恒-耗散理论中耗散矩阵$M$一般假设为对称的。这可以看做Onsager倒易关系的一个推广。实际上如果熵函数是二次的，那么$\eta_{U_d} = \mu U_d$，而熵的产生率
+	守恒－耗散理论中耗散矩阵$M$一般假设为对称的，这可以看做是Onsager倒易关系的一个推广。实际上如果熵函数是二次的，那么$\eta_{U_d} = \mu U_d$，而熵的产生率
 	\begin{equation*}
 		\Delta = \eta_{U_d}^T M \eta_{U_d} = \mu^2 U_d^2.
 	\end{equation*}
-	在Onager理论中，熵的产生率为热力学力$X$和热力学流$J_X$的乘积。Onsager倒易关系认为热力学流和力之间的关系是线性的。及存在矩阵$M'$使得
+	在Onsager理论中，熵的产生率为热力学力$X$和热力学流$J_X$的乘积。Onsager倒易关系认为热力学流和力之间的关系是线性的，即存在矩阵$M'$，使得
 	\begin{eqnarray*}
 		J_X = M X ,\\
-		\Delta'= J_X \cdot X = X^T M X
+		\Delta'= J_X \cdot X = X^T M X.
 	\end{eqnarray*}
 	这也是EIT理论中大部分熵函数都是二次的一个原因。由于Onsager倒易关系的线性性，导致了无法考虑远离平衡态的情况。我们假设$X$不再为平衡态状态变量，而是熵对耗散变量的导数，从而可以包含更加复杂的热力学流和力之间的关系。
 
-	守恒-耗散理论同GENERIC一样均采用了耗散矩阵来表示熵的耗散。然而其避免了GENERIC理论中Possion括号和耗散括号定义的复杂性，给耗散矩阵的选取带来了更大的自由度。然而，由于守恒-耗散理论假设了方程都可以写成守恒的形式，从而为应用带来了局限。
+	守恒－耗散理论同GENERIC一样均采用了耗散矩阵来表示熵的耗散。然而其避免了GENERIC理论中Possion括号和耗散括号定义的复杂性，给耗散矩阵的选取带来了更大的自由度。%然而，由于守恒－耗散理论假设了方程都可以写成守恒的形式，从而为应用带来了局限。
 
-	守恒-耗散理论可以成功地用于线性粘弹性流体的建模。然而，由于客观导数的非守恒形式，在应用到非线性粘弹性模型时会有困难，如何推广并应用于非线性粘弹性流体模型将在下一章给出。这里，我们首先考察线性粘弹性流体力学模型。
+	守恒－耗散理论可以成功地用于线性粘弹性流体的建模。然而，由于客观导数的非守恒形式，在应用到非线性粘弹性模型时会遇到困难，如何推广守恒－耗散理论并应用于非线性粘弹性流体模型将在下一章给出。这里，我们首先考察线性粘弹性流体力学模型。
 
-	\section{守恒-耗散理论在线性粘弹性流体模型中的应用}
+	\section{守恒－耗散理论在线性粘弹性流体模型中的应用}
 	本节首先回顾文献\cite{zhu2014conservation}中发展的线性粘弹性流体力学模型。然后分析其与微观方法导出的Maxwell模型的联系。最后给出文献\cite{zhu2014conservation}中发展的线性粘弹性流体力学模型在等温时对应的方程组。
 	\subsection{线性粘弹性流体力学模型}
 	首先考虑流体运动的守恒率方程\eqref{eq:fluid}。我们取
 	\begin{equation*}
 		U_c = \{\rho, \rho v, \rho e\}.
 	\end{equation*}
-	其中$e = \frac{1}{2} v^2 + u$为单位质量流体的总能量。由于我们希望考虑流体的粘弹性和热传导，从而我们希望采用与流体应力张量和热流所对应的非平衡态变量，我们取
+	其中$e = \frac{1}{2} v^2 + u$为单位质量流体的总能量。由于我们希望考虑流体的粘弹性和热传导，从而我们希望采用与流体应力张量和热流所对应的非平衡态变量。我们取
 	\begin{equation*}
 		U_d = \{ w, c\}
 	\end{equation*}
-	作为耗散变量，分别用来描述热传导的能量损失和应变能的衰减。我们假设熵函数$\eta = \eta (\rho,\rho v ,\rho e, \rho w, \rho c)$。根据熵函数的可加性，比熵$s$（单位质量的熵$\eta = \rho s$）可以写为
+	作为耗散变量，分别用来描述热传导的能量损失和应变能的衰减。假设熵函数$\eta = \eta (\rho,\rho v ,\rho e, \rho w, \rho c)$。根据熵函数的可加性，比熵$s$（单位质量的熵$\eta = \rho s$）可以写为
 	\begin{equation*}
 		s = s(\nu, u, w, c).
 	\end{equation*}
 	其中$\nu = \frac{1}{\rho}$。$w,c$分别为向量和张量。根据Gibbs关系，我们可以定义系统的温度和静压力
 	\begin{equation*}
-		\theta^{-1} = s_u, \quad \theta^{-1} p = s_{\nu}, \quad \theta^{-1} \tau = s_c.
+		\theta^{-1} = s_u,\theta^{-1} p = s_{\nu},
+		% , \quad \theta^{-1} \tau = s_c.
 	\end{equation*}
-	其中$\tau = P - pI$。前两个式子来源于平衡态热力学的Gibbs关系，最后一个式子是我们的假设（广义Gibbs关系）。
-    计算熵的产生率。
+	另外我们假设下面的广义Gibbs关系成立
+	\begin{equation*}
+		\theta^{-1} \tau = s_c.
+	\end{equation*}
+	其中$\tau = P - pI$。%前两个式子来源于平衡态热力学的Gibbs关系，最后一个式子是我们的假设（广义Gibbs关系）。
+    下面计算熵的产生率。
 	\begin{eqnarray*}
 		\eta_t + \nabla \cdot (\eta v) &=& \rho (s_t + v \cdot \nabla s), \\
 		&=& -\nabla \cdot (\theta^{-1} q) + s_w \cdot [\rho (w_t + v \cdot \nabla w) + \nabla \theta^{-1}] \\
@@ -118,7 +123,9 @@
 	\begin{equation*}
 		\Delta = s_w \cdot [\rho (w_t + v \cdot \nabla w) + \nabla \theta^{-1}] + (s_c:[\rho (c_t + v \cdot \nabla v)] - \theta^{-1} \tau : \nabla v) .
 	\end{equation*}
-	这里我们用到了$\tau$的对称性，这是动量矩守恒的自然结果\cite{dimitrienko2010nonlinear}。并且假设了$q =s_w,\tau = \theta s_c$。根据守恒-耗散理论，可以得到
+	这里我们用到了$\tau$的对称性，这是动量矩守恒的自然结果\cite{dimitrienko2010nonlinear}。并且假设了$q =s_w,\tau = \theta s_c$。
+
+	根据守恒－耗散理论，我们得到
 	\begin{equation} \label{eq:CDFgeneral  }
 		\left( \begin{array}{c} 
 			(\rho w)_t +  \nabla \cdot (\rho w \otimes v)  + \nabla \theta^{-1} \\
@@ -128,7 +135,7 @@
 			q \\ \theta^{-1} \tau
 		\end{array}\right).
 	\end{equation}
-	其中$M=M(\nu,u,w,c)$是正定的，这里我们假设其也是对称的。
+	其中$M=M(\nu,u,w,c)$是正定的，这里假设其也是对称的。
 
 	% 考虑不可压缩流体并忽略温度的影响，则$c$的演化方程可以写为
 	% \begin{equation*}
@@ -140,11 +147,11 @@
 	% \end{equation*}
 	% 这就是我们第一章提到的Maxwell模型。
 
-	为了推广Maxwell模型以考虑压缩性和温度的影响。我们假设熵函数是二次的。
+	为了推广Maxwell模型以考虑压缩性和温度的影响，假设熵函数是二次的且有下面的形式。
 	\begin{equation}\label{eq:entropyf}
-		s = s_0(\nu,u)  - \frac{1}{2\nu \alpha_0} w^2 - \frac{1}{2\nu \alpha_1} \dot{c}^2- \frac{1}{2\nu\alpha_2 } \mathring{c}:\mathring{c}.
+		s = s_0(\nu,u)  - \frac{1}{2\nu \alpha_0} w^2 - \frac{n}{2\nu \alpha_1} \dot{c}^2- \frac{1}{2\nu\alpha_2 } \mathring{c}:\mathring{c}.
 	\end{equation}
-	其中$s_0(\nu,u)$为平衡态时的熵函数。$\dot{A} = \frac{1}{3} \mbox{Tr} (A), \mathring{A} = \frac{1}{2} (A + A^T) - \frac{1}{3} \mbox{Tr} (A) $分别表示张量的迹部分和无迹对称部分。为了满足守恒—耗散理论的第一条假设，我们要求$s$为其变量的上凸函数。易知这一要求与$\eta$上凸等价。从而我们要求$s=s(\nu,u,w,c)$的Hessian矩阵
+	其中$s_0(\nu,u)$为平衡态时的熵函数。$\dot{A} = \frac{1}{n} \mbox{Tr} (A), \mathring{A} = \frac{1}{2} (A + A^T) - \frac{1}{n} \mbox{Tr} (A) $分别表示张量的迹部分和无迹对称部分。为了满足守恒－耗散理论的第一条假设，我们要求$s$为其变量的上凸函数，易知这一要求与$\eta$上凸等价。从而$s=s(\nu,u,w,c)$的Hessian矩阵
 	\begin{equation*}
 		\left(    \begin{array}{cccc}
 			s_{0\nu\nu} - \frac{1}{\nu^3 \alpha_0} w^2 - \frac{1}{\nu^3 \alpha_1} \dot{c}^2- \frac{1}{\nu^3 \alpha_2} \mathring{c}:\mathring{c} & s_{0\nu u} & \frac{w}{\nu^2 \alpha_0} & \frac{\dot{c}}{\nu^2 \alpha_1} + \frac{\mathring{c}}{\nu^2 \alpha_1} \\
@@ -153,8 +160,8 @@
 			\frac{\dot{c}}{\nu^2 \alpha_1} + \frac{\mathring{c}}{\nu^2 \alpha_1} & 0 & 0 & -\frac{1}{\nu \alpha_1} \dot{\mathcal{T}}  -\frac{1}{\nu \alpha_2} \mathring{\mathcal{T}} 
 		\end{array} \right)
 	\end{equation*}
-	为负定的。于是得到$s_0(\nu,u)$负定，以及$\alpha_0,\alpha_1,\alpha_2$均大于$0$。其中$\dot{\mathcal{T}}, \mathring{\mathcal{T}}$均为四阶张量，其坐标表示为$\dot{\mathcal{T}}_{kl,k'l'} = \frac{1}{n}\delta_{kl} \delta_{k'l'}, \mathring{\mathcal{T}}_{kl,k'l'} =\frac{1}{2}(\delta_{kk'}\delta_{ll'} + \delta_{kl'} \delta_{lk'} ) -\frac{1}{n}\delta_{kl} \delta_{k'l'} $。从而$\dot{\mathcal{T}} A = \dot{A} I,\mathring{\mathcal{T}} A = \mathring{A}$。
-	所以我们对熵函数做下面的假设
+	为负定的。于是得到$s_0(\nu,u)$负定，以及$\alpha_0,\alpha_1,\alpha_2$均大于$0$。其中$\dot{\mathcal{T}}, \mathring{\mathcal{T}}$均为四阶张量，其坐标表示为$\dot{\mathcal{T}}_{kl,k'l'} = \frac{1}{n}\delta_{kl} \delta_{k'l'}, \mathring{\mathcal{T}}_{kl,k'l'} =\frac{1}{2}(\delta_{kk'}\delta_{ll'} + \delta_{kl'} \delta_{lk'} ) -\frac{1}{n}\delta_{kl} \delta_{k'l'} $，$\dot{\mathcal{T}} A = \dot{A} I,\mathring{\mathcal{T}} A = \mathring{A}$。
+	所以这里对熵函数做下面的假设
 	\begin{itemize}
 		\item $\alpha_0,\alpha_1,\alpha_2>0, \quad s_0(\nu,u) \text{负定。}$
 	\end{itemize}
@@ -166,12 +173,13 @@
 			0 &  \theta(\frac{1}{\kappa} \dot{\mathcal{T}} + \frac{1}{\xi} \mathring{\mathcal{T}})  
 		\end{array} \right)
 	\end{equation*}
-	我们这里假设
+	这里假设
 	\begin{itemize}
 		\item $\theta,\lambda,\kappa,\xi > 0$.
 	\end{itemize}
-	从而$M$为正定的。
-	于是我们可以得到系统的演化方程为\cite{zhu2014conservation}
+	从而$M$为正定的。这样守恒－耗散理论的的假设成立。
+
+	由上面的分析，我们可以得到系统的演化方程为\cite{zhu2014conservation}
 	\begin{subequations}\label{eq:CDFMaxwell}
 		\begin{align}
 			\alpha_0 [\partial_t q +  \nabla \cdot (q \otimes v)] - \nabla \theta^{-1} = -\frac{q}{\theta^2 \lambda}, \\
@@ -190,13 +198,13 @@
 	\begin{equation*}
 		\partial_t \sigma + v \cdot \nabla \sigma - D = -\frac{\sigma}{\xi}. 
 	\end{equation*}
-	此即Maxwell粘弹性流体力学模型\eqref{eq:maxwell}。从而守恒—耗散定律得到的模型\eqref{eq:CDFMaxwell}推广了经典的Maxwell模型，并考虑了热传导和流体的压缩性。	
+	此即Maxwell粘弹性流体力学模型\eqref{eq:maxwell}。从而守恒－耗散定律得到的模型\eqref{eq:CDFMaxwell}推广了经典的Maxwell模型，并考虑了热传导和流体的压缩性。	
 
 	考虑更加一般的情况，我们亦可选取$M$为
 	\begin{equation*}
 		M_{ikl,i'k'l'} = \left( \begin{array}{ccc} 
-			\mu_1 \delta_{ii' } & \frac{1}{3}\beta'_i \delta_{k'l'} +  [\frac{1}{2} (\beta''_{k'} \delta_{il'} + \beta''_{l'} \delta_{ik'}) - \frac{1}{3} \beta_{i} \delta_{k'l'}]\\
-			\frac{1}{3}\beta'_{i'} \delta_{kl} +  [\frac{1}{2} (\beta''_{k} \delta_{i'l} + \beta''_{l'} \delta_{i'k}) - \frac{1}{3} \beta_{i'} \delta_{kl}] &  \frac{1}{\kappa} \dot{\mathcal{T}} + \frac{1}{\xi} \mathring{\mathcal{T}}  
+			\mu_1 \delta_{ii' } & \frac{1}{3}\beta'_i \delta_{k'l'} +  [\frac{1}{2} (\beta''_{k'} \delta_{il'} + \beta''_{l'} \delta_{ik'}) - \frac{1}{n} \beta_{i} \delta_{k'l'}]\\
+			\frac{1}{n}\beta'_{i'} \delta_{kl} +  [\frac{1}{2} (\beta''_{k} \delta_{i'l} + \beta''_{l'} \delta_{i'k}) - \frac{1}{n} \beta_{i'} \delta_{kl}] &  \frac{1}{\kappa} \dot{\mathcal{T}} + \frac{1}{\xi} \mathring{\mathcal{T}}  
 		\end{array} \right)
 	\end{equation*} 
 	注意参数$\mu_1,\beta',\beta'',\kappa,\zeta$的选取需要保证$M$的正定型。
@@ -204,8 +212,8 @@
 	\begin{subequations}
 		\begin{align*}
 			\alpha_0 [\partial_t q +  \nabla \cdot (q \otimes v)] - \nabla \theta^{-1} = - \mu_1 q -\beta' \theta^{-1} \dot{\tau} - \beta'' \theta^{-1} \mathring{\tau} , \\
-			\alpha_1[\partial_t (\theta^{-1} \dot{\tau}) + \nabla \cdot (\theta^{-1} \dot{\tau} \otimes v)] + \dot{D} = -\frac{\dot{\tau}}{\kappa} - \frac{1}{3}(\beta' \cdot q) I, \\
-			\alpha_2[\partial_t (\theta^{-1} \mathring{\tau}) + \nabla \cdot (\theta^{-1} \mathring{\tau} \otimes v)] + \mathring{D} = -\frac{\dot{\tau}}{\xi} - \frac{1}{2} (\beta''  \otimes q + q \otimes \beta'') + \frac{1}{3}(\beta'' \cdot q) I. 
+			\alpha_1[\partial_t (\theta^{-1} \dot{\tau}) + \nabla \cdot (\theta^{-1} \dot{\tau} \otimes v)] + \dot{D} = -\frac{\dot{\tau}}{\kappa} - \frac{1}{n}(\beta' \cdot q) I, \\
+			\alpha_2[\partial_t (\theta^{-1} \mathring{\tau}) + \nabla \cdot (\theta^{-1} \mathring{\tau} \otimes v)] + \mathring{D} = -\frac{\dot{\tau}}{\xi} - \frac{1}{2} (\beta''  \otimes q + q \otimes \beta'') + \frac{1}{n}(\beta'' \cdot q) I. 
 		\end{align*}
 	\end{subequations}
 	这与第一章EIT得到的本构关系\eqref{eq:EITconstitutive}类似。这里我们采用耗散变量$w,c$替代了EIT中的$\nabla T, \nabla \dot{\tau}$和$\nabla \cdot{\mathring{\tau}}$。
@@ -213,10 +221,12 @@
 	\subsection{与微观方法得到的Maxwell方程的联系}
 
 	由\eqref{eq:CDFMaxwell}得到考虑温度的不可压Maxwell模型为
-	\begin{eqnarray} \label{eq:Tmaxwell}
+	\begin{subequations} \label{eq:Tmaxwell}
+	\begin{align}
 		v_t + v \cdot \nabla v + \nabla \cdot (-\theta \frac{c}{\alpha_2}) = 0, \\
 		c_t + v \cdot \nabla c - D = -\frac{1}{\xi} c.
-	\end{eqnarray}
+		\end{align}
+	\end{subequations}
 	下面我们说明这一方程与微观方法得到的线性Maxwell模型相同。
 
 	由微观方法得到的高分子稀溶液的模型为 \cite{le2009multiscale,larson1999structure}
@@ -225,9 +235,9 @@
 		A_t + v \cdot \nabla A - \nabla v A - A(\nabla v)^T  = -\frac{4 H}{\zeta} A+ \frac{4kT}{\zeta} I.
 	\end{eqnarray*}
 	其中$H = \frac{3kT}{Nb^2}$.其中$k$为Boltzmann常数，$N$为高分子链弹簧模型的弹簧个数，$b$为弹簧长度。取$\beta = \frac{H}{kT} = \frac{3}{Nb^2}$，则应力张量$\sigma = k T(\beta A-I)$。令$c'=\frac{1}{2}(\beta A-I)$，可以得到$c'$的方程如下。
-	\begin{equation}\label{eq:MicroUCM}
+	\begin{equation*}%\label{eq:MicroUCM}
 		c'_t + v \cdot \nabla c'- \nabla v c' - c'(\nabla v)^T -  D  = -\frac{2 kT \beta}{\zeta} c'.
-	\end{equation}
+	\end{equation*}
 	其对应的线性模型为
 	\begin{eqnarray*}
 		v_t + v \cdot \nabla v = \frac{1}{2} \nabla \cdot (\eta_p kT c'), \\
@@ -236,7 +246,7 @@
 	在\eqref{eq:Tmaxwell}中令$\alpha_2 = \frac{2}{\eta_p k}, T = \theta,\xi = \frac{\zeta}{2 kT \beta}$即可以得到本模型。
 
 	\subsection{等温可压Maxwell模型}
-	考虑模型\eqref{eq:CDFMaxwell}等温的情况，取$\theta=1$。取$\alpha_1=\alpha_2=1$。平衡态熵函数$s_0(\nu)$如下
+	考虑模型\eqref{eq:CDFMaxwell}等温的情况，取$\theta=1$。取$\alpha_1=\alpha_2=1$，平衡态熵函数$s_0(\nu)$如下
 	\begin{equation*}
 		s_0 = - \int_{1/\nu_0}^{1/\nu} \frac{\pi(\zeta)}{\zeta^2} d\zeta.
 	\end{equation*}
@@ -244,31 +254,33 @@
 	\begin{equation*}
 		s_{0\nu \nu} < 0 \Rightarrow \rho^2 \pi_\rho >0.
 	\end{equation*}
-	这与静压力随密度增长这一物理上的要求一致。我们在这里假设这一条件成立。
-	于是可以得到
-	\begin{equation}
-		p = s_{\nu}= \pi + \frac{(\rho \dot{c})^2}{2} + \frac{\rho \mathring{c}:\rho \mathring{c}}{2}.
-	\end{equation}
+	这与静压力随密度增长这一物理上的要求一致。在这里假设这一条件成立，
+	于是由Gibbs关系可以得到
+	\begin{eqnarray*}
+		p = s_{\nu}= \pi + \frac{n(\rho \dot{c})^2}{2} + \frac{\rho \mathring{c}:\rho \mathring{c}}{2}, \\
+		\tau = \theta s_c = s_c = - \rho \mathring{c} - \rho \dot{c} I.
+	\end{eqnarray*}
 	我们最终可以得到下面的等温可压Maxwell模型。
 	\begin{subequations}\label{eq:CDFalphaConst}
 		\begin{align}
 			\rho_t + \nabla \cdot (\rho v) = 0, \\
-			(\rho v)_t + \nabla \cdot (\rho v \otimes v) + \nabla \pi(\rho) + \frac{1}{2} \nabla [ (\rho \dot{c})^2+ (\rho \mathring{c}) : (\rho \mathring{c})]- \nabla \cdot ( \rho \dot{c} I +  \rho \mathring{c}) = 0, \\
-			(\rho \dot{c})_t  + \nabla \cdot(\rho \dot{c} \otimes v) -  \nabla \cdot v = - \frac{\rho \dot{c}}{\kappa}. \\
-			(\rho \mathring{c})_t + \nabla \cdot (\rho \mathring{c} \otimes v) - \frac{1}{2} (\nabla v + (\nabla v)^T) = - \frac{\rho \mathring{c}}{\xi}.
+			(\rho v)_t + \nabla \cdot (\rho v \otimes v) + \nabla p - \nabla \cdot ( \rho \dot{c} I +  \rho \mathring{c}) = 0, \\
+			(\rho \dot{c})_t  + \nabla \cdot(\rho \dot{c} \otimes v) -  \frac{1}{n} \nabla \cdot v = - \frac{\rho \dot{c}}{\kappa}. \\
+			(\rho \mathring{c})_t + \nabla \cdot (\rho \mathring{c} \otimes v) - \frac{1}{2} (\nabla v + (\nabla v)^T - \frac{2}{n} \nabla \cdot v) = - \frac{\rho \mathring{c}}{\xi}.
 		\end{align}
 	\end{subequations}
+	其中$p = \pi + \frac{n(\rho \dot{c})^2}{2} + \frac{\rho \mathring{c}:\rho \mathring{c}}{2}$
 
-	由本节对线性粘弹性流体的建模过程可见守恒-耗散理论可以很好地用来对线性粘弹性模型进行建模。
+	由本节对线性粘弹性流体的建模过程可以看出，守恒－耗散理论可以很好地用来对线性粘弹性模型进行建模。
 
-	\section{粘弹性流体力学热传导模型的守恒-耗散理论}
+	\section{粘弹性流体力学热传导模型的守恒－耗散理论}
 	粘弹性流体中的热传导模型目前研究较少，目前大部分模型采用的仍然是Fouerier热传导定律或者Cattaneo定律。本小节首先将推广热传导的Cattaneo定律而导出热质理论。然后将推广Guyer-Krumhans热传导定律得到推广的Guyer-Kramhansl定律。最后将给出这些这些热传导模型在粘弹性流体力学模型中的应用。
 
 首先我们仅考虑热传导而忽略流体的运动和压缩性（假设$\rho = 1$），那么体系的方程可以写为
 \begin{equation*}
 	 u_t  + \nabla \cdot q = 0 .	
 \end{equation*}
-那么$w$的方程为
+$w$的方程为
 \begin{equation*}
 	 w_t + \nabla \theta^{-1} = M' q. 
 \end{equation*}
@@ -294,44 +306,44 @@
 
 %\subsection{推广的Cattaneo定律}
  % 然而注意到$\alpha_0$假设是常数，所以这里我们需要$\frac{\chi}{\lambda \theta^2}$为常数。
-取熵函数$s = s(u)  -\frac{1}{2 \alpha_0(u)} w^2$。
+取熵函数$s = s(u)  -\frac{1}{2 \alpha_0(u)} w^2$，
 其中$\alpha_0$依赖于内能（温度）$\alpha_0=\alpha(u)$。根据上一节的结果\eqref{eq:CDFMaxwell}，$q$的方程应写为
 \begin{equation*}
-({\alpha(u)}{q})_t-\nabla \theta^{-1}= M'{q}
+({\alpha(u)}{q})_t-\nabla \theta^{-1}= M'{q},
 \end{equation*}
-我们称这个方程为推广的Cattaneo定律。其中$M'>0$。
+其中$M'>0$。我们称这个方程为推广的Cattaneo定律。
 
 如果我们采用平衡态温度$T$来替代$\theta$，由$T$定义
 \begin{equation*}
 	T^{-1}=\frac{\partial S_{eq}(u)}{\partial u},
 \end{equation*}
 可以得到
-\begin{equation}
+\begin{equation*}
 \theta^{-1}=T^{-1}-\frac{1}{2}(\frac{1}{\alpha(u)})'{c}^2
-\end{equation}
+\end{equation*}
 这里$()'$为对$u$的导数。从而
 \begin{equation*}
-{w}_t+\nabla(T^{-1}-\frac{1}{2}(\frac{1}{\alpha(u)})' {w}^2)=M'{q}
+{w}_t+\nabla(T^{-1}-\frac{1}{2}(\frac{1}{\alpha(u)})' {w}^2)=M'{q},
 \end{equation*}
 或
 \begin{equation*}
-({\alpha(u)}{{q}})_t-\nabla(T^{-1}- \frac{\alpha'(u){q}^2}{2})-M{q}=0
+({\alpha(u)}{{q}})_t-\nabla(T^{-1}- \frac{\alpha'(u){q}^2}{2})-M{q}=0.
 \end{equation*}
 令$M=\frac{1}{\lambda T^2}, \alpha(u)=\frac{\rho c_v}{2\gamma u^3}=\frac{\rho}{2\gamma c_v^2 T^3}$，其中$\rho$为流体的密度，$c_v$为比热。
 最终我们得到
-\begin{equation}
+\begin{equation}\label{eq:TMmodel}
 \tau_{TM} {q}_t-3c_v {L}T_t+3(\nabla {q})^T \cdot {L}+\lambda(1-6M_H^2)\nabla T+{q}=0
 \end{equation}
 其中
 \begin{equation*}
-\tau_{TM}=\frac{\lambda \rho}{2 \gamma c_v^2 T} \quad {L}=\frac{\lambda \rho}{2 \gamma c_v^3 T^2}{q} \quad M_H^2=\frac{\lambda \rho {q}^2}{2\gamma c_v^3 T^3}
+\tau_{TM}=\frac{\lambda \rho}{2 \gamma c_v^2 T}, \quad {L}=\frac{\lambda \rho}{2 \gamma c_v^3 T^2}{q}, \quad M_H^2=\frac{\lambda \rho {q}^2}{2\gamma c_v^3 T^3}.
 \end{equation*}
 
 由过增元等人发展的热质理论的模型为\cite{dong2011generalized,zeng2006motion,sellitto2013entropy}
-\begin{equation}
+\begin{equation*}
 \tau_{TM} {q}_t-c_v {L}T_t+\nabla {q} \cdot {L}+\lambda(1-M_H^2)\nabla T+{q}=0.
-\end{equation}
-这里我们导出的模型和热质理论的模型仅系数有略微差异。
+\end{equation*}
+这里我们导出的模型\eqref{eq:TMmodel}和这里的热质理论的模型仅系数有略微差异。
 
 下面我们来考察$s=s(u,w)$的上凸性。$s$的Hessian矩阵为
 \begin{eqnarray*}
@@ -339,16 +351,16 @@
 \end{eqnarray*}
 为保证这一矩阵的负定性，我们要求对角元是负的且矩阵为矩阵的行列式为负的。从而可以得到$c_v >0$与
 \begin{eqnarray*}
-{q}=\alpha(u){c} \le \frac{\rho c_v T}{\sqrt{6}} \sqrt{\frac{\lambda}{\rho c_v \tau_{TM}}}
+{q}=\alpha(u){c} \le \frac{\rho c_v T}{\sqrt{6}} \sqrt{\frac{\lambda}{\rho c_v \tau_{TM}}},
 \end{eqnarray*}
 其中 $\sqrt{\frac{\lambda}{\rho c_v \tau_{TM}}}$ 为热波的最大速度\cite{jou1996extended}。 所以熵函数仅在热流小于特定值时为负定的。这一特定值对应于热波允许的最大速度。
 
-从这一例子可以看出，简单的熵函数的形式就可以导出复杂的热传导本构关系。推广的Cattaneo定律在特定的参数选择下可以得到与热质理论方程类似的模型。
+从这一例子可以看出，简单的熵函数形式就可以导出复杂的热传导本构关系。推广的Cattaneo定律在特定的参数选择下可以得到与热质理论方程类似的模型。
 
-\subsection{Guyer-Krumhansl模型}
-物质中的热传导可以采用线性化的声子Boltzmann方程来导出。1966年Guyer和Krumhansl发展了固体结构热传导的Guyer-Krumhansl模型\cite{guyer1966solution}。这一模型考虑了固体结构对热传导的影响。而由于粘弹性流体中高分子也具有一定的结构，这一模型也可以用来描述液晶等粘弹性流体的热传导\cite{van2002weakly,van2005exploiting}。
+\subsection{推广的Guyer-Krumhansl模型}
+物质中的热传导可以采用线性化的声子Boltzmann方程来导出。采用这一办法，1966年Guyer和Krumhansl发展了固体结构热传导的Guyer-Krumhansl模型\cite{guyer1966solution}。这一模型考虑了固体结构对热传导的影响。由于粘弹性流体中高分子也具有一定的结构，这一模型也可以用来描述液晶等粘弹性流体的热传导\cite{van2002weakly,van2005exploiting}。
 
-由于晶格等结构的存在，在固体中热传导可能出现各向异性。同样的在粘弹性流体中也可能存在与高分子取向等结构引起的热传导各向异性。为了描述热传导的各项异性我们采用张量$Q$来描述。我们假设张量${Q}$对称。其可以分解为${Q}=\mathring{{Q}}+\dot{Q}{I}$。
+由于晶格等结构的存在，在固体中热传导可能出现各向异性。同样的，在粘弹性流体中也可能存在与高分子取向等结构引起的热传导各向异性。为了描述热传导的各项异性我们采用张量$Q$来描述。假设张量${Q}$对称，其可以分解为${Q}=\mathring{{Q}}+\dot{Q}{I}$。
 
 假设熵具有形式
 \begin{equation*}
@@ -361,7 +373,7 @@ s_t &=& \theta^{-1} u_t +s_{w} \cdot {w}_t + s_{\mathring{{Q}}}:\mathring{{Q}}_t
     	&&+({w}_t+\nabla \cdot (s_{\mathring{{Q}}}+s_{\dot{Q}})+\nabla \theta^{-1}) \cdot {q} \\
 && +s_{\mathring{{Q}}}:(\mathring{{Q}}_t+(\mathring{\nabla {q}})^{sym})+s_{\dot{Q}}(\dot{Q}_t+\frac{1}{3}\nabla \cdot {q}).
 \end{eqnarray*}
-为了保证熵的产生率大于0（守恒-耗散理论的第二条假设）的成立，我们这里假设存在矩阵$M''$，使得
+为了保证熵的产生率大于0（守恒－耗散理论的第二条假设）的成立，我们这里假设存在矩阵$M''$，使得
 \begin{equation*}
 \left( \begin{array}{ll} {w}_t+\nabla \cdot (s_{\mathring{{Q}}}+s_Q)+\nabla \theta^{-1} \\ \mathring{{Q}}_t+(\mathring{\nabla {q}})^{sym} \\ \dot{Q}_t+\frac{1}{3} \nabla \cdot {q} \end{array} \right) = M'' \left( \begin{array}{l} {q} \\ s_{\mathring{{Q}}} \\s_{\dot{Q}} \end{array} \right).
 \end{equation*}
@@ -383,9 +395,9 @@ s_t &=& \theta^{-1} u_t +s_{w} \cdot {w}_t + s_{\mathring{{Q}}}:\mathring{{Q}}_t
 \end{eqnarray*}
 取$M$为
 \begin{equation}
-M_0=\frac{1}{\lambda \theta^2}, M_1=\frac{\lambda \theta^2}{d\tau}, M_2=\frac{2\lambda \theta^2}{5d\tau}
+M_0=\frac{1}{\lambda \theta^2}, M_1=\frac{\lambda \theta^2}{d\tau}, M_2=\frac{2\lambda \theta^2}{5d\tau},
 \end{equation}
-与$a_0=\frac{\tau_0}{\lambda \theta^2}$,
+与$\alpha_0=\frac{\tau_0}{\lambda \theta^2}$,
 我们可以得到Guyer-Krumhansl模型（以$T$代替$\theta$）\cite{jou1996extended}。
 \begin{equation}
 {q}_t+\frac{{q}}{\tau_0}+\frac{\lambda}{\tau_0}\nabla T=\frac{1}{2}d(\nabla^2 {q}+2\nabla \nabla \cdot {q})
@@ -400,14 +412,14 @@ M_0=\frac{1}{\lambda \theta^2}, M_1=\frac{\lambda \theta^2}{d\tau}, M_2=\frac{2\
 										   0 & 0 & 0 & -\frac{1}{2\tau_2}
 										   \end{array} \right).
 \end{eqnarray*}
-熵的上凸性的等价于$c_v$和参数$\alpha_0,\tau_1,\tau_2$为正的。
+熵的上凸性等价于$c_v$和参数$\alpha_0,\tau_1,\tau_2$为正的。
 
 我们最终导出的推广的Guyer-Krumhansl模型如下。
 \begin{subequations}\label{eq:EGK}
 	\begin{align}
-(\alpha_0 {q})_t - \nabla \cdot ({\frac{1}{\tau_1} \mathring{{Q}}}+\frac{1}{\tau_2}\dot{Q})+\nabla \theta^{-1} = M_0 {q} \\
-\mathring{{Q}}_t+(\mathring{\nabla {q}})^{sym}=-\frac{M_1}{\tau_1}\mathring{{Q}} \\
-\dot{Q}_t+\frac{1}{3} \nabla \cdot {q}=-\frac{M_2}{\tau_2} \dot{Q}
+(\alpha_0 {q})_t - \nabla \cdot ({\frac{1}{\tau_1} \mathring{{Q}}}+\frac{1}{\tau_2}\dot{Q})+\nabla \theta^{-1} = M_0 {q}, \\
+\mathring{{Q}}_t+(\mathring{\nabla {q}})^{sym}=-\frac{M_1}{\tau_1}\mathring{{Q}}, \\
+\dot{Q}_t+\frac{1}{3} \nabla \cdot {q}=-\frac{M_2}{\tau_2} \dot{Q}.
 	\end{align}
 \end{subequations}
 
@@ -433,7 +445,7 @@ M_0=\frac{1}{\lambda \theta^2}, M_1=\frac{\lambda \theta^2}{d\tau}, M_2=\frac{2\
 \begin{equation*}
 			ds = \theta^{-1} pd\nu + \theta^{-1} du + s_w \cdot dw + s_Q : d Q+ s_c : dc.
 \end{equation*}
-仍然将张量$Q,c$进行分解$Q = \mathring{Q} +\dot{Q}I$。
+仍然将张量$Q,c$进行分解$Q = \mathring{Q} +\dot{Q}I$，
 从而可以得到熵的产生率
 \begin{eqnarray*}
 		\eta_t + \nabla \cdot (\eta v) &=& \rho (s_t + v \cdot \nabla s), \\
@@ -444,7 +456,7 @@ M_0=\frac{1}{\lambda \theta^2}, M_1=\frac{\lambda \theta^2}{d\tau}, M_2=\frac{2\
 		&&+s_{\dot{Q}}(\rho (\dot{Q}_t + v \cdot \nabla \dot{Q})+\frac{1}{3}\nabla \cdot {q}) \\
 		&& = -\nabla \cdot J + \Delta. 
 \end{eqnarray*}
-这里我们用到了$q=s_w,\tau = \theta s_c$。为了满足守恒-耗散理论的第二条假设，我们假设存在正定对称矩阵$M$，使得下面的本构关系成立。
+这里我们用到了$q=s_w,\tau = \theta s_c$。为了满足守恒－耗散理论的第二条假设，我们假设存在正定对称矩阵$M$，使得下面的本构关系成立。
 \begin{equation*}
    	\left( \begin{array}{c} 
 			(\rho w)_t +  \nabla \cdot (\rho w \otimes v)  + \nabla \theta^{-1} + \nabla \cdot (s_{\mathring{{Q}}}+s_{\dot{Q}})\\
@@ -462,12 +474,13 @@ M_0=\frac{1}{\lambda \theta^2}, M_1=\frac{\lambda \theta^2}{d\tau}, M_2=\frac{2\
 我们得到了含推广Guyer-Krumhansl热传导定律的线性粘弹性流体模型。
 \begin{equation}\label{eq:CNSTgeneral}
    	\left( \begin{array}{c} 
-			(\alpha_0 q)_t +  \nabla \cdot (\alpha_0  q \otimes v)  + \nabla \theta^{-1} + \nabla \cdot (\frac{1}{\tau_1} \rho \mathring{{Q}}+\frac{1}{\tau_2} \rho \dot{Q})\\
-			(\alpha_1 \theta^{-1}\tau)_t +  \nabla \cdot (\alpha_1 \theta^{-1} \tau \otimes v)  - D \\
+			(\alpha_0 q)_t +  \nabla \cdot (\alpha_0  q \otimes v)  + \nabla \theta^{-1} + \nabla \cdot (\frac{1}{\tau_1} \rho \mathring{{Q}}+\frac{1}{\tau_2} \rho \dot{Q} I)\\
+			(\alpha_1 \theta^{-1} \dot{\tau})_t +  \nabla \cdot (\alpha_1 \theta^{-1} \dot{\tau} \otimes v)  - \dot{D} \\
+			(\alpha_2 \theta^{-1} \mathring{\tau})_t +  \nabla \cdot (\alpha_1 \theta^{-1} \mathring{\tau} \otimes v)  - \mathring{D} \\
 			(\rho \mathring{{Q}})_t + \nabla \cdot (\rho \mathring{Q} \otimes v)+(\mathring{\nabla {q}})^{sym} \\ (\rho \dot{Q})_t + \nabla \cdot (\rho \dot{Q} v)+\frac{1}{3} \nabla \cdot {q}
 		\end{array} \right) = M \cdot
 		\left( \begin{array}{c} 
-			q \\ \theta^{-1} \tau \\ -\frac{1}{\tau_1} \rho \mathring{{Q}} \\ -\frac{1}{\tau_2} \rho \dot{{Q}}
+			q \\ \theta^{-1} \dot{\tau} \\ \theta^{-1} \mathring{\tau} \\ -\frac{1}{\tau_1} \rho \mathring{{Q}} \\ -\frac{1}{\tau_2} \rho \dot{{Q}}
 		\end{array}\right).
 \end{equation}
 % 可以取耗散矩阵$M$为对角的，即
@@ -480,28 +493,28 @@ M_0=\frac{1}{\lambda \theta^2}, M_1=\frac{\lambda \theta^2}{d\tau}, M_2=\frac{2\
 % \end{equation*}
 % 通过选取合适的参数，我们可以得到Navier-Stokes-GGK模型（这里GGK代表Generalized Guyer-Krumhansl模型）。
 
-从上面的建模过程可以看出，守恒-耗散理论十分简洁。其应用的步骤可以总结如下：
+从上面的建模过程可以看出，守恒－耗散理论十分简洁。其应用的步骤可以总结如下：
 \begin{enumerate}
 	\item 选取合适的守恒变量$U_c$和耗散变量$U_d$。
 	\item 假设熵函数$\eta = \eta(U_c,U_d)$为守恒变量和耗散变量的函数。假设熵函数的形式并保证其为上凸的（可以包含参数）。利用Gibbs关系将熵的产生率写成$\eta_t+ \nabla \cdot (\eta v) + \nabla \cdot J = \Delta$的形式。
-	\item 选取合适的耗散矩阵$M$使得方程满足守恒-耗散理论的第二条假设。
+	\item 选取合适的耗散矩阵$M$使得方程满足守恒－耗散理论的第二条假设。
 	\item 选取合适的参数得到本构关系。
 \end{enumerate}
-可以看出整个过程的关键在于选取合适的熵函数和耗散矩阵。而守恒-耗散理论明确给出了这两者选取的准则，即分别满足守恒-耗散理论的第一条和第二条假设。
+可以看出整个过程的关键在于选取合适的熵函数和耗散矩阵。而守恒－耗散理论明确给出了这两者选取的准则，即分别满足守恒－耗散理论的第一条和第二条假设。
 
-与EIT相比，守恒-耗散理论采用的耗散变量具有更大的自由度。EIT经常采用温度梯度、热流等量作为耗散变量，而守恒-耗散理论同GENERIC等理论一样，并不事先假设耗散变量的具体形式。类似GENERIC，我们认为系统的不可逆性是由其内部结构决定的，而描述这一耗散结构经常需要微观的建模。采用$w,c$而不是$q,\tau$可以为建模带来更大的自由度，有时甚至可以与微观模型的统计量产生联系。另外EIT采用的熵函数大部分为二次的。虽然我们上面讨论的模型中熵函数大部分也为二次的，但是守恒-耗散理论仅仅假设熵函数的上凸性。由于这两点，我们认为守恒-耗散理论可以为原理平衡态的体系提供建模的框架。另外守恒-耗散理论对耗散矩阵仅仅要求是正定的。虽然大部分情况下我们假定其也为对称的（如果类似Onsager的倒易关系成立）。这样我们避免了GENERIC等理论对于耗散矩阵的复杂要求。
+与EIT相比，守恒－耗散理论采用的耗散变量具有更大的自由度。EIT经常采用温度梯度、热流等量作为耗散变量，而守恒－耗散理论同GENERIC等理论一样，并不事先假设耗散变量的具体形式。类似GENERIC，我们认为系统的不可逆性是由其内部结构决定的，而描述这一耗散结构经常需要微观的建模。采用$w,c$而不是$q,\tau$可以为建模带来更大的自由度，有时甚至可以与微观模型的统计量产生联系。另外EIT采用的熵函数大部分为二次的。虽然我们上面讨论的模型中熵函数大部分也为二次的，但是守恒－耗散理论仅仅假设熵函数的上凸性。由于这两点，我们认为守恒－耗散理论可以为远离平衡态的体系提供建模的框架。另外守恒－耗散理论对耗散矩阵仅仅要求是正定的。虽然大部分情况下我们假定其也为对称的（如果类似Onsager的倒易关系成立）。这样我们避免了GENERIC等理论对于耗散矩阵的复杂要求。
 
-另外守恒-耗散理论还具有很好的数学基础。下一节将讨论守恒-耗散理论导出的模型的一些数学结果。
+另外守恒－耗散理论还具有很好的数学基础。下一节将讨论由守恒－耗散理论导出的等温可压Maxwell模型的一些数学结果。
 
 	\section{等温可压Maxwell模型的数学分析}
-	守恒-耗散理论一方面考虑了热力学第一定律和第二定律和Onsager倒易关系等物理原理，另一方面它建立在严格的数学理论之上。熵函数的存在性和方程的守恒形式共同保证方程可以被对称化，从而根据对称双曲组的相关理论，方程的局部适定性可以保证\cite{kato1975cauchy,majda2012compressible}。对于平衡态附件解的整体存在性，可由含熵的双曲松弛系统的整体存在性理论进行分析\cite{yong2004entropy,kawashima2009decay}。守恒—耗散理论的两条假设使得到的方程满足文献\cite{yong1999singular}中的结构条件，从而可以保证右端项含有松弛参数$\epsilon$时的松弛极限有着良好的性质。本节将分析由守恒—耗散理论导出的等温可压Maxwell模型\eqref{eq:CDFalphaConst}的解的存在性与牛顿极限。从本节的分析中将会看到，守恒—耗散理论的两个假设保证了方程的良好数学结构。
+	守恒－耗散理论一方面考虑了热力学第一定律和第二定律及Onsager倒易关系等物理原理，另一方面它建立在严格的数学理论之上。熵函数的存在性和方程的守恒形式共同保证了方程可以被对称化。从而根据对称双曲组的相关理论，方程的局部适定性可以保证\cite{kato1975cauchy,majda2012compressible}。对于平衡态附件解的整体存在性，可由含熵的双曲松弛系统的整体存在性理论进行分析\cite{yong2004entropy,kawashima2009decay}。守恒－耗散理论的两条假设使得到的方程满足文献\cite{yong1999singular}中的结构条件，从而可以保证右端项含有松弛参数$\epsilon$时的松弛极限有着良好的性质。本节将分析由守恒－耗散理论导出的等温可压Maxwell模型\eqref{eq:CDFalphaConst}的解的存在性与牛顿极限。从本节的分析中将会看到，守恒－耗散理论的两个假设保证了方程的良好数学结构。
 	%很小时可以与形式上得到的方程相近似，从而保证了离平衡态“很近”的体系可以很好地采用平衡态体系近似。
 
-	% 守恒-耗散理论得到的方程均为可对称双曲方程组，所以可以采用对称双曲组的相关理论对方程的解进行分析。例如在平衡态附近方程解的全局适定性可以采用Kawashima理论进行分析\cite{}。可压缩模型的小马赫数极限可以采用类似可压Euler方程的小马赫数极限进行分析\cite{}。方程的弱解的存在性和间断解可以采用相关的理论进行分析\cite{}。
-	第一小节将给出方程\eqref{eq:CDFalphaConst}的对称子，从而得到解局部存在。第二小节将利用含熵的双曲松弛系统的整体存在性理论证明方程组\eqref{eq:CDFalphaConst}平衡态附近解的整体存在性\cite{yong2004entropy,kawashima2009decay}，最后一节将利用双曲松弛系统Chapman-Enskog展开的数学分析\cite{yong1999singular}证明方程组\eqref{eq:CDFalphaConst}与其近似Navier-Stokes方程的一致性。
+	% 守恒－耗散理论得到的方程均为可对称双曲方程组，所以可以采用对称双曲组的相关理论对方程的解进行分析。例如在平衡态附近方程解的全局适定性可以采用Kawashima理论进行分析\cite{}。可压缩模型的小马赫数极限可以采用类似可压Euler方程的小马赫数极限进行分析\cite{}。方程的弱解的存在性和间断解可以采用相关的理论进行分析\cite{}。
+	第一小节将给出方程\eqref{eq:CDFalphaConst}的对称子，从而得到光滑解局部存在。第二小节将利用含熵的双曲松弛系统的整体存在性理论证明方程组\eqref{eq:CDFalphaConst}平衡态附近解的整体存在性\cite{yong2004entropy,kawashima2009decay}。最后一节将利用双曲松弛系统Chapman-Enskog展开的数学分析结果\cite{yang2015validity}证明方程组\eqref{eq:CDFalphaConst}与可压Navier-Stokes方程的一致性。
 
 	\subsection{局部存在性}
-	方程\eqref{eq:CDFalphaConst}可以写成下面的形式。
+	方程组\eqref{eq:CDFalphaConst}可以写成下面的形式。
 	\begin{equation*}
 		U_t + \sum_{j=1}^n A_j(U) U_{x_j} = \mathcal{Q}(U).
 	\end{equation*}
@@ -520,33 +533,33 @@ M_0=\frac{1}{\lambda \theta^2}, M_1=\frac{\lambda \theta^2}{d\tau}, M_2=\frac{2\
 	 		&&  A_{j}(U) =
  		\left( \begin{matrix} 
  		0 & \delta_{i'j} & 0 & 0  \\
- 		-v_i v_j  + \pi_\rho \delta_{ij} & v_i \delta_{i'j} + v_j \delta_{ii'}   &  \rho \dot{c} \delta_{ij} - \delta_{ij} & a_{24}  \\
- 		-\dot{c} v_j + \frac{v_j}{\rho} & (\dot{c} - \frac{1}{\rho}) \delta_{i'j} &  v_j & 0 \\
- 		-\mathring{c}_{kl} v_j + \frac{1}{2 \rho} (v_k \delta_{jl} + v_l \delta_{jk}) & a_{42} & 0 & v_j 
+ 		-v_i v_j  + \pi_\rho \delta_{ij} & v_i \delta_{i'j} + v_j \delta_{ii'}   &  n \rho \dot{c} \delta_{ij} - \delta_{ij} & a_{24}  \\
+ 		-\dot{c} v_j + \frac{v_j}{n \rho} & (\dot{c} - \frac{1}{n \rho}) \delta_{i'j} &  v_j & 0 \\
+ 		-\mathring{c}_{kl} v_j + \frac{1}{2 \rho} (v_k \delta_{jl} + v_l \delta_{jk} - \frac{2}{n} \delta_{kl} v_j) & a_{42} & 0 & v_j 
  		\end{matrix} \right).
 	\end{eqnarray*}
-	其中$a_{24}=\rho \mathring{c}_{k'l'} \delta_{ij}- \frac{1}{2}(\delta_{ik'}\delta_{jl'} + \delta_{jk'}\delta_{il'})$，$a_{42} =  \mathring{c}_{kl} \delta_{i'j}  - \frac{1}{2\rho} (\delta_{jk} \delta_{i'l} +　\delta_{jl} \delta_{i'k})$。
+	其中$a_{24}=\rho \mathring{c}_{k'l'} \delta_{ij}- \frac{1}{2}(\delta_{ik'}\delta_{jl'} + \delta_{jk'}\delta_{il'} - \frac{2}{n} \delta_{k'l'} \delta_{ij})$，$a_{42} =  \mathring{c}_{kl} \delta_{i'j}  - \frac{1}{2\rho} (\delta_{jk} \delta_{i'l} +　\delta_{jl} \delta_{i'k} - \frac{2}{n} \delta_{kl} \delta_{i'j})$。
 
-	由守恒-耗散理论的第一条假设，存在正定对称矩阵$A_0(U)  = -\eta_{UU}$使得$A_0(U) A_j(U)$对称。$A_0$的正定性可由$\eta$的上凸性得到。由熵函数表达式\eqref{eq:entropyf}得到
+	由守恒－耗散理论的第一条假设，存在正定对称矩阵$A_0(U)  = -\eta_{UU}$使得$A_0(U) A_j(U)$对称。$A_0$的正定性可由$\eta$的上凸性得到。由熵函数表达式\eqref{eq:entropyf}得到
 	\begin{equation*}
-		-\eta = \frac{1}{2} \rho v^2 + \rho \int_{\rho_0}^\rho \frac{\pi(\zeta)}{\zeta^2} d \zeta + \frac{1}{2} (\rho \dot{c})^2 +　\frac{1}{2} \rho \mathring{c} : \rho \mathring{c}.
+		-\eta = \frac{1}{2} \rho v^2 + \rho \int_{\rho_0}^\rho \frac{\pi(\zeta)}{\zeta^2} d \zeta + \frac{1}{2} n (\rho \dot{c})^2 +　\frac{1}{2} \rho \mathring{c} : \rho \mathring{c}.
 	\end{equation*}
 	$A_0$的表达式如下
 	\begin{equation*}
 		A_0(U) = -\eta_{UU}(U) = \left(\begin{array}{cccc}
 			\frac{\pi_\rho + v^2}{\rho} & -\frac{v_{i'}}{\rho} & 0 & 0\\
 			-\frac{v_i} \rho & \frac{1}{\rho} \delta_{ii'} & 0 & 0\\ 
-			0 & 0 & 1 & 0\\
+			0 & 0 & n & 0\\
 			0 & 0 & 0 &\delta_{kk'} \delta_{ll'} 
 		\end{array} \right).
 	\end{equation*}
 	于是$A_0(U) A_j(U)$为
 	\begin{equation*}
 		\left( \begin{smallmatrix} 
- 		* & \frac{\pi_\rho \delta_{i'j} - v_{i'} v_j }{\rho} & -v_j \dot{c} + \frac{v_j}{\rho} &　-c_{k'l'} v_j + \frac{1}{2 \rho} (v_{k'} \delta_{jl'} + v_{l'} \delta_{jk'}) \\
- 		\frac{-v_i v_j  + \pi_\rho \delta_{ij}}{\rho} & *   &  (\dot{c} - \frac{1}{\rho}) \delta_{ij} &  \mathring{c}_{k'l'} \delta_{ij}- \frac{1}{2 \rho}(\delta_{ik'}\delta_{jl'} + \delta_{jk'}\delta_{il'})  \\
- 		- v_j \dot{c} + \frac{v_j}{\rho} & (\dot{c} - \frac{1}{\rho}) \delta_{i'j} &  * & 0 \\
- 		-\mathring{c}_{kl} v_j + \frac{1}{2 \rho} (v_k \delta_{jl} + v_l \delta_{jk}) & \mathring{c}_{kl} \delta_{i'j}  - \frac{1}{2\rho} (\delta_{jl} \delta_{i'k} + \delta_{jk} \delta_{i'l}) & 0 & * 
+ 		* & \frac{\pi_\rho \delta_{i'j} - v_{i'} v_j }{\rho} & -v_j n \dot{c} + \frac{v_j}{\rho} &　-\mathring{c}_{k'l'} v_j + \frac{1}{2 \rho} (v_{k'} \delta_{jl'} + v_{l'} \delta_{jk'}- \frac{2}{n}v_j\delta_{k'l'}) \\
+ 		\frac{-v_i v_j  + \pi_\rho \delta_{ij}}{\rho} & *   &  (n \dot{c} - \frac{1}{\rho}) \delta_{ij} &  \mathring{c}_{k'l'} \delta_{ij}- \frac{1}{2 \rho}(\delta_{ik'}\delta_{jl'} + \delta_{jk'}\delta_{il'} - \frac{2}{n} \delta_{ij}\delta_{k'l'})  \\
+ 		- v_j n\dot{c} + \frac{v_j}{\rho} & (n \dot{c} - \frac{1}{\rho}) \delta_{i'j} &  * & 0 \\
+ 		-\mathring{c}_{kl} v_j + \frac{1}{2 \rho} (v_k \delta_{jl} + v_l \delta_{jk} - \frac{2}{n} v_j \delta_{kl}) & \mathring{c}_{kl} \delta_{i'j}  - \frac{1}{2\rho} (\delta_{jl} \delta_{i'k} + \delta_{jk} \delta_{i'l} - \frac{2}{n} \delta_{i'j}\delta_{kl}) & 0 & * 
  		\end{smallmatrix} \right)
 	\end{equation*}
 	对称。于是根据对称双曲组解的局部存在性定理，如果$U_0 =U_0(x) \in H^{s}(\mathbf{R}^n)$，其中$s>\frac{n}{2} +1$。那么存在时间区间$[0,T]$，其中$T>0$,使得方程\eqref{eq:CDF}对于初值问题$U=U_0(x)$，存在唯一解$U = U(x,t) \in C([0,T],H^s)$\cite{kato1975cauchy,majda2012compressible}。
@@ -569,23 +582,21 @@ M_0=\frac{1}{\lambda \theta^2}, M_1=\frac{\lambda \theta^2}{d\tau}, M_2=\frac{2\
 
 	对于包含源项的守恒律方程组，雍稳安、Kawashima等人研究了其解的整体存在性\cite{yong2004entropy,kawashima2009decay,kawashima2004dissipative}。本节将采用其中的结果证明下面的定理。
 	\begin{theorem} \label{th:Kawashima}
-		设整数$s \ge [\frac{n}{2}]+2$，且方程\eqref{eq:CDF}满足守恒-耗散理论的两个假设，其中耗散矩阵$M$为正定对称的。且满足Kawashima条件。那么存在常数$C_1,C_2$，若$U_0 = U_0(x) \in H^s(\mathbf{R}^n)$满足
-		\begin{equation*}
-			\|U_0 -U_e\|_{H^s} \le C_1.
-		\end{equation*}
-		则方程\eqref{eq:CDF}以$U_0$为初值的Cauchy问题存在唯一的整体解$U=U(x,t) \in C([0,\infty),H^s(\mathbf{R}^d)]$，且对任意$T>0$满足下面的估计。
+		设整数$s \ge [\frac{n}{2}]+2$，$U_0 = U_0(x) \in H^s(\mathbf{R}^n)$且$\|U_0 -U_e\|_{H^s}$足够小，
+		那么方程组\eqref{eq:CDFalphaConst}以$U_0$为初值的Cauchy问题存在唯一的整体解$U=U(x,t) \in C([0,\infty),H^s(\mathbf{R}^d))$，且对任意$T>0$下面的估计成立。
 		\begin{eqnarray*}
 			&& \|U(\cdot,T) - U_e \|_{H^s}^2 + \int_0^T \| \mathcal{Q}(U)(\cdot,t)\|_{H^s}^2 dt + \int_0^T \|\nabla U (\cdot,t)\|_{H^{s-1}}^2 dt \\
-			&& \le C_2 \| U_0 -U_e\|_{H^s}^2
+			&& \le C \| U_0 -U_e\|_{H^s}^2.
 		\end{eqnarray*}
+		其中常数$C$与$T$无关。
 	\end{theorem}
 
 	\begin{proof}
-		根据文献\cite{yong2004entropy}，定理\ref{th:Kawashima}对方程\eqref{eq:CDFalphaConst}成立的一个充分条件是
+		根据文献\cite{yong2004entropy}，定理\ref{th:Kawashima}对方程组\eqref{eq:CDFalphaConst}成立的充分条件是
 		\begin{enumerate}
-			\item 雅克比矩阵$\mathcal{q}_{U_d}(U_e)$可逆。
-			\item 存在严格下凸函数$\tilde{\eta}(U)$，使得$\eta_{UU}F_{jU}$对称。
-			\item 存在正常数$c_G >0$，使得$[\tilde{\eta}_{U}(U) - \tilde{\eta}_{U}(U_e)]^T \mathcal{Q}(U) \le - c_G |\mathcal{Q}|^2$。
+			\item 雅克比矩阵$\mathcal{q}_{U_d}(U_e)$可逆；
+			\item 存在严格下凸函数$\tilde{\eta}(U)$，使得$\tilde{\eta}_{UU}F_{jU}$对称；
+			\item 存在正常数$c_G >0$，使得$[\tilde{\eta}_{U}(U) - \tilde{\eta}_{U}(U_e)]^T \mathcal{Q}(U) \le - c_G |\mathcal{Q}|^2$；
 			\item 雅克比矩阵$\mathcal{Q}_U(U_e)$的零空间不包含符号矩阵$\sum_{j} \omega_j F_{jU}(U_e), \omega =(\omega_1, \cdot,\omega_n) \in \mathbf{S}^{n-1}$的特征向量（$\mathbf{S}^{n-1}$表示$\mathbf{R}^n$的单位球）。
 		\end{enumerate}
 
@@ -596,21 +607,21 @@ M_0=\frac{1}{\lambda \theta^2}, M_1=\frac{\lambda \theta^2}{d\tau}, M_2=\frac{2\
 				0 & \frac{1}{\xi}
 			\end{array}\right)
 		\end{equation*}
-		显然可逆，从而第一个条件成立。对于第二个条件，即为守恒—耗散理论的第一条假设。取$\tilde{\eta} = -\eta$即可。第三个条件可由守恒—耗散理论第二条假设得到。首先由$\eta_{U_d}(U_e) = 0$得到
+		显然可逆，从而第一个条件成立。对于第二个条件，即为守恒－耗散理论的第一条假设，取$\tilde{\eta} = -\eta$即可。第三个条件可由守恒－耗散理论第二条假设得到，首先由$\eta_{U_d}(U_e) = 0$得到
 		\begin{eqnarray*}
-			(\tilde{\eta}_{U}(U) - \tilde{\eta}_{U}(U_e))^T \mathcal{Q}(U) = -\eta_{U}(U)^T  \mathcal{Q}(U) = -\eta_{U_d}^T M \eta_{U_d} \\
+			(\tilde{\eta}_{U}(U) - \tilde{\eta}_{U}(U_e))^T \mathcal{Q}(U) = -\eta_{U_d}(U)^T  \mathcal{q}(U) = -\eta_{U_d}^T M \eta_{U_d} \\
 			= -\eta_{U_d}^T M^T M^{-T} M \eta_{U_d} \le -\mu |M\eta_{U_d}|^2 = - \mu |\mathcal{Q}|^2 
 		\end{eqnarray*}
-	其中$\mu$为$M^{-1}$的最小特征值，即$\mu= \min\{\kappa, \xi\}$。从而守恒—耗散理论的两条假设保证了方程\eqref{eq:CDFalphaConst}满足前三个条件。我们只需验证第四个条件成立，则定理\eqref{th:Kawashima}根据\cite{yong2004entropy}成立。
+	其中$\mu$为$M^{-1}$的最小特征值，即$\mu= \min\{\kappa, \xi\}$。从而守恒－耗散理论的两条假设保证了方程\eqref{eq:CDFalphaConst}满足前三个条件。我们只需验证第四个条件成立，则定理\eqref{th:Kawashima}根据\cite{yong2004entropy}成立。
 
 	下面我们验证条件4对\eqref{eq:CDFalphaConst}成立。
-	首先假设$W = (W_1,W_2,W_3,W_4)^T$在雅克比矩阵$\mathcal{Q}_U(U_e)$的零空间中。从而$\mathcal{Q}_U(U_e) W = 0$。于是$\mathcal{q}_{U_d}(U_e) W=0$。
+	首先假设$W = (W_1,W_2,W_3,W_4)^T$在雅克比矩阵$\mathcal{Q}_U(U_e)$的零空间中，从而$\mathcal{Q}_U(U_e) W = 0$，于是$\mathcal{q}_{U_d}(U_e) W=0$，
 	\begin{equation*}
 		\left( \begin{array}{cc} 
 		-\frac{1}{\kappa} & \\
 		&　\frac{1}{\xi} 
 		\end{array} \right) 
-		\left( \begin{array}{c} W_3 \\W_4 \end{array} \right) = 0.
+		\left( \begin{array}{c} W_3 \\W_4 \end{array} \right) = 0,
 	\end{equation*}
 	从而$W_3=0,W_4=0$。
 
@@ -619,18 +630,18 @@ M_0=\frac{1}{\lambda \theta^2}, M_1=\frac{\lambda \theta^2}{d\tau}, M_2=\frac{2\
 	    A_{j}(U) =
  		\left( \begin{smallmatrix} 
  		0 & \delta_{i'j} & 0 & 0  \\
- 		\pi_\rho(\rho_e) \delta_{ij} & 0  &  - \delta_{ij} & -\frac{1}{2}(\delta_{ik'}\delta_{jl'} + \delta_{jk'} \delta_{il'}) \\
- 		0 & - \frac{1}{\rho_e} \delta_{i'j} & 0 & 0 \\
- 		0 & -\frac{1}{2\rho_e}(\delta_{i'k}\delta_{jl} + \delta_{jk} \delta_{i'l}) & 0 & 0
+ 		\pi_\rho(\rho_e) \delta_{ij} & 0  &  - \delta_{ij} & -\frac{1}{2}(\delta_{ik'}\delta_{jl'} + \delta_{jk'} \delta_{il'} - \frac{2}{n} \delta_{k'l'}\delta_{ij}) \\
+ 		0 & - \frac{1}{n \rho_e} \delta_{i'j} & 0 & 0 \\
+ 		0 & -\frac{1}{2\rho_e}(\delta_{i'k}\delta_{jl} + \delta_{jk} \delta_{i'l} - \frac{2}{3} \delta_{kl} \delta_{i'j}) & 0 & 0
  		\end{smallmatrix} \right)
  	\end{eqnarray*}
 	得到
 	\begin{eqnarray*}
 		&& \sum_j \omega_j \left( \begin{smallmatrix} 
  		0 & \delta_{i'j} & 0 & 0  \\
- 		\pi_\rho(\rho_e) \delta_{ij} & 0  &  - \delta_{ij} & -\frac{1}{2}(\delta_{ik'}\delta_{jl'} + \delta_{jk'} \delta_{il'}) \\
- 		0 & - \frac{1}{\rho_e} \delta_{i'j} & 0 & 0 \\
- 		0 & -\frac{1}{2\rho_e}(\delta_{i'k}\delta_{jl} + \delta_{jk} \delta_{i'l}) & 0 & 0
+ 		\pi_\rho(\rho_e) \delta_{ij} & 0  &  - \delta_{ij} & -\frac{1}{2}(\delta_{ik'}\delta_{jl'} + \delta_{jk'} \delta_{il'} - \frac{2}{n} \delta_{ij} \delta_{k'l'}) \\
+ 		0 & - \frac{1}{n \rho_e} \delta_{i'j} & 0 & 0 \\
+ 		0 & -\frac{1}{2\rho_e}(\delta_{i'k}\delta_{jl} + \delta_{jk} \delta_{i'l} - \frac{2}{n} \delta_{kl} \delta_{i'j}) & 0 & 0
  		\end{smallmatrix} \right) \\
  		&& = \mu \left( \begin{array}{c} W_1 \\ W_{2i'} \\W_{3} \\W_{4k'l'} \end{array} \right).
 	\end{eqnarray*}
@@ -638,8 +649,8 @@ M_0=\frac{1}{\lambda \theta^2}, M_1=\frac{\lambda \theta^2}{d\tau}, M_2=\frac{2\
 	\begin{eqnarray*}
 		\omega \cdot W_2 = \mu W_1, \\ 
 		\pi_{\rho}(\rho_e) W_1 \omega_{i} =\mu W_{2i}, \\
-		-\frac{1}{\rho_e} W_2 \cdot \omega  = 0, \\
-		-\frac{1}{\rho_e} (\omega_{k}  W_{2l} +  \omega_{l} w_{2k}) = 0.
+		-\frac{1}{n \rho_e} W_2 \cdot \omega  = 0, \\
+		-\frac{1}{\rho_e} (\omega_{k}  W_{2l} +  \omega_{l} w_{2k} - \frac{2}{n} \omega \cdot W_2 \delta_{kl}) = 0.
 	\end{eqnarray*}
 	由第三个式子得到$W_2 \cdot \omega = 0$，第四个式子两边同乘以$\omega_k$并对$k$求和得到
 	\begin{equation*} \label{eq:Womega}
@@ -655,7 +666,7 @@ M_0=\frac{1}{\lambda \theta^2}, M_1=\frac{\lambda \theta^2}{d\tau}, M_2=\frac{2\
 % 	对应的$U$满足$\eta_{U_d}(U) = 0$。
 % 	注意到守恒耗散理论的第一条假设和第二条假设以及$M$的零空间不依赖于$U$正好构成了文献\cite{}中对方程\eqref{eq:CDF}的三条假设。而由于$M$的正定性，其零空间为0，不依赖于$U$。从而根据\cite{}中的定理2.4，我们有
 % 	\begin{theorem}
-% 		假设方程\eqref{eq:CDF}满足守恒-耗散定理的两条基本假设，耗散矩阵$M$对称且零空间不依赖于$U$。那么下面的结论成立（文献\cite{}定理2.4）。
+% 		假设方程\eqref{eq:CDF}满足守恒－耗散定理的两条基本假设，耗散矩阵$M$对称且零空间不依赖于$U$。那么下面的结论成立（文献\cite{}定理2.4）。
 % 		\begin{enumerate}
 % 			\item $$-\eta_{U_d}^T (U) \mathcal{q}(U) \le -\lambda^{-1}(U) |\mathcal{q}(U)|^2$$对任意的$U$成立。这里$\lambda(U)$为$M$的最大特征值。
 % 			\item $\mathcal{Q} (U) = 0$等价于$\eta_{U_d} (U) = 0$。
@@ -665,13 +676,13 @@ M_0=\frac{1}{\lambda \theta^2}, M_1=\frac{\lambda \theta^2}{d\tau}, M_2=\frac{2\
 % 	\end{theorem}
 % 	下面我们证明这些结果。
 % 	\begin{proof}
-% 		文献\cite{}考虑的第一个条件即为守恒-耗散理论的第一条假设（只不过\cite{}假设熵函数为下凸的，即对应于我们的$-\eta$）。第二个条件为存在对称半正定矩阵$\mathcal{L} = \mathcal{L}(U)$使得$\mathcal{Q}(U) = \mathcal{L}(U) \eta_{U} (U)$。第三个条件为$\mathcal{L}(U)$的零空间不依赖于$U$。在守恒-耗散理论中我们假设的$\mathcal{L}$为
+% 		文献\cite{}考虑的第一个条件即为守恒－耗散理论的第一条假设（只不过\cite{}假设熵函数为下凸的，即对应于我们的$-\eta$）。第二个条件为存在对称半正定矩阵$\mathcal{L} = \mathcal{L}(U)$使得$\mathcal{Q}(U) = \mathcal{L}(U) \eta_{U} (U)$。第三个条件为$\mathcal{L}(U)$的零空间不依赖于$U$。在守恒－耗散理论中我们假设的$\mathcal{L}$为
 % 		\begin{equation*}
 % 			\mathcal{L} (U)= \left( \begin{array}{cc}
 % 			0 & 0 \\ 0 & M(U)
 % 			\end{array} \right).
 % 		\end{equation*}
-% 		其中$M$的假设为负定的。即守恒-耗散理论的假设要强于文献\cite{}的假设。而由于$M$的正定性$\mathcal{L}$的零空间即$(U_c,U_d = 0)$（对应$\mathcal{L}(U) = 0$，注意这里为简单采用了$U$表示其零空间的向量，并不代表方程的解）。于是文献\cite{}中定理2.4的（1）、（2）、（4）、（5）分别对应这里的四个结论。下面我们给出这四个结论的直接证明。
+% 		其中$M$的假设为负定的。即守恒－耗散理论的假设要强于文献\cite{}的假设。而由于$M$的正定性$\mathcal{L}$的零空间即$(U_c,U_d = 0)$（对应$\mathcal{L}(U) = 0$，注意这里为简单采用了$U$表示其零空间的向量，并不代表方程的解）。于是文献\cite{}中定理2.4的（1）、（2）、（4）、（5）分别对应这里的四个结论。下面我们给出这四个结论的直接证明。
 % 		\begin{enumerate}
 % 			\item 由于$M$的最大特征值为$\lambda$，下面的式子成立。
 % 			\begin{equation*}
@@ -698,7 +709,7 @@ M_0=\frac{1}{\lambda \theta^2}, M_1=\frac{\lambda \theta^2}{d\tau}, M_2=\frac{2\
 % 	\end{itemize}
 % 	根据文献\cite{}，我们可以得到下面的平衡态$U=U_e$附近方程\eqref{eq:CDF}的整体存在性定理。
 % 	% \begin{theorem} \label{th:Kawashima}
-% 	% 	设整数$s \ge [\frac{n}{2}]+2$，且方程\eqref{eq:CDF}满足守恒-耗散理论的两个假设，其中耗散矩阵$M$为正定对称的。且满足Kawashima条件。那么存在常数$C_1,C_2$，若$U_0 = U_0(x) \in H^s(\mathbf{R}^n)$满足
+% 	% 	设整数$s \ge [\frac{n}{2}]+2$，且方程\eqref{eq:CDF}满足守恒－耗散理论的两个假设，其中耗散矩阵$M$为正定对称的。且满足Kawashima条件。那么存在常数$C_1,C_2$，若$U_0 = U_0(x) \in H^s(\mathbf{R}^n)$满足
 % 	% 	\begin{equation*}
 % 	% 		\|U_0 -U_e\|_{H^s} \le C_1.
 % 	% 	\end{equation*}
@@ -903,21 +914,21 @@ M_0=\frac{1}{\lambda \theta^2}, M_1=\frac{\lambda \theta^2}{d\tau}, M_2=\frac{2\
 	\subsubsection{Maxwell迭代}
 	首先我们从形式上说明方程组\eqref{eq:CDFalphaConst}当松弛参数$\kappa,\xi$同时趋于$0$时可以趋于Navier-Stokes方程组。为此我们采用Maxwell迭代。首先方程组\eqref{eq:CDFalphaConst}中$\dot{c}$和$\mathring{c}$的方程可以写作
 	\begin{eqnarray*}
-			\rho \dot{c} = - \kappa \left( (\rho \dot{c})_t  + \nabla \cdot(\rho \dot{c} \otimes v) -  \nabla \cdot v  \right). \\
-			\rho \mathring{c} = -\xi \left( (\rho \mathring{c})_t + \nabla \cdot (\rho c \otimes v) - \frac{1}{2} (\nabla v + (\nabla v)^T) \right).
+			\rho \dot{c} = - \kappa \left( (\rho \dot{c})_t  + \nabla \cdot(\rho \dot{c} \otimes v) - \frac{1}{n} \nabla \cdot v  \right). \\
+			\rho \mathring{c} = -\xi \left( (\rho \mathring{c})_t + \nabla \cdot (\rho c \otimes v) - \frac{1}{2} (\nabla v + (\nabla v)^T - - \frac{2}{n} \nabla \cdot v I \right).
 	\end{eqnarray*}
 	迭代一次得到
 	\begin{eqnarray*}
-		\rho \dot{c} = \kappa \nabla \cdot v + O(\kappa^2), \\
-		\rho \mathring{c} =  \frac{\xi}{2}  (\nabla v + (\nabla v)^T - \frac{2}{3} \nabla \cdot v) + O(\xi^2).
+		\rho \dot{c} = \frac{1}{n} \kappa \nabla \cdot v + O(\kappa^2), \\
+		\rho \mathring{c} =  \frac{\xi}{2}  (\nabla v + (\nabla v)^T - \frac{2}{n} \nabla \cdot v I) + O(\xi^2).
 	\end{eqnarray*}
 	将其代入方程组\eqref{eq:CDFalphaConst}，得到下面的Navier-Stoekes方程组。
 	\begin{subequations}\label{eq:CDFalphaConstNS}
 		\begin{align}
 			\rho_t + \nabla \cdot (\rho v) &=0, \\
-			(\rho v)_t + \nabla \cdot (\rho v \otimes v) + \nabla \pi &= \nabla \cdot (\kappa \nabla \cdot v + \xi  (\frac{\nabla v + (\nabla v)^T}{2} - \frac{1}{3} \nabla \cdot v), \\
-			(\rho \dot{c})_t  + \nabla \cdot(\rho \dot{c} \otimes v) -  \nabla \cdot v &= - \frac{\rho \dot{c}}{\kappa}. \\
-			(\rho \mathring{c})_t + \nabla \cdot (\rho c \otimes v) - \frac{1}{2} (\nabla v + (\nabla v)^T) &= - \frac{\rho \mathring{c}}{\xi}.
+			(\rho v)_t + \nabla \cdot (\rho v \otimes v) + \nabla \pi &= \frac{\xi}{2} \Delta v + (\frac{\kappa - \xi}{n} + \frac{\xi}{2}) \nabla \nabla \cdot  v \\ % \nabla \cdot (\frac{\kappa}{n} \nabla \cdot v I + \xi  (\frac{\nabla v + (\nabla v)^T}{2} - \frac{1}{n} \nabla \cdot v I), \\
+			(\rho \dot{c})_t  + \nabla \cdot(\rho \dot{c} \otimes v) -  \frac{1}{n} \nabla \cdot v &= - \frac{\rho \dot{c}}{\kappa}. \\
+			(\rho \mathring{c})_t + \nabla \cdot (\rho c \otimes v) - \frac{1}{2} (\nabla v + (\nabla v)^T - \frac{2}{n} \nabla \cdot v I) &= - \frac{\rho \mathring{c}}{\xi}.
 		\end{align}
 	\end{subequations}
 	这样我们从形式上说明了当松弛参数$\kappa,\xi$同时趋于$0$时，方程组\eqref{eq:CDFalphaConst}趋近于Navier-Stokes方程组\eqref{eq:CDFalphaConstNS}。
@@ -926,27 +937,28 @@ M_0=\frac{1}{\lambda \theta^2}, M_1=\frac{\lambda \theta^2}{d\tau}, M_2=\frac{2\
 	%假设方程\eqref{eq:CDFalphaConst}的解为$U = (U^I,U^{II})$，其中$U^I = (\rho, \rho v)$，$U^{II}= (\rho \dot{c},\rho \mathring{c})$。
 	假设方程组\eqref{eq:CDFalphaConstNS}的解为$W = (\rho,\rho v)$。由文献\cite{yang2015validity}可以得到如果方程组\eqref{eq:CDFalphaConst}满足一定的条件，则下面的定理成立。
 	\begin{theorem} \label{th:chapmanenskog}
-		令整数$s \ge \frac{1}{2}n+1$。假设方程组\eqref{eq:CDFalphaConst}和\eqref{eq:CDFalphaConstNS}的初值分别为$U_0(x,\kappa) = (U_{c0}(x,\kappa),U_{d0}(x,\kappa))$和$W_0(x,\kappa)$。且满足
-		\begin{eqnarray}
+		令整数$s \ge \frac{1}{2}n+1$。假设$\kappa=\xi$，方程组\eqref{eq:CDFalphaConst}和\eqref{eq:CDFalphaConstNS}的初值分别为$U_0(x,\kappa) = (U_{c0}(x,\kappa),U_{d0}(x,\kappa))$和$W_0(x,\kappa)$，且满足
+		\begin{eqnarray*}
 			U_0 \in H^s(\mathbf{R}^n), W_0 \in H^s(\mathbf{R}^n)
-		\end{eqnarray}
+		\end{eqnarray*}
 		以及
 		\begin{equation*}
 			\|U_{c0}(\cdot,\kappa) - W_0(\cdot, \kappa) \|_{H^s} = O(\kappa^2).
 		\end{equation*}
-		那么存在不依赖与$\kappa$的时间常数$T>0$和常数$K(T)$使得以$U_0$和$W_0$为初值的方程组\eqref{eq:CDFalphaConst}和\eqref{eq:CDFalphaConstNS}的解$U=U(x,t)$和$W=W(x,t)$在空间$C([0,T],H^s)$中存在且唯一。并且对充分小的$\kappa$，下面的式子成立。
+		那么存在不依赖与$\kappa$的时间常数$T>0$和常数$K(T)$，使得以$U_0$和$W_0$为初值的方程组\eqref{eq:CDFalphaConst}和\eqref{eq:CDFalphaConstNS}的解$U=U(x,t)$和$W=W(x,t)$在空间$C([0,T],H^s)$中存在且唯一，并且对充分小的$\kappa$，下面的式子成立。
 		\begin{equation}
 			\sup_{t \in [0,T]} \| U(\cdot,t) - W(\cdot,t) \|_{H^s} \le K(T) \kappa^2.
 		\end{equation}
 	\end{theorem}
 
 	\begin{proof}
-		我们只需要验证方程组满足\cite{yang2015validity}中定理2.1的条件。这些条件的前三条可以由守恒耗散理论的假设得到。即
+		我们只需要验证方程组满足\cite{yang2015validity}中定理2.1的条件，这样根据其中的定理2.1可知这里的定理\ref{th:chapmanenskog}成立。这些条件的前三条可以由守恒耗散理论的假设得到。即
 		\begin{enumerate}
-			\item 	存在严格上凸熵函数$\eta = \eta(U)$使得$\eta_{UU} F_{jU}$对称。
-			\item 	存在对称半正定矩阵$L=L(U)$，使得$\mathcal{Q}(U) = -L(U) \eta_{U}(U)$。实际上我们取$L = diag(0,M)$即可满足要求。
-			\item   $L(U)$的零空间不依赖于$U$，这对$L = diag(0,M)$显然成立。
+			\item 	存在严格下凸熵函数$\tilde{\eta} = \tilde{\eta}(U)$使得$\tilde{\eta}_{UU} F_{jU}$对称；%取$\tilde{\eta} = - \eta$即可；
+			\item 	存在对称半正定矩阵$L=L(U)$，使得$\mathcal{Q}(U) = -L(U) \eta_{U}(U)$；%实际上我们取$L = diag(0,M)$即可满足要求。
+			\item   $L(U)$的零空间不依赖于$U$，这对$L = diag(0,M)$显然成立；
 		\end{enumerate}
+		实际上，取$\tilde{\eta} = - \eta,\ L = diag(0,M)$，容易验证这三个条件成立。
 		
 		另外为了使定理\ref{th:chapmanenskog}成立，方程还需要满足各向同性条件（“isotropic condition”）。即
 		\begin{enumerate}
@@ -956,16 +968,16 @@ M_0=\frac{1}{\lambda \theta^2}, M_1=\frac{\lambda \theta^2}{d\tau}, M_2=\frac{2\
 		\begin{equation*}
 			\sum_{j=1}^n f_{jU_d} \omega_j = \left( \begin{matrix}
 				0 & 0 \\
-				-\frac{1}{\rho} \omega_i & -\frac{1}{2 \rho} (\omega_{l'} \delta_{ik'} + \omega_{k'} \delta_{il'})
+				-\frac{1}{n \rho} \omega_i & -\frac{1}{2 \rho} (\omega_{l'} \delta_{ik'} + \omega_{k'} \delta_{il'} - \frac{2}{n} \omega_i \delta_{k'l'})
 			\end{matrix}
 			\right)
 		\end{equation*}
 		的左零空间不依赖于$\omega$和$U$。从而定理得证。
 	\end{proof}
 	% \subsection{可压模型的不可压极限}
-	% 经典可压Euler方程的小马赫数极限的数学分析依赖于Euler方程的双曲性\cite{}。由于守恒-耗散理论得到的方程是对称双曲的，前面导出的可压粘弹性流体力学方程的小马赫数极限问题可以采用类似Euler方程的分析方法进行处理。本小节我们将忽略热传导并假设压力$p$为密度的函数，满足$p(\rho) = \kappa \rho^\gamma, \gamma>1$。
+	% 经典可压Euler方程的小马赫数极限的数学分析依赖于Euler方程的双曲性\cite{}。由于守恒－耗散理论得到的方程是对称双曲的，前面导出的可压粘弹性流体力学方程的小马赫数极限问题可以采用类似Euler方程的分析方法进行处理。本小节我们将忽略热传导并假设压力$p$为密度的函数，满足$p(\rho) = \kappa \rho^\gamma, \gamma>1$。
 	\subsection{本章小结}
-	本章我们利用守恒—耗散理论讨论了线性粘弹性流体的数学建模。将推广了Guyer-Krumhansl理论推广并应用于粘弹性流体的建模之中。另外我们还对得到的方程的数学性质进行了讨论。证明了由守恒-耗散理论得到的等温可压Maxwell模型平衡态附近解具有整体存在性。以及当松弛参数趋于$0$时该模型\eqref{eq:CDFalphaConst}和Navier-Stokes方程\eqref{eq:CDFalphaConstNS}的相一致。通过这些建模和分析，我们可以看出守恒—耗散理论可以很好地用来描述线性粘弹性模型。且守恒—耗散理论所提出的的结构保证了这些模型具有很好的数学性质。
+	本章我们利用守恒－耗散理论讨论了线性粘弹性流体的数学建模。利用守恒－耗散理论推广了Guyer-Krumhansl理论并应用于粘弹性流体的建模之中。另外我们还对由守恒－耗散理论得到的等温可压Maxwell方程的数学性质进行了讨论。证明了这一模型平衡态附近解具有整体存在性（定理\ref{th:Kawashima}），以及当松弛参数趋于$0$时该模型\eqref{eq:CDFalphaConst}和Navier-Stokes方程\eqref{eq:CDFalphaConstNS}的相一致（定理\ref{th:chapmanenskog}）。通过这些建模和分析，我们可以看出守恒－耗散理论可以很好地用来描述线性粘弹性模型，且守恒－耗散理论所提出的的结构保证了这些模型具有很好的数学性质。
 	 % \bibliography{ref}
 	 % \bibliographystyle{unsrt}
 
