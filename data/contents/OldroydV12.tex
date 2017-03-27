@@ -35,7 +35,7 @@
 % 		\end{align}
 % \end{subequations}
 
-虽然模型\eqref{eq:ECDFsecond1D}的熵函数存在，但是由于方程不是守恒形式，熵函数的Hessian矩阵无法对称化这一一维方程组。我们在本小节中将会首先给出这一方程组的一个对称子。然后验证其满足Kawashima条件，从而证明平衡态附近解的整体存在性定理。最后我们讨论了源项含有小参数时的松弛极限，并给出了松弛参数趋于0时其近似一维Navier-Stokes方程的严格分析。
+虽然模型\eqref{eq:ECDFsecond1D}的熵函数存在，但是由于方程不是守恒形式，熵函数的Hessian矩阵无法对称化这个一维方程组。我们在本小节中将会首先给出这一方程组的一个对称子。然后验证其满足Kawashima条件，从而证明平衡态附近解的整体存在性定理。最后我们讨论了源项含有小参数时的松弛极限，并给出了松弛参数趋于0时其近似一维Navier-Stokes方程的严格分析。
 
 \subsection{熵函数和对称性}
 首先由前面的分析，我们可以得到方程\eqref{eq:ECDFsecondisothermal}的比熵为
@@ -44,7 +44,7 @@
 \end{equation*}
 令$U = (\rho, \rho v, \rho c)^T$。我们可以得到方程的熵函数
 \begin{equation*}
-	\eta = \eta(U) = \frac{(\rho v)^2}{2\rho}+\rho \int_{\rho_0}^{\rho} \frac{p(z)}{z^2} dz + \frac{1}{2}  \mbox{Tr} \left((\rho c)^2\right).
+	\eta = \eta(U) = \frac{(\rho v)^2}{2\rho}+\rho \int_{\rho_0}^{\rho} \frac{\pi(z)}{z^2} dz + \frac{1}{2}  \mbox{Tr} \left((\rho c)^2\right).
 \end{equation*}
 注意我们在这里采用的熵函数$\eta$的符号与之前正好相反。%实际上这里$\eta$代表的是Hemholtz自由能。
 $\eta$为其变量的下凸函数。这是因为
@@ -55,16 +55,16 @@ $\eta$为其变量的下凸函数。这是因为
 		0 & 0 & \delta_{k''k}\delta_{l''l}
 	\end{array}\right)
 \end{equation*}
-当$p_\rho>0$是为正定的。而因为静压力$p$为$\rho$的单调增函数$p_\rho>0$成立。
+当$\pi_\rho>0$时是正定的。而因为静压力$\pi$为$\rho$的单调增函数$\pi_\rho>0$成立。
 
 通过计算，我们可以得到熵的演化方程
 \begin{eqnarray}\label{23}
-	\eta_t &=&  - \nabla \cdot ( \eta v+ p v - (2\rho c + 2 \rho c \cdot \rho c) \cdot v) - \frac{1}{\kappa} \rho c: \rho c \nonumber\\
+	\eta_t &=&  - \nabla \cdot ( \eta v+ \pi v - (2\rho c + 2 \rho c \cdot \rho c) \cdot v) - \frac{1}{\kappa} \rho c: \rho c \nonumber\\
   &\equiv& -\nabla \cdot J(U) + \Delta.	
 \end{eqnarray}
 其中$\Delta \ge 0$。
 
-对于含有熵函数的守恒律方程组\cite{friedrichs1971systems}，我们知道熵函数的Hessian矩阵可以对称化该方程组。然而由于方程组\eqref{eq:ECDFsecondisothermal}不是守恒形式，熵函数的Hessian矩阵不能对称化这个方程组。下面我们来说明这一点。
+对于含有熵函数的守恒律方程组\cite{friedrichs1971systems}，我们知道熵函数的Hessian矩阵可以对称化该方程组。然而由于方程组\eqref{eq:ECDFsecondisothermal}不是守恒形式，熵函数的Hessian矩阵不能对称化这个方程组，下面我们来说明这一点。
 
 首先我们将$U$的方程表示成下面的形式
 \begin{equation*}
@@ -85,9 +85,9 @@ $\eta$为其变量的下凸函数。这是因为
 而熵函数的Hessian矩阵$\eta_{UU}$与$A_j$的乘积为
 \begin{eqnarray*}
 	\eta_{UU}  A_j(U) = \\
-		  \left( \begin{array}{ccc}
-		* & \frac{p_\rho -v_{i} v_j}{\rho}  & (13)  \\
-		\frac{p_\rho -v_i v_j}{\rho} & * &  (23) \\
+		 \left( \begin{array}{ccc}
+		* & \frac{\pi_\rho -v_{i} v_j}{\rho}  & (13)  \\
+		\frac{\pi_\rho -v_i v_j}{\rho} & * &  (23) \\
 		(31) & (32) & *
 	\end{array} \right)
 \end{eqnarray*}
@@ -100,28 +100,28 @@ $\eta$为其变量的下凸函数。这是因为
 \begin{equation*}
 	A(U) = \left( \begin{array}{ccc}
 		0 & 1 & 0 \\
-		p_\rho - v^2 & 2v & -3 \rho c - 2 \\
+		\pi_\rho - v^2 & 2v & -3 \rho c - 2 \\
 		\frac{ (\rho c + 2) v}{\rho} & -  \frac{\rho c + 2}{\rho} & v 
 	\end{array}\right).
 \end{equation*}
 我们可以找到下面的对称子
 \begin{eqnarray}\label{31}
 A_0(U) = \frac{1}{\rho} \left( \begin{array}{ccc}
-	 p_\rho  +v^2 & -v & 0 \\ [2mm]
+	 \pi_\rho  +v^2 & -v & 0 \\ [2mm]
 	-v & 1 & 0 \\[2mm]
 	0 & 0 & \frac{3\rho c+2}{\rho c+2}\rho  \end{array} \right),
 \end{eqnarray}
 使得$A_0(U)$和
 \begin{eqnarray*}
 A_0(U) A(U) = \frac{1}{\rho} \left( \begin{array}{ccc}
-		-(p_{\rho}-v^2)v & {p_\rho -v^2} & {(3\rho c + 2)v} \\[2mm]
-		{p_\rho-v^2} & {v} & -{(3 \rho c+2)} \\[2mm]
+		-(\pi_{\rho}-v^2)v & {p_\rho -v^2} & {(3\rho c + 2)v} \\[2mm]
+		{\pi_\rho-v^2} & {v} & -{(3 \rho c+2)} \\[2mm]
 		{(3 \rho c+ 2)v} & -{(3 \rho c+2)} & \frac{3\rho c+2}{\rho c + 2}\rho v
 		\end{array} \right)
 \end{eqnarray*}
 都是对称的。并且当
 \begin{eqnarray*}
-p_\rho > 0 \quad \mbox{and} \quad \rho c > -\frac{2}{3} \quad \mbox{or} \quad  \rho c < -2 
+\pi_\rho > 0 \quad \mbox{and} \quad \rho c > -\frac{2}{3} \quad \mbox{or} \quad  \rho c < -2 
 \end{eqnarray*}
 时，$A_0(U)$为正定的。在这里，我们取
 \begin{equation}\label{37}
