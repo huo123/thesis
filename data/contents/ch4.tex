@@ -325,7 +325,7 @@ M \cdot \left( \begin{array}{c} q \\ s_c  \end{array} \right)
 
 从而我们得到第二类模型的方程如下。
 % 不考虑温度（$\theta=1$）的等温方程为
-\begin{subequations}
+\begin{subequations}\label{eq:lingen}
   \begin{align}
   \rho_t + \nabla \cdot (\rho v) = 0, \\
   (\rho v)_t + \nabla \cdot ( \rho v \otimes v) + \nabla p - \nabla \cdot (\theta \rho \Phi_F F^T) - \nabla \cdot (\frac{1}{\alpha_1}\theta \rho c) = 0, \\
@@ -335,6 +335,7 @@ M \cdot \left( \begin{array}{c} q \\ s_c  \end{array} \right)
   (\rho c)_t + \nabla \cdot (\rho c) - D  = -\frac{\theta \rho \dot{c}}{\kappa}  -\frac{\theta \rho \mathring{c}}{\xi}.
 \end{align}
 \end{subequations}
+这里我们称这一模型为林芳华等提出的模型的推广。
 最简单的情况，取$\Phi(F)$为$F$的二次函数，$\Phi(F) = F:F$，$\alpha_1=1$，并忽略温度的影响（$\theta=1$），取
 \begin{equation*}
     s_0(\nu) = -\int_{\rho_0}^{1/\nu} \frac{\pi(z)}{z^2} dz.
