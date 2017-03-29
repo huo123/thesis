@@ -161,7 +161,7 @@ $L=L(x)$和$M=M(x)$为体系的Possion矩阵和耗散矩阵。通过给出系统
 
 由于EIT缺乏对含客观导数的模型的考虑，以及GENERIC中Possion矩阵和耗散矩阵选取的复杂性以及对可逆部分和不可逆部分耦合方式的简单性，这些理论都没有完美地解决粘弹性流体的建模问题。另一方面，这些理论建立在物理定律的基础上，缺乏对方程数学性质的分析。另外，除上面提到的非平衡态热力学理论之外，也有很多其他的非平衡态热力学理论试图解决粘弹性流体的建模问题，可以参看\cite{stratonovich2012nonlinear,huo1993nonequilibrium,eu1992kinetic}。
 
-雍稳安、朱毅、洪柳、杨再宝等人从双曲方程的结构出发，结合热力学的第一定律和第二定律，发展了不可逆热力学的守恒－耗散理论（CDF）\cite{zhu2014conservation}。守恒－耗散理论已经顺利地应用于线性粘弹性流体力学模型。然而，由于目前的守恒－耗散理论考虑的是守恒形式的方程，而客观导数的存在将会导致方程不再可以写成守恒形式，所以守恒－耗散理论在应用到非线性粘弹性流体模型时遇到了困难。本文将推广这一理论并将其应用于非线性粘弹性流体力学的建模中。
+雍稳安、朱毅、洪柳、杨再宝等人基于雍稳安提出了双曲方程的守恒－耗散结构\cite{yong2008interesting}，发展了不可逆热力学的守恒－耗散理论（CDF）\cite{zhu2014conservation}。雍稳安等发展的守恒－耗散理论（以下简称守恒－耗散理论）通过守恒－耗散结构保证了热力学第一定律和第二定律的成立，并且方程满足雍稳安提出的结构稳定性条件，从而有着良好的数学性质\cite{yong1992singular,yong1999singuler}。守恒－耗散理论已经顺利地应用于线性粘弹性流体力学模型\cite{zhu2014conservation}。然而，由于目前的守恒－耗散理论考虑的是守恒形式的方程，而客观导数的存在将会导致方程不再可以写成守恒形式，所以守恒－耗散理论在应用到非线性粘弹性流体模型时遇到了困难。本文将推广这一理论并将其应用于非线性粘弹性流体力学的建模中。
 
 \subsection{粘弹性流体的记忆衰减理论}
 由于粘弹性流体可以看作连续介质，所以可以采用连续介质力学的理论对其进行建模。前文提到的模型一般都是通过小变形连续介质力学得到的。而对于粘弹性流体来说，尤其是高弹性的流体，小形变假设不再适用。基于此，Bernard Coleman和Walter Noll等人提出了利用有限形变理论对粘弹性流体进行建模的方法\cite{coleman1961foundations,coleman1964thermodynamics,coleman2012viscometric}。该理论认为物质的状态依赖于其形变的历史，而形变可以用形变张量$F$描述。这里$F$定义为流动图$x = x(\xi,t)$的梯度$F_{ij} = \frac{\partial x_i}{\partial \xi_j}$，其中$x,\xi$分别对应于流体质点的Euler和Lagrange坐标。根据定义可以得到
@@ -211,7 +211,7 @@ $L=L(x)$和$M=M(x)$为体系的Possion矩阵和耗散矩阵。通过给出系统
 这违背了热力学第二定律对$w>0$的要求。所以这一理论不能很好地包括上对流导数Maxwell模型。
 
 
-另外，林芳华等人在文献\cite{lin2005hydrodynamics}中提出了下面的模型。
+另外，林芳华、柳春、张平在文献\cite{lin2005hydrodynamics}中提出了下面的模型。
 \begin{subequations}\label{eq:linincompressible}
 	\begin{align}
 		\nabla \cdot v = 0, \\
@@ -219,7 +219,7 @@ $L=L(x)$和$M=M(x)$为体系的Possion矩阵和耗散矩阵。通过给出系统
 		F_t + v \cdot \nabla F = \nabla v F.
 	\end{align}
 \end{subequations}
-文献\cite{liu2008global}中发展这一方程组至可压缩形式。可压形式的方程组如下
+雷震、周忆在\cite{liu2008global}中发展这一方程组至可压缩形式。可压形式的方程组如下
 \begin{subequations}\label{eq:lincompressible}
 	\begin{align}
 		\rho_t + \nabla \cdot (\rho v) = 0, \\
@@ -236,7 +236,7 @@ $L=L(x)$和$M=M(x)$为体系的Possion矩阵和耗散矩阵。通过给出系统
 \section{粘弹性流体的数学分析}
 由于粘弹性流体方程的重要性和复杂性，其数学分析一直以来都吸引了很多数学家的兴趣\cite{lin2012some,li2007mathematical,weinan2002convergence,fabrizio1992mathematical,renardy2008mathematical,joseph1987hyperbolicity,guillope2010regular,saut2012lectures,yong2014newtonian,qian2010well,hu2011global,lei2005global,fang2014incompressible}。目前的分析主要集中于不可压方程，主要包括Oldroyd-B模型、上对流导数Maxwell模型、FENE模型、以及林芳华等人发展的粘弹性流体模型\cite{elgindi2015global,saut2012lectures,renardy2000mathematical,masmoudi2011global,lions2000global,masmoudi2008well,lei2010remarks}。近些年来，也有部分工作讨论了可压粘弹性流体方程\cite{fang2014incompressible,hu2012strong,qian2010global,qian2011initial}。
 \subsection{经典粘弹性流体力学模型的数学分析}
-经典的粘弹性流体模型主要包括线性粘弹性流体力学模型Maxwell模型\eqref{eq:maxwell}和Kelvin-Voigt模型，以及非线性粘弹性流体模型上对流导数Maxwell模型\eqref{eq:chap1UCMmaxll}、Oldroyd-B模型\eqref{eq:Oldroyd}和采用其他客观导数的类似模型等。对这些方程的分析主要集中于方程弱解的全局存在性、光滑解的局部存在性、平衡态附近解的整体存在性，以及松弛参数（通常为Weissenberg数）趋于$0$时的极限分析。我们这里只考虑宏观模型，对于微观模型的数学结果可以参看文献\cite{masmoudi2013global,masmoudi2008well,li2007mathematical,li2004local,li2004well,lions2007global}。
+经典的粘弹性流体模型主要包括线性粘弹性流体力学模型Maxwell模型\eqref{eq:maxwell}和Kelvin-Voigt模型，以及非线性粘弹性流体模型上对流导数Maxwell模型\eqref{eq:chap1UCMmaxll}、Oldroyd-B模型\eqref{eq:Oldroyd}和采用其他客观导数的类似模型等。对这些方程的分析主要集中于方程弱解的全局存在性、光滑解的局部存在性、平衡态附近解的整体存在性，以及松弛参数（通常为Weissenberg数）趋于$0$时的极限分析。我们这里只考虑宏观模型，对于微观模型的数学结果可以参看N. Masmoudi，李铁军，张平文、鄂维南、Constantin、Sun Weiran等人的工作\cite{masmoudi2013global,masmoudi2008well,li2007mathematical,li2004local,li2004well,lions2007global,weinan2002convergence,constantin2010remarks}。
 
 对于线性粘弹性流体的分析结果可以参看\cite{fabrizio1992mathematical,renardy2000mathematical}。书中对线性粘弹性的数学结果做了总结，主要讨论并证明了方程解的存在性和唯一性、稳定性和稳态方程解的存在性和唯一性。由于线性粘弹性流体的适用范围的局限性，大部分分析工作均围绕非线性粘弹性流体模型。最简单的非线性粘弹性流体模型是对流导数Maxwell模型和Oldroyd模型。首先我们考虑对流导数的Maxwell模型
 \begin{subequations}\label{eq:Oldroyda}
@@ -266,7 +266,7 @@ $L=L(x)$和$M=M(x)$为体系的Possion矩阵和耗散矩阵。通过给出系统
 \end{align}
 \end{subequations}
 其中$\eta_s,\eta_p$分别为溶剂和溶质的粘性系数。这一模型与对流导数Maxwell模型\eqref{eq:Oldroyda}的区别是在动量方程中添加了溶剂粘性$2\eta_s \Delta v$一项。
-下面我们将讨论这一模型的主要数学结果。首先其解的局部存在性定理在\cite{guillope1990existence}给出。主要采用了包含时间的Stokes问题的解的存在性结果\cite{temam1995navier}，并利用了Sobolev演算不等式\cite{majda2012compressible}，通过经典的不动点理论得到解的存在唯一性的证明。例如对于\eqref{eq:Oldroydb}$\sigma$的估计，$\sigma$的方程两端与$\sigma$做内积可以得到
+下面我们将讨论这一模型的主要数学结果。首先其解的局部存在性定理由Guillope、Saut等人在\cite{guillope1990existence}给出。主要采用了包含时间的Stokes问题的解的存在性结果\cite{temam1995navier}，并利用了Sobolev演算不等式\cite{majda2012compressible}，通过经典的不动点理论得到解的存在唯一性的证明。例如对于\eqref{eq:Oldroydb}$\sigma$的估计，$\sigma$的方程两端与$\sigma$做内积可以得到
 \begin{equation*}
 	\frac{d}{dt} \|\sigma\|_{L^2}^2  =  -\frac{1}{\lambda} \|\sigma\|_{L^2}^2 + 2 (\frac{\eta}{\lambda} D, \sigma) + \left( (a(D \sigma + \sigma D) - (\sigma W -W \sigma)),\sigma \right).
 \end{equation*}
@@ -290,15 +290,15 @@ $L=L(x)$和$M=M(x)$为体系的Possion矩阵和耗散矩阵。通过给出系统
 		v \in L^2([0,T],H^3) \cap C([0,T],D(A)), \ p \in L^2([0,T],H^2) \ \sigma \in C([0,T],H^2).
 	\end{equation*}
 \end{theorem}
-方程\eqref{eq:Oldroydb}的平衡点$(v=0,\sigma=0)$附近解的整体存在性首先由文献\cite{guillope1990existence}给出，其中假设了$\eta_s/\eta_p$足够大。这一假设是为了保证粘性项$ 2 \eta_s \Delta v$的耗散足够好从而使得$\sigma$的范数可以被$v$的范数控制。采用不同的方法，这一假设被移除，更一般的整体存在性结果也已经被证明\cite{chupin2004some,molinet2004global,molinet2004existence}。文献\cite{molinet2004global,molinet2004existence}中的证明采用了$\|\mathcal{P}\nabla \cdot \sigma\|_{H^1}$来代替文献\cite{guillope1990existence}中的$\|\nabla \cdot \sigma\|_{H^1}$从而得到更好的结果如下。
-\begin{theorem}（Guillope，Molinet等\cite{guillope1990existence,molinet2004existence}）
+方程\eqref{eq:Oldroydb}的平衡点$(v=0,\sigma=0)$附近解的整体存在性首先由文献\cite{guillope1990existence}给出，其中假设了$\eta_s/\eta_p$足够大。这一假设是为了保证粘性项$ 2 \eta_s \Delta v$的耗散足够好从而使得$\sigma$的范数可以被$v$的范数控制。采用不同的方法，这一假设被移除，更一般的整体存在性结果也已经被证明\cite{chupin2004some,molinet2004global,molinet2004existence}。Molinet等人采用了$\|\mathcal{P}\nabla \cdot \sigma\|_{H^1}$来代替文献\cite{guillope1990existence}中的$\|\nabla \cdot \sigma\|_{H^1}$估计，从而得到更好的结果如下\cite{molinet2004global,molinet2004existence}。
+\begin{theorem}（Molinet等\cite{molinet2004existence}）
 	假设$\sigma_0 \in H^2(\mathbf{R}^3),v_0 \in D(A)$足够小,那么存在时间$T>0$，使得方程组\eqref{eq:Oldroydb}存在唯一的光滑解$(v,p,\sigma)$，且满足
 	\begin{eqnarray*}
 		v \in L^2([0,\infty],H^3) \cap C([0,\infty],D(A)), \ p \in L^2([0,\infty],H^2) \ \sigma \in C([0,\infty],H^2).
 	\end{eqnarray*}
 \end{theorem}
 
-在$L^p$框架下方程\eqref{eq:Oldroyda}解的存在性证明可以参见\cite{fernandez1998some,zhang2012global}。Besov空间的存在性结果见\cite{chemin2001lifespan}。
+在$L^p$框架下方程\eqref{eq:Oldroyda}解的存在性证明可以参见Fernandez、张挺和方道元的工作\cite{fernandez1998some,zhang2012global}。Besov空间的存在性结果见J. Y. Chemin和N. Masmoudi的工作\cite{chemin2001lifespan}。
 
 对于方程\eqref{eq:Oldroydb}的弱解的整体存在性，Constantin和Sun证明了空间$C^\alpha(\mathbf{R}^n) \cap L^1(\mathbf{R}^n)$中弱解的存在性\cite{constantin2010remarks,saut2012lectures}。对于$a=0$的情况，$L^2$意义下的弱解被P. L. Lions和N. Masmoudi证明\cite{lions2000global}。这一证明利用了对于$a=0$的模型，方程组\eqref{eq:Oldroydb}中$\sigma$成立下面的估计
 \begin{equation*}
@@ -337,7 +337,7 @@ $\lambda=0$时，$\sigma= 2 \eta_p D$，从而方程组\eqref{eq:Oldroydb}成为
 这样对于$\eta_s \neq 0, \eta_p \neq 0$的情况，方程组\eqref{eq:Oldroydb}和Navier-Stokes方程组\eqref{eq:innavierstokes}的一致性得到了严格地分析。另外，对于弱解下的牛顿极限的分析，可以参看\cite{bresch2014newtonian}。
 
 
-近些年来，一些可压缩粘弹性流体力学模型的数学分析开始吸引一些数学家的兴趣。主要集中于推广的Oldroyd模型。P. C. Bollada和T. N. Phillips总结了关于可压粘弹性模型的数学建模工作\cite{bollada2012mathematical}。并利用Lie导数和微分几何给出了可压上对流导数Maxwell模型。关于这些模型的分析工作目前主要集中于局部存在性和平衡态附近的整体存在性的证明以及不可压极限的分析\cite{zhang2012global,fang2013strong,fang2014incompressible,matuvsuu1999existence,fang2013strong,barrett2016existence,salloum2011local}。例如，文献\cite{fang2013strong}给出了下面的可压Oldroyd-B模型
+近些年来，一些可压缩粘弹性流体力学模型的数学分析开始吸引一些数学家的兴趣。主要集中于推广的Oldroyd模型。P. C. Bollada和T. N. Phillips总结了关于可压粘弹性模型的数学建模工作\cite{bollada2012mathematical}。并利用Lie导数和微分几何给出了可压上对流导数Maxwell模型。关于这些模型的分析工作目前主要集中于局部存在性和平衡态附近的整体存在性的证明以及不可压极限的分析\cite{zhang2012global,fang2013strong,fang2014incompressible,matuvsuu1999existence,fang2013strong,barrett2016existence,salloum2011local}。例如，方道元和訾瑞昭等\cite{fang2013strong}给出了下面的可压Oldroyd-B模型
 \begin{subequations}
 	\begin{align*}
 	\rho_t + \nabla \cdot (\rho v) = 0. \\
@@ -368,7 +368,7 @@ $\lambda=0$时，$\sigma= 2 \eta_p D$，从而方程组\eqref{eq:Oldroydb}成为
 	\|v\|_{L^4}^2 \le C \|v\|_{L^2} \| \nabla v\|_{L^2} ,\ \|\nabla \phi\|_{L^4}^2 \le C \|\nabla \phi\|_{L^2}^{3/2} \|\nabla \Delta \phi\|_{L^2}^{1/2}.
 \end{equation*}
 利用基本的能量估计和上面的不等式，对高阶导数进行估计，可以得到下面的存在性定理。
-\begin{theorem}（林芳华等\cite{lin2005hydrodynamics}）
+\begin{theorem}（林芳华、柳春、张平\cite{lin2005hydrodynamics}）
 	令$s \ge 2$，$\nabla \phi_0 \in H^s(\mathbf{R}^2),v_0 \in H^s(\mathbf{R}^2)$。那么存在仅仅依赖于$\|\nabla \phi_0\|_{H^2}$和$\|v_0\|_{H^2}$的时间$T>0$，使得方程\eqref{eq:linincompressible}在时间区间$[0,T]$上存在唯一解$U=(v,F=\nabla \phi) \in C([0,T],H^s) \cap C([0,T],H^{s+1})$。且如果解的最大存在时间为$T^*$，那么
 	\begin{equation*}
 		\int_0^{T^*} \|\nabla v\|_{H^2}^2 ds = + \infty.
@@ -382,7 +382,7 @@ $\lambda=0$时，$\sigma= 2 \eta_p D$，从而方程组\eqref{eq:Oldroydb}成为
 	\psi_t + v \cdot \nabla \psi = -v.
 \end{eqnarray*}
 这样一来在平衡态附近$w$由于右端项$-v$的衰减效应，以及$w$方程的抛物效应，该方程的整体解存在。下面的定理成立。
-\begin{theorem}（林芳华等\cite{lin2005hydrodynamics}）
+\begin{theorem}（林芳华、柳春、张平\cite{lin2005hydrodynamics}）
 	令$s \ge 2$，$\nabla \phi_0 \in H^s(\mathbf{R}^2),\det(\phi_0) = 1, v_0 \in H^s(\mathbf{R}^2)$。那么对于足够小的$\|\nabla \psi_0\|_{H^2}$和$\|v_0\|_{H^2}$，方程\eqref{eq:linincompressible}存在唯一的整体光滑解$U=(v,F-I=\nabla \psi) \in C([0,\infty],H^s)$。且满足
 	\begin{equation*}
 		\|v\|_{H^2}^2 +\|\nabla \psi\|_{H^2}^2 + \int_0^\infty \|\nabla v\|_{H^2}
@@ -390,7 +390,7 @@ $\lambda=0$时，$\sigma= 2 \eta_p D$，从而方程组\eqref{eq:Oldroydb}成为
 	\end{equation*}
 	\end{theorem}
 	在二维的情形，证明中利用了力学上的适应性条件$\nabla \cdot F^T = 0$和$\det F =1$。其中第一个条件保证了势函数$\phi$的存在，第二个条件保证了$\nabla \cdot \psi$充分小，从而可以得到整体存在性定理。
-对于三维的情形，\cite{lei2008global}中证明了其解的局部存在性和整体存在性。其局部存在性证明方法与\cite{lin2005hydrodynamics}类似，但是采用了三维情况下的Gagliardo–Nirenberg插值不等式。对于整体解存在性的证明，其采用了$E=F-I$的适应性条件$E_{lj}\partial_{x_l} E_{ik}=E_{lk}\partial_{x_l} E_{ij}$以及$\nabla \cdot F^T=\nabla \cdot E^T=0$。
+对于三维的情形，雷震、周忆在\cite{lei2008global}中证明了其解的局部存在性和整体存在性。其局部存在性证明方法与\cite{lin2005hydrodynamics}类似，但是采用了三维情况下的Gagliardo–Nirenberg插值不等式。对于整体解存在性的证明，其采用了$E=F-I$的适应性条件$E_{lj}\partial_{x_l} E_{ik}=E_{lk}\partial_{x_l} E_{ij}$以及$\nabla \cdot F^T=\nabla \cdot E^T=0$。
 %从而$\Delta E$可以采用Hodge分解得到
 % \begin{equation*}
 % 	\Delta E = \nabla \nabla \cdot E^T -  \nabla \time \nabla E.
@@ -401,7 +401,7 @@ $\lambda=0$时，$\sigma= 2 \eta_p D$，从而方程组\eqref{eq:Oldroydb}成为
 % \end{equation*}
 % 于是$E$很小时可以得到$\|\Delta E\|^2_{L^2}$有界，从而可以得到整体存在性定理的证明\cite{lin2005hydrodynamics}。
 
-另外，这一模型还可以推广到可压缩模型\eqref{eq:lincompressible}。其可压缩模型的局部存在性和平衡态附近的解的整体存在性定理的证明可以参看\cite{qian2010global,hu2011global,hu2012strong}等。其中的证明采用了Besov空间，并利用了Danchine等关于Navier-Stokes小解整体存在性的证明思路和方法\cite{danchin2000global}。并很好地利用了力学上的适应性条件。例如\cite{qian2010global}中考虑平衡点$\rho=\rho_e,v=0,F=I$附近解的存在性。通过定义
+另外，这一模型还可以推广到可压缩模型\eqref{eq:lincompressible}。其可压缩模型的局部存在性和平衡态附近的解的整体存在性定理的证明可以参看钱建贞，章志飞、胡先鹏，王德华等人的工作\cite{qian2010global,hu2011global,hu2012strong}等。其中的证明采用了Besov空间，并利用了Danchine等关于Navier-Stokes小解整体存在性的证明思路和方法\cite{danchin2000global}。并很好地利用了力学上的适应性条件。例如\cite{qian2010global}中考虑平衡点$\rho=\rho_e,v=0,F=I$附近解的存在性。通过定义
 \begin{equation*}
 	d:=\Lambda^{-1} \nabla \cdot v, e:= \Lambda^{-1} \nabla v, \Lambda :=(-\Delta)^{-\frac{1}{2}}
 \end{equation*}
@@ -435,23 +435,23 @@ $\lambda=0$时，$\sigma= 2 \eta_p D$，从而方程组\eqref{eq:Oldroydb}成为
 从当前的研究可以看出各种非平衡态热力学理论对经典的粘弹性流体力学的建模存在各种各样的问题，亦缺乏对数学上的考虑。%且温度和压缩型的影响没有得到充分考虑。
 另外，对粘弹性流体力学方程的数学分析工作目前仍然是具体模型具体分析，缺乏一个统一的框架。
 
-为了解决这些问题，本论文基于守恒－耗散理论提出了建立粘弹性流体力学模型的一般框架，并利用双曲方程的一般理论对一些模型进行了数学分析。主要完成了以下工作
+为了解决这些问题，本论文利用并推广雍稳安、朱毅、洪柳、杨再宝提出的守恒－耗散理论发展了经典的粘弹性流体力学模型，并利用雍稳安等发展的双曲松弛系统的数学理论对一些模型进行了数学分析。主要完成了以下工作
 %本论文的主要目的，一方面是推广经典的不可压粘弹性流体力学模型，使之考虑压缩性以及温度的影响。另一方面是基于双曲方程的相关理论对粘弹性流体力学模型进行数学分析。在建模方面，我们通过推广守恒－耗散理论CDF，使之可以纳入带客观导数的非线性粘弹性模型。在分析方面，我们考察了可压上对流导数Maxwell模型的主要完成了以下工作：
 \begin{enumerate}
 \item 利用守恒－耗散理论推广了经典的线性粘弹性模型，提出了推广Guyer-Krumhansl热传导定律的粘弹性流体力学模型（模型\eqref{eq:CNSTgeneral}）。
 \item 推广守恒－耗散理论使之能够纳入带客观导数的非线性粘弹性模型，推广经典不可压Maxwell模型、FENE-P模型至可压缩形式（模型\eqref{eq:genUCM}和\eqref{eq:generalizedFENEP}），并提出了等温可压上对流导数Maxwell模型模型（\eqref{eq:ECDFsecondisothermal}）。
 \item 提出了利用有限形变理论和守恒－耗散理论对粘弹性流体进行建模的理论框架，推广了林芳华等提出的模型（模型\eqref{eq:lingen}）。
-\item 利用双曲方程的相关理论分析了等温可压线性粘弹性流体力学模型的平衡态附近解的整体存在性（定理\ref{th:Kawashima}），及其同经典Navier-Stokes方程的一致性（定理\ref{th:chapmanenskog}）。
-\item 利用双曲方程的相关理论分析了等温可压上对流导数Maxwell模型在一维时的平衡态附近解的存在性（定理\ref{theoremglobal}），以及松弛参数趋于$0$时该模型和经典Navier-Stokes方程的一致性（定理\ref{theoremCE}）。
-\item 利用双曲方程相关理论给出了林芳华等人提出的粘弹性流体力学模型平衡态附近解的整体存在性的一个新的证明（定理\ref{theoremcom}），分析了力学适应性条件在方程解的存在性证明中的作用。
+\item 利用雍稳安发展的含熵守恒律方程组整体存在性的数学结果证明了等温可压线性粘弹性流体力学模型的平衡态附近解的整体存在性（定理\ref{th:Kawashima}），并且利用雍稳安、杨再宝对双曲松弛系统Chapman-Enskog展开的数学结果严格分析了其同经典Navier-Stokes方程的一致性（定理\ref{th:chapmanenskog}）。
+\item 利用雍稳安发展的含熵守恒律方程组整体存在性理论分析了等温可压上对流导数Maxwell模型在一维时的平衡态附近解的存在性（定理\ref{theoremglobal}），并且利用雍稳安、杨再宝对双曲松弛系统Chapman-Enskog展开的分析方法分析了松弛参数趋于$0$时该模型和经典Navier-Stokes方程的一致性（定理\ref{theoremCE}）。
+\item 利用双曲－抛物方程组的Kawashima理论给出了林芳华等人提出的粘弹性流体力学模型平衡态附近解的整体存在性的一个新的证明（定理\ref{theoremcom}），分析了力学适应性条件在方程解的存在性证明中的作用。
 \end{enumerate}
 
 \section{文章结构}
 本论文共分五章。
 \begin{itemize}
-\item 第二章首先回顾了经典的守恒－耗散理论及其在粘弹性流体力学模型中的应用。然后利用守恒－耗散理论提出了推广的Guyer-Krumhansl热传导定律并应用于粘弹性流体模型中。最后利用双曲方程的相关理论分析了等温可压线性Maxwell粘弹性流体力学模型平衡态附近解的整体存在性，及其同经典Navier-Stokes方程的一致性。
-\item 第三章提出了推广的守恒－耗散理论，并利用推广的守恒－耗散理论推广了不可压Maxwell模型和FENE-P模型。然后导出了可压缩流体的上对流导数Maxwell模型。最后利用双曲方程相关理论证明了一维可压上对流导数Maxwell模型的平衡态附近解的整体存在定理，并利用双曲松弛系统的相关理论证明了该模型在一维时在松弛参数趋于$0$时该模型和经典Navier-Stokes方程的一致性。
-\item 第四章结合有限形变理论和守恒－耗散理论，提出了有限形变守恒－耗散理论，推广了林芳华等人提出的模型，并且利用双曲方程的相关理论给出了林芳华等人提出的粘弹性流体力学模型的平衡态附近解的整体存在性的一个新的证明。
+\item 第二章首先回顾了雍稳安、朱毅、洪柳、杨再宝提出的守恒－耗散理论及其在粘弹性流体力学模型中的应用。然后利用守恒－耗散理论提出了推广的Guyer-Krumhansl热传导定律并应用于粘弹性流体模型中。最后利用雍稳安等发展的双曲方程整体存在性和松弛极限的相关理论分析了等温可压线性Maxwell粘弹性流体力学模型平衡态附近解的整体存在性，及其同经典Navier-Stokes方程的一致性。
+\item 第三章提出了推广的守恒－耗散理论，并利用推广的守恒－耗散理论推广了不可压Maxwell模型和FENE-P模型。然后导出了可压缩流体的上对流导数Maxwell模型。最后利用利用雍稳安等发展的双曲方程整体存在性和松弛极限的相关理论分析了一维可压上对流导数Maxwell模型平衡态附近解的整体存在性和松弛参数趋于$0$时该模型和经典Navier-Stokes方程的一致性。
+\item 第四章结合有限形变理论和守恒－耗散理论，提出了有限形变守恒－耗散理论，推广了林芳华等人提出的模型，并且利用双曲－抛物方程组的Kawashima理论给出了林芳华等人提出的粘弹性流体力学模型的平衡态附近解的整体存在性的一个新的证明。
 \item 第五章对上面的工作进行了总结，并提出了未来研究的发展方向。
 \end{itemize}
 
@@ -459,7 +459,7 @@ $\lambda=0$时，$\sigma= 2 \eta_p D$，从而方程组\eqref{eq:Oldroydb}成为
 
 
 
-	 % \bibliography{ref}
-	 % \bibliographystyle{plain}
+	  % \bibliography{ref}
+	  % \bibliographystyle{plain}
 
  % \end{document}

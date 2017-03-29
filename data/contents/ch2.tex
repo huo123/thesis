@@ -7,12 +7,12 @@
 % \newtheorem{theorem}{定理}
 
  % \begin{document}
- 	非平衡态热力学的核心是热力学第二定律。由热力学第二定律可以知道不可逆过程必然伴随熵增，如何描述这一定律是非平衡态热力学的核心问题。无论是CIT、EIT，还是RT、GENERIC等非平衡态热力学理论，其出发点均为热力学第二定律。这些理论通过引入非平衡状态变量，拓展经典平衡态热力学的Gibbs关系，采用合适的方式描述热力学熵的增长，来达到对不可逆过程建模的目的。守恒－耗散理论也是采用类似的方式对非平衡态过程进行建模的。然而，与之前的理论不同的是，守恒－耗散理论是建立在严格的数学结构上的。基于数学上对方程适定性等性质的要求以及物理上的热力学第一和第二定律，守恒－耗散理论提出了不可逆过程建模的一般框架\cite{zhu2014conservation,ottinger2005beyond,jou1996extended}。
+ 	非平衡态热力学的核心是热力学第二定律。由热力学第二定律可以知道不可逆过程必然伴随熵增，如何描述这一定律是非平衡态热力学的核心问题。无论是CIT、EIT，还是RT、GENERIC等非平衡态热力学理论，其出发点均为热力学第二定律。这些理论通过引入非平衡状态变量，拓展经典平衡态热力学的Gibbs关系，采用合适的方式描述热力学熵的增长，来达到对不可逆过程建模的目的\cite{ottinger2005beyond,jou1996extended}。然而，由雍稳安、朱毅、洪柳、杨再宝提出的非平衡态的守恒－耗散理论是从双曲方程数学上所要满足的结构性条件出发，基于雍稳安提出的守恒－耗散结构来对非平衡过程进行建模的。这些数学上的结构条件保证了物理上热力学第一和第二定律的成立\cite{zhu2014conservation,}。
 	
-	本章第一节将回顾守恒－耗散理论的一般框架，第二节回顾其在粘弹性建模中的应用，第三节讨论了热传导定律的守恒－耗散结构，提出了推广的Guyer-Krumhansl定律并应用于粘弹性模型中，第四节对等温可压线性粘弹性Maxwell模型进行了数学上的分析，考察了平衡态附近解的整体存在性与牛顿极限问题。
+	本章第一节将回顾雍稳安等提出的守恒－耗散理论的一般框架，第二节回顾其在粘弹性建模中的应用，第三节讨论了热传导定律的守恒－耗散结构，提出了推广的Guyer-Krumhansl定律并应用于粘弹性模型中，第四节对等温可压线性粘弹性Maxwell模型进行了数学上的分析，利用雍稳安等发展的双曲松弛系统的相关理论考察了平衡态附近解的整体存在性与牛顿极限问题。
 
 	\section{守恒－耗散理论}
-	本节我们回顾由雍稳安、朱毅、洪柳、杨再宝发展的不可逆热力学的守恒－耗散理论。
+	本节我们回顾由雍稳安、朱毅、洪柳、杨再宝发展的不可逆热力学的守恒－耗散理论（以下简称守恒－耗散理论）\cite{zhu2014conservation}。
 
 	首先，守恒－耗散理论认为，热力学过程可以由守恒过程和耗散过程来描述。守恒率可以采用守恒变量$U_c$来描述。例如$U_c$可以是质量、动量、能量等守恒量。耗散过程采用耗散变量$U_d$来描述。守恒－耗散理论假设不可逆过程可以用下面的偏微分方程来描述
 	\begin{equation}\label{eq:CDF}
@@ -32,12 +32,21 @@
 	\end{equation*}
 	$n$为空间的维数。
 	% 根据文献\cite{yong1999singular,yang2015validity,yong2008interesting}，如果假设$Q(U)$前有参数$\frac{1}{\epsilon}$。当$\epsilon$很小时我们期望方程和平衡态的方程相近。基于数学上的考虑，结合热力学第二定律，守恒－耗散理论的假设如下\cite{zhu2014conservation}。
-	基于文献\cite{yong1999singular,yang2015validity,yong2008interesting}中对双曲方程数学结构的考虑以及热力学第一、第二定律，守恒－耗散理论的假设如下\cite{zhu2014conservation}。
+	基于雍稳安提出的双曲方程组的守恒－耗散结构条件，守恒－耗散理论的假设如下\cite{zhu2014conservation}。
 	\begin{enumerate}
 		\item 存在严格上凸函数$\eta = \eta (U)$，使得$\eta_{UU} F_{jU}$对称。我们称$\eta$为系统的熵函数。
 		\item 存在正定矩阵$M = M(U)$，使得$\mathcal{q}(U) = M \eta_{U_d}$。我们称$M$为耗散矩阵。
 	\end{enumerate}
-	由这两条假设可以得到，存在$J = J(U)$使得下面的式子成立
+
+	这两个条件保证了雍稳安提出的双曲方程组的守恒－耗散结构条件的成立。雍稳安提出的双曲方程组的守恒－耗散结构条件为\cite{yong2008interesting}
+	\begin{enumerate}
+		\item 存在严格下凸函数$\tilde{\eta} = \tilde{\eta} (U)$，使得$\tilde{\eta}_{UU} F_{jU}$对称。
+		\item 存在对称非负定矩阵$L = L(U)$，使得$\mathcal{Q}(U) = L \tilde{\eta}_{U}$。
+		\item 矩阵$L(U)$的左零空间不依赖于$U$。
+	\end{enumerate}
+	实际上取$\tilde{\eta} = - \eta, L = diag\{ 0, M(U) \}$，可以看出守恒－耗散理论的第一条假设对应于雍稳安提出的守恒－耗散结构的第一个条件，守恒－耗散理论的第二条假设保证了守恒－耗散结构后两个条件的成立，$L$的零空间为$(U_c,U_d=0)$不依赖于$U$。
+
+	由守恒－耗散理论的假设可以得到，存在$J = J(U)$使得下面的式子成立
 	\begin{equation*}
 		\eta_t + \nabla \cdot J = \eta_{U_d}^T M \eta_{U_d} \ge 0.
 	\end{equation*}
@@ -88,7 +97,7 @@
 	守恒－耗散理论可以成功地用于线性粘弹性流体的建模。然而，由于客观导数的非守恒形式，在应用到非线性粘弹性模型时会遇到困难，如何推广守恒－耗散理论并应用于非线性粘弹性流体模型将在下一章给出。这里，我们首先考察线性粘弹性流体力学模型。
 
 	\section{守恒－耗散理论在线性粘弹性流体模型中的应用}
-	本节首先回顾文献\cite{zhu2014conservation}中发展的线性粘弹性流体力学模型。然后分析其与微观方法导出的Maxwell模型的联系。最后给出文献\cite{zhu2014conservation}中发展的线性粘弹性流体力学模型在等温时对应的方程组。
+	本节首先回顾雍稳安、朱毅、洪柳、杨再宝在\cite{zhu2014conservation}中发展的线性粘弹性流体力学模型。然后分析其与微观方法导出的Maxwell模型的联系。最后给出这一模型在等温时对应的方程组。
 	\subsection{线性粘弹性流体力学模型}
 	首先考虑流体运动的守恒率方程\eqref{eq:fluid}。我们取
 	\begin{equation*}
@@ -192,7 +201,7 @@
 	% 	q = -\lambda \nabla \theta, \quad \tau = - \xi \mathring{D} - \kappa \dot{D} I.
 	% \end{equation*}
 	% 分别为经典的Fourier-Newton-Stokes本构关系\cite{zhu2014conservation,jou1996extended}。
-
+	此即雍稳安等在文献\cite{zhu2014conservation}中提出的非等温可压粘弹性流体Maxwell模型。
 
 	在不可压缩和忽略温度的情形，$\nabla \cdot v = 0, \dot{\tau}=0$，$\tau = \mathring{\tau}$，则$\sigma = -\tau$的演化方程为
 	\begin{equation*}
@@ -265,7 +274,7 @@
 		\begin{align}
 			\rho_t + \nabla \cdot (\rho v) = 0, \\
 			(\rho v)_t + \nabla \cdot (\rho v \otimes v) + \nabla p - \nabla \cdot ( \rho \dot{c} I +  \rho \mathring{c}) = 0, \\
-			(\rho \dot{c})_t  + \nabla \cdot(\rho \dot{c} \otimes v) -  \frac{1}{n} \nabla \cdot v = - \frac{\rho \dot{c}}{\kappa}. \\
+			(\rho \dot{c})_t  + \nabla \cdot(\rho \dot{c} \otimes v) -  \frac{1}{n} \nabla \cdot v = - \frac{\rho \dot{c}}{\kappa}, \\
 			(\rho \mathring{c})_t + \nabla \cdot (\rho \mathring{c} \otimes v) - \frac{1}{2} (\nabla v + (\nabla v)^T - \frac{2}{n} \nabla \cdot v) = - \frac{\rho \mathring{c}}{\xi}.
 		\end{align}
 	\end{subequations}
@@ -507,11 +516,11 @@ M_0=\frac{1}{\lambda \theta^2}, M_1=\frac{\lambda \theta^2}{d\tau}, M_2=\frac{2\
 另外守恒－耗散理论还具有很好的数学基础。下一节将讨论由守恒－耗散理论导出的等温可压Maxwell模型的一些数学结果。
 
 	\section{等温可压Maxwell模型的数学分析}
-	守恒－耗散理论一方面考虑了热力学第一定律和第二定律及Onsager倒易关系等物理原理，另一方面它建立在严格的数学理论之上。熵函数的存在性和方程的守恒形式共同保证了方程可以被对称化。从而根据对称双曲组的相关理论，方程的局部适定性可以保证\cite{kato1975cauchy,majda2012compressible}。对于平衡态附件解的整体存在性，可由含熵的双曲松弛系统的整体存在性理论进行分析\cite{yong2004entropy,kawashima2009decay}。守恒－耗散理论的两条假设使得到的方程满足文献\cite{yong1999singular}中的结构条件，从而可以保证右端项含有松弛参数$\epsilon$时的松弛极限有着良好的性质。本节将分析由守恒－耗散理论导出的等温可压Maxwell模型\eqref{eq:CDFalphaConst}的解的存在性与牛顿极限。从本节的分析中将会看到，守恒－耗散理论的两个假设保证了方程的良好数学结构。
+	守恒－耗散理论一方面基于雍稳安提出的双曲方程的守恒－耗散结构，另一方面这一数学结构保证了热力学第一定律和第二定律及Onsager倒易关系等物理原理的成立。数学上，熵函数的存在性和方程的守恒形式共同保证了方程可以被对称化。从而根据对称双曲组的经典理论，方程的局部适定性可以保证\cite{kato1975cauchy,majda2012compressible}。对于平衡态附件解的整体存在性，可由雍稳安发展的含熵的双曲松弛系统的整体存在性理论进行分析\cite{yong2004entropy,kawashima2009decay}。守恒－耗散理论的两条假设使得到的方程满足雍稳安提出的一阶对称双曲组中的稳定性条件\cite{yong1999singular}，从而可以保证右端项含有松弛参数$\epsilon$时的松弛极限有着良好的性质。本节将分析由守恒－耗散理论导出的等温可压Maxwell模型\eqref{eq:CDFalphaConst}的解的存在性与牛顿极限。从本节的分析中将会看到，守恒－耗散理论的两个假设保证了方程的良好数学性质。
 	%很小时可以与形式上得到的方程相近似，从而保证了离平衡态“很近”的体系可以很好地采用平衡态体系近似。
 
 	% 守恒－耗散理论得到的方程均为可对称双曲方程组，所以可以采用对称双曲组的相关理论对方程的解进行分析。例如在平衡态附近方程解的全局适定性可以采用Kawashima理论进行分析\cite{}。可压缩模型的小马赫数极限可以采用类似可压Euler方程的小马赫数极限进行分析\cite{}。方程的弱解的存在性和间断解可以采用相关的理论进行分析\cite{}。
-	第一小节将给出方程\eqref{eq:CDFalphaConst}的对称子，从而得到光滑解局部存在。第二小节将利用含熵的双曲松弛系统的整体存在性理论证明方程组\eqref{eq:CDFalphaConst}平衡态附近解的整体存在性\cite{yong2004entropy,kawashima2009decay}。最后一节将利用双曲松弛系统Chapman-Enskog展开的数学分析结果\cite{yang2015validity}证明方程组\eqref{eq:CDFalphaConst}与可压Navier-Stokes方程的一致性。
+	第一小节将给出方程\eqref{eq:CDFalphaConst}的对称子，从而得到光滑解局部存在。第二小节将利用雍稳安发展的含熵的双曲松弛系统的整体存在性理论证明方程组\eqref{eq:CDFalphaConst}平衡态附近解的整体存在性\cite{yong2004entropy,kawashima2009decay}。最后一节将利用雍稳安、杨再宝发展的双曲松弛系统Chapman-Enskog展开的数学分析结果\cite{yang2015validity}证明方程组\eqref{eq:CDFalphaConst}与可压Navier-Stokes方程的一致性。
 
 	\subsection{局部存在性}
 	方程组\eqref{eq:CDFalphaConst}可以写成下面的形式。
@@ -576,11 +585,19 @@ M_0=\frac{1}{\lambda \theta^2}, M_1=\frac{\lambda \theta^2}{d\tau}, M_2=\frac{2\
 	% 		\tilde{L}_T^\infty(B_{2,1}^s) :=\{ u \in L^\infty: \|u\|_{\tilde{L}_T^\infty (B_{2,1}^s)} < \infty\}.
 	% 	\end{eqnarray*}
 	% \end{theorem}
-	
+	\subsection{雍稳安的结构稳定性条件}
+	雍稳安在其博士论文\cite{yong1992singular}中针对一阶双曲对称组
+	\begin{equation*}
+		U_t + \sum_{j=1}^n A_j(U) U_{x_j} = \mathcal{Q}(U)
+	\end{equation*}
+	提出了下面的结构性条件
+	\begin{enumerate}
+		
+	\end{enumerate}
 	\subsection{平衡态附近解的整体存在性}
 	本小节考虑在平衡态$U=U_e = (\rho = \rho_e, \rho v = 0, \rho \dot{c} = 0, \rho \mathring{c} =0)$附近方程组\eqref{eq:CDFalphaConst}解的整体存在性。  
 
-	对于包含源项的守恒律方程组，雍稳安、Kawashima等人研究了其解的整体存在性\cite{yong2004entropy,kawashima2009decay,kawashima2004dissipative}。本节将采用其中的结果证明下面的定理。
+	对于包含源项的守恒律方程组，雍稳安研究了其解的整体存在性\cite{yong2004entropy}，并提出了整体存在性成立的充分性条件。本节将采用其中的结果证明下面的定理。
 	\begin{theorem} \label{th:Kawashima}
 		设整数$s \ge [\frac{n}{2}]+2$，$U_0 = U_0(x) \in H^s(\mathbf{R}^n)$且$\|U_0 -U_e\|_{H^s}$足够小，
 		那么方程组\eqref{eq:CDFalphaConst}以$U_0$为初值的Cauchy问题存在唯一的整体解$U=U(x,t) \in C([0,\infty),H^s(\mathbf{R}^d))$，且对任意$T>0$下面的估计成立。
@@ -607,7 +624,7 @@ M_0=\frac{1}{\lambda \theta^2}, M_1=\frac{\lambda \theta^2}{d\tau}, M_2=\frac{2\
 				0 & \frac{1}{\xi}
 			\end{array}\right)
 		\end{equation*}
-		显然可逆，从而第一个条件成立。对于第二个条件，即为守恒－耗散理论的第一条假设，取$\tilde{\eta} = -\eta$即可。第三个条件可由守恒－耗散理论第二条假设得到，首先由$\eta_{U_d}(U_e) = 0$得到
+		显然可逆，从而第一个条件成立。对于第二个条件，即为守恒－耗散理论的第一条假设，取$\tilde{\eta} = -\eta$即可。可由守恒－耗散理论第二条假设得到，首先由$\eta_{U_d}(U_e) = 0$得到
 		\begin{eqnarray*}
 			(\tilde{\eta}_{U}(U) - \tilde{\eta}_{U}(U_e))^T \mathcal{Q}(U) = -\eta_{U_d}(U)^T  \mathcal{q}(U) = -\eta_{U_d}^T M \eta_{U_d} \\
 			= -\eta_{U_d}^T M^T M^{-T} M \eta_{U_d} \le -\mu |M\eta_{U_d}|^2 = - \mu |\mathcal{Q}|^2 
