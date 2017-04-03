@@ -511,7 +511,7 @@ M_0=\frac{1}{\lambda \theta^2}, M_1=\frac{\lambda \theta^2}{d\tau}, M_2=\frac{2\
 \end{enumerate}
 可以看出整个过程的关键在于选取合适的熵函数和耗散矩阵。而守恒－耗散理论明确给出了这两者选取的准则，即分别满足守恒－耗散理论的第一条和第二条假设。
 
-与EIT相比，守恒－耗散理论采用的耗散变量具有更大的自由度。EIT经常采用温度梯度、热流等量作为耗散变量，而守恒－耗散理论同GENERIC等理论一样，并不事先假设耗散变量的具体形式。类似GENERIC，我们认为系统的不可逆性是由其内部结构决定的，而描述这一耗散结构经常需要微观的建模。采用$w,c$而不是$q,\tau$可以为建模带来更大的自由度，有时甚至可以与微观模型的统计量产生联系。另外EIT采用的熵函数大部分为二次的。虽然我们上面讨论的模型中熵函数大部分也为二次的，但是守恒－耗散理论仅仅假设熵函数的上凸性。由于这两点，我们认为守恒－耗散理论可以为远离平衡态的体系提供建模的框架。另外守恒－耗散理论对耗散矩阵仅仅要求是正定的。虽然大部分情况下我们假定其也为对称的（如果类似Onsager的倒易关系成立）。这样我们避免了GENERIC等理论对于耗散矩阵的复杂要求。
+% 与EIT相比，守恒－耗散理论采用的耗散变量具有更大的自由度。EIT经常采用温度梯度、热流等量作为耗散变量，而守恒－耗散理论同GENERIC等理论一样，并不事先假设耗散变量的具体形式。类似GENERIC，我们认为系统的不可逆性是由其内部结构决定的，而描述这一耗散结构经常需要微观的建模。采用$w,c$而不是$q,\tau$可以为建模带来更大的自由度，有时甚至可以与微观模型的统计量产生联系。另外EIT采用的熵函数大部分为二次的。虽然我们上面讨论的模型中熵函数大部分也为二次的，但是守恒－耗散理论仅仅假设熵函数的上凸性。由于这两点，我们认为守恒－耗散理论可以为远离平衡态的体系提供建模的框架。另外守恒－耗散理论对耗散矩阵仅仅要求是正定的。虽然大部分情况下我们假定其也为对称的（如果类似Onsager的倒易关系成立）。这样我们避免了GENERIC等理论对于耗散矩阵的复杂要求。
 
 另外守恒－耗散理论还具有很好的数学基础。下一节将讨论由守恒－耗散理论导出的等温可压Maxwell模型的一些数学结果。
 
@@ -585,15 +585,49 @@ M_0=\frac{1}{\lambda \theta^2}, M_1=\frac{\lambda \theta^2}{d\tau}, M_2=\frac{2\
 	% 		\tilde{L}_T^\infty(B_{2,1}^s) :=\{ u \in L^\infty: \|u\|_{\tilde{L}_T^\infty (B_{2,1}^s)} < \infty\}.
 	% 	\end{eqnarray*}
 	% \end{theorem}
-	\subsection{雍稳安的结构稳定性条件}
-	雍稳安在其博士论文\cite{yong1992singular}中针对一阶双曲对称组
-	\begin{equation*}
-		U_t + \sum_{j=1}^n A_j(U) U_{x_j} = \mathcal{Q}(U)
-	\end{equation*}
-	提出了下面的结构性条件
-	\begin{enumerate}
+	% \subsection{雍稳安的结构稳定性条件}
+	% 雍稳安在其博士论文\cite{yong1992singular}中针对一阶双曲对称组
+	% \begin{equation*}
+	% 	U_t + \sum_{j=1}^n A_j(U) U_{x_j} = \mathcal{Q}(U)
+	% \end{equation*}
+	% 提出了下面的结构性条件
+	% \begin{enumerate}
 		
+	% \end{enumerate}
+	\subsection{雍稳安守恒－耗散结构条件}
+	针对包含源项的双曲守恒律方程组，雍稳安在2008年提出了下面的守恒耗散结构，本文我们称其为雍稳安守恒－耗散结构条件。
+\begin{enumerate}
+	\item 	存在严格下凸熵函数$\tilde{\eta} = \tilde{\eta}(U)$，使得$\tilde{\eta}_{UU} F_{jU}$对称。
+	\item	存在对称半正定矩阵$L=L(U)$，使得$\mathcal{Q}(U) = -L \tilde{\eta}_{U}(U)$。%实际上我们取$L = diag(0,M)$即可满足要求。
+	\item  $L(U)$的零空间不依赖于$U$。%这对$L = diag(0,M)$显然成立。
+\end{enumerate}
+实际上，守恒耗散理论就是根据这一结构提出的。
+\begin{itemize}
+	\item 守恒耗散理论的第一条假设保证了守恒耗散结构的第一个条件，取$\tilde{\eta}=-\eta$即可。
+	\item 守恒耗散理论的第二条假设保证了守恒耗散结构的后两个条件，取$L = diag\{0,M\}$。
+\end{itemize}
+
+另外，由这一条件，还可得到守恒耗散理论导出的方程组满足雍稳安提出的结构稳定性条件，本文我们称这一条件为雍稳安稳定性条件。
+设平衡流形$\mathcal{E}:=\{U|\mathcal{Q}(U)=0\}$，雍稳安在博士论文\cite{yong1992singular}中提出了下面的稳定性条件。
+	\begin{enumerate}
+		\item 存在可逆矩阵$P=P(U)$，使得
+			\begin{equation*}
+				P(U)\mathcal{Q}(U) = \left( \begin{matrix}
+				0 & \\
+				& \hat{\mathcal{Q}}(U) 
+				\end{matrix} \right) P(U)
+			\end{equation*}
+			对任意$U \in \mathcal{E}$成立；
+		\item 存在对称正定矩阵$A_0=A_0(U)$，使得$A_0(U)A_j(U)$对称；
+		\item 对任意$U \in \mathcal{E}$，成立
+		\begin{equation*}
+			A_0(U) \mathcal{Q}_U(U) +\mathcal{Q}_U(U) A_0(U) \le  - P^T(U) \left(\begin{matrix} 0 & \\ & I \end{matrix} \right) P(U). 
+		\end{equation*}
 	\end{enumerate}
+取$P=I,A_0 = -\eta_{UU}$可以得到这三个条件成立，前两个条件容易验证，第三个条件的验证见\cite{yong2008interesting}。%（雍，2008）。
+
+这一稳定性条件的成立保证了当$\epsilon$趋于$0$时，守恒耗散理论方程组的一阶摄动展开的结果可以近似原方程组。
+
 	\subsection{平衡态附近解的整体存在性}
 	本小节考虑在平衡态$U=U_e = (\rho = \rho_e, \rho v = 0, \rho \dot{c} = 0, \rho \mathring{c} =0)$附近方程组\eqref{eq:CDFalphaConst}解的整体存在性。  
 
@@ -609,7 +643,7 @@ M_0=\frac{1}{\lambda \theta^2}, M_1=\frac{\lambda \theta^2}{d\tau}, M_2=\frac{2\
 	\end{theorem}
 
 	\begin{proof}
-		根据文献\cite{yong2004entropy}，定理\ref{th:Kawashima}对方程组\eqref{eq:CDFalphaConst}成立的充分条件是
+		根据雍稳安提出的整体存在性理论\cite{yong2004entropy}，定理\ref{th:Kawashima}对方程组\eqref{eq:CDFalphaConst}成立的充分条件是
 		\begin{enumerate}
 			\item 雅克比矩阵$\mathcal{q}_{U_d}(U_e)$可逆；
 			\item 存在严格下凸函数$\tilde{\eta}(U)$，使得$\tilde{\eta}_{UU}F_{jU}$对称；
@@ -924,7 +958,7 @@ M_0=\frac{1}{\lambda \theta^2}, M_1=\frac{\lambda \theta^2}{d\tau}, M_2=\frac{2\
 	\begin{equation}\label{eq:CDFSingular}
 		\partial_t U + \sum_{j=1}^3 \partial_{x_j} F_j(U) = \frac{1}{\epsilon}\mathcal{Q} (U) .
 	\end{equation}
-	其中$\epsilon$很小。雍稳安的博士论文\cite{yong1999singular}中给出了奇异摄动展开的严格分析。在文献\cite{yang2015validity}中讨论了$\epsilon \rightarrow 0$时采用Maxwell迭代（Chapman-Enskog展开）得到近似方程的有效性。下面我们将利用\cite{yang2015validity}中的结果，证明等温可压Maxwell模型当$\kappa=\xi \rightarrow 0$时与由Maxwell迭代得到的Navier-Stokes方程组的一致性。
+	其中$\epsilon$很小。雍稳安的博士论文\cite{yong1999singular}中给出了奇异摄动展开的严格分析。雍稳安、杨再宝在文献\cite{yang2015validity}中讨论了$\epsilon \rightarrow 0$时采用Maxwell迭代（Chapman-Enskog展开）得到近似方程的有效性。下面我们将利用\cite{yang2015validity}中的结果，证明等温可压Maxwell模型当$\kappa=\xi \rightarrow 0$时与由Maxwell迭代得到的Navier-Stokes方程组的一致性。
 	% 线性粘弹性流体力学模型。为了简单我们在本节考虑模型\eqref{eq:CDFspecific}。其他情况的计算复杂些但思想是相同的。我们的主要目的是要说明当$\epsilon$很小时可以采用Navier-Stokes方程组近似本章发展的粘弹性流体力学模型。
 	% \subsubsection{线性粘弹性模型的摄动展开}
 
@@ -950,7 +984,7 @@ M_0=\frac{1}{\lambda \theta^2}, M_1=\frac{\lambda \theta^2}{d\tau}, M_2=\frac{2\
 	\end{subequations}
 	这样我们从形式上说明了当松弛参数$\kappa,\xi$同时趋于$0$时，方程组\eqref{eq:CDFalphaConst}趋近于Navier-Stokes方程组\eqref{eq:CDFalphaConstNS}。
 
-	下面我们将采用文献\cite{yang2015validity}的结果对这一过程进行严格地数学分析。首先我们假设$\kappa$和$\xi$具有相同的无穷小的阶，从而不妨设$\kappa = \xi$。
+	下面我们将利用雍稳安、杨再宝\cite{yang2015validity}的结果对这一过程进行严格地数学分析。首先我们假设$\kappa$和$\xi$具有相同的无穷小的阶，从而不妨设$\kappa = \xi$。
 	%假设方程\eqref{eq:CDFalphaConst}的解为$U = (U^I,U^{II})$，其中$U^I = (\rho, \rho v)$，$U^{II}= (\rho \dot{c},\rho \mathring{c})$。
 	假设方程组\eqref{eq:CDFalphaConstNS}的解为$W = (\rho,\rho v)$。由文献\cite{yang2015validity}可以得到如果方程组\eqref{eq:CDFalphaConst}满足一定的条件，则下面的定理成立。
 	\begin{theorem} \label{th:chapmanenskog}
@@ -969,17 +1003,16 @@ M_0=\frac{1}{\lambda \theta^2}, M_1=\frac{\lambda \theta^2}{d\tau}, M_2=\frac{2\
 	\end{theorem}
 
 	\begin{proof}
-		我们只需要验证方程组满足\cite{yang2015validity}中定理2.1的条件，这样根据其中的定理2.1可知这里的定理\ref{th:chapmanenskog}成立。这些条件的前三条可以由守恒耗散理论的假设得到。即
+		我们只需要验证方程组满足\cite{yang2015validity}中定理2.1的条件，这样根据其中的定理2.1可知这里的定理\ref{th:chapmanenskog}成立。这些条件的前三条即为守恒耗散结构条件，由前面2.4.2节的分析，守恒耗散结构条件成立。%可以由守恒耗散理论的假设得到。即
+		% \begin{enumerate}
+		% 	\item 	存在严格下凸熵函数$\tilde{\eta} = \tilde{\eta}(U)$使得$\tilde{\eta}_{UU} F_{jU}$对称；%取$\tilde{\eta} = - \eta$即可；
+		% 	\item 	存在对称半正定矩阵$L=L(U)$，使得$\mathcal{Q}(U) = -L(U) \eta_{U}(U)$；%实际上我们取$L = diag(0,M)$即可满足要求。
+		% 	\item   $L(U)$的零空间不依赖于$U$，这对$L = diag(0,M)$显然成立；
+		% \end{enumerate}
+		% 实际上，取$\tilde{\eta} = - \eta,\ L = diag(0,M)$，容易验证这三个条件成立。
+		为了使定理\ref{th:chapmanenskog}成立，方程还需要满足各向同性条件（“isotropic condition”）。即
 		\begin{enumerate}
-			\item 	存在严格下凸熵函数$\tilde{\eta} = \tilde{\eta}(U)$使得$\tilde{\eta}_{UU} F_{jU}$对称；%取$\tilde{\eta} = - \eta$即可；
-			\item 	存在对称半正定矩阵$L=L(U)$，使得$\mathcal{Q}(U) = -L(U) \eta_{U}(U)$；%实际上我们取$L = diag(0,M)$即可满足要求。
-			\item   $L(U)$的零空间不依赖于$U$，这对$L = diag(0,M)$显然成立；
-		\end{enumerate}
-		实际上，取$\tilde{\eta} = - \eta,\ L = diag(0,M)$，容易验证这三个条件成立。
-		
-		另外为了使定理\ref{th:chapmanenskog}成立，方程还需要满足各向同性条件（“isotropic condition”）。即
-		\begin{enumerate}
-			\item[4.]矩阵$\sum_{j=1}^n f_{jU_d} \omega_j$的左零空间不依赖于$\omega = (\omega_1,\omega_2,\cdots,\omega_n) \neq 0$和满足$\eta_{U_d}(U)=0$的$U$。
+			\item 矩阵$\sum_{j=1}^n f_{jU_d} \omega_j$的左零空间不依赖于$\omega = (\omega_1,\omega_2,\cdots,\omega_n) \neq 0$和满足$\eta_{U_d}(U)=0$的$U$。
 		\end{enumerate}
 		由方程\eqref{eq:CDFalphaConst}可得
 		\begin{equation*}
@@ -994,7 +1027,7 @@ M_0=\frac{1}{\lambda \theta^2}, M_1=\frac{\lambda \theta^2}{d\tau}, M_2=\frac{2\
 	% \subsection{可压模型的不可压极限}
 	% 经典可压Euler方程的小马赫数极限的数学分析依赖于Euler方程的双曲性\cite{}。由于守恒－耗散理论得到的方程是对称双曲的，前面导出的可压粘弹性流体力学方程的小马赫数极限问题可以采用类似Euler方程的分析方法进行处理。本小节我们将忽略热传导并假设压力$p$为密度的函数，满足$p(\rho) = \kappa \rho^\gamma, \gamma>1$。
 	\section{本章小结}
-	本章我们利用守恒－耗散理论讨论了线性粘弹性流体的数学建模。利用守恒－耗散理论推广了Guyer-Krumhansl理论并应用于粘弹性流体的建模之中。另外我们还对由守恒－耗散理论得到的等温可压Maxwell方程的数学性质进行了讨论。证明了这一模型平衡态附近解具有整体存在性（定理\ref{th:Kawashima}），以及当松弛参数趋于$0$时该模型\eqref{eq:CDFalphaConst}和Navier-Stokes方程\eqref{eq:CDFalphaConstNS}的相一致（定理\ref{th:chapmanenskog}）。通过这些建模和分析，我们可以看出守恒－耗散理论可以很好地用来描述线性粘弹性模型，且守恒－耗散理论所提出的的结构保证了这些模型具有很好的数学性质。
+	本章我们利用守恒－耗散理论讨论了线性粘弹性流体的数学建模，利用守恒－耗散理论推广了Guyer-Krumhansl理论并应用于粘弹性流体的建模之中，另外我们还对由守恒－耗散理论得到的等温可压Maxwell方程的数学性质进行了讨论。利用雍稳安等发展的双曲方程整体存在性理论和Chapman-Enskog展开的数学理论证明了这一模型平衡态附近解具有整体存在性（定理\ref{th:Kawashima}），以及当松弛参数趋于$0$时该模型\eqref{eq:CDFalphaConst}和Navier-Stokes方程\eqref{eq:CDFalphaConstNS}的相一致（定理\ref{th:chapmanenskog}）。通过这些建模和分析，我们可以看出守恒－耗散理论可以很好地用来描述线性粘弹性模型，且守恒－耗散理论所提出的的结构保证了这些模型具有很好的数学性质。
 	 % \bibliography{ref}
 	 % \bibliographystyle{unsrt}
 

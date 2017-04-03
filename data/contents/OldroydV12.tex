@@ -130,14 +130,16 @@ G := \{(\rho,\rho v, \rho c): \rho>0, \quad \rho c> - \frac{2}{3}\}
 \end{equation}
 作为1维模型\eqref{eq:ECDFsecond1D}的定义域。
 
-另外，我们可以得到对于平衡态$U=U_e = (\rho_e,0,0)$，有
+\subsection{雍稳安稳定性条件}
+我们可以得到对于平衡态$U=U_e = (\rho_e,0,0)$，有
 \begin{equation}\label{32}
 A_0(U_e)Q_U(U_e) + Q_U^T(U_e)A_0(U_e) =-\frac{2}{\kappa}\mbox{diag}(0, 0, 1)
 \end{equation}
-从而\eqref{eq:ECDFsecond1D}在文献\cite{yong1992singular,yong1999singular}中定义的意义下是耗散的。
+从而\eqref{eq:ECDFsecond1D}满足雍稳安稳定性条件\cite{yong1992singular,yong1999singular}。
 
 \subsection{Kawashima条件}
-对于存在熵函数的带松弛源项的双曲守恒律方程组，其平衡态附近的整体存在性已经在文献\cite{yong2004entropy,hanouzet2003global}中给。其整体存在性的证明是基于Kawashima理论。对于非守恒形式含有熵的方程\eqref{eq:ECDFsecond1D}的整体存在性，无法采用一般的Kawashima理论直接得到。在这里我们将验证方程组\eqref{eq:ECDFsecond1D}满足Kawashima条件并给出补偿矩阵（Compensating Matrix）$K$\cite{kawashima1985systems}，然后利用Kawashima理论来做估计得到整体存在性定理的证明。
+对于存在熵函数的带松弛源项的双曲守恒律方程组，雍稳安发展了平衡态附近的整体存在性理论\cite{yong2004entropy,hanouzet2003global}。其整体存在性的证明是基于熵函数的存在性、雍稳安提出的耗散条件和Kawashima理论。熵函数的存在性和耗散条件已经验证。%对于Kawashima条件，对于非守恒形式含有熵的方程\eqref{eq:ECDFsecond1D}的整体存在性，无法采用一般的Kawashima理论直接得到。
+在这里我们将验证方程组\eqref{eq:ECDFsecond1D}满足Kawashima条件并给出补偿矩阵（Compensating Matrix）$K$\cite{kawashima1985systems}，然后利用Kawashima理论来做估计得到整体存在性定理的证明。
 
 令
 \begin{eqnarray}\label{33}
@@ -404,7 +406,7 @@ $\alpha$足够小时，由上述不等式可以导出
 %   这是因为对一般的初始值边界层可能存在。只需要对下面的证明做微小改动就可以得到一般情况的证明。
 % \end{remark}
 
-为了证明上述定理，我们注意到方程组\eqref{eq:ECDFsecond1D}满足文献\cite{yong1992singular,yong1999singular}中的结构条件。从而，其中的一阶双曲偏微分方程的奇异摄动理论可以用于本方程组。于是我们得到\eqref{eq:ECDFsecond1D}以$(\bar{u},0)$为初值的解$U^\kappa = (\rho^\kappa, \rho^\kappa v^\kappa, c^\kappa)^T$和一阶摄动展开对应的方程组的解$U_\kappa^1=(\rho_\kappa^1,\rho_\kappa^1 v_\kappa^1, c^1_\kappa)^T$在$[0,T_*]$上满足
+为了证明上述定理，我们注意到方程组\eqref{eq:ECDFsecond1D}满足雍稳安提出的结构稳定性条件\cite{yong1992singular,yong1999singular}。从而，其中的一阶双曲偏微分方程的奇异摄动理论可以用于本方程组。于是我们得到\eqref{eq:ECDFsecond1D}以$(\bar{u},0)$为初值的解$U^\kappa = (\rho^\kappa, \rho^\kappa v^\kappa, c^\kappa)^T$和一阶摄动展开对应的方程组的解$U_\kappa^1=(\rho_\kappa^1,\rho_\kappa^1 v_\kappa^1, c^1_\kappa)^T$在$[0,T_*]$上满足
 \begin{eqnarray}\label{53}
   \sup_{t \in [0, T_*]} \|U^\kappa(\cdot, t) - U_\kappa^1(\cdot, t)\|_{H^s} \le K\kappa^2,
 \end{eqnarray}
