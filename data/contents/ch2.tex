@@ -7,14 +7,14 @@
 % \newtheorem{theorem}{定理}
 
  % \begin{document}
- 	非平衡态热力学的核心是热力学第二定律。由热力学第二定律可以知道不可逆过程必然伴随熵增，如何描述这一定律是非平衡态热力学的核心问题。无论是CIT、EIT，还是RT、GENERIC等非平衡态热力学理论，其出发点均为热力学第二定律。这些理论通过引入非平衡状态变量，拓展经典平衡态热力学的Gibbs关系，采用合适的方式描述热力学熵的增长，来达到对不可逆过程建模的目的\cite{ottinger2005beyond,jou1996extended}。然而，由雍稳安、朱毅、洪柳、杨再宝提出的非平衡态的守恒－耗散理论是从双曲方程数学上所要满足的结构性条件出发，基于雍稳安提出的守恒－耗散结构来对非平衡过程进行建模的。这些数学上的结构条件保证了物理上热力学第一和第二定律的成立\cite{zhu2014conservation,}。
+ 	非平衡态热力学的核心是热力学第二定律，由热力学第二定律可以知道不可逆过程必然伴随熵增，如何描述这一定律是非平衡态热力学的核心问题。无论是CIT、EIT，还是RT、GENERIC等非平衡态热力学理论，其出发点均为热力学第二定律。这些理论通过引入非平衡状态变量，拓展经典平衡态热力学的Gibbs关系，采用合适的方式描述热力学熵的增长，来达到对不可逆过程建模的目的\cite{ottinger2005beyond,jou1996extended}。然而，由Yong等人提出的非平衡态热力学的守恒－耗散理论是从双曲方程数学上所要满足的结构性条件出发，基于Yong的守恒－耗散结构来对非平衡过程进行建模的，这些数学上的结构条件保证了物理上热力学第一和第二定律的成立\cite{zhu2014conservation}。
 	
-	本章第一节将回顾雍稳安等提出的守恒－耗散理论的一般框架，第二节回顾其在粘弹性建模中的应用，第三节讨论了热传导定律的守恒－耗散结构，提出了推广的Guyer-Krumhansl定律并应用于粘弹性模型中，第四节对等温可压线性粘弹性Maxwell模型进行了数学上的分析，利用雍稳安等发展的双曲松弛系统的相关理论考察了平衡态附近解的整体存在性与牛顿极限问题。
+	本章第一节将回顾Yong等提出的守恒－耗散理论的一般框架，第二节回顾其在粘弹性建模中的应用，第三节讨论了热传导定律的守恒－耗散结构，提出了推广的Guyer-Krumhansl定律并应用于粘弹性模型中，第四节对等温可压线性粘弹性Maxwell模型进行了数学上的分析，利用Yong的双曲平衡率方程组整体存在性理论和双曲松弛极限理论考察了平衡态附近解的整体存在性与牛顿极限问题。
 
 	\section{守恒－耗散理论}
-	本节我们回顾由雍稳安、朱毅、洪柳、杨再宝发展的不可逆热力学的守恒－耗散理论（以下简称守恒－耗散理论）\cite{zhu2014conservation}。
+	本节我们回顾由Yong、Zhu、Hong、Yang发展的不可逆热力学的守恒－耗散理论（以下简称守恒－耗散理论）\cite{zhu2014conservation}。
 
-	首先，守恒－耗散理论认为，热力学过程可以由守恒过程和耗散过程来描述。守恒率可以采用守恒变量$U_c$来描述。例如$U_c$可以是质量、动量、能量等守恒量。耗散过程采用耗散变量$U_d$来描述。守恒－耗散理论假设不可逆过程可以用下面的偏微分方程来描述
+	首先，守恒－耗散理论认为，热力学过程可以由守恒过程和耗散过程来描述。守恒率可以采用守恒变量$U_c$来描述，例如$U_c$可以是质量、动量、能量等守恒量。耗散过程采用耗散变量$U_d$来描述，守恒－耗散理论假设不可逆过程可以用下面的偏微分方程来描述
 	\begin{equation}\label{eq:CDF}
 		\partial_t U + \sum_{j=1}^n \partial_{x_j} F_j(U) = \mathcal{Q} (U) .
 	\end{equation}
@@ -28,11 +28,11 @@
 			\end{array} \right), \quad 
 			\mathcal{Q}(U) = \left( \begin{array}{c}
 			0 \\ \mathcal{q} (U) 
-			\end{array} \right).
+			\end{array} \right),
 	\end{equation*}
 	$n$为空间的维数。
 	% 根据文献\cite{yong1999singular,yang2015validity,yong2008interesting}，如果假设$Q(U)$前有参数$\frac{1}{\epsilon}$。当$\epsilon$很小时我们期望方程和平衡态的方程相近。基于数学上的考虑，结合热力学第二定律，守恒－耗散理论的假设如下\cite{zhu2014conservation}。
-	基于雍稳安提出的双曲方程组的守恒－耗散结构条件，守恒－耗散理论的假设如下\cite{zhu2014conservation}。
+	基于Yong提出的双曲方程组的守恒－耗散结构条件，守恒－耗散理论的假设如下\cite{zhu2014conservation}：
 	\begin{enumerate}
 		\item 存在严格上凸函数$\eta = \eta (U)$，使得$\eta_{UU} F_{jU}$对称。我们称$\eta$为系统的熵函数。
 		\item 存在正定矩阵$M = M(U)$，使得$\mathcal{q}(U) = M \eta_{U_d}$。我们称$M$为耗散矩阵。
@@ -520,7 +520,7 @@ M_0=\frac{1}{\lambda \theta^2}, M_1=\frac{\lambda \theta^2}{d\tau}, M_2=\frac{2\
 	%很小时可以与形式上得到的方程相近似，从而保证了离平衡态“很近”的体系可以很好地采用平衡态体系近似。
 
 	% 守恒－耗散理论得到的方程均为可对称双曲方程组，所以可以采用对称双曲组的相关理论对方程的解进行分析。例如在平衡态附近方程解的全局适定性可以采用Kawashima理论进行分析\cite{}。可压缩模型的小马赫数极限可以采用类似可压Euler方程的小马赫数极限进行分析\cite{}。方程的弱解的存在性和间断解可以采用相关的理论进行分析\cite{}。
-	第一小节将给出方程\eqref{eq:CDFalphaConst}的对称子，从而得到光滑解局部存在。第二小节将利用雍稳安发展的含熵的双曲松弛系统的整体存在性理论证明方程组\eqref{eq:CDFalphaConst}平衡态附近解的整体存在性\cite{yong2004entropy,kawashima2009decay}。最后一节将利用雍稳安、杨再宝发展的双曲松弛系统Chapman-Enskog展开的数学分析结果\cite{yang2015validity}证明方程组\eqref{eq:CDFalphaConst}与可压Navier-Stokes方程的一致性。
+	第一小节将给出方程\eqref{eq:CDFalphaConst}的对称子，从而得到光滑解局部存在。第二小节将利用雍稳安发展的含熵的双曲松弛系统的整体存在性理论证明方程组\eqref{eq:CDFalphaConst}平衡态附近解的整体存在性\cite{yong2004entropy,kawashima2009decay}。最后一节将利用雍稳安、杨再宝发展的双曲松弛系统Chapman-Enskog展开的数学分析结果\cite{yang2015validity}证明方程组\eqref{eq:CDFalphaConst}与可压Navier-Stokes方程的兼容性。
 
 	\subsection{局部存在性}
 	方程组\eqref{eq:CDFalphaConst}可以写成下面的形式。
@@ -953,12 +953,12 @@ M_0=\frac{1}{\lambda \theta^2}, M_1=\frac{\lambda \theta^2}{d\tau}, M_2=\frac{2\
 % 	\end{eqnarray*}
 % 	首先根据前面的分析我们知道第五个和第六个式子给出$W_2=0$。$\mu \neq 0$时将其代入第一个式子得到$W_1=0$。代入第四个式子得到$W_3=0$。从而$W=0$。$\mu=0$时，将$W_2=0$代入第三个式子得到$W_3=0$。将$W_3=0$代入第四个式子可得到$W_1=0$，从而$W=0$。这样我们验证了Kawashima条件成立。即对于模型\eqref{eq:CDFTemp}，定理\ref{th:Kawashima}也成立。
 
-	\subsection{与Navier-Stokes方程组的一致性}%松弛极限}
+	\subsection{与Navier-Stokes方程组的兼容性}%松弛极限}
 	实际中经常需要考虑系统在平衡态附近的情况。这时方程\eqref{eq:CDF}的源项经常会包含小参数。即方程\eqref{eq:CDF}具有下面的形式。
 	\begin{equation}\label{eq:CDFSingular}
 		\partial_t U + \sum_{j=1}^3 \partial_{x_j} F_j(U) = \frac{1}{\epsilon}\mathcal{Q} (U) .
 	\end{equation}
-	其中$\epsilon$很小。雍稳安的博士论文\cite{yong1999singular}中给出了奇异摄动展开的严格分析。雍稳安、杨再宝在文献\cite{yang2015validity}中讨论了$\epsilon \rightarrow 0$时采用Maxwell迭代（Chapman-Enskog展开）得到近似方程的有效性。下面我们将利用\cite{yang2015validity}中的结果，证明等温可压Maxwell模型当$\kappa=\xi \rightarrow 0$时与由Maxwell迭代得到的Navier-Stokes方程组的一致性。
+	其中$\epsilon$很小。雍稳安的博士论文\cite{yong1999singular}中给出了奇异摄动展开的严格分析。雍稳安、杨再宝在文献\cite{yang2015validity}中讨论了$\epsilon \rightarrow 0$时采用Maxwell迭代（Chapman-Enskog展开）得到近似方程的有效性。下面我们将利用\cite{yang2015validity}中的结果，证明等温可压Maxwell模型当$\kappa=\xi \rightarrow 0$时与由Maxwell迭代得到的Navier-Stokes方程组的兼容性。
 	% 线性粘弹性流体力学模型。为了简单我们在本节考虑模型\eqref{eq:CDFspecific}。其他情况的计算复杂些但思想是相同的。我们的主要目的是要说明当$\epsilon$很小时可以采用Navier-Stokes方程组近似本章发展的粘弹性流体力学模型。
 	% \subsubsection{线性粘弹性模型的摄动展开}
 
