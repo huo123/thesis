@@ -17,18 +17,20 @@
 % \newtheorem{defn}{Definition}
 
 % \begin{document}
-上一章我们利用守恒－耗散理论讨论了线性粘弹性流体力学的模型。然而，线性粘弹性模型由于违背粘弹性流体建模的一个重要法则——客观性原理，所以无法很好地描述粘弹性流体的行为\cite{oldroyd1950formulation,dimitrienko2010nonlinear,edwards1990remarks}。为了在模型中考虑这一原理，我们需要包含张量的客观导数。但是由于这一导数并不是守恒形式的，所以守恒－耗散理论对方程守恒形式的假设并不成立。为了发展守恒－耗散理论以纳入包含客观导数的非线性粘弹性流体力学模型，本章通过放松对方程守恒形式的要求而推广这一理论，以对非线性粘弹性进行建模。
+上一章我们利用守恒－耗散理论讨论了线性粘弹性流体力学的模型。然而，线性粘弹性模型由于违背粘弹性流体建模的一个重要法则——客观性原理，所以无法很好地描述粘弹性流体的行为\cite{oldroyd1950formulation,dimitrienko2010nonlinear,edwards1990remarks}。为了在模型中考虑这一原理，我们需要包含张量的客观导数。但是由于这一导数并不是守恒形式的，所以守恒－耗散理论对方程守恒形式的假设并不成立。
+% 为了发展守恒－耗散理论以纳入包含客观导数的非线性粘弹性流体力学模型，
+本章通过放松对方程守恒形式的要求而推广守恒－耗散理论，以对非线性粘弹性进行建模。
 
-第一节我们将首先讨论客观性原理。第二节提出推广的守恒－耗散理论。第三节利用推广的守恒－耗散理论发展了非线性粘弹性流体力学模型，推广了不可压上对流Maxwell方程和FENE-P模型，并提出了非等温可压上对流Maxwell模型。最后我们利用Yong的双曲平衡率方程组小解整体存在性理论和双曲松弛极限理论分析了一维等温可压上对流Maxwell方程的数学性质。
+第一节我们将首先讨论客观性原理。第二节提出推广的守恒－耗散理论。第三节利用推广的守恒－耗散理论发展了非线性粘弹性流体力学模型，推广了不可压上对流Maxwell方程和FENE-P模型，并提出了非等温可压上对流Maxwell模型。最后我们利用Yong的双曲平衡率方程组小解整体存在性理论和双曲方程松弛极限理论分析了一维等温可压上对流Maxwell方程的数学性质。
 
 \section{粘弹性流体建模的客观性原理}
-1949年J. G. Oldroyd发表了题为《流变学状态方程的构建》（On the formulation of rheological equations of state）一文\cite{oldroyd1950formulation}。这篇文章提出了一个重要的概念——客观性原理（Principle of Objectivity），或称为物质坐标不变性原理（Material Indifference Principle）。根据这一原理，描述物质运动运动的方程不依赖于坐标系的选取。
+1949年J. G. Oldroyd发表了题为《流变学状态方程的构建》（On the formulation of rheological equations of state）一文\cite{oldroyd1950formulation}。这篇文章提出了一个重要的概念——客观性原理（Principle of Objectivity），或称为物质坐标不变性原理（Material Indifference Principle）。根据这一原理，描述物质运动的方程不依赖于坐标系的选取。
 %物质附着的随体坐标系的运动方程在转换到固定参考坐标系时需要满足客观性原理。
-如果我们假设连续介质的物质坐标系（Lagrange坐标系）为$X$，运动到时间$t$时的空间坐标系（Euler坐标系）为$x(t)$，则物质的运动方程的可以采用下面的函数来描述
+如果我们假设连续介质的物质坐标系（Lagrange坐标系）为$X$，运动到时间$t$时的空间坐标系（Euler坐标系）为$x$，则物质的运动方程的可以采用下面的函数来描述
 \begin{equation*}
 	x = x (t,X).
 \end{equation*}
-假设物质的速度为$v = v (t,X)$。那么速度的向量场相伴着下面的自治微分方程
+假设物质的速度为$v = v (t,X)$，那么速度的向量场相伴着下面的自治微分方程
 \begin{equation*}
 	\frac{d}{dt} x(t) = v (x(t)).
 \end{equation*}
@@ -71,9 +73,9 @@ J. G. Oldroyd定义的导数实际上就是张量场的李导数。李导数的�
 \begin{equation}
 	\frac{\mathcal{D} \sigma}{\mathcal{D}t} = \partial_t \sigma + v^s \frac{\partial \sigma_{ij}}{\partial x^s} + \sigma_{kj} \frac{\partial v_k}{\partial x_i} +  \sigma_{ik} \frac{\partial v_k}{\partial x_j}. 
 \end{equation}
-我们称这一导数为下对流Maxwell导数（或称作Cotter-Rivlin导数），记做$\stackrel{\Delta} \sigma$\cite{oldroyd1950formulation,dimitrienko2010nonlinear}。当然也可以采用混合基底来描述应力张量$\sigma$，从而可以定义混合导数。在连续介质力学中还存在其他客观导数，如Jaumann导数等。由于大部分粘弹性流体模型采用上对流Maxwell导数，我们在本章中仅考虑上对流导数的模型，对于含其他导数的模型可以采用类似的方法得到。
+我们称这一导数为下对流Maxwell导数（或称作Cotter-Rivlin导数），记做$\stackrel{\Delta} \sigma$\cite{oldroyd1950formulation,dimitrienko2010nonlinear}。当然也可以采用混合基底来描述应力张量$\sigma$，从而可以定义混合导数。在连续介质力学中还存在其他客观导数，如Jaumann导数等。由于大部分粘弹性流体模型采用上对流Maxwell导数，我们在本章中仅考虑含上对流导数的模型，对于含其他导数的模型可以采用类似的方法得到。
 
-另外，J. G. Oldroyd定义的张量变换关系考虑了空间压缩性的影响。此时张量的变换关系变为
+另外，J. G. Oldroyd定义的张量变换关系考虑了空间压缩性的影响，此时张量的变换关系变为
 \begin{equation*}
 	(\mathcal{F}_t T)^{i_1,\cdots,i_p}_{j_1, \cdots,j_q} = {\det}^\gamma({\frac{\partial X}{\partial x}}) T^{l_1,\cdots,l_p}_{k_1, \cdots,k_q} \frac{\partial x^{k_1}}{\partial x_0^{j_1}} \cdots \frac{\partial x^{k_q}}{\partial x_0^{j_q}} \frac{\partial x_0^{i_1}}{\partial x^{l_1}} \cdots \frac{\partial x_0^{i_p}}{\partial x^{l_p}},  
 \end{equation*}
@@ -120,13 +122,13 @@ J. G. Oldroyd定义的导数实际上就是张量场的李导数。李导数的�
 \begin{equation*}
 	\partial_t U_c + \sum_{j=1}^n f_j(U) = 0.
 \end{equation*}
-耗散变量$U_d$的方程假设有形式（其中$\frac{\mathcal{D} U_d}{\mathcal{D} t}$为客观导数）
+耗散变量$U_d$的方程假设有形式（其中$\frac{\mathcal{D} }{\mathcal{D} t}$为客观导数）
 \begin{eqnarray*}
 	\frac{\mathcal{D} U_d}{\mathcal{D} t} + \sum_{j=1}^d B_{j}(U)U_{x_j} = \mathcal{q}(U).
 \end{eqnarray*}
 为使热力学第二定律成立，我们仍然假设熵函数的存在性。然而由于耗散变量$U_d$方程的非守恒性质，我们不能假设$\eta_{UU}F_{jU} = 0$，而假设熵函数满足类似经典守恒－耗散理论中熵函数的方程。对于源项，我们采用同样的方式描述。推广的守恒－耗散理论的基本假设如下：
 \begin{enumerate}
-		\item 存在严格上凸函数$\eta = \eta (U)$，称$\eta$为系统的熵函数，使得存在$J=J(U),\Delta = \Delta(U)$，
+		\item 存在严格上凸函数$\eta = \eta (U)$，称$\eta$为系统的熵函数，使得存在$J=J(U),\Delta = \Delta(U)$，成立
 		\begin{equation}
 			\eta_t + \nabla \cdot J = \Delta.
 		\end{equation}
@@ -136,7 +138,7 @@ J. G. Oldroyd定义的导数实际上就是张量场的李导数。李导数的�
 	\begin{equation*}
 		\Delta = \eta_{U_d}^T M \eta_{U_d} \ge 0,
 	\end{equation*}
-从而熵增大于0，即热力学第二定律成立。推广的守恒－耗散理论仅仅通过改变耗散变量满足的方程的形式来推广经典的守恒－耗散理论，而守恒－耗散理论的核心假设仍然不变。守恒变量的守恒方程保证了物理守恒律，例如质量、动量、能量守恒的成立，熵的存在性保证了热力学第二定律的成立。另外，与经典守恒－耗散理论相同，我们一般假设$M$对称。
+从而熵增大于0，即热力学第二定律成立。推广的守恒－耗散理论仅仅通过改变耗散变量满足的方程的形式来推广守恒－耗散理论，而守恒－耗散理论的核心假设仍然不变。守恒变量的守恒方程保证了物理守恒律，例如质量、动量、能量守恒的成立，熵的存在性保证了热力学第二定律的成立。另外，与经典守恒－耗散理论相同，我们一般假设$M$对称。
 
 % 然而与经典守恒－耗散理论不同的是，熵函数的存在无法保证得到的方程是对称双曲组，从而其适定性需要单独考虑。另外形式上$\mathcal{Q}(U)=0$可以得到平衡态时耗散变量的值$U_d = U_{de}(U_c)$。此时可以得到对应的平衡态方程
 % \begin{equation*}
@@ -155,8 +157,8 @@ J. G. Oldroyd定义的导数实际上就是张量场的李导数。李导数的�
 
 下面我们将利用推广的守恒－耗散理论建立非线性粘弹性模型。
 
-\section{推广的守恒－耗散理论在非线性粘弹性流体模型中的应用}
-与上一章相同，我们取$U_c = \{ \rho,\rho v,\rho e\}$，满足方程\eqref{eq:fluid}。耗散变量仍取作$U_d =\{\rho w, \rho c\}$，仍然假设熵函数$\eta =\eta(\rho,\rho v,\rho e,\rho w,\rho c)$可以表示成
+\section{推广的守恒－耗散理论在非线性粘弹性流体建模中的应用}
+与上一章相同，我们取$U_c = \{ \rho,\rho v,\rho e\}$，满足方程\eqref{eq:fluid}。耗散变量仍取作$U_d =\{\rho w, \rho c\}$，假设熵函数$\eta =\eta(\rho,\rho v,\rho e,\rho w,\rho c)$可以表示成
 \begin{equation*}
 	\eta = \rho s(\nu,u,w,c).
 \end{equation*}
@@ -208,7 +210,7 @@ J. G. Oldroyd定义的导数实际上就是张量场的李导数。李导数的�
 	\begin{equation*}
 			s = s_0(\nu,u)  - \frac{1}{2  \alpha_0} w^2 - \frac{1}{2  \alpha_1} (\mbox{Tr}(c) - \ln \det c).
 	\end{equation*}
-	其中$\alpha_0,\alpha_1$大于$0$，且$s_0(\nu,u)$为严格上凸函数。显然熵函数$\eta = \rho s$此时为上凸的。
+	其中$\alpha_0,\alpha_1$大于$0$，且$s_0(\nu,u)$为严格上凸函数，显然熵函数$\eta = \rho s$此时为上凸的。
 	
 
 	取$q=s_w=-\frac{ w}{\alpha_0},\tau = \frac{1}{\alpha_1} \rho \theta (I-c)$，$M$为
@@ -262,7 +264,7 @@ J. G. Oldroyd定义的导数实际上就是张量场的李导数。李导数的�
 	\begin{equation*}
 		F_s = H R = 2 k_B T \beta^2 R.
 	\end{equation*}
-	其中$H$为弹性常数，$R$为位移。实际上可以推出$\langle RR \rangle$满足的方程同$c$一样（其中$\langle \cdot \rangle$表示对$R$的积分）\cite{larson1999structure}。这样$c$实际上代表了微观量的统计量$c = \langle RR \rangle$。
+	其中$H$为弹性常数，$R$为位移。实际上可以推出$\langle RR \rangle$满足的方程同$c$一样（其中$\langle \cdot \rangle$表示对$R$的积分）\cite{larson1999structure}，这样$c$实际上代表了微观量的统计量$c = \langle RR \rangle$。
 
 	
 	% 向第二章一样，如果假设熵函数的形式为
@@ -498,14 +500,14 @@ J. G. Oldroyd定义的导数实际上就是张量场的李导数。李导数的�
 			(\rho c)_t +  \partial_x (\rho c  v) - 2 \rho c \partial_x  v  - 2 \partial_x v = - \frac{\rho {c}}{\kappa}  .
 		\end{align}
 \end{subequations}
-对称子可以找到，从而可以采用双曲方程的相关理论进行分析。本节我们将利用Yong的双曲平衡率方程组小解整体存在性理论和双曲松弛极限理论证明方程组\eqref{eq:ECDFsecond1D}平衡态附近的整体存在性和与一维可压Navier-Stokes方程组的兼容性。
+对称子可以找到，从而可以采用双曲方程的相关理论进行分析。本节我们将利用Yong的双曲平衡率方程组小解整体存在性理论和双曲方程松弛极限理论证明方程组\eqref{eq:ECDFsecond1D}平衡态附近的整体存在性和与一维可压Navier-Stokes方程组的兼容性。
 
 下面我们首先给出其对称子，然后利用Yong的双曲平衡率方程组小解整体存在性理论\cite{yong2004entropy}证明其平衡态附近解的整体存在性，最后我们利用Yong、Yang提出的Chapman-Enskog展开的数学理论\cite{yang2015validity}证明当$\kappa$趋于$0$时方程组\eqref{eq:ECDFsecond1D}与由Maxwell迭代得到的一维Navier-Stokes方程组的兼容性。由于方程的非守恒形式，这里的分析无法直接利用\cite{yong2004entropy,yang2015validity}的结果，但其中的对方程的估计方法仍然适用。
 
 \input{data/contents/OldroydV12}
 
 \section{本章小结}
-本章通过推广守恒－耗散理论将含有客观导数的非线性粘弹性流体模型纳入了守恒－耗散理论的框架中。利用推广的守恒－耗散理论我们推广了上对流Maxwell模型和FENE-P模型，这些模型包含了温度和压缩性的影响。另外，我们还利用守恒－耗散理论导出了非等温可压上对流Maxwell模型。最后利用Yong的双曲平衡率方程组小解的整体存在性理论和双曲松弛极限理论证明了这一模型在一维时光滑解在平衡态附近的整体存在性（定理\ref{theoremglobal}）以及当松弛参数$\kappa$趋于$0$时与Navier-Stokes方程组的一致性（定理\ref{theoremCE}）。
+本章通过推广守恒－耗散理论将含有客观导数的非线性粘弹性流体模型纳入了守恒－耗散理论的框架中。利用推广的守恒－耗散理论我们推广了上对流Maxwell模型和FENE-P模型，包含了温度和压缩性的影响。另外，我们还导出了非等温可压上对流Maxwell模型。最后利用Yong的双曲平衡率方程组小解的整体存在性理论和双曲方程松弛极限理论证明了一维等温可压上对流Maxwell模型光滑解在平衡态附近的整体存在性（定理\ref{theoremglobal}）以及当松弛参数$\kappa$趋于$0$时与Navier-Stokes方程组的一致性（定理\ref{theoremCE}）。
 %应力张量的方程由于满足客观性原理不可以写成守恒形式，然而物理上的守恒律和熵增原理仍然成立。通过假设熵函数的存在性而放松对方程守恒形式的要求，推广的守恒－耗散理论很好地纳入了客观导数。本章利用推广的守恒－耗散理论推广了上对流Maxwell模型\eqref{eq:generalizedUCM}和FENE-P模型\eqref{eq:generalizedFENEP}，这些模型包含了温度和压缩性的影响。另外，我们还利用守恒－耗散理论导出了类似\"Ottinger的一个模型——粘弹性流体力学第二模型\eqref{eq:ECDFsecond}。这一模型有很好的Hamilton结构。另外我们证明了其在一维时的光滑解在平衡态附近的整体存在性以及严格分析了在右端松弛参数趋于$0$时与Navier-Stokes方程组的一致性。
 
 

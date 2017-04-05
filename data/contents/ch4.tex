@@ -12,9 +12,9 @@
 
 % \begin{document}
 本章我们将考虑有限形变理论在粘弹性流体力学中的应用。在第一章绪论中，我们已经看到积分形式的记忆衰减理论无法很好地用于粘弹性流体的建模。本章中我们将利用守恒－耗散理论和有限形变理论对粘弹性流体力学进行建模。
-由于有限形变理论中的形变张量$F$满足力学上的适应性条件，其方程可以写成守恒形式，从而我们可以将形变张量加入守恒变量中并可以利用守恒－耗散理论对粘弹性流体进行建模。
+由于有限形变理论中的形变张量$F$满足力学上的适应性条件，其方程可以写成守恒形式，从而我们可以将形变张量加入守恒变量中而利用守恒－耗散理论对粘弹性流体进行建模。
 
-在第一节中我们将给出连续介质运动方程的一般描述。第二节给出有限形变守恒－耗散理论的主要假设和一般框架。第三节讨论其在粘弹性流体中应用并导出有限形变Maxwell模型（推广了Lin模型）。最后一节我们将给出Lin模型小解整体存在性的一个新的证明。
+在第一节中我们将给出连续介质运动方程的一般描述。第二节给出有限形变守恒－耗散理论的主要假设和一般框架。第三节讨论其在粘弹性流体中的应用并导出有限形变Maxwell模型（推广了Lin等人的模型）。最后一节我们将给出Lin等人的模型小解整体存在性的一个新的证明。
 
 \section{连续介质的一般方程}
 在第二章第一节中，我们已经讨论了对连续介质变形的数学描述，连续介质的形变可以用函数$x=\mathcal{F}_t (X,t)$来描述。定义形变张量
@@ -57,7 +57,7 @@ $$
 (\rho F)_t + \nabla \cdot (\rho \otimes v) - \nabla \cdot (\rho v \otimes F^T) = 0 .
 \end{eqnarray*} 
 
-将$F$的方程加入描述连续介质运动的一般方程\eqref{eq:fluid}中，我们得到对连续介质的运动描述如下。
+将$F$的方程加入描述连续介质运动的一般方程\eqref{eq:fluid}中，我们得到对连续介质的运动描述如下
 \begin{subequations}\label{eq:continuum}
 \begin{align}
 \rho_t + \nabla \cdot (\rho v )=0, \\
@@ -120,7 +120,7 @@ M \cdot \left( \begin{array}{c} q \\ s_c \end{array} \right).
 得到
 \begin{eqnarray}\label{eq:finite2}
 \left( \begin{array}{c} \partial_t (\rho w) + \nabla \cdot (\rho w \otimes v) + \nabla \theta^{-1}) \\
-	\partial_t (\rho c) + \nabla \cdot (\rho c \otimes v) - D \end{array} \right).
+	\partial_t (\rho c) + \nabla \cdot (\rho c \otimes v) - D \end{array} \right)
 =
 M \cdot \left( \begin{array}{c} q \\ s_c  \end{array} \right)
 \end{eqnarray}
@@ -143,7 +143,7 @@ M \cdot \left( \begin{array}{c} q \\ s_c  \end{array} \right)
 \end{equation}
 其中$O$为旋转矩阵\cite{dafermos2013non}。第一个式子保证了应变张量的对称性，第二个式子保证了客观性原理成立。根据\cite{ball1976convexity}，满足这两个条件的凸函数关于$F$是二次的。而在固体力学中，应变能$W=W(F)$一般并不假设为凸的，$W$只需要是$F$的秩一上凸函数（Rank-One Concave），即存在$\mu>0$使得
 \begin{equation*}
-	\frac{\partial^2 W(F)}{\partial F_{i\alpha} \partial F_{j\beta}} \xi_i \xi_j \nu_\alpha \nu_\beta \le -\mu |\xi|^2 |\nu|^2, \xi \in \mathbf{R}^n, \ \nu \in \mathbf{R}^n. 
+	\frac{\partial^2 W(F)}{\partial F_{i\alpha} \partial F_{j\beta}} \xi_i \xi_j \nu_\alpha \nu_\beta \le -\mu |\xi|^2 |\nu|^2, \xi \in \mathbf{R}^n, \ \nu \in \mathbf{R}^n
 \end{equation*}
 恒成立。此时根据力学适应性条件，方程仍然具有良好的数学结构。所以在这里我们也假设$\eta$不一定为$U$的上凸函数。受固体力学和双曲方程相关理论的启发，对熵函数$\eta = \rho s$做下面的假设:
 \begin{itemize}
@@ -168,7 +168,7 @@ M \cdot \left( \begin{array}{c} q \\ s_c  \end{array} \right)
 % 	\eta_t + \nabla \cdot J = \eta_U^T M \eta_U.
 % \end{equation}
 % 为了保证熵增大于等于$0$，我们仍然假设守恒－耗散理论的第二个假设成立，即耗散矩阵$M$是正定的。
-另外，守恒－耗散理论还假设熵函数$\eta$的Hessian矩阵可以对称化方程组\eqref{eq:FCDF}。然而在有限形变守恒－耗散理论中，由于力学适应性条件的存在，这一假设需要重新考虑。事实上，在守恒－耗散理论中熵流$J$的存在与$\eta_{UU}F_{jU}$对称是等价的，但是在有限形变守恒－耗散理论中，熵流$J$的存在是无法保证这一点的。实际上方程组\eqref{eq:FCDF}满足带对合条件（involutions）的守恒形式方程组\cite{dafermos1986quasilinear,dafermos2013non,benzoni2007multi}，即存在$n$个矩阵$R_j,j=1,2,\cdots,n$，使得
+另外，守恒－耗散理论还假设熵函数$\eta$的Hessian矩阵可以对称化方程组\eqref{eq:FCDF}。然而在有限形变守恒－耗散理论中，由于力学适应性条件的存在，这一假设需要重新考虑。事实上，在守恒－耗散理论中熵流$J$的存在与$\eta_{UU}F_{jU}$对称是等价的，但是在有限形变守恒－耗散理论中，因为力学适应性条件的存在，熵流$J$的存在是无法保证这一点的。实际上方程组\eqref{eq:FCDF}满足带对合条件（involutions）的守恒形式方程组\cite{dafermos1986quasilinear,dafermos2013non,benzoni2007multi}，即存在$n$个矩阵$M_j,j=1,2,\cdots,n$，使得
 \begin{equation*}
 	M_i F_{j} + M_j F_i = 0, \ i,j = 1, \cdots,n ,
 \end{equation*}
@@ -191,7 +191,7 @@ M \cdot \left( \begin{array}{c} q \\ s_c  \end{array} \right)
 \begin{equation*}
 	\partial_{j} (\rho F_{jl}) = 0
 \end{equation*}
-这就是第一个适应性条件\eqref{eq:compatibility1}。对于带对合的双曲守恒律方程组，Serre等发展了附随熵（contingent entropy entropy）的概念。如果存在函数$\eta = \eta(U)$和函数$J_j=J_j(U),j=1, \cdots n$使得
+这就是第一个适应性条件\eqref{eq:compatibility1}。对于带对合的双曲守恒律方程组，Serre等发展了附随熵（contingent entropy entropy）的概念\cite{benzoni2007multi}。如果存在函数$\eta = \eta(U)$和函数$J_j=J_j(U),j=1, \cdots n$使得
 \begin{equation*}
 	J_{jU}  = \eta_U F_{jU} + \Xi(U)^T M_j,\quad j=1,2, \cdots n,
 \end{equation*}
@@ -210,7 +210,7 @@ M \cdot \left( \begin{array}{c} q \\ s_c  \end{array} \right)
 		\item 存在正定矩阵$M = M(U)$，使得$\mathcal{q}(U) = M \eta_{U_d}$。我们称$M$为耗散矩阵。
 \end{enumerate}
 
-对于本章考虑的两种选择得到的方程组\eqref{eq:FCDF}（其中$w,c$满足\eqref{eq:finite1}或\eqref{eq:finite2}）与适应性条件\eqref{eq:compatibility1}，如果存在函数$\eta = \eta(U)$满足\eqref{eq:entropypro}，则存在$\Xi$，使得\eqref{eq:invsym}成立。实际上在我们的计算中采用的是下面的方程
+对于本章得到的方程组\eqref{eq:FCDF}（其中$w,c$满足\eqref{eq:finite1}或\eqref{eq:finite2}）与适应性条件\eqref{eq:compatibility1}，如果存在函数$\eta = \eta(U)$满足\eqref{eq:entropypro}，则存在$\Xi$，使得\eqref{eq:invsym}成立。实际上在我们的计算中采用的是下面的方程
 \begin{equation*}
 	F_t + v  \cdot \nabla F = \nabla v F.
 \end{equation*}
@@ -364,7 +364,7 @@ M \cdot \left( \begin{array}{c} q \\ s_c  \end{array} \right)
 \input{data/contents/Yong_Global}
 
 \section{本章小结}
-本章利用有限形变理论建立了有限形变守恒－耗散理论的一般框架，基于该框架推广了Lin模型而提出了有限形变Maxwell模型，最后利用双曲—抛物方程组的Kawashima理论，结合力学适应性条件的分析，给出了Lin模型平衡态附近解的整体存在性的一个新的证明（定理\ref{theoremcom}）。
+本章利用有限形变理论建立了有限形变守恒－耗散理论的一般框架，基于该框架推广了Lin等人的模型而提出了有限形变Maxwell模型，最后利用双曲—抛物方程组的Kawashima理论，结合力学适应性条件的分析，给出了Lin等人的模型平衡态附近解的整体存在性的一个新的证明（定理\ref{theoremcom}）。
 % 通过验证该方程的可对称双曲性说明了其局部解的存在性。利用Kawashima理论对该方程进行了数学分析，证明了其平衡态附近的整体存在性。最后，利用Maxwell迭代给出了其近似模型\eqref{eq:compressible}，并利用Kawashima的理论证明了其解的整体存在性。通过这些建模和分析工作，我们可以看出采用有限形变的理论对粘弹性流体进行数学描述是合理而有意义的。
 
 

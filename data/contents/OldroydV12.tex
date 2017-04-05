@@ -92,7 +92,7 @@ $\eta$为其变量的下凸函数，这是因为
 	\end{array} \right)
 \end{eqnarray*}
 其中$(13)=- c_{k'l'} v_j + 2 c_{jl'} v_{k'} + 2 c_{k'j} v_{l'} + \frac{1}{\rho}({v_{k'}} \delta_{j{l'}} + v_{l'} \delta_{jk'}), (31)=- c_{k''l''} v_j + c_{jl''} v_{k''} + c_{k''j} v_{l''} + \frac{1}{\rho}({v_{k''}} \delta_{j{l''}} + v_{l''} \delta_{jk''}),(23)=c_{k'l'} \delta_{ij} -( \delta_{ik'} c_{jl'} + \delta_{il'} c_{jk'} +\delta_{ik'} \delta_{jl'} + \delta_{il'} \delta_{jk'}),(32) =c_{k''l''} \delta_{i'j} -( \delta_{i'k''} c_{jl''} + \delta_{i'l''} c_{jk''} + \delta_{ik''} \delta_{jl''} + \delta_{il''} \delta_{jk''}) $。
-注意到该矩阵的$(13)$和$(31)$项中$c_{jl''} v_{k''}+ c_{k''j} v_{l''}$与$c_{jl'} v_{k'}+ c_{k'j} v_{l'}$前的系数不同。
+注意到该矩阵的$(13)$和$(31)$项中$c_{jl''} v_{k''}+ c_{k''j} v_{l''}$与$c_{jl'} v_{k'}+ c_{k'j} v_{l'}$前的系数不同，
 %由于上对流Maxwell导数中包含非守恒形式的项$(\nabla v) \rho c$和$\rho c (\nabla v)^T$，
 从而熵的Hessian矩阵无法对称化方程组\eqref{eq:ECDFsecondisothermal}。
 
@@ -138,7 +138,7 @@ A_0(U_e)Q_U(U_e) + Q_U^T(U_e)A_0(U_e) =-\frac{2}{\kappa}\mbox{diag}(0, 0, 1),
 从而\eqref{eq:ECDFsecond1D}满足Yong的稳定性条件\eqref{eq:yongstability}\cite{yong1992singular,yong1999singular}。
 
 \subsection{Kawashima条件}
-对于存在熵函数的双曲平衡律方程组，Yong发展了平衡态附近的整体存在性理论\cite{yong2004entropy,hanouzet2003global}。其整体存在性的证明是基于熵函数的存在性、Yong的稳定性条件和Kawashima理论。熵函数的存在性和稳定性条件已经验证。%对于Kawashima条件，对于非守恒形式含有熵的方程\eqref{eq:ECDFsecond1D}的整体存在性，无法采用一般的Kawashima理论直接得到。
+对于存在熵函数的双曲平衡律方程组，Yong发展了平衡态附近的整体存在性理论\cite{yong2004entropy,hanouzet2003global}。其整体存在性的证明是基于熵函数的存在性、Yong的稳定性条件和Kawashima条件。熵函数的存在性和稳定性条件已经验证。%对于Kawashima条件，对于非守恒形式含有熵的方程\eqref{eq:ECDFsecond1D}的整体存在性，无法采用一般的Kawashima理论直接得到。
 在这里我们将验证方程组\eqref{eq:ECDFsecond1D}满足Kawashima条件并给出补偿矩阵（Compensating Matrix）$K$\cite{kawashima1985systems}，然后利用Yong的整体存在性理论\cite{yong2004entropy}得到整体存在性定理的证明。
 
 令
@@ -164,12 +164,12 @@ K A(U_e) + (K A(U_e))^T + \bar{L} =
 \end{eqnarray*}
 第一个条件是物理上对压力的要求。后两个在
 $$
-\eta \ge 2 \rho_e +\frac{(2 + \rho_e \pi_\rho(\rho_e))^2}{2 \pi_\rho(\rho_e)}.
+\eta \ge 2 \rho_e +\frac{(2 + \rho_e \pi_\rho(\rho_e))^2}{2 \pi_\rho(\rho_e)}
 $$
 时成立。
 从而对于足够大的$\eta$，我们有
 \begin{eqnarray}\label{35}
-K A(U_e) + (K A(U_e))^T + \bar{L} \ge C_s I
+K A(U_e) + (K A(U_e))^T + \bar{L} \ge C_s I,
 \end{eqnarray}
 其中$C_s$为仅依赖于$\rho_e$的常数。
 
@@ -177,7 +177,7 @@ K A(U_e) + (K A(U_e))^T + \bar{L} \ge C_s I
 本小节我们考虑方程组\eqref{eq:ECDFsecond1D}在平衡态$U_e$附近解的整体存在性。我们将采用Yong在\cite{yong2004entropy,kawashima2009decay}中对于双曲平衡率系统的估计得到\eqref{eq:ECDFsecond1D}的整体解存在的证明。虽然这里的方程是非守恒形式的，然而由于熵函数的存在、Yong的稳定性条件的成立\eqref{32}以及Kawashima条件的成立，我们仍然可以得到相关的估计及整体存在性定理。本小节的主要结果如下：
 % 我们期望方程组\eqref{eq:ECDFsecond1D}在平衡点$U_e$附近存在整体光滑解。这里主要的问题是处理上对流导数中非守恒形式的项。本小节的主要结果为下面的定理。
 \begin{theorem} \label{theoremglobal}
-令整数$s \ge 2$。假设$U_0=U_0(x) \in H^s(\mathbb{R})$且$\|U_0 -U_e\|_{H^s}$足够小。那么方程组\eqref{eq:ECDFsecond1D}以$U_0$为初值的Cauchy问题存在唯一的整体解$U=U(x,t)$。且对于任意的$T>0$，$U$满足
+令整数$s \ge 2$。假设$U_0=U_0(x) \in H^s(\mathbf{R})$且$\|U_0 -U_e\|_{H^s}$足够小。那么方程组\eqref{eq:ECDFsecond1D}以$U_0$为初值的Cauchy问题存在唯一的整体解$U=U(x,t)$。且对于任意的$T>0$，$U$满足
 $$
 U-U_e \in C([0,+\infty),H^s(\mathbb{R})),
 $$
@@ -229,9 +229,9 @@ E_t &= \eta_t - \eta_U(U_e)U_t = -\nabla \cdot \left(J(U) +( \int_{\rho_0}^{\rho
 
 \emph{第二步：}下面我们对高阶导数的$L^2$范数进行估计。
 
-首先对方程\eqref{eq:ECDFsecond1D}的两端求$l\le s$（$l$为整数）阶导数。 
+首先对方程\eqref{eq:ECDFsecond1D}的两端求$l\le s$（$l$为整数）阶导数
 \begin{eqnarray*}
-\partial^l_x U_t + A(U) \partial^l_x U_x = \partial^l_x Q(U) + [A(U),\partial^l_x]U_x.
+\partial^l_x U_t + A(U) \partial^l_x U_x = \partial^l_x Q(U) + [A(U),\partial^l_x]U_x,
 \end{eqnarray*}
 其中$[X,Y]=XY-YX$为交换子。由于$A_0(U)$和$A_0(U)A(U)$对称，对上面的式子与$A_0(U)\partial^l_x U$取$L^2$内积得到
 \begin{multline}\label{45}
@@ -272,7 +272,7 @@ E_t &= \eta_t - \eta_U(U_e)U_t = -\nabla \cdot \left(J(U) +( \int_{\rho_0}^{\rho
 &\le& -2 \|\partial^l_x c\|_{L^2}^2 + C\|U-U_e\|_{H^s} \|\partial^l_x U\|_{L^2}^2.
 \end{eqnarray}
 
-由估计\eqref{HsEST:1}、\eqref{HsEST:2}和\eqref{HsEST:3}，我们在$[0,T]$对\eqref{45}积分得到
+由估计\eqref{HsEST:1}、\eqref{HsEST:2}和\eqref{HsEST:3}，我们在$[0,T]$上对\eqref{45}积分得到
 \begin{eqnarray}\label{49}
   \|\partial^l_x U(T)\|_{L^2}^2&  + & \int_0^T \|\partial^l_x c(t)\|^2_{L^2}dt \le C\|\partial^l_x U(0)\|_{L^2}^2  \nonumber\\[3mm]
  & +& C\sup_{t \in [0,T]}\|U(t)-U_e\|_{H^s} \int_0^T \|\partial_x U(t)\|^2_{H^{s-1}}dt .
@@ -358,7 +358,7 @@ $\alpha$足够小时，由上述不等式可以导出
 
 \subsection{与一维Navier-Stokes方程组的兼容性}
 
-当$\kappa$足够小时，我们可以认为粘弹性的效应足够小，这时我们有理由相信仅考虑粘性效应足以对粘弹性流体做很好的近似描述。在本小节中，我们将说明一维的等温可压上对流Maxwell模型\eqref{eq:ECDFsecond1D}与经典的可压Navier-Stokes方程在$\kappa$很小时是一致的，即$\kappa$很小时Navier-Stokes方程可以很好地近似等温可压上对流Maxwell模型。
+当$\kappa$足够小时，我们可以认为粘弹性效应足够小，这时我们有理由相信仅考虑粘性效应足以对粘弹性流体做很好的近似描述。在本小节中，我们将说明一维的等温可压上对流Maxwell模型\eqref{eq:ECDFsecond1D}与经典的可压Navier-Stokes方程在$\kappa$很小时是一致的，即$\kappa$很小时Navier-Stokes方程可以很好地近似等温可压上对流Maxwell模型。
 
 首先采用Maxwell迭代可以得到方程组\eqref{eq:ECDFsecond1D}形式上的近似Navier-Stokes方程组。将\eqref{eq:ECDFsecond1D}写为
 \begin{eqnarray*}
@@ -368,10 +368,10 @@ $\alpha$足够小时，由上述不等式可以导出
 \begin{eqnarray*}
   \rho c = 2 \kappa \partial_x v + O(\kappa^2).
 \end{eqnarray*}
-将其带入\eqref{eq:ECDFsecond1D}中的动量方程，并忽略高阶项，可以得到下面的一维Navier-Stokes方程组。
+将其带入\eqref{eq:ECDFsecond1D}中的动量方程，并忽略高阶项，可以得到下面的一维Navier-Stokes方程组
 \begin{align}\label{51}
   \partial_t \rho + \partial_x (\rho v ) = 0, \nonumber \\
-  \partial_t (\rho v) + \partial_x( \rho v^2 + \pi) = 4 \kappa \partial^2_x v
+  \partial_t (\rho v) + \partial_x( \rho v^2 + \pi) = 4 \kappa \partial^2_x v.
 \end{align}
 其中$4\kappa$为粘性系数。这一形式近似的合理性由下面的定理保证：
 % 由\eqref{32}，方程组\eqref{eq:ECDFsecond1D}满足文献\cite{yong1999singular}中的条件。从而可以得知其一阶摄动展开方程组的解可以很好地近似原方程组的解。这样我们只需证明Navier-Stokes方程组可以很好地近似其摄动展开方程组。
@@ -381,11 +381,11 @@ $\alpha$足够小时，由上述不等式可以导出
   \begin{eqnarray*}
     \bar{u}\in H^{s+2},\ \inf_{x} \bar{\rho}(x)>0.
  \end{eqnarray*}
-那么存在与松弛参数$\kappa$无关的时间$T_*>0$，使得方程组\eqref{eq:ECDFsecond1D}以$(\bar{u},0)$为初值的Cauchy问题和Navier-Stokes方程组\eqref{51}以${\bar u}$为初值的Cauchy问题分别有唯一解$(u^\kappa=(\rho^\kappa,\rho^\kappa v^\kappa), c^\kappa)(x,t),u^\kappa_p=(\rho^\kappa_p,\rho^\kappa_p v^\kappa_p)(x,t) \in C([0,T_*], H^s)$。且对于充分小的$\kappa$，它们满足
+那么存在与松弛参数$\kappa$无关的时间$T_*>0$，使得方程组\eqref{eq:ECDFsecond1D}以$(\bar{u},0)$为初值的Cauchy问题和Navier-Stokes方程组\eqref{51}以${\bar u}$为初值的Cauchy问题分别有唯一解$(u^\kappa=(\rho^\kappa,\rho^\kappa v^\kappa), c^\kappa)(x,t),u^\kappa_p=(\rho^\kappa_p,\rho^\kappa_p v^\kappa_p)(x,t) \in C([0,T_*], H^s)$，且对于充分小的$\kappa$，它们满足
   \begin{equation}\label{52}
-    \sup_{t \in [0, T_*]} \|(u^\kappa-u^\kappa_p)(\cdot,t)\|_{H^s} \le C(T_*) \kappa^2
+    \sup_{t \in [0, T_*]} \|(u^\kappa-u^\kappa_p)(\cdot,t)\|_{H^s} \le C(T_*) \kappa^2.
   \end{equation}
- 其中$C(T_*)>0$不依赖于$\kappa$.
+ 其中$C(T_*)>0$不依赖于$\kappa$。
 \end{theorem}
 
 % \begin{remark}
@@ -457,7 +457,7 @@ U^1_\kappa  = U_0(x,t) + \kappa U_1(x,t) + U'_0(x,t') + \kappa U'_1(x,t'),
 \begin{lemma}\label{lemmaCE}
 在定理\ref{theoremCE}的条件下，方程组\eqref{51}以$\bar{u}$为初值的Cauchy问题有唯一解$u_p^\kappa \in C([0,T_*],H^s)$，且对充分小的$\kappa$其满足
 \begin{eqnarray}\label{eq:wcediff}
-  \sup_{t \in [0,T_*]} \| u^\kappa_p(\cdot,t) - u_0 (\cdot, t) - \kappa u_1(\cdot, t)\|_{H^s} \le C \kappa^2
+  \sup_{t \in [0,T_*]} \| u^\kappa_p(\cdot,t) - u_0 (\cdot, t) - \kappa u_1(\cdot, t)\|_{H^s} \le C \kappa^2.
 \end{eqnarray}
 这里$C=C(T_*)$与$\kappa$无关。
 \end{lemma}
@@ -469,7 +469,7 @@ U^1_\kappa  = U_0(x,t) + \kappa U_1(x,t) + U'_0(x,t') + \kappa U'_1(x,t'),
 \end{eqnarray*}
 由\cite{yong2001basic}中结果可知只要下面的估计成立就有$\kappa$趋于$0$时
 $T^\kappa > T_*$
-成立。
+成立：
 \begin{eqnarray*}
 \sup_{x,t} |u_p^\kappa(x,t) - u_0 (x, t) - \kappa u_1(x,t)|=o(1), \\
 \sup_t \| u_p^\kappa(\cdot ,t) - u_0 (\cdot, t) - \kappa u_1(\cdot, t) \|_{H^s} = O(1),
@@ -501,7 +501,7 @@ R=(f(u_\kappa,0) - \kappa f_u(u_0,0)u_1 - f(u_0,0))_x -\left( \begin{array}{c} 0
 $$
 易知$w_\kappa$满足
 \begin{eqnarray}\label{580}
-  \partial_t w_\kappa + a(w_\kappa) \partial_x w_\kappa = \left( \begin{array}{cc} 0 \\ \frac{4 \kappa}{\rho_\kappa} \partial^2_x v_\kappa \end{array} \right) + \hat R
+  \partial_t w_\kappa + a(w_\kappa) \partial_x w_\kappa = \left( \begin{array}{cc} 0 \\ \frac{4 \kappa}{\rho_\kappa} \partial^2_x v_\kappa \end{array} \right) + \hat R,
 \end{eqnarray}
 其中
 \begin{eqnarray*}
@@ -573,7 +573,7 @@ $$
   &\le& C\kappa \|\partial^l_x (v^\kappa-v_\kappa)\|_{L^2} (|\partial_x \frac{1}{\rho^\kappa}|_{L^\infty} \|\partial_x^{s-1} \partial^2_x(v^\kappa-v_\kappa)\|_{L^2} + |\partial^2_x (v^\kappa-v_\kappa)|_{L^\infty} \|\partial^s_x \frac{1}{\rho^\kappa}\|_{L^2})  \\ & & + C\kappa \|\rho^\kappa\|_{H^s} \|v^\kappa-v_\kappa\|_{H^s}\|\partial_x (v^\kappa-v_\kappa)\|_{H^s} -C_0 \kappa\|\partial^{l+1}_x (v^\kappa-v_\kappa)\|_{L^2}^2\\
   &\le& C\kappa (1+ \|E\|_{H^s})\|E\|_{H^s} \|\partial_x (v^\kappa-v_\kappa)\|_{H^s}-C_0 \kappa \|\partial^{l+1}_x (v^\kappa-v_\kappa)\|_{L^2}^2 ,
 \end{eqnarray*}
-其中$C_0 =\frac{ 8}{{\max_{x,t,\kappa} \{\rho^\kappa(x,t) \}}}$.
+其中$C_0 =\frac{ 8}{{\max_{x,t,\kappa} \{\rho^\kappa(x,t) \}}}$。
 
 结合\eqref{58}和上面$I_k$的估计，我们得到
 \begin{eqnarray*}
@@ -616,7 +616,7 @@ $$
 \begin{eqnarray*}
   \|E(T)\|_{H^s} \le C(T_*) \kappa^2
 \end{eqnarray*}
-对$T \in [0,\min\{T_*,T^\kappa\})$成立。我们证明了引理\ref{lemmaCE}，从而定理\ref{theoremCE}成立。
+对$T \in [0,\min\{T_*,T^\kappa\})$成立。这样我们证明了引理\ref{lemmaCE}，从而定理\ref{theoremCE}成立。
 \end{proof}
 
 % \bibliography{ref}
