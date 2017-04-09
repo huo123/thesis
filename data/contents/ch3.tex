@@ -120,11 +120,11 @@ J. G. Oldroyd定义的导数实际上就是张量场的李导数。李导数的�
 \section{推广的守恒－耗散理论}
 我们仍然认为热力学过程可以采用守恒过程和耗散过程来描述。与经典守恒－耗散理论不同的是，我们在这里不再假设耗散变量$U_d$满足守恒形式的方程。我们仍然假设守恒变量$U_c$满足
 \begin{equation*}
-	\partial_t U_c + \sum_{j=1}^n f_j(U) = 0.
+	\partial_t U_c + \sum_{j=1}^n \partial_{x_j} f_j(U) = 0.
 \end{equation*}
 耗散变量$U_d$的方程假设有形式（其中$\frac{\mathcal{D} }{\mathcal{D} t}$为客观导数）
 \begin{eqnarray*}
-	\frac{\mathcal{D} U_d}{\mathcal{D} t} + \sum_{j=1}^d B_{j}(U)U_{x_j} = \mathcal{q}(U).
+	\frac{\mathcal{D} U_d}{\mathcal{D} t} + \sum_{j=1}^n B_{j}(U)U_{x_j} = \mathcal{q}(U).
 \end{eqnarray*}
 为使热力学第二定律成立，我们仍然假设熵函数的存在性。然而由于耗散变量$U_d$方程的非守恒性质，我们不能假设$\eta_{UU}F_{jU} = 0$，而假设熵函数满足类似经典守恒－耗散理论中熵函数的方程。对于源项，我们采用同样的方式描述。推广的守恒－耗散理论的基本假设如下：
 \begin{enumerate}

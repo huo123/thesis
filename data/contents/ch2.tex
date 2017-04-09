@@ -81,9 +81,9 @@
 % 	\end{equation*},
 % 	从而我们可以将这个方程所描述的体系也视为平衡态。这样我们可以得到守恒－耗散理论所描述的非平衡态体系实际上是介于两个平衡态体系之间的。如果没有耗散，则为平衡态$M=0$,，如果时间趋于无穷则方程会趋于另一平衡态体系。这于Elliott Lieb等所讨论的非平衡态的概念有些类似\cite{lieb2000fresh,lieb2013entropy,lieb2014entropy}。他们认为非平衡态为由一个平衡态到另一个平衡态的演化过程。
 	
-	守恒－耗散理论中耗散矩阵$M$一般假设为对称的，这可以看做是Onsager倒易关系的一个推广。实际上如果熵函数是二次的，那么$\eta_{U_d} = \mu U_d$，而熵的产生率
+	守恒－耗散理论中耗散矩阵$M$一般假设为对称的，这可以看做是Onsager倒易关系的一个推广。实际上如果熵函数是耗散变量的二次函数$\eta = -\frac{\mu}{2} |U_d|^2 + \cdots$，耗散矩阵取单位矩阵$M=I$，那么$\eta_{U_d} = - \mu U_d$，而熵的产生率
 	\begin{equation*}
-		\Delta = \eta_{U_d}^T M \eta_{U_d} = \mu^2 U_d^2.
+		\Delta = \eta_{U_d}^T M \eta_{U_d} = \mu^2 |U_d|^2.
 	\end{equation*}
 	在Onsager理论中，熵的产生率为热力学力$X$和热力学流$J_X$的乘积。Onsager倒易关系认为热力学流和力之间的关系是线性的，即存在矩阵$M'$，使得
 	\begin{eqnarray*}
@@ -240,7 +240,7 @@
 
 	由微观方法得到的高分子稀溶液的模型为 \cite{le2009multiscale,larson1999structure}
 	\begin{eqnarray*}
-		v_t + v \cdot \nabla v = \eta_p (H A - KT I), \\
+		v_t + v \cdot \nabla v = \eta_p \nabla \cdot (H A - KT I), \\
 		A_t + v \cdot \nabla A - \nabla v A - A(\nabla v)^T  = -\frac{4 H}{\zeta} A+ \frac{4kT}{\zeta} I.
 	\end{eqnarray*}
 	其中$H = \frac{3kT}{Nb^2}$.其中$k$为Boltzmann常数，$N$为高分子链弹簧模型的弹簧个数，$b$为弹簧长度。取$\beta = \frac{H}{kT} = \frac{3}{Nb^2}$，则应力张量$\sigma = k T(\beta A-I)$。令$c'=\frac{1}{2}(\beta A-I)$，可以得到$c'$的方程如下。
@@ -293,7 +293,7 @@ $w$的方程为
 \begin{equation*}
 	 w_t + \nabla \theta^{-1} = M' q. 
 \end{equation*}
-其中$q = S_w$。
+其中$q = S_w,\ M'>0$。
 
 \subsection{推广的Cattaneo定律}
 % 上一节熵的选取为$s = s(u)  -\frac{1}{2 \alpha_0} w^2, M' = \frac{1}{\theta^2 \lambda} $。得到的热传导定律为
@@ -304,27 +304,32 @@ $w$的方程为
 % \begin{equation*}
 % 	 \chi  \partial_t q = - (q +\lambda \nabla \theta).
 % \end{equation*}
-% 此时假设$u = c_v \theta, s_0 = c_v \ln \theta$,那么可以得到$s = s (\theta,w)$的Hessian矩阵为
+% 此时假设$u = C_u \theta, s_0 = C_u \ln \theta$,那么可以得到$s = s (\theta,w)$的Hessian矩阵为
 % \begin{equation*}
 % 	\left( \begin{array}{cc} 
-% 		-\frac{c_v}{\theta^2} - \frac{\lambda}{\chi} w^2 & \frac{2 \theta \lambda w }{\chi} \\
+% 		-\frac{C_u}{\theta^2} - \frac{\lambda}{\chi} w^2 & \frac{2 \theta \lambda w }{\chi} \\
 % 		\frac{2 \theta \lambda w }{\chi}  & -\frac{\lambda \theta^2}{\chi }
 % 	\end{array} \right).
 % \end{equation*}
-%  这一矩阵在$c_v >0$时对一切$\theta, w$均为负定的。即熵函数为上凸的。
+%  这一矩阵在$C_u >0$时对一切$\theta, w$均为负定的。即熵函数为上凸的。
 
 %\subsection{推广的Cattaneo定律}
  % 然而注意到$\alpha_0$假设是常数，所以这里我们需要$\frac{\chi}{\lambda \theta^2}$为常数。
-取熵函数$s = s(u)  -\frac{1}{2 \alpha_0(u)} w^2$，
-其中$\alpha_0$依赖于内能（温度）$\alpha_0=\alpha(u)$。根据上一节的结果\eqref{eq:CDFMaxwell}，$q$的方程应写为
+取熵函数
+$$s = s_{eq}(u)  -\frac{1}{2 \alpha(u)} w^2,$$
+其中$s_{eq}$为平衡态熵函数，$\alpha$依赖于内能$\alpha=\alpha(u)$。且我们假设内能$u$为平衡态温度$T$的线性函数，即
+$$u=C_u T,$$
+其中$C_u$为比热。热流
+$$q=s_w = -\frac{w}{\alpha(u)}.$$
+根据上一节的结果\eqref{eq:CDFMaxwell}，$q$的方程应写为
 \begin{equation*}
-({\alpha(u)}{q})_t-\nabla \theta^{-1}= M'{q},
+({\alpha(u)}{q})_t-\nabla \theta^{-1}= -M'{q},
 \end{equation*}
 其中$M'>0$。我们称这个方程为推广的Cattaneo定律。
 
 如果我们采用平衡态温度$T$来替代$\theta$，由$T$定义
 \begin{equation*}
-	T^{-1}=\frac{\partial S_{eq}(u)}{\partial u},
+	T^{-1}=\frac{\partial s_{eq}(u)}{\partial u},
 \end{equation*}
 可以得到
 \begin{equation*}
@@ -336,33 +341,48 @@ $w$的方程为
 \end{equation*}
 或
 \begin{equation*}
-({\alpha(u)}{{q}})_t-\nabla(T^{-1}- \frac{\alpha'(u){q}^2}{2})-M{q}=0.
+({\alpha(u)}{{q}})_t-\nabla(T^{-1} + \frac{\alpha'(u){q}^2}{2})-M' {q}=0.
 \end{equation*}
-令$M=\frac{1}{\lambda T^2}, \alpha(u)=\frac{\rho c_v}{2\gamma u^3}=\frac{\rho}{2\gamma c_v^2 T^3}$，其中$\rho$为流体的密度，$c_v$为比热。
-最终我们得到
+
+假设$\alpha(u)$为$u$的指数函数且存在不依赖于$u$的函数$C$使得
+$$\alpha(u) = \frac{C}{u^3}.$$
+将其代入上面的式子得到
+$$\frac{C}{u^3} q_t - \frac{3C C_u}{u^4}q T_t + \frac{1}{T^2} \nabla T + \frac{3C}{u^4} (\nabla q)^T \cdot q - \frac{6C C_u q^2}{u^5}  \nabla T + M' q=0.$$
+取
+\begin{equation*}
+M'=\frac{1}{\lambda T^2}, \ C = \frac{\rho C_u}{2 \gamma},
+\end{equation*}
+可以得到下面的模型
+% 令$M=\frac{1}{\lambda T^2}, \alpha(u)=\frac{\rho C_u}{2\gamma u^3}=\frac{\rho}{2\gamma C_u^2 T^3}$，其中$\rho$为流体的密度，$C_u$为比热。
+% 最终我们得到
 \begin{equation}\label{eq:TMmodel}
-\tau_{TM} {q}_t-3c_v {L}T_t+3(\nabla {q})^T \cdot {L}+\lambda(1-6M_H^2)\nabla T+{q}=0,
+\tau_{TM} {q}_t-3C_u {L}T_t+3(\nabla {q})^T \cdot {L}+\lambda(1-6M_H^2)\nabla T+{q}=0,
 \end{equation}
 其中
 \begin{equation*}
-\tau_{TM}=\frac{\lambda \rho}{2 \gamma c_v^2 T}, \quad {L}=\frac{\lambda \rho}{2 \gamma c_v^3 T^2}{q}, \quad M_H^2=\frac{\lambda \rho {q}^2}{2\gamma c_v^3 T^3}.
+\tau_{TM}=\frac{\lambda T^2 C}{u^3}=\frac{\lambda \rho}{2 \gamma C_u^2 T}, \quad {L}=\frac{\lambda T^2 C q}{u^4}=\frac{\lambda \rho}{2 \gamma C_u^3 T^2}{q}, \quad M_H^2=\frac{ T^2C C_u q^2}{u^5}=\frac{ \rho {q}^2}{2\gamma C_u^3 T^3}.
 \end{equation*}
 
 由过增元等人发展的热质理论的模型为\cite{dong2011generalized,zeng2006motion,sellitto2013entropy}
 \begin{equation*}
-\tau_{TM} {q}_t-c_v {L}T_t+\nabla {q} \cdot {L}+\lambda(1-M_H^2)\nabla T+{q}=0.
+\tau_{TM} {q}_t-C_u {L}T_t+\nabla {q} \cdot {L}+\lambda(1-M_H^2)\nabla T+{q}=0.
 \end{equation*}
 这里我们导出的模型\eqref{eq:TMmodel}和上面的热质理论的模型仅系数有略微差异。
 
-下面我们来考察$s=s(u,w)$的上凸性。$s$的Hessian矩阵为
+下面我们来考察$s=s(u,w)$的上凸性。由$s$上凸可以得到$-s$的Hessian矩阵为正定的，即
 \begin{eqnarray*}
-\left( \begin{array}{ll} -\frac{1}{c_v T^2}-\frac{1}{2}(\frac{1}{\alpha(u)})'' {c}^2 & (\frac{1}{\alpha})'{c} \\ (\frac{1}{\alpha})'{c} & -\frac{1}{\alpha(u)} \end{array} \right).
+\left( \begin{array}{ll} \frac{1}{C_u T^2}+\frac{1}{2}(\frac{1}{\alpha(u)})'' {w}^2 & -(\frac{1}{\alpha})'{w} \\ -(\frac{1}{\alpha})'{w} & \frac{1}{\alpha(u)} \end{array} \right)
 \end{eqnarray*}
-为保证这一矩阵的负定性，我们要求对角元是负的且矩阵的行列式为负的。从而可以得到$c_v >0$与
+为正定的。为保证这一矩阵的正定性，上述矩阵应该满足对角元大于$0$且所有顺序主子式的行列式大于$0$，从而可以得到$C_u >0,
+\alpha(u)>0$与
 \begin{eqnarray*}
-{q}=\alpha(u){c} \le \frac{\rho c_v T}{\sqrt{6}} \sqrt{\frac{\lambda}{\rho c_v \tau_{TM}}},
+\left| \begin{array}{ll} \frac{1}{C_u T^2}+\frac{1}{2}(\frac{1}{\alpha(u)})'' {w}^2 & -(\frac{1}{\alpha})'{w} \\ -(\frac{1}{\alpha})'{w} & \frac{1}{\alpha(u)} \end{array} \right|>0.
 \end{eqnarray*}
-其中 $\sqrt{\frac{\lambda}{\rho c_v \tau_{TM}}}$ 为热波的最大速度\cite{jou1996extended}。 所以熵函数仅在热流小于特定值时为负定的，这一特定值对应于热波允许的最大速度。
+由此得到
+\begin{eqnarray*}
+|{q}|=\left|\frac{w}{\alpha(u)}\right| \le \frac{\rho C_u T}{\sqrt{6}} \sqrt{\frac{\lambda}{\rho C_u \tau_{TM}}},
+\end{eqnarray*}
+其中 $\sqrt{\frac{\lambda}{\rho C_u \tau_{TM}}}$ 为热波的最大速度\cite{jou1996extended}。 所以熵函数仅在热流小于特定值时为负定的，这一特定值对应于热波允许的最大速度。
 
 从这一例子可以看出，简单的熵函数形式就可以导出复杂的热传导本构关系。推广的Cattaneo定律在特定的参数选择下可以得到与热质理论方程类似的模型。
 
@@ -413,15 +433,15 @@ M_0=\frac{1}{\lambda \theta^2},\ M_1=\frac{\lambda \theta^2}{d\tau},\ M_2=\frac{
 \end{equation}
 注意这里我们假设了$a_0,\tau_1,\tau_2$均为常数。
 
-在$\alpha_0,\tau_1,\tau_2$均为常数时，熵函数的Hessian矩阵为
-\begin{eqnarray*}
-\left(\begin{array}{llll}  -\frac{1}{c_v \theta^2} & 0 & 0 & 0 \\
-                                           0  & -\frac{1}{\alpha_0} & 0 & 0 \\
-										   0 & 0 & -\frac{1}{2\tau_1} & 0 \\
-										   0 & 0 & 0 & -\frac{1}{2\tau_2}
-										   \end{array} \right).
-\end{eqnarray*}
-熵的上凸性等价于$c_v$和参数$\alpha_0,\tau_1,\tau_2$为正的。
+% 在$\alpha_0,\tau_1,\tau_2$均为常数时，熵函数的Hessian矩阵为
+% \begin{eqnarray*}
+% \left(\begin{array}{llll}  -\frac{1}{C_u \theta^2} & 0 & 0 & 0 \\
+%                                            0  & -\frac{1}{\alpha_0} & 0 & 0 \\
+% 										   0 & 0 & -\frac{1}{2\tau_1} & 0 \\
+% 										   0 & 0 & 0 & -\frac{1}{2\tau_2}
+% 										   \end{array} \right).
+% \end{eqnarray*}
+% 熵的上凸性等价于$C_u$和参数$\alpha_0,\tau_1,\tau_2$为正的。
 
 我们最终导出的推广的Guyer-Krumhansl模型如下
 \begin{subequations}\label{eq:EGK}
@@ -432,15 +452,15 @@ M_0=\frac{1}{\lambda \theta^2},\ M_1=\frac{\lambda \theta^2}{d\tau},\ M_2=\frac{
 	\end{align}
 \end{subequations}
 
-% 利用推广的Guyer-Krumhansl模型可以得到热质理论和Guyer-Krumhansl模型的组合模型。即令$M_0=\frac{1}{\lambda T^2}, \alpha_0 = \alpha_0 (u) =\frac{\rho c_v}{2\gamma u^3}=\frac{\rho}{2\gamma c_v^2 T^3}$，于是可以得到
+% 利用推广的Guyer-Krumhansl模型可以得到热质理论和Guyer-Krumhansl模型的组合模型。即令$M_0=\frac{1}{\lambda T^2}, \alpha_0 = \alpha_0 (u) =\frac{\rho C_u}{2\gamma u^3}=\frac{\rho}{2\gamma C_u^2 T^3}$，于是可以得到
 % \begin{eqnarray*}
-% \tau_{TM} {q}_t-c_v {L}T_t+\nabla {q} \cdot {L}+\lambda(1-M_H^2)\nabla T+{q} - \lambda T^2 \nabla \cdot ({\frac{1}{\tau_1} \mathring{{Q}}}+\frac{1}{\tau_2}\dot{Q})=0, \\
+% \tau_{TM} {q}_t-C_u {L}T_t+\nabla {q} \cdot {L}+\lambda(1-M_H^2)\nabla T+{q} - \lambda T^2 \nabla \cdot ({\frac{1}{\tau_1} \mathring{{Q}}}+\frac{1}{\tau_2}\dot{Q})=0, \\
 % \mathring{{Q}}_t+(\mathring{\nabla {q}})^{sym}=-\frac{M_1}{\tau_1}\mathring{{Q}}, \\
 % \dot{Q}_t+\frac{1}{3} \nabla \cdot {q}=-\frac{M_2}{\tau_2} \dot{Q}.
 % \end{eqnarray*}
 % 令$\tau_1,\tau_2$趋于0，并取$M_1 = \frac{\lambda T^2}{d}, M_2 = \frac{2\lambda T^2}{5 d }$，可以得到下面的Guyer-Kramhansl-Thermomass热传导模型。
 % \begin{eqnarray*}
-% 	\tau_{TM} {q}_t-c_v {L}T_t+\nabla {q} \cdot {L}+\lambda(1-M_H^2)\nabla T+{q} = \frac{1}{2}d (\nabla^2 q +2 \nabla \nabla \cdot q). \\
+% 	\tau_{TM} {q}_t-C_u {L}T_t+\nabla {q} \cdot {L}+\lambda(1-M_H^2)\nabla T+{q} = \frac{1}{2}d (\nabla^2 q +2 \nabla \nabla \cdot q). \\
 % \end{eqnarray*}
 
 
