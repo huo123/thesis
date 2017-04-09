@@ -23,7 +23,7 @@
 		U = \left( \begin{array}{c}
 			U_c \\ U_d 
 			\end{array} \right) , \quad
-			 \left( \begin{array}{c}
+			F_j(U)= \left( \begin{array}{c}
 			f_j(U) \\ g_j(U)
 			\end{array} \right), \quad 
 			\mathcal{Q}(U) = \left( \begin{array}{c}
@@ -222,7 +222,7 @@
 		\begin{align*}
 			\alpha_0 [\partial_t q +  \nabla \cdot (q \otimes v)] - \nabla \theta^{-1} = - \mu_1 q -\beta' \theta^{-1} \dot{\tau} - \beta'' \theta^{-1} \mathring{\tau} , \\
 			\alpha_1[\partial_t (\theta^{-1} \dot{\tau}) + \nabla \cdot (\theta^{-1} \dot{\tau} \otimes v)] + \dot{D} = -\frac{\dot{\tau}}{\kappa} - \frac{1}{n}(\beta' \cdot q) I, \\
-			\alpha_2[\partial_t (\theta^{-1} \mathring{\tau}) + \nabla \cdot (\theta^{-1} \mathring{\tau} \otimes v)] + \mathring{D} = -\frac{\mathring{\tau}}{\xi} - \frac{1}{2} (\beta''  \otimes q + q \otimes \beta'') + \frac{1}{n}(\beta'' \cdot q) I. 
+			\alpha_2[\partial_t (\theta^{-1} \mathring{\tau}) + \nabla \cdot (\theta^{-1} \mathring{\tau} \otimes v)] + \mathring{D} = -\frac{\mathring{\tau}}{\xi} - \frac{1}{2} (\beta''  \otimes q + q \otimes \beta'') + \frac{1}{n}(\beta' \cdot q) I. 
 		\end{align*}
 	\end{subequations}
 	这与第一章EIT得到的本构关系\eqref{eq:EITconstitutive}类似。这里我们采用耗散变量$w,c$替代了EIT中的$\nabla T, \nabla \dot{\tau}$和$\nabla \cdot{\mathring{\tau}}$。
@@ -467,12 +467,12 @@ M_0=\frac{1}{\lambda \theta^2},\ M_1=\frac{\lambda \theta^2}{d\tau},\ M_2=\frac{
 \subsection{含推广Guyer-Krumhansl热传导定律的线性粘弹性流体模型}
 上面对热传导模型的分析可以用于粘弹性流体力学的建模之中。我们仍然选取守恒变量$U_c$为密度、动量和能量，耗散变量我们选取$\rho w, \rho Q$和$ \rho c$。假设熵函数
 \begin{equation*}
-	\eta = \eta (\rho,\rho v,\rho e,\rho w,\rho Q,\rho c) = \rho s(\nu,u,w,Q,c).
+	\eta = \eta (\rho,\rho v,\rho e,\rho w,\rho \dot{Q},\rho \mathring{Q},\rho c) = \rho s(\nu,u,w,\dot{Q},\mathring{Q},c).
 \end{equation*}
 是其变量的上凸函数。
 根据Gibbs关系我们有
 \begin{equation*}
-			ds = \theta^{-1} pd\nu + \theta^{-1} du + s_w \cdot dw + s_Q : d Q+ s_c : dc.
+			ds = \theta^{-1} pd\nu + \theta^{-1} du + s_w \cdot dw + s_{\dot{Q}} d \dot{Q} +　s_{\mathring{Q}} : d \mathring{Q}+ s_c : dc.
 \end{equation*}
 仍然将张量$Q,c$进行分解$Q = \mathring{Q} +\dot{Q}I$，
 从而可以得到熵的产生率
@@ -681,7 +681,7 @@ M_0=\frac{1}{\lambda \theta^2},\ M_1=\frac{\lambda \theta^2}{d\tau},\ M_2=\frac{
 		\begin{equation*}
 			\mathcal{q}_{U_d}(U) = \left( \begin{array}{cc} 
 				-\frac{1}{\kappa} & 0 \\
-				0 & \frac{1}{\xi}
+				0 & -\frac{1}{\xi}
 			\end{array}\right)
 		\end{equation*}
 		显然可逆，从而第一个条件成立。对于第二个条件，即为守恒－耗散理论的第一条假设，取$\tilde{\eta} = -\eta$即可。第三个条件可由守恒－耗散理论第二条假设得到，首先由$\eta_{U_d}(U_e) = 0$得到
@@ -696,7 +696,7 @@ M_0=\frac{1}{\lambda \theta^2},\ M_1=\frac{\lambda \theta^2}{d\tau},\ M_2=\frac{
 	\begin{equation*}
 		\left( \begin{array}{cc} 
 		-\frac{1}{\kappa} & \\
-		&　\frac{1}{\xi} 
+		&　-\frac{1}{\xi} 
 		\end{array} \right) 
 		\left( \begin{array}{c} W_3 \\W_4 \end{array} \right) = 0,
 	\end{equation*}
@@ -982,7 +982,7 @@ M_0=\frac{1}{\lambda \theta^2},\ M_1=\frac{\lambda \theta^2}{d\tau},\ M_2=\frac{
 	\subsection{与Navier-Stokes方程组的兼容性}%松弛极限}
 	实际中经常需要考虑系统在平衡态附近的情况，这时方程\eqref{eq:CDF}的源项经常会包含小参数，即方程\eqref{eq:CDF}具有下面的形式
 	\begin{equation}\label{eq:CDFSingular}
-		\partial_t U + \sum_{j=1}^3 \partial_{x_j} F_j(U) = \frac{1}{\epsilon}\mathcal{Q} (U) .
+		\partial_t U + \sum_{j=1}^n \partial_{x_j} F_j(U) = \frac{1}{\epsilon}\mathcal{Q} (U) .
 	\end{equation}
 	这里$\epsilon$很小。Yong在\cite{yong1999singular}中给出了奇异摄动展开的严格分析，Yong、Yang在文献\cite{yang2015validity}中讨论了$\epsilon \rightarrow 0$时采用Maxwell迭代（Chapman-Enskog展开）得到的近似方程的有效性。下面我们将利用Yong、Yang的结果\cite{yang2015validity}，证明等温可压Maxwell模型当$\kappa=\xi \rightarrow 0$时与由Maxwell迭代得到的Navier-Stokes方程组的兼容性。这里兼容性是指当$\kappa=\xi \rightarrow 0$时Navier-Stokes方程组可以很好地近似等温可压Maxwell模型。
 	% 线性粘弹性流体力学模型。为了简单我们在本节考虑模型\eqref{eq:CDFspecific}。其他情况的计算复杂些但思想是相同的。我们的主要目的是要说明当$\epsilon$很小时可以采用Navier-Stokes方程组近似本章发展的粘弹性流体力学模型。
@@ -1053,7 +1053,7 @@ M_0=\frac{1}{\lambda \theta^2},\ M_1=\frac{\lambda \theta^2}{d\tau},\ M_2=\frac{
 	% \subsection{可压模型的不可压极限}
 	% 经典可压Euler方程的小马赫数极限的数学分析依赖于Euler方程的双曲性\cite{}。由于守恒－耗散理论得到的方程是对称双曲的，前面导出的可压粘弹性流体力学方程的小马赫数极限问题可以采用类似Euler方程的分析方法进行处理。本小节我们将忽略热传导并假设压力$p$为密度的函数，满足$p(\rho) = \kappa \rho^\gamma, \gamma>1$。
 	\section{本章小结}
-	本章我们利用守恒－耗散理论讨论了线性粘弹性流体的数学建模，利用守恒－耗散理论推广了Guyer-Krumhansl理论并应用于粘弹性流体的建模之中，另外我们还对由守恒－耗散理论得到的等温可压Maxwell方程的数学性质进行了讨论。利用Yong的双曲平衡率的小解整体存在性理论和双曲方程松弛极限理论证明了这一模型平衡态附近解具有整体存在性（定理\ref{th:Kawashima}），以及当松弛参数趋于$0$时该模型\eqref{eq:CDFalphaConst}和Navier-Stokes方程\eqref{eq:CDFalphaConstNS}的相兼容（定理\ref{th:chapmanenskog}）。通过这些建模和分析，我们可以看出守恒－耗散理论可以很好地用来描述线性粘弹性模型，且守恒－耗散理论所提出的的结构条件保证了这些模型具有很好的数学性质。
+	本章我们利用守恒－耗散理论讨论了线性粘弹性流体的数学建模，利用守恒－耗散理论推广了Guyer-Krumhansl理论并应用于粘弹性流体的模型之中，另外我们还对由守恒－耗散理论得到的等温可压Maxwell方程的数学性质进行了讨论。利用Yong的双曲平衡率的小解整体存在性理论和双曲方程松弛极限理论证明了这一模型平衡态附近解具有整体存在性（定理\ref{th:Kawashima}），以及当松弛参数趋于$0$时该模型\eqref{eq:CDFalphaConst}和Navier-Stokes方程组\eqref{eq:CDFalphaConstNS}相兼容（定理\ref{th:chapmanenskog}）。通过这些建模和分析，我们可以看出守恒－耗散理论可以很好地用来描述线性粘弹性模型，且守恒－耗散理论所提出的的结构条件保证了这些模型具有很好的数学性质。
 	 % \bibliography{ref}
 	 % \bibliographystyle{unsrt}
 

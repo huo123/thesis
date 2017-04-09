@@ -64,7 +64,7 @@
 
 然而，由于局部平衡假设的存在，CIT仅能描述远离平衡态不远的系统。为了拓展CIT，大部分理论假设非平衡态的描述不仅需要平衡态变量，也需要非平衡态变量。Coleman、Truesdell、Noll等人发展了理性热力学RT。理性热力学理论认为非平衡态不仅依赖于平衡态状态变量，还依赖于状态变量的空间梯度。通过推广Clausius-Duhem不等式，利用Onsager倒易关系得到本构关系。Fourier-Stokes-Newton定律可以由RT理论导出\cite{jou1996extended}。另外，David Jou、Georgy Lebon等人发展了扩展不可逆热力学EIT。EIT通过拓展非平衡态状态变量，将CIT中的热力学流引入非平衡态状态变量中，来对不可逆过程进行建模。例如我们将$q,\pi,\mathring{P}$引入非平衡态状态变量中，并假设$s = s(\frac{1}{\rho}, u,q,\pi,\mathring{P} )$，则通过计算可以得到熵的产生率为
 \begin{equation*}
-		\rho \dot{s} = - \frac{1}{T} \nabla \cdot q - \frac{1}{T} P: \nabla v - T^{-1} \mathring{P} : \mathring{D} - \alpha_1 \pi \cdot \dot{\pi} - \alpha_2 q \cdot \dot{q} - \alpha_3 \mathring{P} : ({\mathring{P} })^. ,
+		\rho \dot{s} = - \frac{1}{T} \nabla \cdot q - \frac{1}{T} P: \nabla v - \alpha_1 \pi \cdot \dot{\pi} - \alpha_2 q \cdot \dot{q} - \alpha_3 \mathring{P} : ({\mathring{P} })^. ,
 \end{equation*}
 其中$\alpha_1,\alpha_2,\alpha_3$为常数。EIT仍然假设Onsager倒易关系成立，利用Onsager关系，可以得到下面的本构关系。
 \begin{subequations} \label{eq:EITconstitutive}
@@ -120,7 +120,8 @@
 	(L_{12})_{l,kj} = - \frac{\partial}{\partial x_m} c_{mk} \delta_{jl} -  \frac{\partial}{\partial x_m} c_{jm} \delta_{kl}, \\
 	(L_{21})_{jk,l} = -c_{mk} \delta_{jl} \frac{\partial}{\partial x_m} - c_{jm} \delta_{kl} \frac{\partial}{\partial x_m}.
 \end{eqnarray*}
-能量和熵函数为
+这里$m$对$1$到$n$求和，$n$为空间维数。本文中如无特别说明，我们采用Einstein求和约定，相同的指标表示求和。
+取能量和熵函数为
 \begin{equation*}
 	E = \int \frac{1}{2} v^2(x)dx, \quad S = -\int \frac{1}{2} \mbox{
  	Tr}(c(x))- \frac{1}{2}  \ln \det c(x) dx.
@@ -188,7 +189,7 @@
 \end{equation*}
 从而得到
 \begin{eqnarray*}
-	T = \rho \frac{\partial \psi}{\partial C} = \mathop{\mathcal{F}}\limits_{\tau=0}^{t} ( C(t), C_t(\tau),\theta(t),\theta^t(\tau)), \\
+	T = \rho \frac{\partial \psi}{\partial C} = \mathop{\mathcal{F}}\limits_{\tau=0}^{t} ( C(t), C^t(\tau),\theta(t),\theta^t(\tau)), \\
 	\eta = -\frac{\partial \psi}{\partial \theta},\\
 	w = -\rho \delta \psi.
 \end{eqnarray*}
@@ -436,27 +437,27 @@ $\lambda=0$时，$\sigma= 2 \eta_p D$，从而方程组\eqref{eq:Oldroydb}成为
 对于该方程初边值问题、间断解等的分析可以参看文献\cite{qian2011initial,lin2008initial,lei2010remarks,hu2012formation,hu2015global}等。
 
 \section{研究思路和主要工作}
-从当前的研究可以看出各种非平衡态热力学理论对经典的粘弹性流体力学的建模存在各种各样的问题，亦缺乏对数学上的考虑。%且温度和压缩型的影响没有得到充分考虑。
+从当前的研究可以看出各种非平衡态热力学理论对粘弹性流体的建模存在各种各样的问题，亦缺乏数学上的考虑。%且温度和压缩型的影响没有得到充分考虑。
 另外，对粘弹性流体力学方程的数学分析工作目前仍然是具体模型具体分析，缺乏一个统一的框架。
 
-为了解决这些问题，本文通过推广Yong等人发展的守恒－耗散理论，提出了几类非等温可压粘弹性流体模型，并利用对其中的一些模型进行了数学分析。主要完成了以下工作：
+为了解决这些问题，本文通过推广Yong等人发展的守恒－耗散理论，提出了几类非等温可压粘弹性流体模型，并对其中的一些模型进行了数学分析。主要完成了以下工作：
 %本论文的主要目的，一方面是推广经典的不可压粘弹性流体力学模型，使之考虑压缩性以及温度的影响。另一方面是基于双曲方程的相关理论对粘弹性流体力学模型进行数学分析。在建模方面，我们通过推广守恒－耗散理论CDF，使之可以纳入带客观导数的非线性粘弹性模型。在分析方面，我们考察了可压上对流Maxwell模型的主要完成了以下工作：
 \begin{enumerate}
-\item 利用守恒－耗散理论推广了Guyer-Krumhansl热传导定律，并应用于粘弹性流体力学模型中（模型\eqref{eq:CNSTgeneral}）。
-\item 推广守恒－耗散理论使之能够纳入带客观导数的非线性粘弹性模型，由此推广了经典不可压Maxwell模型、FENE-P模型至可压缩形式（模型\eqref{eq:genUCM}和\eqref{eq:generalizedFENEP}），并提出了非等温可压上对流Maxwell模型（模型\eqref{eq:ECDFsecond}）。
+\item 利用守恒－耗散理论推广了Guyer-Krumhansl热传导定律，并应用于粘弹性流体模型中（模型\eqref{eq:CNSTgeneral}）。
+\item 推广守恒－耗散理论使之能够纳入含有客观导数的非线性粘弹性模型，由此推广了经典不可压Maxwell模型、FENE-P模型至可压缩形式（模型\eqref{eq:genUCM}和\eqref{eq:generalizedFENEP}），并提出了非等温可压上对流Maxwell模型（模型\eqref{eq:ECDFsecond}）。
 \item 结合有限形变理论和守恒－耗散理论提出了有限形变守恒—耗散理论，由此推广了Lin等人的模型而提出了有限形变Maxwell模型（模型\eqref{eq:lingen}）。
 \item 利用Yong的双曲平衡率方程组小解整体存在性理论和双曲方程松弛极限理论，证明了等温可压Maxwell模型和一维等温可压上对流Maxwell模型平衡态附近解的整体存在性（定理\ref{th:Kawashima}和定理\ref{theoremglobal}），以及松弛参数趋于$0$时同经典Navier-Stokes方程的兼容性（定理\ref{th:chapmanenskog}和定理\ref{theoremCE}）。
 % \item 利用雍稳安发展的含熵守恒律方程组整体存在性的数学结果证明了等温可压线性粘弹性流体力学模型的平衡态附近解的整体存在性（定理\ref{th:Kawashima}），并且利用雍稳安、杨再宝对双曲松弛系统Chapman-Enskog展开的数学结果严格分析了其同经典Navier-Stokes方程的兼容性（定理\ref{th:chapmanenskog}）。
 % \item 利用雍稳安发展的含熵守恒律方程组整体存在性理论分析了等温可压上对流Maxwell模型在一维时的平衡态附近解的存在性（定理\ref{theoremglobal}），并且利用雍稳安、杨再宝对双曲松弛系统Chapman-Enskog展开的分析方法分析了松弛参数趋于$0$时该模型和经典Navier-Stokes方程的兼容性（定理\ref{theoremCE}）。
-\item 验证了Lin等人的模型不满足双曲—抛物方程的Kawashima条件，并且通过对力学适应性条件的分析，给出了这一模型平衡态附近整体解存在性的一个新的证明。
+\item 验证了Lin等人的模型不满足双曲—抛物方程组的Kawashima条件，并且通过对力学适应性条件的分析，给出了这一模型平衡态附近整体解存在性的一个新的证明。
 % 利用双曲－抛物方程组的Kawashima理论给出了林芳华等人提出的粘弹性流体力学模型平衡态附近解的整体存在性的一个新的证明（定理\ref{theoremcom}），分析了力学适应性条件在方程解的存在性证明中的作用。
 \end{enumerate}
 
 \section{文章结构}
 本论文共分五章。
 \begin{itemize}
-\item 第二章首先回顾了守恒－耗散理论及其在粘弹性流体力学模型中的应用。然后利用守恒－耗散理论提出了推广的Guyer-Krumhansl热传导定律并应用于粘弹性流体模型中。最后利用Yong的双曲平衡率方程整体存在性理论和双曲方程松弛极限理论分析了等温可压线性Maxwell粘弹性流体力学模型平衡态附近解的整体存在性，及其同经典Navier-Stokes方程的兼容性。
-\item 第三章提出了推广的守恒－耗散理论，并利用推广的守恒－耗散理论推广了不可压Maxwell模型和FENE-P模型。然后导出了非等温可压上对流Maxwell模型。最后利用Yong的双曲平衡率方程整体存在性理论和双曲方程松弛极限理论分析了一维可压上对流Maxwell模型平衡态附近解的整体存在性和松弛参数趋于$0$时该模型和经典Navier-Stokes方程的兼容性。
+\item 第二章首先回顾了守恒－耗散理论及其在粘弹性流体建模中的应用。然后利用守恒－耗散理论提出了推广的Guyer-Krumhansl热传导定律并应用于粘弹性流体模型中。最后利用Yong的双曲平衡率方程组整体存在性理论和双曲方程松弛极限理论分析了等温可压线性Maxwell粘弹性流体模型平衡态附近解的整体存在性，及其同经典Navier-Stokes方程组的兼容性。
+\item 第三章提出了推广的守恒－耗散理论，并利用推广的守恒－耗散理论推广了不可压Maxwell模型和FENE-P模型。然后导出了非等温可压上对流Maxwell模型。最后利用Yong的双曲平衡率方程组整体存在性理论和双曲方程松弛极限理论分析了一维可压上对流Maxwell模型平衡态附近解的整体存在性和松弛参数趋于$0$时该模型和经典Navier-Stokes方程组的兼容性。
 \item 第四章结合有限形变理论和守恒－耗散理论，提出了有限形变守恒－耗散理论，由此推广Lin等人的模型而提出了有限形变Maxwell模型，最后利用双曲－抛物方程组的Kawashima理论给出了Lin等人的模型平衡态附近解的整体存在性的一个新的证明。
 \item 第五章对上面的工作进行了总结，并提出了未来研究的发展方向。
 \end{itemize}
