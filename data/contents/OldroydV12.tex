@@ -102,7 +102,10 @@ $\eta$为其变量的下凸函数，这是因为
 		0 & 1 & 0 \\
 		\pi_\rho - v^2 & 2v & -3 \rho c - 2 \\
 		\frac{ (\rho c + 2) v}{\rho} & -  \frac{\rho c + 2}{\rho} & v 
-	\end{array}\right).
+	\end{array}\right), \quad
+	Q(U) = \left( \begin{array}{c}
+		0 \\ 0 \\-\frac{1}{\kappa} \rho c
+	\end{array} \right).
 \end{equation*}
 我们可以找到下面的对称子
 \begin{eqnarray}\label{31}
@@ -179,7 +182,7 @@ K A(U_e) + (K A(U_e))^T + \bar{L} \ge C_s I,
 \begin{theorem} \label{theoremglobal}
 令整数$s \ge 2$。假设$U_0=U_0(x) \in H^s(\mathbf{R})$且$\|U_0 -U_e\|_{H^s}$足够小。那么方程组\eqref{eq:ECDFsecond1D}以$U_0$为初值的Cauchy问题存在唯一的整体解$U=U(x,t)$。且对于任意的$T>0$，$U$满足
 $$
-U-U_e \in C([0,+\infty),H^s(\mathbb{R})),
+U-U_e \in C([0,+\infty),H^s(\mathbf{R})),
 $$
 与
 \begin{eqnarray}\label{41}
@@ -220,11 +223,11 @@ E_t &= \eta_t - \eta_U(U_e)U_t = -\nabla \cdot \left(J(U) +( \int_{\rho_0}^{\rho
 \end{eqnarray*}
 在$(x, t)\in(-\infty, + \infty)\times[0,T]$对\eqref{43}积分可以得到
 \begin{eqnarray*}
-\int_\mathbb{R}E(U(x, T), U_e)dx - \int_\mathbb{R} E(U_0, U_e)dx = - \int_0^T\int_\mathbb{R} \frac{c^2(x, t)}{\kappa} dx dt.
+\int_\mathbf{R}E(U(x, T), U_e)dx - \int_\mathbf{R} E(U_0, U_e)dx = - \int_0^T\int_\mathbf{R} \frac{c^2(x, t)}{\kappa} dx dt.
 \end{eqnarray*}
-结合\eqref{42}，我们最后可以得到下面的$L^2$估计。
+结合\eqref{42}，我们最后可以得到下面的$L^2$估计
 \begin{eqnarray}\label{44}
-\|U(\cdot, T)-U_0\|^2_{L^2} + \int_0^T \|c(\cdot, t)\|^2_{L^2}dt \le C\|U_0 - U_e\|^2_{L^2},
+\|U(\cdot, T)-U_0\|^2_{L^2} + \int_0^T \|c(\cdot, t)\|^2_{L^2}dt \le C\|U_0 - U_e\|^2_{L^2}.
 \end{eqnarray}
 
 \emph{第二步：}下面我们对高阶导数的$L^2$范数进行估计。
@@ -239,7 +242,7 @@ E_t &= \eta_t - \eta_U(U_e)U_t = -\nabla \cdot \left(J(U) +( \int_{\rho_0}^{\rho
   = ((\partial_t A_0(U)+\partial_x(A_0(U)A(U)))\partial^l_x U,\partial^l_x U) \\
   + 2(A_0(U)[A(U),\partial^l_x]U_x,\partial^l_x U) + 2(A_0(U) \partial^l_x Q(U), \partial^l_x U).
 \end{multline}
-对任意的时间$t$，$U(\cdot, t)\in H^s(\mathbb{R})$，所以上式左端第二项为0。右端三项估计如下：
+对任意的时间$t$，$U(\cdot, t)\in H^s(\mathbf{R})$，所以上式左端第二项为0。右端三项估计如下：
 %It follows from the postive definite property of $A_0(U)$ that
 
 对第一项，有
@@ -304,7 +307,7 @@ E_t &= \eta_t - \eta_U(U_e)U_t = -\nabla \cdot \left(J(U) +( \int_{\rho_0}^{\rho
 \end{eqnarray}
 由$K$反对称，左端第一项可以处理如下。
 \begin{eqnarray}\label{212}
-  (K\partial^l_x U_t, \partial^l_x U_x) &=& \frac{1}{2} \int_\mathbb{R} \left[(\partial^l_x U^T_x K \partial^l_x U )_t -  (\partial^l_x U_t^T K\partial^l_x U  )_x \right]dx  \nonumber \\
+  (K\partial^l_x U_t, \partial^l_x U_x) &=& \frac{1}{2} \int_\mathbf{R} \left[(\partial^l_x U^T_x K \partial^l_x U )_t -  (\partial^l_x U_t^T K\partial^l_x U  )_x \right]dx  \nonumber \\
   &=& \frac{1}{2}(K \partial^l_x U,\partial^l_x U_x)_t .
 \end{eqnarray}
 对第二项，利用\eqref{35}得到
@@ -358,11 +361,11 @@ $\alpha$足够小时，由上述不等式可以导出
 
 \subsection{与一维Navier-Stokes方程组的兼容性}
 
-当$\kappa$足够小时，我们可以认为粘弹性效应足够小，这时我们有理由相信仅考虑粘性效应足以对粘弹性流体做很好的近似描述。在本小节中，我们将说明一维的等温可压上对流Maxwell模型\eqref{eq:ECDFsecond1D}与经典的可压Navier-Stokes方程在$\kappa$很小时是一致的，即$\kappa$很小时Navier-Stokes方程可以很好地近似等温可压上对流Maxwell模型。
+当$\kappa$足够小时，我们可以认为粘弹性效应足够小，这时我们有理由相信仅考虑粘性效应足以对粘弹性流体做很好的近似描述。在本小节中，我们将说明一维的等温可压上对流Maxwell模型\eqref{eq:ECDFsecond1D}与经典的可压Navier-Stokes方程在$\kappa$很小时是兼容的，即$\kappa$很小时Navier-Stokes方程可以很好地近似等温可压上对流Maxwell模型。
 
 首先采用Maxwell迭代可以得到方程组\eqref{eq:ECDFsecond1D}形式上的近似Navier-Stokes方程组。将\eqref{eq:ECDFsecond1D}写为
 \begin{eqnarray*}
- \rho c= -\kappa(( \rho c)_t + v \partial_x (\rho c) -  \rho c \partial_x v + 2 \partial_x v.
+ \rho c= -\kappa(( \rho c)_t + v \partial_x (\rho c) -  \rho c \partial_x v + 2 \partial_x v).
 \end{eqnarray*}
 迭代一次得到
 \begin{eqnarray*}
@@ -381,7 +384,7 @@ $\alpha$足够小时，由上述不等式可以导出
   \begin{eqnarray*}
     \bar{u}\in H^{s+2},\ \inf_{x} \bar{\rho}(x)>0.
  \end{eqnarray*}
-那么存在与松弛参数$\kappa$无关的时间$T_*>0$，使得方程组\eqref{eq:ECDFsecond1D}以$(\bar{u},0)$为初值的Cauchy问题和Navier-Stokes方程组\eqref{51}以${\bar u}$为初值的Cauchy问题分别有唯一解$(u^\kappa=(\rho^\kappa,\rho^\kappa v^\kappa), c^\kappa)(x,t),u^\kappa_p=(\rho^\kappa_p,\rho^\kappa_p v^\kappa_p)(x,t) \in C([0,T_*], H^s)$，且对于充分小的$\kappa$，它们满足
+那么存在与松弛参数$\kappa$无关的时间$T_*>0$，使得方程组\eqref{eq:ECDFsecond1D}以$(\bar{u},0)$为初值的Cauchy问题和Navier-Stokes方程组\eqref{51}以${\bar u}$为初值的Cauchy问题分别有唯一解$(u^\kappa=(\rho^\kappa,\rho^\kappa v^\kappa, c^\kappa)(x,t),u^\kappa_p=(\rho^\kappa_p,\rho^\kappa_p v^\kappa_p)(x,t) \in C([0,T_*], H^s)$，且对于充分小的$\kappa$，它们满足
   \begin{equation}\label{52}
     \sup_{t \in [0, T_*]} \|(u^\kappa-u^\kappa_p)(\cdot,t)\|_{H^s} \le C(T_*) \kappa^2.
   \end{equation}
@@ -543,7 +546,7 @@ $$
 & \equiv& I_1 +I_2 +I_3 +I_4+I_5 + I_6.
 \end{eqnarray}
 
-下面我们估计上述方程中的项。首先我们注意到左端第二项为$0$。并且$w^\kappa$在紧集$G_1$中取值，$\|w_\kappa(\cdot, t)\|_{H^{s+2}}$对$\kappa$一致有界。 利用Sobolev演算不等式\cite{majda1984compressible}，$I_2, I_4, I_5$和$I_6$可以估计如下。
+下面我们估计上述方程中的项。首先我们注意到左端第二项为$0$。并且$w^\kappa$在紧集$G_1$中取值，$\|w_\kappa(\cdot, t)\|_{H^{s+2}}$对$\kappa$一致有界。 利用Sobolev演算不等式\cite{majda1984compressible}，$I_2, I_4, I_5$和$I_6$可以估计如：
 \begin{eqnarray*}
   I_2 &\le& 2 |a_0(w^\kappa)|_{L^\infty} \|[a(w^\kappa),\partial^l_x]E_x\|_{L^2} \|\partial^l_x E\|_{L^2} \nonumber \\
   &\le& C \|\partial^l_x E\|_{L^2} (|\partial_x a(w^\kappa)|_{L^\infty}\|\partial^{s-1}_x E_x\|_{L^2} + |E_x|_{L^\infty} \|\partial^s_x a(w^\kappa)\|_{L^2})  \nonumber \\
@@ -565,7 +568,7 @@ $$
       &\le& C (\|w^\kappa-w_\kappa\|_{H^s}+\|w_\kappa\|_{H^s}+\kappa\|v_\kappa\|_{H^{s+1}} + \kappa \|\partial_x(v^\kappa-v_\kappa)\|_{H^s}) \|\partial^l_x E\|_{L^2}^2 \nonumber\\
       &\le& C (1+\|E\|_{H^s} + \kappa \|\partial_x (v^\kappa-v_\kappa)\|_{H^s}) \|E\|_{H^s}^2. \label{516}
 \end{eqnarray*}
-第三项$I_3$的处理需要采用分部积分。
+第三项$I_3$的处理需要采用分部积分：
 \begin{eqnarray*}
   I_3 &=& 8 \kappa ([\partial^l_x,\frac{1}{\rho^\kappa}] \partial^2_x(v^\kappa-v_\kappa) + \frac{1}{\rho^\kappa} \partial^{l+2}_x(v^\kappa-v_\kappa),\partial^l_x (v^\kappa-v_\kappa) )\\
   &=& 8 \kappa ([\partial^l_x,\frac{1}{\rho^\kappa}] \partial^2_x(v^\kappa-v_\kappa),\partial^l_x (v^\kappa-v_\kappa))  -8 \kappa(\partial_x (\frac{1}{\rho^\kappa}) \partial^l_x(v^\kappa-v_\kappa),\partial^{l+1}_x (v^\kappa-v_\kappa)) \\ && -8\kappa ( \frac{1}{\rho^\kappa} \partial^{l+1}_x(v^\kappa-v_\kappa), \partial^{l+1}_x (v^\kappa-v_\kappa)) \\
