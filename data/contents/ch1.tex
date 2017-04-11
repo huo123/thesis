@@ -60,7 +60,7 @@
 	\pi =  - \zeta \nabla \cdot v, \\
 	\mathring{P} = - 2 \eta \mathring{D}.
 \end{eqnarray*}
-此即热传导的Fourier定律与应力张量的Stokes和Newton本构关系。
+此即热传导的Fourier定律与应力张量的Stokes和Newton本构关系
 
 然而，由于局部平衡假设的存在，CIT仅能描述远离平衡态不远的系统。为了拓展CIT，大部分理论假设非平衡态的描述不仅需要平衡态变量，也需要非平衡态变量。Coleman、Truesdell、Noll等人发展了理性热力学RT。理性热力学理论认为非平衡态不仅依赖于平衡态状态变量，还依赖于状态变量的空间梯度。通过推广Clausius-Duhem不等式，利用Onsager倒易关系得到本构关系。Fourier-Stokes-Newton定律可以由RT理论导出\cite{jou1996extended}。另外，David Jou、Georgy Lebon等人发展了扩展不可逆热力学EIT。EIT通过拓展非平衡态状态变量，将CIT中的热力学流引入非平衡态状态变量中，来对不可逆过程进行建模。例如我们将$q,\pi,\mathring{P}$引入非平衡态状态变量中，并假设$s = s(\frac{1}{\rho}, u,q,\pi,\mathring{P} )$，则通过计算可以得到熵的产生率为
 \begin{equation*}
@@ -130,7 +130,7 @@
 \begin{subequations}\label{eq:chap1UCMmaxll}
 \begin{align}
 	v_t + v \cdot \nabla v + \nabla p  - \nabla \cdot (c - I) = 0, \\
-	c_t - v \cdot \nabla v - (\nabla v)c - c (\nabla v)^T = -\frac{c-I}{\lambda}.
+	c_t + v \cdot \nabla c - (\nabla v)c - c (\nabla v)^T = -\frac{c-I}{\lambda}.
 \end{align}
 \end{subequations}
 
@@ -171,7 +171,7 @@
 \begin{equation}\label{eq:Feq}
 	\partial_t F + v \cdot \nabla F = (\nabla v) F.
 \end{equation}
-这一理论认为应力张量是$F$的历史和温度$T$的历史的函数。假设体系的自由能为
+这一理论认为应力张量是$F$的历史和温度$\theta$的历史的函数。假设体系的自由能为
 \begin{equation*}
 	\psi = \mathop{\psi} \limits_{\tau=0}^{t}( C(t), C^t(\tau),\theta(t),\theta^t(\tau)).
 \end{equation*}
@@ -181,7 +181,7 @@
 \end{equation}
 其中$T$代表第二Piola-Kirchhoff张量，与Cauchy应力张量$\sigma$的关系为$\sigma = \rho F T F^T$，$w$代表能量的耗散。由$\psi$的表达式可以得到
 \begin{equation*}
-	\frac{d\psi}{dt} = \frac{\partial \psi}{\partial C} : \frac{d C}{dt}+ \frac{\partial \psi}{\partial \theta} \frac{d\theta}{dt} + \delta \psi。
+	\frac{d\psi}{dt} = \frac{\partial \psi}{\partial C} : \frac{d C}{dt}+ \frac{\partial \psi}{\partial \theta} \frac{d\theta}{dt} + \delta \psi.
 \end{equation*}
 代入\eqref{eq:en}中得到
 \begin{equation*}
@@ -226,7 +226,7 @@ Lei、Liu、Zhou在\cite{liu2008global}中发展这一方程组至可压缩形�
 \begin{subequations}\label{eq:lincompressible}
 	\begin{align}
 		\rho_t + \nabla \cdot (\rho v) = 0, \\
-		(\rho v)_t + \nabla \cdot (\rho\otimes v) + \nabla p = \mu \Delta v + \mu' \nabla \nabla \cdot v+ \nabla \cdot( \rho F F^T), \\
+		(\rho v)_t + \nabla \cdot (\rho v \otimes v) + \nabla p = \mu \Delta v + \mu' \nabla \nabla \cdot v+ \nabla \cdot( \rho F F^T), \\
 		F_t + v \cdot \nabla F = \nabla v F.
 	\end{align}
 \end{subequations}
