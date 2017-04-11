@@ -126,14 +126,14 @@
 	其中$\tau = P - pI$。%前两个式子来源于平衡态热力学的Gibbs关系，最后一个式子是我们的假设（广义Gibbs关系）。
     下面计算熵的产生率
 	\begin{eqnarray*}
-		\eta_t + \nabla \cdot (\eta v) &=& \rho (s_t + v \cdot \nabla s), \\
+		\eta_t + \nabla \cdot (\eta v) &=& \rho (s_t + v \cdot \nabla s) \\
 		&=& -\nabla \cdot (\theta^{-1} q) + s_w \cdot [\rho (w_t + v \cdot \nabla w) + \nabla \theta^{-1}] \\
 		&&+ (s_c:[\rho (c_t + v \cdot \nabla c)] - \theta^{-1} \tau : D) \\
 		&& = -\nabla \cdot J + \Delta.
 	\end{eqnarray*}
 	这里$A:B = \sum_{i,j}A_{ij}B_{ij}$，$D = \frac{1}{2} [\nabla v + (\nabla v)^T], J =\theta^{-1} q $，
 	\begin{equation*}
-		\Delta = s_w \cdot [\rho (w_t + v \cdot \nabla w) + \nabla \theta^{-1}] + (s_c:[\rho (c_t + v \cdot \nabla v)] - \theta^{-1} \tau : \nabla v) .
+		\Delta = s_w \cdot [\rho (w_t + v \cdot \nabla w) + \nabla \theta^{-1}] + (s_c:[\rho (c_t + v \cdot \nabla c)] - \theta^{-1} \tau : \nabla v) .
 	\end{equation*}
 	这里我们用到了$\tau$的对称性，这是动量矩守恒的自然结果\cite{dimitrienko2010nonlinear}。并且假设了$q =s_w,\tau = \theta s_c$。
 
@@ -215,7 +215,7 @@
 	考虑更加一般的情况，我们亦可选取$M$为
 	\begin{equation*}
 		M_{ikl,i'k'l'} = \left( \begin{array}{ccc} 
-			\mu_1 \delta_{ii' } & \frac{1}{3}\beta'_i \delta_{k'l'} +  [\frac{1}{2} (\beta''_{k'} \delta_{il'} + \beta''_{l'} \delta_{ik'}) - \frac{1}{n} \beta_{i} \delta_{k'l'}]\\
+			\mu_1 \delta_{ii' } & \frac{1}{n}\beta'_i \delta_{k'l'} +  [\frac{1}{2} (\beta''_{k'} \delta_{il'} + \beta''_{l'} \delta_{ik'}) - \frac{1}{n} \beta_{i} \delta_{k'l'}]\\
 			\frac{1}{n}\beta'_{i'} \delta_{kl} +  [\frac{1}{2} (\beta''_{k} \delta_{i'l} + \beta''_{l'} \delta_{i'k}) - \frac{1}{n} \beta_{i''} \delta_{kl}] &  \frac{1}{\kappa} \dot{\mathcal{T}} + \frac{1}{\xi} \mathring{\mathcal{T}}  
 		\end{array} \right),
 	\end{equation*} 
@@ -286,7 +286,7 @@
 	由本节对线性粘弹性流体的建模过程可以看出，守恒－耗散理论可以很好地用来对线性粘弹性进行建模。
 
 	\section{粘弹性流体力学热传导模型的守恒－耗散理论}
-	粘弹性流体中的热传导模型目前研究较少，目前大部分模型采用的仍然是Fourier热传导定律或者Cattaneo定律。本小节首先将推广热传导的Cattaneo定律而导出热质理论。然后将推广Guyer-Krumhansl热传导定律得到推广的Guyer-Krumhansl定律。最后将给出推广的Guyer-Krumhansl定律在粘弹性流体力学模型中的应用。
+	粘弹性流体中的热传导模型目前研究较少，目前大部分模型采用的仍然是Fourier热传导定律或者Cattaneo定律。本小节首先将推广热传导的Cattaneo定律而导出热质理论，然后推广Guyer-Krumhansl热传导定律，最后将给出推广的Guyer-Krumhansl定律在粘弹性流体力学模型中的应用。
 
 首先我们仅考虑热传导而忽略流体的运动和压缩性（假设$\rho = 1$），那么体系的方程可以写为
 \begin{equation*}
@@ -484,7 +484,7 @@ $$\alpha_0=\frac{\tau_0}{\lambda \theta^2},$$
 		\eta_t + \nabla \cdot (\eta v) &=& \rho (s_t + v \cdot \nabla s), \\
 		&=& -\nabla \cdot (\theta^{-1} q + (s_{\mathring{{Q}}}+s_{\dot{Q}}) \cdot {q} )  \\
 		&&+ q \cdot [\rho (w_t + v \cdot \nabla w) + \nabla \cdot (s_{\mathring{{Q}}}+s_{\dot{Q}}) + \nabla \theta^{-1}] \\
-		&&+ (s_c:[\rho (c_t + v \cdot \nabla v)] - \theta^{-1} \tau : D) \\
+		&&+ (s_c:[\rho (c_t + v \cdot \nabla c)] - \theta^{-1} \tau : D) \\
 		&&+s_{\mathring{{Q}}}:(\rho (\mathring{{Q}}_t + v \cdot \nabla \mathring{Q})+(\mathring{\nabla {q}})^{sym}) \\
 		&&+s_{\dot{Q}}(\rho (\dot{Q}_t + v \cdot \nabla \dot{Q})+\frac{1}{3}\nabla \cdot {q}) \\
 		&& = -\nabla \cdot J + \Delta. 
@@ -540,7 +540,7 @@ $$\alpha_0=\frac{\tau_0}{\lambda \theta^2},$$
 另外守恒－耗散理论还具有很好的数学基础。下一节将讨论由守恒－耗散理论导出的等温可压Maxwell模型的一些数学结果。
 
 	\section{等温可压Maxwell模型的数学分析}
-	守恒－耗散理论一方面基于Yong的双曲方程的守恒－耗散结构条件，另一方面这一条件保证了热力学第一定律和第二定律及Onsager倒易关系等物理原理的成立。数学上，熵函数的存在性和方程的守恒形式共同保证了方程可以被对称化，从而根据对称双曲组的经典理论，方程的局部适定性可以保证\cite{kato1975cauchy,majda2012compressible}。对于平衡态附近解的整体存在性，可由Yong的双曲平衡率方程组小解的整体存在性理论进行分析\cite{yong2004entropy,kawashima2009decay}。守恒－耗散理论的两条假设使得到的方程满足Yong的双曲松弛系统的稳定性条件\cite{yong1999singular}，从而可以保证右端项含有松弛参数$\epsilon$时的松弛极限有着良好的性质。本节将分析由守恒－耗散理论导出的等温可压Maxwell模型\eqref{eq:CDFalphaConst}的解的存在性与Newton极限，由本节的分析可以看出，守恒－耗散理论的两个假设保证了方程的良好数学性质。
+	守恒－耗散理论一方面基于Yong的双曲方程组的守恒－耗散结构条件，另一方面这一条件保证了热力学第一定律和第二定律及Onsager倒易关系等物理原理的成立。数学上，熵函数的存在性和方程的守恒形式共同保证了方程可以被对称化，从而根据对称双曲组的经典理论，方程的局部适定性可以保证\cite{kato1975cauchy,majda2012compressible}。对于平衡态附近解的整体存在性，可由Yong的双曲平衡率方程组小解的整体存在性理论进行分析\cite{yong2004entropy,kawashima2009decay}。守恒－耗散理论的两条假设使得到的方程满足Yong的双曲松弛系统的稳定性条件\cite{yong1999singular}，从而可以保证右端项含有松弛参数$\epsilon$时的松弛极限有着良好的性质。本节将分析由守恒－耗散理论导出的等温可压Maxwell模型\eqref{eq:CDFalphaConst}的解的存在性与Newton极限，由本节的分析可以看出，守恒－耗散理论的两个假设保证了方程的良好数学性质。
 	%很小时可以与形式上得到的方程相近似，从而保证了离平衡态“很近”的体系可以很好地采用平衡态体系近似。
 
 	% 守恒－耗散理论得到的方程均为可对称双曲方程组，所以可以采用对称双曲组的相关理论对方程的解进行分析。例如在平衡态附近方程解的全局适定性可以采用Kawashima理论进行分析\cite{}。可压缩模型的小马赫数极限可以采用类似可压Euler方程的小马赫数极限进行分析\cite{}。方程的弱解的存在性和间断解可以采用相关的理论进行分析\cite{}。
@@ -996,7 +996,7 @@ $$\alpha_0=\frac{\tau_0}{\lambda \theta^2},$$
 	首先我们从形式上说明方程组\eqref{eq:CDFalphaConst}当松弛参数$\kappa,\xi$同时趋于$0$时可以趋于Navier-Stokes方程组。为此我们采用Maxwell迭代，首先方程组\eqref{eq:CDFalphaConst}中$\dot{c}$和$\mathring{c}$的方程可以写作
 	\begin{eqnarray*}
 			\rho \dot{c} = - \kappa \left( (\rho \dot{c})_t  + \nabla \cdot(\rho \dot{c} \otimes v) - \frac{1}{n} \nabla \cdot v  \right), \\
-			\rho \mathring{c} = -\xi \left( (\rho \mathring{c})_t + \nabla \cdot (\rho c \otimes v) - \frac{1}{2} (\nabla v + (\nabla v)^T - - \frac{2}{n} \nabla \cdot v I \right).
+			\rho \mathring{c} = -\xi \left( (\rho \mathring{c})_t + \nabla \cdot (\rho \mathring{c} \otimes v) - \frac{1}{2} (\nabla v + (\nabla v)^T - \frac{2}{n} \nabla \cdot v I) \right).
 	\end{eqnarray*}
 	迭代一次得到
 	\begin{eqnarray*}

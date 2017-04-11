@@ -257,7 +257,7 @@ Lei、Liu、Zhou在\cite{liu2008global}中发展这一方程组至可压缩形�
 \begin{equation*}
 	\frac{1-a}{2} \Lambda_M - \frac{1+a}{2} \Lambda_m > \frac{\eta}{\lambda}.
 \end{equation*}
-其中$\Lambda_M$和$\Lambda_m$分别为$\sigma$的最大和最小特征值。根据这一分析，可以得到不稳定性仅可能在$a\in (0,1)$时发生。对于上对流和下对流导数（分别对应于$a=-1$和$1$），模型\eqref{eq:Oldroyda}
+其中$\Lambda_M$和$\Lambda_m$分别为$\sigma$的最大和最小特征值。根据这一分析，可以得到不稳定性仅可能在$a\in (-1,1)$时发生。对于上对流和下对流导数（分别对应于$a=-1$和$1$），模型\eqref{eq:Oldroyda}
 是双曲的，不会出现Hadamard不稳定性。
 % 另外Joseph、Saut、Renardy等人还对稳态方程的双曲性进行了分析。
 另外对该模型解的存在性结果可以参看\cite{saut2012lectures}。
@@ -281,7 +281,9 @@ Lei、Liu、Zhou在\cite{liu2008global}中发展这一方程组至可压缩形�
 \end{equation*}
 第三项可以估计为
 \begin{equation*}
-	 \left( (a(D \sigma + \sigma D) - (\sigma W -W \sigma)),\sigma \right) \le \|\sigma\|_{L^2}^2 \|\nabla v\|_{L^\infty} \le \|\sigma\|^2 \|\nabla v\|_{H^2}
+	 \left( (a(D \sigma + \sigma D) - (\sigma W -W \sigma)),\sigma \right) 
+%\le \|\sigma\|_{L^2}^2 \|\nabla v\|_{L^\infty} 
+\le \|\sigma\|^2_{L^2} \|\nabla v\|_{H^2}
 .
 \end{equation*}
 上式中最后一个不等号由Sobolev嵌入定理得到。为了估计$\|\nabla v\|_{H^2}$，需要对$v$的方程估计，最终可以得到\cite{guillope1990existence}
@@ -297,25 +299,25 @@ Lei、Liu、Zhou在\cite{liu2008global}中发展这一方程组至可压缩形�
 \end{theorem}
 方程\eqref{eq:Oldroydb}的平衡点$(v=0,\sigma=0)$附近解的整体存在性首先由文献\cite{guillope1990existence}给出，其中假设了$\eta_s/\eta_p$足够大。这一假设是为了保证粘性项$ 2 \eta_s \Delta v$的耗散足够好从而使得$\sigma$的范数可以被$v$的范数控制。采用不同的方法，这一假设被移除，更一般的整体存在性结果也已经被证明\cite{chupin2004some,molinet2004global,molinet2004existence}。Molinet等人采用了$\|\mathcal{P}\nabla \cdot \sigma\|_{H^1}$来代替文献\cite{guillope1990existence}中的$\|\nabla \cdot \sigma\|_{H^1}$估计，从而得到更好的结果如下\cite{molinet2004global,molinet2004existence}：
 \begin{theorem}（Molinet等\cite{molinet2004existence}）
-	假设$\sigma_0 \in H^2(\mathbf{R}^3),v_0 \in D(A)$足够小,那么存在时间$T>0$，使得方程组\eqref{eq:Oldroydb}存在唯一的光滑解$(v,p,\sigma)$，且满足
+	假设$\sigma_0 \in H^2(\mathbf{R}^3),v_0 \in D(A)$足够小,那么方程组\eqref{eq:Oldroydb}在$t\in [0,\infty)$上存在唯一的光滑解$(v,p,\sigma)$，且满足
 	\begin{eqnarray*}
-		v \in L^2([0,\infty],H^3) \cap C([0,\infty],D(A)), \ p \in L^2([0,\infty],H^2) \ \sigma \in C([0,\infty],H^2).
+		v \in L^2([0,\infty],H^3) \cap C([0,\infty],D(A)), \ p \in L^2([0,\infty],H^2), \ \sigma \in C([0,\infty],H^2).
 	\end{eqnarray*}
 \end{theorem}
 
-在$L^p$框架下方程\eqref{eq:Oldroyda}解的存在性证明可以参见Fernandez、Zhang和Fang的工作\cite{fernandez1998some,zhang2012global}。Besov空间的存在性结果见J. Y. Chemin和N. Masmoudi的工作\cite{chemin2001lifespan}。
+在$L^p$框架下方程组\eqref{eq:Oldroydb}解的存在性证明可以参见Fernandez、Zhang和Fang的工作\cite{fernandez1998some,zhang2012global}。Besov空间的存在性结果见J. Y. Chemin和N. Masmoudi的工作\cite{chemin2001lifespan}。
 
-对于方程\eqref{eq:Oldroydb}的弱解的整体存在性，Constantin和Sun证明了空间$C^\alpha(\mathbf{R}^n) \cap L^1(\mathbf{R}^n)$中弱解的存在性\cite{constantin2010remarks,saut2012lectures}。对于$a=0$的情况，$L^2$意义下弱解的整体存在性被P. L. Lions和N. Masmoudi证明\cite{lions2000global}。这一证明利用了对于$a=0$的模型，方程组\eqref{eq:Oldroydb}中$\sigma$成立下面的估计
+对于方程组\eqref{eq:Oldroydb}的弱解的整体存在性，Constantin和Sun证明了空间$C^\alpha(\mathbf{R}^n) \cap L^1(\mathbf{R}^n)$中弱解的存在性\cite{constantin2010remarks,saut2012lectures}。对于$a=0$的情况，$L^2$意义下弱解的整体存在性被P. L. Lions和N. Masmoudi证明\cite{lions2000global}。这一证明利用了对于$a=0$的模型，方程组\eqref{eq:Oldroydb}中$\sigma$成立下面的估计
 \begin{equation*}
 	\frac{d}{dt} \left(\frac{1}{2} \|v\|_{L^2}^2 +  \frac{\lambda}{4 \eta_p} \|\sigma\|_{L^2}^2 \right) + \frac{1}{2\eta_p} \|\sigma\|_{L^2}^2 + {2 \eta_s} \|\nabla v\|_{L^2}^2 = 0,
 \end{equation*}
 然而由于对于一般的情况，这一估计并不成立，弱解的存在性也尚未得到证明\cite{saut2012lectures}。
 
-另外一个重要的数学问题为$\lambda$趋于$0$时方程\eqref{eq:Oldroydb}的极限分析。形式上$\lambda$为$0$时我们得到Navier-Stokes方程组，即Newton流体模型。这一问题也经常被称为Newton极限问题。我们将$\sigma$的方程写成下面的形式
+另外一个重要的数学问题为$\lambda$趋于$0$时方程组\eqref{eq:Oldroydb}的极限分析。形式上$\lambda$为$0$时我们得到Navier-Stokes方程组，即Newton流体模型。这一问题也经常被称为Newton极限问题。我们将$\sigma$的方程写成下面的形式
 \begin{equation*}
 	 \sigma = -	\lambda \frac{\mathcal{D}_a \sigma}{\mathcal{D} t} +  2 \eta_p D.
 \end{equation*}
-$\lambda=0$时，$\sigma= 2 \eta_p D$，从而方程组\eqref{eq:Oldroydb}成为经典的不可压Navier-Stokes方程组。
+$\lambda=0$时，$\sigma= 2 \eta_p D$，从而方程组\eqref{eq:Oldroydb}成为经典的不可压Navier-Stokes方程组：
 \begin{subequations} \label{eq:innavierstokes}
 \begin{align}
 	\partial_t v + v \cdot \nabla v  + \nabla p &= \nabla \cdot \sigma + 2 \eta \Delta v, \\
@@ -342,7 +344,7 @@ $\lambda=0$时，$\sigma= 2 \eta_p D$，从而方程组\eqref{eq:Oldroydb}成为
 这样对于$\eta_s \neq 0, \eta_p \neq 0$的情况，方程组\eqref{eq:Oldroydb}和Navier-Stokes方程组\eqref{eq:innavierstokes}的兼容性得到了严格地分析。另外，对于弱解下的Newton极限的分析，可以参看\cite{bresch2014newtonian}。
 
 
-近些年来，一些可压缩粘弹性流体力学模型的数学分析开始吸引一些数学家的兴趣，主要集中于推广的Oldroyd模型。P. C. Bollada和T. N. Phillips总结了关于可压粘弹性模型的数学建模工作\cite{bollada2012mathematical}，并利用Lie导数和微分几何给出了可压上对流Maxwell模型。关于这些模型的分析工作目前主要集中于局部存在性和平衡态附近的整体存在性的证明以及不可压极限的分析\cite{zhang2012global,fang2013strong,fang2014incompressible,matuvsuu1999existence,fang2013strong,barrett2016existence,salloum2011local}。例如，Fang和Zi等\cite{fang2013strong}给出了下面的可压Oldroyd-B模型
+近些年来，一些可压缩粘弹性流体力学模型的数学分析开始吸引一些数学家的兴趣，主要集中于推广的Oldroyd模型。P. C. Bollada和T. N. Phillips总结了关于可压粘弹性模型的数学建模工作\cite{bollada2012mathematical}，并利用Lie导数和微分几何导出了可压上对流Maxwell模型。关于这些模型的分析工作目前主要集中于局部存在性和平衡态附近的整体存在性的证明以及不可压极限的分析\cite{zhang2012global,fang2013strong,fang2014incompressible,matuvsuu1999existence,fang2013strong,barrett2016existence,salloum2011local}。例如，Fang和Zi等\cite{fang2013strong}给出了下面的可压Oldroyd-B模型
 \begin{subequations}
 	\begin{align*}
 	\rho_t + \nabla \cdot (\rho v) = 0. \\
@@ -366,7 +368,7 @@ $\lambda=0$时，$\sigma= 2 \eta_p D$，从而方程组\eqref{eq:Oldroydb}成为
 \begin{eqnarray*}
 	\nabla \cdot v = 0, \\
 	v_t + v \cdot \nabla v + \nabla p =  \mu \Delta v - \sum_{i=1}^2 \Delta \phi_i \nabla \phi_i, \\
-	\nabla \cdot v = 0.
+	\phi_t + v \cdot \nabla \phi = 0.
 \end{eqnarray*}
 利用Galerkin逼近，其解的局部存在性可以得到证明\cite{lin2005hydrodynamics}，证明过程采用了Gagliardo–Nirenberg插值不等式
 \begin{equation*}
@@ -380,7 +382,7 @@ $\lambda=0$时，$\sigma= 2 \eta_p D$，从而方程组\eqref{eq:Oldroydb}成为
 	\end{equation*}
 \end{theorem}
 
-为了分析方程\eqref{eq:linincompressible}在二维时解在平衡态附近的整体存在性。取$\psi(x) = \phi(x)-1$，并令$w=v-\frac{1}{\mu}\psi$，而将方程组\eqref{eq:linincompressible}写成下面的形式
+为了分析方程\eqref{eq:linincompressible}在二维时解在平衡态附近的整体存在性。取$\psi(x) = \phi(x)-x$，并令$w=v-\frac{1}{\mu}\psi$，而将方程组\eqref{eq:linincompressible}写成下面的形式
 \begin{eqnarray*}
 	\nabla \cdot v =0 , \\
 	w_t - \mu \Delta w = - v \cdot \nabla w - \nabla p = - \Delta \psi \nabla \psi + \frac{v}{\mu}, \\
