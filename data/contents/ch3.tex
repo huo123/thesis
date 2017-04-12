@@ -88,7 +88,7 @@ J. G. Oldroyd定义的导数实际上就是张量场的李导数。李导数的�
 	\frac{\mathcal{d} T}{\mathcal{d} t} =  T_t +v \cdot \nabla T + \gamma T \nabla \cdot v - (\nabla v) T - T(\nabla v)^T.   
 \end{equation*}
 
-由于坐标系的变形对张量演化的影响，张量的客观导数一般不是守恒形式的。这也意味着守恒－耗散理论对方程守恒形式的假设不适用于张量。对于第二章考虑的线性粘弹性流体力学模型实际上不满足客观性原理，从而应用受到了很大的局限。通过直接将张量的导数$\partial_t \sigma  + v \cdot \nabla \sigma$写成客观导数的形式，可以推广线性Maxwell模型，例如下面的不可压粘弹性流体的上对流Maxwell模型就是通过推广线性的Maxwell模型得出的\cite{oldroyd1950formulation}：
+由于坐标系的变形对张量演化的影响，张量的客观导数一般不是守恒形式的。这也意味着守恒－耗散理论对方程守恒形式的假设不适用于张量。从而第二章考虑的线性粘弹性流体力学模型实际上不满足客观性原理，在应用中受到了很大的局限。通过直接将张量的导数$\partial_t \sigma  + v \cdot \nabla \sigma$写成客观导数的形式，可以推广线性Maxwell模型，例如下面的不可压粘弹性流体的上对流Maxwell模型就是通过推广线性的Maxwell模型得出的\cite{oldroyd1950formulation}：
 \begin{subequations} \label{eq:UCM}
 	\begin{align}
 		\nabla \cdot v &= 0, \\
@@ -242,7 +242,7 @@ J. G. Oldroyd定义的导数实际上就是张量场的李导数。李导数的�
 		\begin{align}
 			\rho_t + \nabla \cdot (\rho v) = 0 ,\\
 			(\rho v)_t + \nabla \cdot (\rho v \otimes v) + \nabla (\theta \pi)  + \nabla \cdot ( \frac{\rho \theta(I-c)}{\alpha_1}) =0 ,\\
-			(\rho e)_t + \nabla \cdot q + \nabla \cdot (P \cdot v) = 0, \\
+			(\rho e)_t + \nabla \cdot (\rho e v) + \nabla \cdot q + \nabla \cdot (P \cdot v) = 0, \\
 			(\rho w)_t + \nabla \cdot (\rho w \otimes v) + \nabla \theta^{-1} = -\frac{1}{\lambda \theta^2 \alpha_0} w, \\
 			(\rho c)_t +  \nabla \cdot (\rho c \otimes v) - (\nabla v) \rho c - (\rho c) (\nabla v)^T  = -\frac{2 \rho^2 \theta (c-I) }{\xi \alpha_1}.
 		\end{align}
@@ -264,7 +264,7 @@ J. G. Oldroyd定义的导数实际上就是张量场的李导数。李导数的�
 	\begin{equation*}
 		F_s = H R = 2 k_B T \beta^2 R.
 	\end{equation*}
-	其中$H$为弹性常数，$R$为位移。实际上可以推出$\langle RR \rangle$满足的方程同$c$一样（其中$\langle \cdot \rangle$表示对$R$的积分）\cite{larson1999structure}，这样$c$实际上代表了微观量的统计量$c = \langle RR \rangle$。
+	其中$H$为弹性常数，$R$为位移。可以推出$\langle RR \rangle$满足的方程同$c$一样（其中$\langle \cdot \rangle$表示对$R$的积分）\cite{larson1999structure}，这样$c$实际上代表了微观量的统计量$c = \langle RR \rangle$。
 
 	
 	% 向第二章一样，如果假设熵函数的形式为
@@ -326,7 +326,7 @@ J. G. Oldroyd定义的导数实际上就是张量场的李导数。李导数的�
 	\end{subequations}
 	取$\alpha_1 = \frac{\beta^2}{\mu k_B},a=\beta^{-2},b=2L^2,\xi = \lambda$，假设流体不可压（$\rho=1$），那么我们可以由$c=S,\tau = -\sigma$得到\eqref{eq:FENEP}，即我们得到了FENE-P模型。
 
-	这一节我们利用了守恒－耗散理论推广了经典的不可压上对流Maxwell模型和FENE-P模型，通过本节的分析可以看出，推广的守恒－耗散理论可以很方便地对经典模型进行推广。
+	这一小节我们利用了守恒－耗散理论推广了经典的不可压上对流Maxwell模型和FENE-P模型，通过本小节的分析可以看出，推广的守恒－耗散理论可以很方便地对经典模型进行推广。
 
 	\subsection{第二类模型：非等温可压上对流Maxwell模型}
 	\subsubsection{模型的推导}
@@ -497,7 +497,7 @@ J. G. Oldroyd定义的导数实际上就是张量场的李导数。李导数的�
 		\begin{align}
 			\rho_t + \partial_x (\rho v) = 0 ,\\
 			(\rho v)_t + \partial_x (\rho v^2) + \partial_x (\pi)   -  (2+ 3 \rho c) \partial_x (  \rho c) =0 ,\\
-			(\rho c)_t +  \partial_x (\rho c  v) - 2 \rho c \partial_x  v  - 2 \partial_x v = - \frac{\rho {c}}{\kappa}  .
+			(\rho c)_t +  \partial_x (\rho c  v) - 2 \rho c \partial_x  v  - 2 \partial_x v = - \frac{\rho {c}}{\kappa}  ,
 		\end{align}
 \end{subequations}
 对称子可以找到，从而可以采用双曲方程的相关理论进行分析。本节我们将利用Yong的双曲平衡率方程组小解整体存在性理论和双曲方程松弛极限理论证明方程组\eqref{eq:ECDFsecond1D}平衡态附近的整体存在性和与一维可压Navier-Stokes方程组的兼容性。

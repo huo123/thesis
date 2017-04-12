@@ -70,7 +70,7 @@ $\eta$为其变量的下凸函数，这是因为
 \begin{equation*}
 	U_t + \sum_{j=1}^n A_j(U) U_{x_j} = \mathcal{Q}(U).
 \end{equation*}
-其中$A_j$和$\mathcal{Q}$的表达式如下
+其中$\mathcal{Q}$和$A_j$的表达式如下
 \begin{eqnarray*}
 	&&\mathcal{Q} (U)= \left( \begin{array}{c}
 		0 \\ 0 \\-\frac{1}{\kappa} \rho c
@@ -177,7 +177,7 @@ K A(U_e) + (K A(U_e))^T + \bar{L} \ge C_s I,
 其中$C_s$为仅依赖于$\rho_e$的常数。
 
 \subsection{平衡态附近解的整体存在性}
-本小节我们考虑方程组\eqref{eq:ECDFsecond1D}在平衡态$U_e$附近解的整体存在性。我们将采用Yong在\cite{yong2004entropy,kawashima2009decay}中对于双曲平衡率系统的估计得到\eqref{eq:ECDFsecond1D}的整体解存在的证明。虽然这里的方程是非守恒形式的，然而由于熵函数的存在、Yong的稳定性条件的成立\eqref{32}以及Kawashima条件的成立，我们仍然可以得到相关的估计及整体存在性定理。本小节的主要结果如下：
+本小节我们考虑方程组\eqref{eq:ECDFsecond1D}在平衡态$U_e$附近解的整体存在性。我们将采用Yong在\cite{yong2004entropy,kawashima2009decay}中对于双曲平衡率系统的估计得到\eqref{eq:ECDFsecond1D}的整体解存在的证明。虽然这里的方程是非守恒形式的，然而由于熵函数的存在、Yong的稳定性条件的成立以及Kawashima条件的成立，我们仍然可以得到相关的估计及整体存在性定理。本小节的主要结果如下：
 % 我们期望方程组\eqref{eq:ECDFsecond1D}在平衡点$U_e$附近存在整体光滑解。这里主要的问题是处理上对流导数中非守恒形式的项。本小节的主要结果为下面的定理。
 \begin{theorem} \label{theoremglobal}
 令整数$s \ge 2$。假设$U_0=U_0(x) \in H^s(\mathbf{R})$且$\|U_0 -U_e\|_{H^s}$足够小。那么方程组\eqref{eq:ECDFsecond1D}以$U_0$为初值的Cauchy问题存在唯一的整体解$U=U(x,t)$。且对于任意的$T>0$，$U$满足
@@ -202,7 +202,7 @@ E=E(U,U_e) = \eta(U)-\eta(U_e)-\eta_U(U_e)(U-U_e).
 \end{eqnarray*}
 因为$\eta=\eta(U)$是严格下凸的，所以存在正常数$c_1$ 和 $C_1$，使得对于充分靠近$U_e$的$U$，有
 \begin{eqnarray}\label{42}
-c_1 |U-U_e|^2 \le E(U,U_e) \le C_1 |U-U|^2.
+c_1 |U-U_e|^2 \le E(U,U_e) \le C_1 |U-U_e|^2.
 \end{eqnarray}
 下面我们计算$E$的演化方程。根据\eqref{eq:ECDFsecond1D}和\eqref{23}，
 \begin{eqnarray}\label{43}
