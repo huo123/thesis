@@ -21,7 +21,7 @@
 % 为了发展守恒－耗散理论以纳入包含客观导数的非线性粘弹性流体力学模型，
 本章通过放松对方程守恒形式的要求而推广守恒－耗散理论，以对非线性粘弹性进行建模。
 
-第一节我们将首先讨论客观性原理。第二节提出推广的守恒－耗散理论。第三节利用推广的守恒－耗散理论发展了非线性粘弹性流体力学模型，推广了不可压上对流Maxwell方程和FENE-P模型，并提出了非等温可压上对流Maxwell模型。最后我们利用Yong的双曲平衡率方程组小解整体存在性理论和双曲方程松弛极限理论分析了一维等温可压上对流Maxwell方程的数学性质。
+第一节我们将首先讨论客观性原理。第二节提出推广的守恒－耗散理论。第三节利用推广的守恒－耗散理论发展了非线性粘弹性流体力学模型，推广了不可压上对流Maxwell方程和FENE-P模型，并提出了非等温可压上对流Maxwell模型。最后我们利用Yong的双曲平衡律方程组小解整体存在性理论和双曲方程松弛极限理论分析了一维等温可压上对流Maxwell方程的数学性质。
 
 \section{粘弹性流体建模的客观性原理}
 1949年J. G. Oldroyd发表了题为《流变学状态方程的构建》（On the formulation of rheological equations of state）一文\cite{oldroyd1950formulation}。这篇文章提出了一个重要的概念——客观性原理（Principle of Objectivity），或称为物质坐标不变性原理（Material Indifference Principle）。根据这一原理，描述物质运动的方程不依赖于坐标系的选取。
@@ -500,14 +500,14 @@ J. G. Oldroyd定义的导数实际上就是张量场的李导数。李导数的�
 			(\rho c)_t +  \partial_x (\rho c  v) - 2 \rho c \partial_x  v  - 2 \partial_x v = - \frac{\rho {c}}{\kappa}  ,
 		\end{align}
 \end{subequations}
-对称子可以找到，从而可以采用双曲方程的相关理论进行分析。本节我们将利用Yong的双曲平衡率方程组小解整体存在性理论和双曲方程松弛极限理论证明方程组\eqref{eq:ECDFsecond1D}平衡态附近的整体存在性和与一维可压Navier-Stokes方程组的兼容性。
+对称子可以找到，从而可以采用双曲方程的相关理论进行分析。本节我们将利用Yong的双曲平衡律方程组小解整体存在性理论和双曲方程松弛极限理论证明方程组\eqref{eq:ECDFsecond1D}平衡态附近的整体存在性和与一维可压Navier-Stokes方程组的兼容性。
 
-下面我们首先给出其对称子，然后利用Yong的双曲平衡率方程组小解整体存在性理论\cite{yong2004entropy}证明其平衡态附近解的整体存在性，最后我们利用Yong、Yang提出的Chapman-Enskog展开的数学理论\cite{yang2015validity}证明当$\kappa$趋于$0$时方程组\eqref{eq:ECDFsecond1D}与由Maxwell迭代得到的一维Navier-Stokes方程组的兼容性。由于方程的非守恒形式，这里的分析无法直接利用\cite{yong2004entropy,yang2015validity}的结果，但其中对方程的估计方法仍然适用。
+下面我们首先给出其对称子，然后利用Yong的双曲平衡律方程组小解整体存在性理论\cite{yong2004entropy}证明其平衡态附近解的整体存在性，最后我们利用Yong、Yang提出的Chapman-Enskog展开的数学理论\cite{yang2015validity}证明当$\kappa$趋于$0$时方程组\eqref{eq:ECDFsecond1D}与由Maxwell迭代得到的一维Navier-Stokes方程组的兼容性。由于方程的非守恒形式，这里的分析无法直接利用\cite{yong2004entropy,yang2015validity}的结果，但其中对方程的估计方法仍然适用。
 
 \input{data/contents/OldroydV12}
 
 \section{本章小结}
-本章通过推广守恒－耗散理论将含有客观导数的非线性粘弹性流体模型纳入了守恒－耗散理论的框架中。利用推广的守恒－耗散理论我们推广了上对流Maxwell模型和FENE-P模型，包含了温度和压缩性的影响。另外，我们还导出了非等温可压上对流Maxwell模型（模型\eqref{eq:ECDFsecond}）。最后利用Yong的双曲平衡率方程组小解的整体存在性理论和双曲方程松弛极限理论证明了一维等温可压上对流Maxwell模型光滑解在平衡态附近的整体存在性（定理\ref{theoremglobal}）以及当松弛参数$\kappa$趋于$0$时与Navier-Stokes方程组的兼容性（定理\ref{theoremCE}）。
+本章通过推广守恒－耗散理论将含有客观导数的非线性粘弹性流体模型纳入了守恒－耗散理论的框架中。利用推广的守恒－耗散理论我们推广了上对流Maxwell模型和FENE-P模型，包含了温度和压缩性的影响。另外，我们还导出了非等温可压上对流Maxwell模型（模型\eqref{eq:ECDFsecond}）。最后利用Yong的双曲平衡律方程组小解的整体存在性理论和双曲方程松弛极限理论证明了一维等温可压上对流Maxwell模型光滑解在平衡态附近的整体存在性（定理\ref{theoremglobal}）以及当松弛参数$\kappa$趋于$0$时与Navier-Stokes方程组的兼容性（定理\ref{theoremCE}）。
 %应力张量的方程由于满足客观性原理不可以写成守恒形式，然而物理上的守恒律和熵增原理仍然成立。通过假设熵函数的存在性而放松对方程守恒形式的要求，推广的守恒－耗散理论很好地纳入了客观导数。本章利用推广的守恒－耗散理论推广了上对流Maxwell模型\eqref{eq:generalizedUCM}和FENE-P模型\eqref{eq:generalizedFENEP}，这些模型包含了温度和压缩性的影响。另外，我们还利用守恒－耗散理论导出了类似\"Ottinger的一个模型——粘弹性流体力学第二模型\eqref{eq:ECDFsecond}。这一模型有很好的Hamilton结构。另外我们证明了其在一维时的光滑解在平衡态附近的整体存在性以及严格分析了在右端松弛参数趋于$0$时与Navier-Stokes方程组的一致性。
 
 
