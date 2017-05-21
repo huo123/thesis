@@ -17,7 +17,7 @@
 % 为了研究这些问题，本文考虑的粘弹性流体仅限于简单的高分子溶液。
 
 \section{粘弹性流体建模的研究历程与现状}
-对物质粘弹性建模的早期研究出现在19世纪下半叶，James Clerk Maxwell从阻滞弹簧的模型出发提出了Maxwell线性粘弹性模型\cite{maxwell2013scientific}。经典的Maxwell模型方程如下
+对物质粘弹性建模的早期研究出现在19世纪下半叶，Maxwell从阻滞弹簧的模型出发提出了Maxwell线性粘弹性模型\cite{maxwell2013scientific}。经典的Maxwell模型方程如下
 \begin{eqnarray*}
 \frac {d\epsilon} {dt} = \frac {\sigma} {\eta} + \frac {1} {E} \frac {d\sigma} {dt},
 \end{eqnarray*}
@@ -25,18 +25,18 @@
 \begin{equation} \label{eq:maxwell}
 			\partial_t \sigma + v \cdot \nabla \sigma - D = -\frac{\sigma}{\xi}. 
 \end{equation}
-交换上面方程中的应力应变张量得到的模型称为Kelvin-Voigt模型，由物理学家Lord Kelvin和Woldemar Voigt在19世纪末提出\cite{kelvin1887stability}。
+交换上面方程中的应力应变张量得到的模型称为Kelvin-Voigt模型，由物理学家Kelvin和Voigt在19世纪末提出\cite{kelvin1887stability}。
 
-19世纪中叶Karl Weissenberg发现了Weissenberg效应。这一效应是指当转动的杆置于粘弹性流体中时，流体将会沿着杆“爬上”或者“爬下”\cite{weissenberg1947continuum}。为了解释这一效应，James G. Oldroyd提出了粘弹性建模的重要法则：客观性原理。这一原理是说模型不应依赖于坐标系的选取。基于这一原理，他提出了客观导数的概念，并提出了经典的Oldroyd-B模型，这一模型如下
+19世纪中叶Weissenberg发现了Weissenberg效应。这一效应是指当转动的杆置于粘弹性流体中时，流体将会沿着杆“爬上”或者“爬下”\cite{weissenberg1947continuum}。为了解释这一效应，Oldroyd提出了粘弹性建模的重要法则：客观性原理。这一原理是说模型不应依赖于坐标系的选取。基于这一原理，他提出了客观导数的概念，并提出了经典的Oldroyd-B模型，这一模型如下
 \begin{equation} \label{eq:Oldroyd}
 	{\sigma} + \lambda_1 \stackrel{\nabla}{{\sigma}} = 2\eta_0 ({D} + \lambda_2 \stackrel{\nabla}{{D}}).
 \end{equation}
-其中$\sigma$为应力张量，$\lambda_1$和$\lambda_2$分别为松弛时间和迟滞时间，$\eta_0$为流体的粘性系数，${\stackrel{\nabla} \sigma}= \partial_t \sigma + v \cdot \nabla \sigma - (\nabla v)\  \sigma - \sigma (\nabla v)^T$为$\sigma$的上对流Maxwell导数\cite{oldroyd1950formulation}。J. Oldroyd的这一论文对粘弹性流体的建模产生了深远的影响。基于这一原理，修改经典Maxwell模型和Kelvin-Voigt模型中的导数为客观导数可以得到许多模型\cite{lin2005hydrodynamics,larson1999structure}。
+其中$\sigma$为应力张量，$\lambda_1$和$\lambda_2$分别为松弛时间和迟滞时间，$\eta_0$为流体的粘性系数，${\stackrel{\nabla} \sigma}= \partial_t \sigma + v \cdot \nabla \sigma - (\nabla v)\  \sigma - \sigma (\nabla v)^T$为$\sigma$的上对流Maxwell导数\cite{oldroyd1950formulation}。Oldroyd的这一论文对粘弹性流体的建模产生了深远的影响。基于这一原理，修改经典Maxwell模型和Kelvin-Voigt模型中的导数为客观导数可以得到许多模型\cite{lin2005hydrodynamics,larson1999structure}。
 
 我们一般将经典的Maxwell等不包含客观导数的模型称为线性粘弹性模型，而将Oldroyd-B等包含客观导数的模型称为非线性粘弹性模型。由上面的方法直接推广的非线性粘弹性模型仅能考虑简单的情况，不能很好地纳入温度的影响。为了解决这些问题，热力学家和力学家提出了许多理论，这些理论主要有两个方向：一是非平衡态热力学理论\cite{jou1996extended,ottinger2005beyond,zhu2014conservation}，二是基于热力学原理和有限形变理论的记忆衰减理论\cite{coleman1961foundations,truesdell2012rational}。
 
 \subsection{非平衡态热力学在粘弹性流体建模中的应用}
-热力学第二定律告诉我们热力学体系非平衡状态的存在性。为了研究热力学不可逆过程，科学家发展了非平衡态热力学。Lars Onsager在1931和1932年的两篇文章中提出了著名的Onsager倒易关系\cite{onsager1931reciprocal,onsager1931reciprocalII}。由Onsager与Prigogine等人发展的经典非平衡态热力学理论（Classical Irreversible Thermodynamics，简称CIT），自20世纪40年代以来获得了蓬勃发展，并且得到了广泛的承认\cite{jou1996extended,truesdell2012rational}。CIT理论可以将经典的Newton本构关系和Fourier热传导定律纳入其中，然而无法将Maxwell粘弹性模型和Cattaneo热传导模型纳入其理论框架中来。为了推广经典的CIT理论，许多新的非平衡态热力学理论被提出，其中包括理性热力学（Rational Thermodynamics，简称RT）、扩展不可逆热力学（Extended Irreversible Thermodynamics，简称EIT）、非平衡可逆－不可逆一般方程（General Equation for the Non-Equilibrium Reversible-Irreversible Coupling，简称GENERIC）、守恒－耗散理论（Conservation-Dissipation Formalism of irreversible thermodynamics，简称CDF）等\cite{truesdell2012rational,jou1996extended,ottinger2005beyond,zhu2014conservation}。
+热力学第二定律告诉我们热力学体系非平衡状态的存在性。为了研究热力学不可逆过程，科学家发展了非平衡态热力学。Onsager在1931和1932年的两篇文章中提出了著名的Onsager倒易关系\cite{onsager1931reciprocal,onsager1931reciprocalII}。由Onsager与Prigogine等人发展的经典非平衡态热力学理论（Classical Irreversible Thermodynamics，简称CIT），自20世纪40年代以来获得了蓬勃发展，并且得到了广泛的承认\cite{jou1996extended,truesdell2012rational}。CIT理论可以将经典的Newton本构关系和Fourier热传导定律纳入其中，然而无法将Maxwell粘弹性模型和Cattaneo热传导模型纳入其理论框架中来。为了推广经典的CIT理论，许多新的非平衡态热力学理论被提出，其中包括理性热力学（Rational Thermodynamics，简称RT）、扩展不可逆热力学（Extended Irreversible Thermodynamics，简称EIT）、非平衡可逆－不可逆一般方程（General Equation for the Non-Equilibrium Reversible-Irreversible Coupling，简称GENERIC）、守恒－耗散理论（Conservation-Dissipation Formalism of irreversible thermodynamics，简称CDF）等\cite{truesdell2012rational,jou1996extended,ottinger2005beyond,zhu2014conservation}。
 
 考虑一般的流体方程
 \begin{subequations} \label{eq:fluid}
@@ -62,7 +62,7 @@
 \end{eqnarray*}
 此即热传导的Fourier定律与应力张量的Stokes和Newton本构关系
 
-然而，由于局部平衡假设的存在，CIT仅能描述远离平衡态不远的系统。为了拓展CIT，大部分理论假设非平衡态的描述不仅需要平衡态变量，也需要非平衡态变量。Coleman、Truesdell、Noll等人发展了理性热力学RT。理性热力学理论认为非平衡态不仅依赖于平衡态状态变量，还依赖于状态变量的空间梯度。通过推广Clausius-Duhem不等式，利用Onsager倒易关系得到本构关系。Fourier-Stokes-Newton定律可以由RT理论导出\cite{jou1996extended}。另外，David Jou、Georgy Lebon等人发展了扩展不可逆热力学EIT。EIT通过拓展非平衡态状态变量，将CIT中的热力学流引入非平衡态状态变量中，来对不可逆过程进行建模。例如我们将$q,\pi,\mathring{P}$引入非平衡态状态变量中，并假设$s = s(\frac{1}{\rho}, u,q,\pi,\mathring{P} )$，则通过计算可以得到熵的产生率为
+然而，由于局部平衡假设的存在，CIT仅能描述远离平衡态不远的系统。为了拓展CIT，大部分理论假设非平衡态的描述不仅需要平衡态变量，也需要非平衡态变量。Coleman、Truesdell、Noll等人发展了理性热力学RT。理性热力学理论认为非平衡态不仅依赖于平衡态状态变量，还依赖于状态变量的空间梯度。通过推广Clausius-Duhem不等式，利用Onsager倒易关系得到本构关系。Fourier-Stokes-Newton定律可以由RT理论导出\cite{jou1996extended}。另外，Jou、Lebon等人发展了扩展不可逆热力学EIT。EIT通过拓展非平衡态状态变量，将CIT中的热力学流引入非平衡态状态变量中，来对不可逆过程进行建模。例如我们将$q,\pi,\mathring{P}$引入非平衡态状态变量中，并假设$s = s(\frac{1}{\rho}, u,q,\pi,\mathring{P} )$，则通过计算可以得到熵的产生率为
 \begin{equation*}
 		\rho \dot{s} = - \frac{1}{T} \nabla \cdot q - \frac{1}{T} P: \nabla v - \alpha_1 \pi \cdot \dot{\pi} - \alpha_2 q \cdot \dot{q} - \alpha_3 \mathring{P} : ({\mathring{P} })^. ,
 \end{equation*}
@@ -82,7 +82,7 @@
 \end{eqnarray*}
 其中$\sigma = \pi I + \mathring{P}$。对于不可压流体，我们可以得到Maxwell模型。EIT可以很好地用于线性粘弹性流体模型，然而对于含客观导数的非线性粘弹性本构关系，缺乏简单的处理方式\cite{jou1996extended}。
 
-为了处理复杂的非线性粘弹性流体模型，Antony N. Beris和Brian J. Edwards等人通过拓展经典力学的Hamilton理论，在Possion括号之外引入耗散括号（dissipative bracket）来描述能量的耗散和不可逆过程熵的增长\cite{edwards1990remarks,beris2013thermodynamics}。假设$X$为非平衡态系统的状态变量，系统的广义Hamilton函数设为$H=H(X)$，则$X$的演化方程为
+为了处理复杂的非线性粘弹性流体模型，Beris和Edwards等人通过拓展经典力学的Hamilton理论，在Possion括号之外引入耗散括号（dissipative bracket）来描述能量的耗散和不可逆过程熵的增长\cite{edwards1990remarks,beris2013thermodynamics}。假设$X$为非平衡态系统的状态变量，系统的广义Hamilton函数设为$H=H(X)$，则$X$的演化方程为
 \begin{equation*}
 	\frac{dX}{dt} = L(X) \cdot \frac{\delta H(X)}{\delta X} + M(X) \cdot \frac{\delta H(X)}{\delta X}, 
 \end{equation*}
@@ -134,8 +134,7 @@
 \end{align}
 \end{subequations}
 
-由于Beris和Edwards理论对耗散括号要求的复杂性，如何提出满足要求的耗散矩阵是一个很有挑战性的问题。为了解决这一问题，
- Hans C. \"Ottinger与Miroslav Grmela发展了GENERIC理论\cite{ottinger2005beyond}。GENERIC并不假设非平衡态Hamilton函数的存在，而是仅仅假设能量和熵的存在性。假设$X$为非平衡态系统的状态变量，其演化方程可以写为
+由于Beris和Edwards理论对耗散括号要求的复杂性，如何提出满足要求的耗散矩阵是一个很有挑战性的问题。为了解决这一问题，\"Ottinger与Grmela发展了GENERIC理论\cite{ottinger2005beyond}。GENERIC并不假设非平衡态Hamilton函数的存在，而是仅仅假设能量和熵的存在性。假设$X$为非平衡态系统的状态变量，其演化方程可以写为
 \begin{equation*}
 	\frac{dX}{dt} = L(X) \cdot \frac{\delta E(X)}{\delta X} + M(X) \cdot \frac{\delta S(X)}{\delta X} ,
 \end{equation*}
@@ -239,7 +238,7 @@ Lei、Liu、Zhou在\cite{liu2008global}中发展这一方程组至可压缩形�
 \section{粘弹性流体的数学分析}
 由于粘弹性流体方程的重要性和复杂性，其数学分析一直以来都吸引了很多数学家的兴趣\cite{lin2012some,li2007mathematical,weinan2002convergence,fabrizio1992mathematical,renardy2008mathematical,joseph1987hyperbolicity,guillope2010regular,saut2012lectures,yong2014newtonian,qian2010well,hu2011global,lei2005global,fang2014incompressible}。目前的分析主要集中于不可压方程，主要包括Oldroyd-B模型、上对流Maxwell模型、FENE模型、以及Lin等人的模型\cite{elgindi2015global,saut2012lectures,renardy2000mathematical,masmoudi2011global,lions2000global,masmoudi2008well,lei2010remarks}。近些年来，也有部分工作讨论了可压粘弹性流体方程\cite{fang2014incompressible,hu2012strong,qian2010global,qian2011initial}。
 \subsection{经典粘弹性流体力学模型的数学分析}
-经典的粘弹性流体模型主要包括线性粘弹性流体力学模型Maxwell模型\eqref{eq:maxwell}和Kelvin-Voigt模型，以及非线性粘弹性流体模型上对流Maxwell模型\eqref{eq:chap1UCMmaxll}、Oldroyd-B模型\eqref{eq:Oldroyd}和采用其他客观导数的类似模型等。对这些方程的分析主要集中于方程弱解的全局存在性、光滑解的局部存在性、平衡态附近解的整体存在性，以及松弛参数（通常为Weissenberg数）趋于$0$时的极限分析。我们这里只考虑宏观模型，对于微观模型的数学结果可以参看N. Masmoudi，T Li、P Zhang、W E、W Sun等人的工作\cite{masmoudi2013global,masmoudi2008well,li2007mathematical,li2004local,li2004well,lions2007global,weinan2002convergence,constantin2010remarks}。
+经典的粘弹性流体模型主要包括线性粘弹性流体力学模型Maxwell模型\eqref{eq:maxwell}和Kelvin-Voigt模型，以及非线性粘弹性流体模型上对流Maxwell模型\eqref{eq:chap1UCMmaxll}、Oldroyd-B模型\eqref{eq:Oldroyd}和采用其他客观导数的类似模型等。对这些方程的分析主要集中于方程弱解的全局存在性、光滑解的局部存在性、平衡态附近解的整体存在性，以及松弛参数（通常为Weissenberg数）趋于$0$时的极限分析。我们这里只考虑宏观模型，对于微观模型的数学结果可以参看Masmoudi、Li、Zhang、E、Sun等人的工作\cite{masmoudi2013global,masmoudi2008well,li2007mathematical,li2004local,li2004well,lions2007global,weinan2002convergence,constantin2010remarks}。
 
 对于线性粘弹性流体的分析结果可以参看\cite{fabrizio1992mathematical,renardy2000mathematical}。书中对线性粘弹性的数学结果做了总结，主要讨论并证明了方程解的存在性和唯一性、稳定性和稳态方程解的存在性和唯一性。由于线性粘弹性流体的适用范围的局限性，大部分分析工作均围绕非线性粘弹性流体模型。最简单的非线性粘弹性流体模型是对流导数Maxwell模型和Oldroyd模型。首先我们考虑对流导数的Maxwell模型
 \begin{subequations}\label{eq:Oldroyda}
@@ -253,12 +252,11 @@ Lei、Liu、Zhou在\cite{liu2008global}中发展这一方程组至可压缩形�
 \begin{equation*}%\label{eq:convectderivative}
 	\frac{\mathcal{D}_a \sigma}{\mathcal{D} t} = \partial_t \sigma + v \cdot \nabla \sigma + \sigma W- W \sigma - a(D \sigma + \sigma D), \ W = \frac{1}{2}(\nabla v - (\nabla v)^T).
 \end{equation*}
-当$a=1$时\eqref{eq:Oldroyda}为上对流Maxwell模型\eqref{eq:chap1UCMmaxll}，$a=-1,0$分别对应于Jaumann和下对流导数Maxwell模型。针对方程组\eqref{eq:Oldroyda}，I. Rutkevich等人对其双曲性进行了分析\cite{rutkevich1969some,rutkevich1970propagation}，Joseph、Saut、Renardy等人发展了Rutkevich的结果\cite{joseph1987hyperbolicity,joseph1986change}。由这些工作，可以得到方程组\eqref{eq:Oldroyda}在下面的条件下会出现Hadamard不稳定性：
+当$a=1$时\eqref{eq:Oldroyda}为上对流Maxwell模型\eqref{eq:chap1UCMmaxll}，$a=-1,0$分别对应于Jaumann和下对流导数Maxwell模型。针对方程组\eqref{eq:Oldroyda}，Rutkevich等人对其双曲性进行了分析\cite{rutkevich1969some,rutkevich1970propagation}，Joseph、Saut、Renardy等人发展了Rutkevich的结果\cite{joseph1987hyperbolicity,joseph1986change}。由这些工作，可以得到方程组\eqref{eq:Oldroyda}在下面的条件下会出现Hadamard不稳定性：
 \begin{equation*}
 	\frac{1-a}{2} \Lambda_M - \frac{1+a}{2} \Lambda_m > \frac{\eta}{\lambda}.
 \end{equation*}
-其中$\Lambda_M$和$\Lambda_m$分别为$\sigma$的最大和最小特征值。根据这一分析，可以得到不稳定性仅可能在$a\in (-1,1)$时发生。对于上对流和下对流导数（分别对应于$a=-1$和$1$），模型\eqref{eq:Oldroyda}
-是双曲的，不会出现Hadamard不稳定性。
+其中$\Lambda_M$和$\Lambda_m$分别为$\sigma$的最大和最小特征值。根据这一分析，可以得到不稳定性仅可能在$a\in (-1,1)$时发生。对于上对流和下对流导数（分别对应于$a=-1$和$1$），模型\eqref{eq:Oldroyda}是双曲的，不会出现Hadamard不稳定性。
 % 另外Joseph、Saut、Renardy等人还对稳态方程的双曲性进行了分析。
 另外对该模型解的存在性结果可以参看\cite{saut2012lectures}。
 
@@ -305,9 +303,9 @@ Lei、Liu、Zhou在\cite{liu2008global}中发展这一方程组至可压缩形�
 	\end{eqnarray*}
 \end{theorem}
 
-在$L^p$框架下方程组\eqref{eq:Oldroydb}解的存在性证明可以参见Fernandez、Zhang和Fang的工作\cite{fernandez1998some,zhang2012global}。Besov空间的存在性结果见J. Y. Chemin和N. Masmoudi的工作\cite{chemin2001lifespan}。
+在$L^p$框架下方程组\eqref{eq:Oldroydb}解的存在性证明可以参见Fernandez、Zhang和Fang的工作\cite{fernandez1998some,zhang2012global}。Besov空间的存在性结果见Chemin和Masmoudi的工作\cite{chemin2001lifespan}。
 
-对于方程组\eqref{eq:Oldroydb}的弱解的整体存在性，Constantin和Sun证明了空间$C^\alpha(\mathbf{R}^n) \cap L^1(\mathbf{R}^n)$中弱解的存在性\cite{constantin2010remarks,saut2012lectures}。对于$a=0$的情况，$L^2$意义下弱解的整体存在性被P. L. Lions和N. Masmoudi证明\cite{lions2000global}。这一证明利用了对于$a=0$的模型，方程组\eqref{eq:Oldroydb}中$\sigma$成立下面的估计
+对于方程组\eqref{eq:Oldroydb}的弱解的整体存在性，Constantin和Sun证明了空间$C^\alpha(\mathbf{R}^n) \cap L^1(\mathbf{R}^n)$中弱解的存在性\cite{constantin2010remarks,saut2012lectures}。对于$a=0$的情况，$L^2$意义下弱解的整体存在性被Lions和Masmoudi证明\cite{lions2000global}。这一证明利用了对于$a=0$的模型，方程组\eqref{eq:Oldroydb}中$\sigma$成立下面的估计
 \begin{equation*}
 	\frac{d}{dt} \left(\frac{1}{2} \|v\|_{L^2}^2 +  \frac{\lambda}{4 \eta_p} \|\sigma\|_{L^2}^2 \right) + \frac{1}{2\eta_p} \|\sigma\|_{L^2}^2 + {2 \eta_s} \|\nabla v\|_{L^2}^2 = 0,
 \end{equation*}
@@ -324,7 +322,7 @@ $\lambda=0$时，$\sigma= 2 \eta_p D$，从而方程组\eqref{eq:Oldroydb}成为
 	\nabla \cdot v &= 0.
 \end{align}
 \end{subequations}
-其中$\eta= \eta_s + \eta_p$。Luc Molinet和Raafat Talhouk基于Fourier分析，通过对低频和高频情况的分析，得到了\eqref{eq:Oldroydb}和上面的Navier-Stokes方程组\eqref{eq:innavierstokes}兼容性的分析。证明了下面的定理：
+其中$\eta= \eta_s + \eta_p$。Molinet和Talhouk基于Fourier分析，通过对低频和高频情况的分析，得到了\eqref{eq:Oldroydb}和上面的Navier-Stokes方程组\eqref{eq:innavierstokes}兼容性的分析。证明了下面的定理：
 \begin{theorem}（Monlinet和Talhouk\cite{molinet2008newtonian}）
 	令$n=2,3$，$(v_0,\sigma_0) \in H^s(\mathbf{R}^n) \times H^s(\mathbf{R}^{n^2}), s>\frac{n}{2}$。假设$v$为方程组\eqref{eq:innavierstokes}以$v_0$为初值的解，在$[0,T_0],T_0>0$上存在且$v \in C([0,T_0],H^s)$。那么对于任意的$\delta \in (0,1)$，存在
 	\begin{equation*}
@@ -344,7 +342,7 @@ $\lambda=0$时，$\sigma= 2 \eta_p D$，从而方程组\eqref{eq:Oldroydb}成为
 这样对于$\eta_s \neq 0, \eta_p \neq 0$的情况，方程组\eqref{eq:Oldroydb}和Navier-Stokes方程组\eqref{eq:innavierstokes}的兼容性得到了严格地分析。另外，对于弱解下的Newton极限的分析，可以参看\cite{bresch2014newtonian}。
 
 
-近些年来，一些可压缩粘弹性流体力学模型的数学分析开始吸引一些数学家的兴趣，主要集中于推广的Oldroyd模型。P. C. Bollada和T. N. Phillips总结了关于可压粘弹性模型的数学建模工作\cite{bollada2012mathematical}，并利用Lie导数和微分几何导出了可压上对流Maxwell模型。关于这些模型的分析工作目前主要集中于局部存在性和平衡态附近的整体存在性的证明以及不可压极限的分析\cite{zhang2012global,fang2013strong,fang2014incompressible,matuvsuu1999existence,fang2013strong,barrett2016existence,salloum2011local}。例如，Fang和Zi等\cite{fang2013strong}给出了下面的可压Oldroyd-B模型
+近些年来，一些可压缩粘弹性流体力学模型的数学分析开始吸引一些数学家的兴趣，主要集中于推广的Oldroyd模型。Bollada和Phillips总结了关于可压粘弹性模型的数学建模工作\cite{bollada2012mathematical}，并利用Lie导数和微分几何导出了可压上对流Maxwell模型。关于这些模型的分析工作目前主要集中于局部存在性和平衡态附近的整体存在性的证明以及不可压极限的分析\cite{zhang2012global,fang2013strong,fang2014incompressible,matuvsuu1999existence,fang2013strong,barrett2016existence,salloum2011local}。例如，Fang和Zi等\cite{fang2013strong}给出了下面的可压Oldroyd-B模型
 \begin{subequations}
 	\begin{align*}
 	\rho_t + \nabla \cdot (\rho v) = 0. \\
@@ -420,7 +418,7 @@ $\lambda=0$时，$\sigma= 2 \eta_p D$，从而方程组\eqref{eq:Oldroydb}成为
 \begin{eqnarray*}
 	\sigma_t + v \cdot \nabla \sigma + \gamma \Lambda d = G_1, \\
 	e_t + v \cdot \nabla e - \mu \Delta e - \mu' \nabla \nabla d + \gamma \Lambda^{-1} \nabla \nabla \sigma \Lambda E = G_2, \\
-	E_t + v \cdot E - \Lambda e = G_3.
+	E_t + v \cdot \nabla E - \Lambda e = G_3.
 \end{eqnarray*}
 通过对这一系统利用Fourier变换和Besov空间中的不等式做估计，下面的定理可以得到证明:
 \begin{theorem}（Qian、Zhang\cite{qian2010global}、Hu、Wang\cite{hu2011global}）
