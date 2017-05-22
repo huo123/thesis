@@ -141,7 +141,23 @@ A_0(U_e)Q_U(U_e) + Q_U^T(U_e)A_0(U_e) =-\frac{2}{\kappa}\mbox{diag}(0, 0, 1),
 从而\eqref{eq:ECDFsecond1D}满足Yong的稳定性条件\eqref{eq:yongstability}\cite{yong1992singular,yong1999singular}。
 
 \subsection{Kawashima条件}
-对于存在熵函数的双曲平衡律方程组，Yong发展了平衡态附近的整体存在性理论\cite{yong2004entropy,hanouzet2003global}。其整体存在性的证明是基于熵函数的存在性、Yong的稳定性条件和Kawashima条件。熵函数的存在性和稳定性条件已经验证。%对于Kawashima条件，对于非守恒形式含有熵的方程\eqref{eq:ECDFsecond1D}的整体存在性，无法采用一般的Kawashima理论直接得到。
+对于一般的线性对称双曲-抛物方程组
+$$A_0 U_t + \sum_{j=1}^n A_j U_{x_j} - \sum_{j,k=1}^nB_{jk} U_{x_j x_k} + L U = 0,$$
+其中$U \in \mathbf{R}^m$，$A_j,L$为$ m\times m$常矩阵，$A_0,A_j,B_{jk},L$为实对称的，$A_0$为正定的，且$B_{jk} = B_{kj}$，$\sum_{j,k} B_{jk} \omega_j \omega_k$对任意$\omega \in \mathbf{S}^{n-1}$为半正定的，$L$为半正定的。Kawashima等人提出了其解稳定性的充分条件\cite{shizuta1985systems}，在本文中我们把这些条件称为Kawashima条件。取
+$$A(\omega) = \sum_{j=1}^n \omega_j A_j,B(\omega) = \sum_{j,k=1}^n \omega_j \omega_k B_{jk},$$
+Kawashima条件的具体形式为（这些条件相互等价）
+\begin{enumerate}
+\item 令$\lambda$满足$\det (\lambda A_0 + i|\omega| A(\omega) + |\omega|^2 B(\omega) +  L) = 0$，则$\mbox{Re}(i\omega) <0 $对任意$\omega \neq 0$成立。
+\item 对于任意$\phi \in \mathbf{R}^n$，如果$\phi$满足$L \phi = 0, B \phi=0$且存在实数$\lambda$与$\omega \in \mathbf{S}^{n-1}$使得$\lambda A_0 \phi + A(\omega) \phi=0$，那么$\phi=0$。
+\item 存在$K=K(\omega)$，称为补偿矩阵（compensating matrix）满足
+\begin{enumerate}
+\item[(i)] $K(\omega)$为$\mathbf{S}^{n-1}$上的$C^\infty$函数，且对任意$\omega \in \mathbf{S}^{n-1}$，有$K(\omega) = K(-\omega)$;
+\item[(ii)] $K(\omega)A_0$对任意$\omega \in \mathbf{S}^{n-1}$是反对称的；
+\item[(iii)] $K(\omega)A(\omega) + A(\omega)^TK^T(\omega) + B(\omega) + L$对任意$\omega \in \mathbf{S}^{n-1}$是正定矩阵。
+\end{enumerate}
+\end{enumerate}
+
+对于对称双曲方程组在上面的条件中取$B=0$即可得到对应的Kawashima条件。给予对平衡态附近线性化方程的Kawashima条件，Yong发展了存在熵函数的非线性双曲平衡律方程组平衡态附近的整体存在性理论\cite{yong2004entropy,hanouzet2003global}。其整体存在性的证明是基于熵函数的存在性、Yong的稳定性条件和Kawashima条件。熵函数的存在性和稳定性条件已经验证。%对于Kawashima条件，对于非守恒形式含有熵的方程\eqref{eq:ECDFsecond1D}的整体存在性，无法采用一般的Kawashima理论直接得到。
 在这里我们将验证方程组\eqref{eq:ECDFsecond1D}满足Kawashima条件并给出补偿矩阵（Compensating Matrix）$K$\cite{kawashima1985systems}，然后利用Yong的整体存在性理论\cite{yong2004entropy}得到整体存在性定理的证明。
 
 令
