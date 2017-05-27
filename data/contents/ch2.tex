@@ -396,18 +396,22 @@ M'=\frac{1}{\lambda T^2}, \ C = \frac{\rho C_u}{2 \gamma},
 
 假设熵具有形式
 \begin{equation*}
-s(u,{w},\mathring{{Q}},\dot{Q})=s_{eq}(u)-\frac{1}{2 \alpha_0}{w}^2-\frac{1}{2\tau_1} {\mathring{{Q}}}:{\mathring{{Q}}}-\frac{1}{2\tau_2}\dot{Q}^2.
+s(u,{w},\mathring{{Q}},\dot{Q})=s_{eq}(u)-\frac{1}{2 \alpha_0}{w}^2-\frac{1}{2\tau_1} {\mathring{{Q}}}:{\mathring{{Q}}}-\frac{n}{2\tau_2}\dot{Q}^2.
 \end{equation*}
 由计算可以得到（利用Gibbs关系）
 \begin{eqnarray*}
-s_t &=& \theta^{-1} u_t +s_{w} \cdot {w}_t + s_{\mathring{{Q}}}:\mathring{{Q}}_t+s_{\dot{Q}} \dot{Q}_t \\
-    &=& -\nabla \cdot (\theta^{-1} {q}+ (s_{\mathring{{Q}}}+s_{\dot{Q}}) \cdot {q})\\
-    	&&+({w}_t+\nabla \cdot (s_{\mathring{{Q}}}+s_{\dot{Q}})+\nabla \theta^{-1}) \cdot {q} \\
-&& +s_{\mathring{{Q}}}:(\mathring{{Q}}_t+(\mathring{\nabla {q}})^{sym})+s_{\dot{Q}}(\dot{Q}_t+\frac{1}{3}\nabla \cdot {q}).
+s_t &=&% \theta^{-1} u_t +s_{w} \cdot {w}_t + s_{\mathring{{Q}}}:\mathring{{Q}}_t+s_{\dot{Q}} \dot{Q}_t \\
+    \theta^{-1} u_t +s_{w} \cdot {w}_t + s_Q: {Q}_t \\
+    %&=& -\nabla \cdot (\theta^{-1} {q}+ (s_{\mathring{{Q}}}+s_{\dot{Q}}) \cdot {q})\\
+    &=& -\nabla \cdot (\theta^{-1} {q}+ s_Q \cdot {q})\\
+%    	&&+({w}_t+\nabla \cdot (s_{\mathring{{Q}}}+s_{\dot{Q}})+\nabla \theta^{-1}) \cdot {q} \\
+    	&&+({w}_t+\nabla \cdot (s_Q)+\nabla \theta^{-1}) \cdot {q} \\
+%&& +s_{\mathring{{Q}}}:(\mathring{{Q}}_t+(\mathring{\nabla {q}})^{sym})+s_{\dot{Q}}(\dot{Q}_t+\frac{1}{3}\nabla \cdot {q}).
+&& +s_Q:(Q_t + \nabla q).
 \end{eqnarray*}
-为了保证熵的产生率大于0（守恒－耗散理论的第二条假设）的成立，我们这里假设存在矩阵$M''$，使得
+为了保证熵的产生率大于0（守恒－耗散理论的第二条假设）的成立，我们这里假设存在矩阵$M''$，使得（这里我们取$n=3$）
 \begin{equation*}
-\left( \begin{array}{ll} {w}_t+\nabla \cdot (s_{\mathring{{Q}}}+s_Q)+\nabla \theta^{-1} \\ \mathring{{Q}}_t+(\mathring{\nabla {q}})^{sym} \\ \dot{Q}_t+\frac{1}{3} \nabla \cdot {q} \end{array} \right) = M'' \left( \begin{array}{l} {q} \\ s_{\mathring{{Q}}} \\s_{\dot{Q}} \end{array} \right).
+\left( \begin{array}{ll} {w}_t+\nabla \cdot (s_{\mathring{{Q}}}+s_Q)+\nabla \theta^{-1} \\ \mathring{{Q}}_t+(\mathring{\nabla {q}})^{sym} \\ \dot{Q}_t+\frac{1}{3} \nabla \cdot {q} \end{array} \right) = M'' \left( \begin{array}{l} {q} \\ \mathring{s}_Q \\\dot{s}_Q \end{array} \right).
 \end{equation*}
 我们考虑最简单的情况，取
 \begin{equation*}
@@ -502,7 +506,7 @@ $$\alpha_0=\frac{\tau_0}{\lambda \theta^2},$$
 \end{equation*} 
 假设熵函数是二次的且具有下面的形式
 	\begin{equation*}
-		s = s_0(\nu,u)  - \frac{1}{2\nu \alpha_0} w^2 - \frac{1}{2\nu \alpha_1} \dot{c}^2- \frac{1}{2\alpha_2 \nu} \mathring{c}:\mathring{c} - \frac{1}{2 \tau_1 \nu} \mathring{Q}: \mathring{Q} - \frac{1}{2  \tau_2 \nu} \dot{Q}^2.
+		s = s_0(\nu,u)  - \frac{1}{2\nu \alpha_0} w^2 - \frac{1}{2\nu \alpha_1} \dot{c}^2- \frac{1}{2\alpha_2 \nu} \mathring{c}:\mathring{c} - \frac{1}{2 \tau_1 \nu} \mathring{Q}: \mathring{Q} - \frac{n}{2  \tau_2 \nu} \dot{Q}^2.
  	\end{equation*}  
 我们得到了含推广Guyer-Krumhansl热传导定律的线性粘弹性流体模型：
 \begin{equation}\label{eq:CNSTgeneral}
