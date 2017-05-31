@@ -7,13 +7,13 @@
 % \newtheorem{theorem}{定理}
 
  % \begin{document}
- 	非平衡态热力学的核心是热力学第二定律，由热力学第二定律可以知道不可逆过程必然伴随熵增，如何描述这一定律是非平衡态热力学的核心问题。无论是CIT、EIT，还是RT、GENERIC等非平衡态热力学理论，其出发点均为热力学第二定律。这些理论通过引入非平衡状态变量，拓展经典平衡态热力学的Gibbs关系，采用合适的方式描述热力学熵的增长，来达到对不可逆过程建模的目的\cite{ottinger2005beyond,jou1996extended}。然而，由Yong等人提出的非平衡态热力学的守恒－耗散理论是从双曲方程数学上所要满足的结构性条件出发，基于Yong的守恒－耗散结构条件来对非平衡过程进行建模的，这些数学上的结构条件保证了物理上热力学第一和第二定律的成立\cite{zhu2014conservation}。
+ 	非平衡态热力学的核心是热力学第二定律，由热力学第二定律可以知道不可逆过程必然伴随熵增，如何描述这一定律是非平衡态热力学的核心问题。无论是CIT、EIT，还是RT、GENERIC等非平衡态热力学理论，其出发点均为热力学第二定律。这些理论通过引入非平衡状态变量，拓展经典平衡态热力学的Gibbs关系，采用合适的方式描述热力学熵的增长，来达到对不可逆过程建模的目的\cite{ottinger2005beyond,jou1996extended}。然而，由Zhu、Hong、Yang、Yong提出的非平衡态热力学的守恒－耗散理论是从双曲方程数学上所要满足的结构性条件出发，基于Yong的守恒－耗散结构条件来对非平衡过程进行建模的，这些数学上的结构条件保证了物理上热力学第一和第二定律的成立\cite{zhu2014conservation}。
 	
-	本章第一节将回顾Yong等提出的守恒－耗散理论的一般框架，第二节回顾其在粘弹性建模中的应用，第三节讨论了热传导定律的守恒－耗散结构，提出了推广的Guyer-Krumhansl定律并应用于粘弹性模型中，第四节对等温可压线性粘弹性Maxwell模型进行了数学上的分析，利用Yong的双曲平衡律方程组整体存在性理论和双曲方程松弛极限理论考察了平衡态附近解的整体存在性及其同Navier-Stokes模型的兼容性。
+	本章第一节将回顾守恒－耗散理论的一般框架，第二节回顾其在粘弹性建模中的应用，第三节讨论了热传导定律的守恒－耗散结构，提出了推广的Guyer-Krumhansl定律并应用于粘弹性模型中，第四节对等温可压线性粘弹性Maxwell模型进行了数学上的分析，利用Yong的双曲平衡律方程组整体存在性理论和双曲方程松弛极限理论考察了平衡态附近解的整体存在性及其同Navier-Stokes模型的兼容性。
 	%与Newton极限问题。
 
 	\section{守恒－耗散理论}
-	本节我们回顾由Zhu、Hong、Yang、Yong发展的不可逆热力学的守恒－耗散理论（以下简称守恒－耗散理论）\cite{zhu2014conservation}。
+	本节我们回顾不可逆热力学的守恒－耗散理论（以下简称守恒－耗散理论）\cite{zhu2014conservation}。
 
 	首先，守恒－耗散理论认为，热力学过程可以由守恒过程和耗散过程来描述。守恒率可以采用守恒变量$U_c$来描述，例如$U_c$可以是质量、动量、能量等守恒量。耗散过程采用耗散变量$U_d$来描述，守恒－耗散理论假设不可逆过程可以用下面的偏微分方程来描述
 	\begin{equation}\label{eq:CDF}
@@ -475,23 +475,32 @@ $$\alpha_0=\frac{\tau_0}{\lambda \theta^2},$$
 \subsection{含推广Guyer-Krumhansl热传导定律的线性粘弹性流体模型}
 上面对热传导模型的分析可以用于粘弹性流体力学的建模之中。我们仍然选取守恒变量$U_c$为密度、动量和能量，耗散变量我们选取$\rho w, \rho Q$和$ \rho c$。假设熵函数
 \begin{equation*}
-	\eta = \eta (\rho,\rho v,\rho e,\rho w,\rho \dot{Q},\rho \mathring{Q},\rho c) = \rho s(\nu,u,w,\dot{Q},\mathring{Q},c).
+	%\eta = \eta (\rho,\rho v,\rho e,\rho w,\rho \dot{Q},\rho \mathring{Q},\rho c) = \rho s(\nu,u,w,\dot{Q},\mathring{Q},c).
+	\eta = \eta (\rho,\rho v,\rho e,\rho w,\rho Q,\rho c) = \rho s(\nu,u,w,Q,c).
 \end{equation*}
 是其变量的上凸函数。
 根据Gibbs关系我们有
 \begin{equation*}
-			ds = \theta^{-1} pd\nu + \theta^{-1} du + s_w \cdot dw + s_{\dot{Q}} d \dot{Q} +　s_{\mathring{Q}} : d \mathring{Q}+ s_c : dc.
+			%ds = \theta^{-1} pd\nu + \theta^{-1} du + s_w \cdot dw + s_{\dot{Q}} d \dot{Q} +　s_{\mathring{Q}} : d \mathring{Q}+ s_c : dc.
+			ds = \theta^{-1} pd\nu + \theta^{-1} du + s_w \cdot dw + s_Q:dQ+ s_c : dc.
 \end{equation*}
 仍然将张量$Q,c$进行分解$Q = \mathring{Q} +\dot{Q}I$，
 从而可以得到熵的产生率
 \begin{eqnarray*}
 		\eta_t + \nabla \cdot (\eta v) &=& \rho (s_t + v \cdot \nabla s), \\
-		&=& -\nabla \cdot (\theta^{-1} q + (s_{\mathring{{Q}}}+s_{\dot{Q}}) \cdot {q} )  \\
-		&&+ q \cdot [\rho (w_t + v \cdot \nabla w) + \nabla \cdot (s_{\mathring{{Q}}}+s_{\dot{Q}}) + \nabla \theta^{-1}] \\
+		&=& -\nabla \cdot (\theta^{-1} q + s_Q \cdot {q} )  \\
+		&&+ q \cdot [\rho (w_t + v \cdot \nabla w) + \nabla \cdot s_Q + \nabla \theta^{-1}] \\
 		&&+ (s_c:[\rho (c_t + v \cdot \nabla c)] - \theta^{-1} \tau : D) \\
-		&&+s_{\mathring{{Q}}}:(\rho (\mathring{{Q}}_t + v \cdot \nabla \mathring{Q})+(\mathring{\nabla {q}})^{sym}) \\
-		&&+s_{\dot{Q}}(\rho (\dot{Q}_t + v \cdot \nabla \dot{Q})+\frac{1}{3}\nabla \cdot {q}) \\
+		&&+\mathring{s}_Q:(\rho (\mathring{{Q}}_t + v \cdot \nabla \mathring{Q})+(\mathring{\nabla {q}})^{sym}) \\
+		&&+\dot{s}_Q(\rho (\dot{Q}_t + v \cdot \nabla \dot{Q})+\frac{1}{3}\nabla \cdot {q}) \\
 		&& = -\nabla \cdot J + \Delta. 
+		%\eta_t + \nabla \cdot (\eta v) &=& \rho (s_t + v \cdot \nabla s), \\
+		%&=& -\nabla \cdot (\theta^{-1} q + (s_{\mathring{{Q}}}+s_{\dot{Q}}) \cdot {q} )  \\
+		%&&+ q \cdot [\rho (w_t + v \cdot \nabla w) + \nabla \cdot (s_{\mathring{{Q}}}+s_{\dot{Q}}) + \nabla \theta^{-1}] \\
+		%&&+ (s_c:[\rho (c_t + v \cdot \nabla c)] - \theta^{-1} \tau : D) \\
+		%&&+s_{\mathring{{Q}}}:(\rho (\mathring{{Q}}_t + v \cdot \nabla \mathring{Q})+(\mathring{\nabla {q}})^{sym}) \\
+		%&&+s_{\dot{Q}}(\rho (\dot{Q}_t + v \cdot \nabla \dot{Q})+\frac{1}{3}\nabla \cdot {q}) \\
+		%&& = -\nabla \cdot J + \Delta. 
 \end{eqnarray*}
 这里我们用到了$q=s_w,\tau = \theta s_c$。为了满足守恒－耗散理论的第二条假设，我们假设存在正定对称矩阵$M$，使得下面的本构关系成立
 \begin{equation*}
@@ -501,12 +510,13 @@ $$\alpha_0=\frac{\tau_0}{\lambda \theta^2},$$
 			(\rho \mathring{{Q}})_t + \nabla \cdot (\rho \mathring{Q} \otimes v)+(\mathring{\nabla {q}})^{sym} \\ (\rho \dot{Q})_t + \nabla \cdot (\rho \dot{Q} v)+\frac{1}{3} \nabla \cdot {q}
 		\end{array} \right) = M \cdot
 		\left( \begin{array}{c} 
-			q \\ \theta^{-1} \tau \\s_{\mathring{{Q}}} \\s_{\dot{Q}}
+			q \\ \theta^{-1} \tau \\\mathring{s}_Q \\\dot{s}_Q
+			%q \\ \theta^{-1} \tau \\s_{\mathring{{Q}}} \\s_{\dot{Q}}
 		\end{array}\right).
 \end{equation*} 
 假设熵函数是二次的且具有下面的形式
 	\begin{equation*}
-		s = s_0(\nu,u)  - \frac{1}{2\nu \alpha_0} w^2 - \frac{1}{2\nu \alpha_1} \dot{c}^2- \frac{1}{2\alpha_2 \nu} \mathring{c}:\mathring{c} - \frac{1}{2 \tau_1 \nu} \mathring{Q}: \mathring{Q} - \frac{n}{2  \tau_2 \nu} \dot{Q}^2.
+		s = s_0(\nu,u)  - \frac{1}{2\nu \alpha_0} w^2 - \frac{n}{2\nu \alpha_1} \dot{c}^2- \frac{1}{2\alpha_2 \nu} \mathring{c}:\mathring{c} - \frac{1}{2 \tau_1 \nu} \mathring{Q}: \mathring{Q} - \frac{n}{2  \tau_2 \nu} \dot{Q}^2.
  	\end{equation*}  
 我们得到了含推广Guyer-Krumhansl热传导定律的线性粘弹性流体模型：
 \begin{equation}\label{eq:CNSTgeneral}
@@ -1052,11 +1062,13 @@ $$\alpha_0=\frac{\tau_0}{\lambda \theta^2},$$
 		\begin{equation*}
 			\sum_{j=1}^n f_{jU_d} \omega_j = \left( \begin{matrix}
 				0 & 0 \\
-				-\frac{1}{n \rho} \omega_i & -\frac{1}{2 \rho} (\omega_{l'} \delta_{ik'} + \omega_{k'} \delta_{il'} - \frac{2}{n} \omega_i \delta_{k'l'})
+				-\frac{1}{n \rho} \omega_i & -\frac{1}{2 \rho} (\omega_{l'} \delta_{ik'} + \omega_{k'} \delta_{il'} - \frac{2}{n} \omega_i \delta_{k'l'}).
 			\end{matrix}
 			\right)
 		\end{equation*}
-		的左零空间不依赖于$\omega$和$U$，从而定理得证。
+		下面说明其的左零空间不依赖于$\omega$和$U$。首先取$W=(w_1,w_{2i}$为其左零空间的一个元素，则
+$$\frac{1}{\rho} \omega \cdot w_2=0, \ \frac{1}{2\rho} (w_{2k'}\omega_{l'} + w_{2l'}\omega_{k'} - \frac{2}{n} w_2 \cdot \omega \delta_{k'l'})=0.$$
+从而$(w_{2k'}\omega_{l'} + w_{2l'}\omega_{k'}=0$，两边乘以$\omega_{l'}$并对$l'$求和可以得到$w_{2k'} |\omega|^2=0$，因为$\omega \in \mathbf{S}^{n-1}$，所以$w_２=0$。所以上述矩阵的左零空间不依赖于$\omega$和$U$，定理得证。
 	\end{proof}
 	% \subsection{可压模型的不可压极限}
 	% 经典可压Euler方程的小马赫数极限的数学分析依赖于Euler方程的双曲性\cite{}。由于守恒－耗散理论得到的方程是对称双曲的，前面导出的可压粘弹性流体力学方程的小马赫数极限问题可以采用类似Euler方程的分析方法进行处理。本小节我们将忽略热传导并假设压力$p$为密度的函数，满足$p(\rho) = \kappa \rho^\gamma, \gamma>1$。

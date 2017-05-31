@@ -166,7 +166,7 @@
 基于Yong的双曲方程守恒－耗散结构条件\cite{yong2008interesting}，Zhu、Hong、Yang、Yong发展了不可逆热力学的守恒－耗散理论（CDF）\cite{zhu2014conservation}。Yong等发展的守恒－耗散理论（以下简称守恒－耗散理论）通过守恒－耗散结构条件保证了热力学第一定律和第二定律的成立，并且得到的方程组满足Yong的稳定性条件，从而有着良好的数学性质\cite{yong1992singular}。守恒－耗散理论已经顺利地应用于线性粘弹性流体力学模型\cite{zhu2014conservation}。然而，由于目前的守恒－耗散理论考虑的是守恒形式的方程，而客观导数的存在将会导致方程不再可以写成守恒形式，所以守恒－耗散理论在应用到非线性粘弹性流体模型时遇到了困难。本文将推广这一理论并将其应用于非线性粘弹性流体的建模中。
 
 \subsection{粘弹性流体的记忆衰减理论}
-由于粘弹性流体可以看作连续介质，所以可以采用连续介质力学的理论对其进行建模。前文提到的模型一般都是通过小变形连续介质力学得到的，而对于粘弹性流体来说，尤其是高弹性的流体，小形变假设不再适用。基于此，Bernard Coleman和Walter Noll等人提出了利用有限形变理论对粘弹性流体进行建模的方法\cite{coleman1961foundations,coleman1964thermodynamics,coleman2012viscometric}。该理论认为物质的状态依赖于其形变的历史，而形变可以用形变张量$F$来描述。这里$F$定义为流动图$x = x(X,t)$的梯度$F_{ij} = \frac{\partial x_i}{\partial X_j}$，其中$x,X$分别对应于流体质点的Euler和Lagrange坐标。根据定义可以得到
+由于粘弹性流体可以看作连续介质，所以可以采用连续介质力学的理论对其进行建模。前文提到的模型一般都是通过小变形连续介质力学得到的，而对于粘弹性流体来说，尤其是高弹性的流体，小形变假设不再适用。基于此，Coleman和Noll等人提出了利用有限形变理论对粘弹性流体进行建模的方法\cite{coleman1961foundations,coleman1964thermodynamics,coleman2012viscometric}。该理论认为物质的状态依赖于其形变的历史，而形变可以用形变张量$F$来描述。这里$F$定义为流动图$x = x(X,t)$的梯度$F_{ij} = \frac{\partial x_i}{\partial X_j}$，其中$x,X$分别对应于流体质点的Euler和Lagrange坐标。根据定义可以得到
 \begin{equation}\label{eq:Feq}
 	\partial_t F + v \cdot \nabla F = (\nabla v) F.
 \end{equation}
@@ -221,7 +221,7 @@
 		F_t + v \cdot \nabla F = \nabla v F.
 	\end{align}
 \end{subequations}
-Lei、Liu、Zhou在\cite{liu2008global}中发展这一方程组至可压缩形式。可压形式的方程组如下
+Lei、Liu、Zhou在\cite{lei2008global}中发展这一方程组至可压缩形式。可压形式的方程组如下
 \begin{subequations}\label{eq:lincompressible}
 	\begin{align}
 		\rho_t + \nabla \cdot (\rho v) = 0, \\
@@ -229,7 +229,7 @@ Lei、Liu、Zhou在\cite{liu2008global}中发展这一方程组至可压缩形�
 		F_t + v \cdot \nabla F = \nabla v F.
 	\end{align}
 \end{subequations}
-以下简称这一模型为Lin等人的模型。这里的模型实际上是Navier-Stokes方程的一个推广，利用有限形变理论将弹性形变$\rho F F^T$包含在了应力张量之中。这一模型因为有着良好的数学结构而得到了许多数学上好的结果\cite{lin2012some}，但是尚缺乏在实际中的应用实例。
+这一模型实际上对应于无穷大Weissenberg数Oldroyd模型\cite{lei2008global}，以下简称这一模型为Lin等人的模型。这里的模型实际上是Navier-Stokes方程的一个推广，利用有限形变理论将弹性形变$\rho F F^T$包含在了应力张量之中。这一模型因为有着良好的数学结构而得到了许多数学上好的结果\cite{lin2012some}，但是尚缺乏在实际中的应用实例。
 
 综上所述，有限形变理论是一个描述连续介质力学的很好工具。利用有限形变理论，结合非平衡态热力学的方法发展起来的热力学理论在粘弹性流体的建模方面有一定的优势，但是也存在一些问题。
 
@@ -441,7 +441,7 @@ $\lambda=0$时，$\sigma= 2 \eta_p D$，从而方程组\eqref{eq:Oldroydb}成为
 从当前的研究可以看出各种非平衡态热力学理论对粘弹性流体的建模存在各种各样的问题，亦缺乏数学上的考虑。%且温度和压缩型的影响没有得到充分考虑。
 另外，对粘弹性流体力学方程的数学分析工作目前仍然是具体模型具体分析，缺乏一个统一的框架。
 
-为了解决这些问题，本文通过推广Yong等人发展的守恒－耗散理论，提出了几类非等温可压粘弹性流体模型，并对其中的一些模型进行了数学分析。主要完成了以下工作：
+为了解决这些问题，本文通过推广Zhu、Hong、Yang、Yong发展的守恒－耗散理论，提出了几类非等温可压粘弹性流体模型，并对其中的一些模型进行了数学分析。主要完成了以下工作：
 %本论文的主要目的，一方面是推广经典的不可压粘弹性流体力学模型，使之考虑压缩性以及温度的影响。另一方面是基于双曲方程的相关理论对粘弹性流体力学模型进行数学分析。在建模方面，我们通过推广守恒－耗散理论CDF，使之可以纳入带客观导数的非线性粘弹性模型。在分析方面，我们考察了可压上对流Maxwell模型的主要完成了以下工作：
 \begin{enumerate}
 \item 利用守恒－耗散理论推广了Guyer-Krumhansl热传导定律，并应用于粘弹性流体模型中（模型\eqref{eq:CNSTgeneral}）。
